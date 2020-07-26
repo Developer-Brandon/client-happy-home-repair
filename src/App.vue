@@ -7,7 +7,7 @@
           <div class="wrap-logo-and-title">
             <img class="logo"
                  alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어"
-                 src="@/assets/images/logos/happy-home-repair-logo.png"/>
+                 src="@/assets/images/logos/big-main-title-icon.png"/>
             <div class="wrap-pc-titles">
               <h2 class="sub-title font-light">해피 홈 리페어</h2>
               <h1 class="title font-bold">HAPPY&nbsp;HOME<br>REPAIR</h1>
@@ -18,10 +18,10 @@
             </div>
           </div>
           <div class="right-menus__wrapper font-light">
-            <router-link class="menus font-semi-bold" id="introduce-products" to="/introduceProducts">제품소개</router-link>
-            <router-link class="menus font-semi-bold" id="introduce-company" to="/introduceCompany">회사소개</router-link>
-            <router-link class="menus font-semi-bold" id="notice" to="/notice">공지사항</router-link>
-            <router-link class="menus font-semi-bold" id="price-inquiry" to="/priceInquiry">견적문의</router-link>
+            <router-link class="menus font-regular" id="introduce-products" to="/introduceProducts">제품소개</router-link>
+            <router-link class="menus font-regular" id="introduce-company" to="/introduceCompany">회사소개</router-link>
+            <router-link class="menus font-regular" id="notice" to="/notice">공지사항</router-link>
+            <router-link class="menus font-regular" id="price-inquiry" to="/priceInquiry">견적문의</router-link>
           </div>
         </div>
       </header>
@@ -36,7 +36,7 @@
         <div class="body__main-slider">
           <div class="body__main-slider__inner">
             <div class="body__main-slider__inner__contents">
-              <!-- 1-(1). 전체 슬라이더 -->
+              <!-- 1-(1). main -->
               <div class="wrap-slider-contents">
                 <div class="wrap-slider-contents__wrap-logo">
                   <img class="logo"
@@ -46,127 +46,9 @@
                 <div class="wrap-slider-contents__wrap-main-title">
                   <h3 class="logo-title font-bold">집안 <span class="above-dot hhr-deep-blue">곳곳</span> 못고치는게 없는</h3>
                   <h3 class="logo-title font-bold">전국 <span class="above-dot hhr-deep-blue">곳곳</span> 안가는곳이 없는</h3>
-                  <h3 class="logo-title font-bold">- 프리미엄 홈 리페어 서비스 -</h3>
+                  <h3 class="logo-title font-bold">프리미엄 홈 리페어 서비스</h3>
                   <h2 class="logo-explain font-light">창호수리/방충망/페인트/문짝설치/기타작업</h2>
                 </div>
-                <!--<div class="wrap-slider-contents__images">-->
-                <!--<div class="wrap-slider-contents__images__slide-banner">-->
-                <!--&lt;!&ndash; 1-(1)-1. 창호수리 - 주황색 &ndash;&gt;-->
-                <!--<div class="repair-window" v-if="false">-->
-                <!--&lt;!&ndash;<div class="repair-window__wrap-logo">&ndash;&gt;-->
-                <!--&lt;!&ndash;<img class="repair-window__wrap-logo__logo"&ndash;&gt;-->
-                <!--&lt;!&ndash;src="@/assets/images/logos/repair-window.png"/>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--<br>-->
-                <!--<p class="repair-window__title font-bold">창호&nbsp;수리</p>-->
-                <!--&lt;!&ndash; (feat.열고 닫기 힘든 샤시 창문) &ndash;&gt;-->
-                <!--<p class="repair-window__sub-title font-bold">나무창문 / 샤시수리 / 롤러교체 / 레일교체</p>-->
-                <!--<p class="repair-window__sub-explain font-regular">"여보, 창문이 삐그덕거리네...언제고치지? 어디 잘하는집 없나?"</p>-->
-                <!--<p class="repair-window__caption font-regular">"당신도 참 ~ <strong>해피 홈 리페어</strong> 몰라요?"</p>-->
-                <!--<br>-->
-                <!--<div class="repair-window__wrap-button">-->
-                <!--<button class="repair-window__wrap-button__button font-bold">자세히보기</button>-->
-                <!--<p class="repair-window__wrap-button__caption font-light">약 1,000여개가 넘은 수리 사례 보러가기</p>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; 1-(1)-2. 방충망/방범창 - 아이보리 &ndash;&gt;-->
-                <!--<div class="guard-screen" v-if="false">-->
-                <!--<br>-->
-                <!--<p class="guard-screen__title font-bold">방충망&nbsp;/&nbsp;방범창</p>-->
-                <!--&lt;!&ndash; (feat.열고 닫기 힘든 샤시 창문) &ndash;&gt;-->
-                <!--<p class="guard-screen__sub-title font-bold">미세,스텐,현관 방충망 / 방범창 중문 / 방범창 설치</p>-->
-                <!--<br>-->
-                <!--<div class="guard-screen__wrap-button">-->
-                <!--<button class="guard-screen__wrap-button__button font-bold">자세히보기</button>-->
-                <!--<p class="guard-screen__wrap-button__caption font-light">약 1,000여개가 넘은 수리 사례 보러가기</p>-->
-                <!--</div>-->
-                <!--<br>-->
-                <!--<p class="guard-screen__sub-explain font-regular">계속되는 모기와의 전쟁..."아빠! 나 발가락 물렸어ㅠㅠㅠ"</p>-->
-                <!--<p class="guard-screen__caption font-regular">XX킬러 10개 값으로, 방충망 교체하세요</p>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; 1-(1)-3. 친환경 페인트 - 핑크색 &ndash;&gt;-->
-                <!--<div class="eco-paint">-->
-                <!--<div class="eco-paint__wrap-announce-box">-->
-                <!--<br>-->
-                <!--<p class="eco-paint__wrap-announce-box__title font-bold">친환경&nbsp;페인트</p>-->
-                <!--<br>-->
-                <!--<br>-->
-                <!--<p class="eco-paint__wrap-announce-box__sub-title font-bold">아파트,주택,상가 실내 페인트</p>-->
-                <!--<p class="eco-paint__wrap-announce-box__sub-title font-bold">배란다 칠</p>-->
-                <!--<p class="eco-paint__wrap-announce-box__sub-title font-bold">옥상 방수</p>-->
-                <!--<br>-->
-                <!--</div>-->
-                <!--<div class="eco-paint__wrap-button">-->
-                <!--<p class="eco-paint__wrap-button__sub-explain font-regular"><span>슥슥슥.......스윽....</span></p>-->
-                <!--<p class="eco-paint__wrap-button__sub-explain font-regular"><span>(1시간 뒤)</span></p>-->
-                <!--<br>-->
-                <!--<p class="eco-paint__wrap-button__sub-explain font-regular">"하.....언제 다 칠하냐...ㅠㅠ"</p>-->
-                <!--<br>-->
-                <!--<p class="eco-paint__wrap-button__sub-explain font-regular">그 많은 페인트칠..<br>혼자 작업하고 계신거 실화입니까?-->
-                <!--</p>-->
-                <!--<br>-->
-                <!--<button class="eco-paint__wrap-button__button font-bold">자세히보기</button>-->
-                <!--<p class="eco-paint__wrap-button__caption font-light">약 1,000여개가 넘은 수리 사례 보러가기</p>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; 1-(1)-4. 문짝설치 - 남색 &ndash;&gt;-->
-                <!--<div class="install-door" v-if="false"></div>-->
-                <!--&lt;!&ndash; 1-(1)-5. 기타작업 - 회색 &ndash;&gt;-->
-                <!--<div class="other-work" v-if="false"></div>-->
-                <!--</div>-->
-                <!--<div class="wrap-slider-contents__images__icons">-->
-                <!--&lt;!&ndash; 1-(1)-1. 창호수리 - 주황색 &ndash;&gt;-->
-                <!--<div class="repair-window icon-box">-->
-                <!--<div class="repair-window__wrap-logo wrap-dynamic-logo-color">-->
-                <!--<img class="repair-window__wrap-logo__logo dynamic-logo-color"-->
-                <!--src="@/assets/images/logos/repair-window.png"/>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; 1-(1)-2. 방충망/방범창 - 아이보리 &ndash;&gt;-->
-                <!--<div class="guard-screen icon-box">-->
-                <!--<div class="guard-screen__wrap-logo wrap-dynamic-logo-color">-->
-                <!--<img class="guard-screen__wrap-logo__logo dynamic-logo-color"-->
-                <!--src="@/assets/images/logos/guard-screen.png"/>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; 1-(1)-3. 친환경 페인트 - 핑크색 &ndash;&gt;-->
-                <!--<div class="eco-paint icon-box">-->
-                <!--<div class="eco-paint__wrap-logo wrap-dynamic-logo-color">-->
-                <!--<img class="eco-paint__wrap-logo__logo dynamic-logo-color"-->
-                <!--src="@/assets/images/logos/eco-paint.png"/>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; 1-(1)-4. 문짝설치 - 남색 &ndash;&gt;-->
-                <!--<div class="install-door icon-box">-->
-                <!--<div class="install-door__wrap-logo wrap-dynamic-logo-color">-->
-                <!--<img class="install-door__wrap-logo__logo dynamic-logo-color"-->
-                <!--src="@/assets/images/logos/install-door.png"/>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; 1-(1)-5. 기타작업 - 회색 &ndash;&gt;-->
-                <!--<div class="other-work icon-box">-->
-                <!--<div class="other-work__wrap-logo wrap-dynamic-logo-color">-->
-                <!--<img class="other-work__wrap-logo__logo dynamic-logo-color"-->
-                <!--src="@/assets/images/logos/other-work.png"/>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="wrap-slider-contents__profile">-->
-                <!--<div class="announcement-about-ceo">-->
-                <!--<p class="announcement-font-style font-semi-bold">안녕하십니까</p>-->
-                <!--<p class="announcement-font-style font-semi-bold">20년 경력의</p>-->
-                <!--<p class="announcement-font-style font-semi-bold">창호 수리</p>-->
-                <!--<p class="announcement-font-style font-semi-bold">ABS 도어</p>-->
-                <!--<p class="announcement-font-style font-semi-bold">방충망</p>-->
-                <!--<p class="announcement-font-style font-semi-bold">친환경 페인트 전문</p>-->
-                <!--<br>-->
-                <!--<p class="announcement-font-style ceo-font-style font-bold">해피 홈 리페어의 대표</p>-->
-                <!--<p class="announcement-font-style"><span class="ceo-font-style font-bold">이성일</span>입니다</p>-->
-                <!--<br>-->
-                <!--</div>-->
-                <!--<button class="phone-number-button">견적 문의하기</button>-->
-                <!--</div>-->
               </div>
             </div>
           </div>
@@ -177,8 +59,7 @@
             <!-- 2. 기업 안내  -->
             <div class="announce-company">
               <div class="announce-company__inner">
-                <h2 class="question font-semi-bold"><span class="hhr-blue font-bold title">해피 홈 리페어</span>는 무엇이 다른가요?
-                </h2>
+                <h2 class="question font-semi-bold"><span class="hhr-blue font-bold title">해피 홈 리페어</span>는 무엇이 다른가요?</h2>
                 <div class="hhr-blue-small-divider"></div>
                 <div class="question-explain">
                   <p class="wrap-contents"><span class="hhr-blue font-bold contents">첫째</span>, 20년 경력의 내장수리 전문가가 직접
@@ -276,14 +157,10 @@
               <div class="wrap-logo-and-title">
                 <img class="logo"
                      alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어"
-                     src="@/assets/images/logos/happy-home-repair-logo.png"/>
+                     src="@/assets/images/logos/big-main-title-icon.png"/>
                 <div class="wrap-pc-titles">
                   <h2 class="sub-title font-light">해피 홈 리페어</h2>
                   <h1 class="title font-bold">HAPPY&nbsp;HOME<br>REPAIR</h1>
-                </div>
-                <div class="wrap-mobile-titles">
-                  <h2 class="sub-title font-light">해피 홈 리페어</h2>
-                  <h1 class="title font-bold">Happy home repair</h1>
                 </div>
               </div>
               <div class="clear-both"></div>
@@ -335,6 +212,7 @@
   }
 
   .above-dot {
+    font-size: 30px;
     text-emphasis-style: dot;
     text-emphasis-position: over left;
     -webkit-text-emphasis-style: dot;
@@ -406,12 +284,7 @@
                 top: 3px;
                 left: 50%;
                 font-size: 9px;
-                opacity: 0.5;
                 transition: 0.3s;
-                &:hover {
-                  color: cornflowerblue;
-                  opacity: 1;
-                }
                 @media (max-width: $screen-mobile) {
                   position: relative;
                   top: 0;
@@ -423,13 +296,8 @@
                 top: 15px;
                 font-size: 16px;
                 line-height: 14px;
-                opacity: 0.5;
                 text-align: center;
                 transition: 0.3s;
-                &:hover {
-                  color: cornflowerblue;
-                  opacity: 1;
-                }
                 @media (max-width: $screen-mobile) {
                   display: block;
                   position: relative;
@@ -481,10 +349,9 @@
                 color: black;
                 text-decoration: none;
                 margin-right: 20px;
-                opacity: 0.4;
                 transition: 0.4s;
                 &:hover {
-                  opacity: 1;
+                  font-weight: 700;
                 }
                 &:last-child {
                   margin-right: 0;
@@ -504,11 +371,11 @@
           width: 100%;
           height: 400px;
           background-size: 1200px 400px;
-          background: url('~@/assets/images/main/banner/han-river-image-resized.png');
+          background: url('~@/assets/images/main/banner/main-slide-background.png');
           &__inner {
             width: $contents-width;
             height: 100%;
-            padding: 20px 10px;
+            padding: 50px 10px;
             margin: 0 auto;
             background-color: #ffffff;
             background-color: rgba(255, 255, 255, 0);
@@ -528,7 +395,7 @@
                 &__wrap-main-title {
                   line-height: 40px;
                   .logo-title {
-                    font-size: 30px;
+                    font-size: 25px;
                     &:nth-child(1) {
                       text-align: center;
                     }
@@ -548,456 +415,6 @@
                     font-size: 15px;
                   }
                 }
-                //
-                &__images {
-                  width: 100%;
-                  height: 100%;
-                  float: left;
-                  &__slide-banner {
-                    width: calc(100% - 60px);
-                    height: 100%;
-                    float: left;
-                    .repair-window {
-                      width: 100%;
-                      height: 100%;
-                      padding: 15px 0;
-                      background-color: rgba(255, 127, 80, 0.7);
-                      &:hover {
-                        cursor: default;
-                      }
-                      &__wrap-logo {
-                        width: 100%;
-                        text-align: center;
-                        margin-bottom: 10px;
-                        &__logo {
-                          width: 35px;
-                          height: 35px;
-                        }
-                      }
-                      &__title {
-                        font-size: 40px;
-                        text-align: center;
-                      }
-                      &__sub-title {
-                        font-size: 20px;
-                        text-align: center;
-                        margin-bottom: 10px;
-                      }
-                      &__sub-explain {
-                        font-size: 15px;
-                        text-align: center;
-                      }
-                      &__caption {
-                        font-size: 15px;
-                        text-align: center;
-                        margin-bottom: 15px;
-                      }
-                      &__wrap-button {
-                        width: 100%;
-                        text-align: center;
-                        &__button {
-                          border: 1px solid white;
-                          border-radius: 5px;
-                          background-color: coral;
-                          color: white;
-                          text-align: center;
-                          width: 150px;
-                          height: 30px;
-                          margin-bottom: 5px;
-                          transition: 0.3s;
-                          &:hover {
-                            color: coral;
-                            background-color: white;
-                          }
-                        }
-                        &__caption {
-                          font-size: 10px;
-                          text-align: center;
-                        }
-                      }
-                    }
-                    .guard-screen {
-                      width: 100%;
-                      height: 100%;
-                      padding: 15px 0;
-                      background-color: rgba(255, 255, 240, 0.7);
-                      &:hover {
-                        cursor: default;
-                      }
-                      &__wrap-logo {
-                        width: 100%;
-                        text-align: center;
-                        margin-bottom: 10px;
-                        &__logo {
-                          width: 35px;
-                          height: 35px;
-                        }
-                      }
-                      &__title {
-                        font-size: 40px;
-                        text-align: center;
-                      }
-                      &__sub-title {
-                        font-size: 20px;
-                        text-align: center;
-                        margin-bottom: 10px;
-                      }
-                      &__sub-explain {
-                        font-size: 15px;
-                        text-align: center;
-                      }
-                      &__caption {
-                        font-size: 15px;
-                        text-align: center;
-                        margin-bottom: 15px;
-                      }
-                      &__wrap-button {
-                        width: 100%;
-                        text-align: center;
-                        &__button {
-                          border: 1px solid black;
-                          border-radius: 5px;
-                          background-color: rgb(255, 255, 240);
-                          color: black;
-                          text-align: center;
-                          width: 150px;
-                          height: 30px;
-                          margin-bottom: 5px;
-                          transition: 0.3s;
-                          &:hover {
-                            color: rgb(255, 255, 240);
-                            background-color: black;
-                          }
-                        }
-                        &__caption {
-                          font-size: 10px;
-                          text-align: center;
-                        }
-                      }
-                    }
-                    .eco-paint {
-                      width: 100%;
-                      height: 100%;
-                      padding: 15px 0;
-                      background-color: rgba(255, 1902, 230, 0.7);
-                      &:hover {
-                        cursor: default;
-                      }
-                      &__wrap-announce-box {
-                        width: 55%;
-                        height: 100%;
-                        float: left;
-                        &__title {
-                          font-size: 40px;
-                          text-align: center;
-                        }
-                        &__sub-title {
-                          font-size: 20px;
-                          text-align: center;
-                          margin-bottom: 10px;
-                        }
-                      }
-                      &__wrap-button {
-                        width: 45%;
-                        height: 100%;
-                        float: left;
-                        padding-top: 20px;
-                        padding-bottom: 20px;
-                        text-align: center;
-                        &__button {
-                          border: 1px solid white;
-                          border-radius: 5px;
-                          background-color: rgb(255, 192, 230);
-                          color: white;
-                          width: 150px;
-                          height: 30px;
-                          margin-bottom: 5px;
-                          transition: 0.3s;
-                          &:hover {
-                            color: rgb(255, 192, 230);
-                            background-color: white;
-                          }
-                        }
-                        &__sub-explain {
-                          font-size: 15px;
-                          text-align: center;
-                        }
-                        &__caption {
-                          font-size: 10px;
-                          text-align: center;
-                        }
-                      }
-                    }
-                    .install-door {
-                      width: 100%;
-                      height: 100%;
-                      padding: 15px 0;
-                      background-color: rgba(255, 255, 240, 0.7);
-                      &:hover {
-                        cursor: default;
-                      }
-                      &__wrap-logo {
-                        width: 100%;
-                        text-align: center;
-                        margin-bottom: 10px;
-                        &__logo {
-                          width: 35px;
-                          height: 35px;
-                        }
-                      }
-                      &__title {
-                        font-size: 40px;
-                        text-align: center;
-                      }
-                      &__sub-title {
-                        font-size: 20px;
-                        text-align: center;
-                        margin-bottom: 10px;
-                      }
-                      &__sub-explain {
-                        font-size: 15px;
-                        text-align: center;
-                      }
-                      &__caption {
-                        font-size: 15px;
-                        text-align: center;
-                        margin-bottom: 15px;
-                      }
-                      &__wrap-button {
-                        width: 100%;
-                        text-align: center;
-                        &__button {
-                          border: 1px solid black;
-                          border-radius: 5px;
-                          background-color: rgb(255, 255, 240);
-                          color: black;
-                          text-align: center;
-                          width: 150px;
-                          height: 30px;
-                          margin-bottom: 5px;
-                          transition: 0.3s;
-                          &:hover {
-                            color: rgb(255, 255, 240);
-                            background-color: black;
-                          }
-                        }
-                        &__caption {
-                          font-size: 10px;
-                          text-align: center;
-                        }
-                      }
-                    }
-                    .other-work {
-                      width: 100%;
-                      height: 100%;
-                      padding: 15px 0;
-                      background-color: rgba(255, 255, 240, 0.7);
-                      &:hover {
-                        cursor: default;
-                      }
-                      &__wrap-logo {
-                        width: 100%;
-                        text-align: center;
-                        margin-bottom: 10px;
-                        &__logo {
-                          width: 35px;
-                          height: 35px;
-                        }
-                      }
-                      &__title {
-                        font-size: 40px;
-                        text-align: center;
-                      }
-                      &__sub-title {
-                        font-size: 20px;
-                        text-align: center;
-                        margin-bottom: 10px;
-                      }
-                      &__sub-explain {
-                        font-size: 15px;
-                        text-align: center;
-                      }
-                      &__caption {
-                        font-size: 15px;
-                        text-align: center;
-                        margin-bottom: 15px;
-                      }
-                      &__wrap-button {
-                        width: 100%;
-                        text-align: center;
-                        &__button {
-                          border: 1px solid black;
-                          border-radius: 5px;
-                          background-color: rgb(255, 255, 240);
-                          color: black;
-                          text-align: center;
-                          width: 150px;
-                          height: 30px;
-                          margin-bottom: 5px;
-                          transition: 0.3s;
-                          &:hover {
-                            color: rgb(255, 255, 240);
-                            background-color: black;
-                          }
-                        }
-                        &__caption {
-                          font-size: 10px;
-                          text-align: center;
-                        }
-                      }
-                    }
-                  }
-                  &__icons {
-                    width: 60px;
-                    height: 100%;
-                    float: left;
-                    .icon-box {
-                      width: 100%;
-                      height: calc(100% / 5);
-                      transition: 0.3s;
-                      &:hover {
-                        cursor: pointer;
-                      }
-                    }
-                    .repair-window {
-                      background-color: coral;
-                      transition: 0.3s;
-                      &:hover {
-                        background-color: black;
-                      }
-                      &:hover .wrap-dynamic-logo-color .dynamic-logo-color {
-                        content: url('~@/assets/images/logos/colar-repair-window.png');
-                      }
-                      &__wrap-logo {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        &__logo {
-                          width: 23px;
-                          height: 23px;
-                          margin: 0 auto;
-                        }
-                      }
-                    }
-                    .guard-screen {
-                      background-color: rgb(255, 255, 240);
-                      &:hover {
-                        background-color: black;
-                      }
-                      &:hover .wrap-dynamic-logo-color .dynamic-logo-color {
-                        content: url('~@/assets/images/logos/white-net.png');
-                      }
-                      &__wrap-logo {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        &__logo {
-                          width: 20px;
-                          height: 20px;
-                          margin: 0 auto;
-                        }
-                      }
-                    }
-                    .eco-paint {
-                      background-color: rgb(255, 192, 230);
-                      &:hover {
-                        background-color: black;
-                      }
-                      &:hover .wrap-dynamic-logo-color .dynamic-logo-color {
-                        content: url('~@/assets/images/logos/pink-eco-paint.png');
-                      }
-                      &__wrap-logo {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        &__logo {
-                          width: 21px;
-                          height: 21px;
-                          margin: 0 auto;
-                        }
-                      }
-                    }
-                    .install-door {
-                      background-color: rgb(131, 220, 183);
-                      &:hover {
-                        background-color: black;
-                      }
-                      &:hover .wrap-dynamic-logo-color .dynamic-logo-color {
-                        content: url('~@/assets/images/logos/emerald-install-door.png');
-                      }
-                      &__wrap-logo {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        &__logo {
-                          width: 23px;
-                          height: 23px;
-                          margin: 0 auto;
-                        }
-                      }
-                    }
-                    .other-work {
-                      background-color: rgb(80, 188, 223);
-                      &:hover {
-                        background-color: black;
-                      }
-                      &:hover .wrap-dynamic-logo-color .dynamic-logo-color {
-                        content: url('~@/assets/images/logos/blue-other-work.png');
-                      }
-                      &__wrap-logo {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        &__logo {
-                          width: 23px;
-                          height: 23px;
-                          margin: 0 auto;
-                        }
-                      }
-                    }
-                  }
-                }
-                &__profile {
-                  display: none;
-                  padding: 15px;
-                  width: 300px;
-                  height: 100%;
-                  float: left;
-                  background: white url('~@/assets/images/main/main-profile.png');
-                  background-size: 300px 320px;
-                  .announcement-about-ceo {
-                    width: 130px;
-                    text-align: center;
-                    letter-spacing: -1px;
-                    margin-bottom: 10px;
-                    .announcement-font-style {
-                      font-size: 14px;
-                      line-height: 18px;
-                    }
-                  }
-                  .phone-number-button {
-                    display: none;
-                    border: 1px solid cornflowerblue;
-                    border-radius: 5px;
-                    background-color: cornflowerblue;
-                    color: white;
-                    text-align: center;
-                    width: 150px;
-                    height: 30px;
-                    transition: 0.3s;
-                    float: right;
-                    vertical-align: bottom;
-                    &:hover {
-                      color: cornflowerblue;
-                      background-color: white;
-                    }
-                  }
-                }
               }
             }
           }
@@ -1009,7 +426,7 @@
           /*background-image: url('~@/assets/images/main/background-logos-pattern4.png');*/
           &__inner {
             .announce-company {
-              padding: 40px 30px;
+              padding: 50px 0;
               &__inner {
                 width: $contents-width;
                 margin: 0 auto;
@@ -1024,7 +441,7 @@
                   margin-top: 35px;
                   .wrap-contents {
                     .contents {
-                      font-size: 24px;
+                      font-size: 30px;
                     }
                     &:nth-child(1) {
                       text-align: left;
@@ -1049,8 +466,7 @@
                 height: 100%;
                 margin: 0 auto;
                 text-align: center;
-                padding-top: 50px;
-                padding-bottom: 50px;
+                padding: 50px 0;
                 .selection {
                   color: white;
                   height: 40px;
@@ -1082,6 +498,7 @@
                       &:hover {
                         color: $hhr-deep-blue;
                         background-color: white;
+                        font-size: 16.5px;
                       }
                     }
                   }
@@ -1105,6 +522,7 @@
                       &:hover {
                         color: $hhr-deep-blue;
                         background-color: white;
+                        font-size: 16.5px;
                       }
                     }
                   }
@@ -1112,7 +530,7 @@
               }
             }
             .all-products-announce {
-              padding: 40px 30px;
+              padding: 50px 0;
               height: 600px;
               &__inner {
                 width: $contents-width;
@@ -1239,9 +657,6 @@
                   @media (max-width: $screen-mobile) {
                     display: none;
                   }
-                  &:hover {
-                    opacity: 0.8;
-                  }
                 }
                 .wrap-pc-titles {
                   position: relative;
@@ -1258,10 +673,6 @@
                     font-size: 9px;
                     opacity: 0.5;
                     transition: 0.3s;
-                    &:hover {
-                      color: cornflowerblue;
-                      opacity: 1;
-                    }
                     @media (max-width: $screen-mobile) {
                       position: relative;
                       top: 0;
@@ -1276,10 +687,6 @@
                     opacity: 0.5;
                     text-align: center;
                     transition: 0.3s;
-                    &:hover {
-                      color: cornflowerblue;
-                      opacity: 1;
-                    }
                     @media (max-width: $screen-mobile) {
                       display: block;
                       position: relative;
