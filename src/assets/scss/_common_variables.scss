@@ -1,0 +1,23 @@
+// screen size variable
+$screen-desktop: 992px;
+$screen-tablet: 768px;
+$screen-mobile: $screen-tablet - 1px;
+$screen-desktop-another: 1200px;
+$screen-tablet-max: $screen-desktop - 1px;
+$screen-tablet-max-another: $screen-desktop-another - 1px;
+$grid-gutter-width: 30px !default;
+
+// contents size variable
+$contents-width: 980px;
+$contents-height: 0;
+
+// color variable
+$hhr-light-blue: rgb(169, 196, 245);
+$hhr-blue: rgb(100, 149, 237);
+$hhr-deep-blue: rgb(101, 147, 245);
+
+$hhr-light-gray: rgba(211, 211, 211, 0.1);
+$hhr-gray: rgba(211, 211, 211, 0.5);
+$hhr-deep-gray: #353535;
+
+//

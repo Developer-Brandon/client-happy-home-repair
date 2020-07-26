@@ -1,0 +1,8 @@
+// 여려곳에서 유틸처럼 쓰이는 성향의 style이 아닌, 브라우저 안에서 기본적으로 상주하는 style
+@import "_default_font.scss";
+@import "_default_css_reset.scss";
+// 여러곳에서 유틸처럼 쓰이는 common scss
+@import "_common_mixin.scss";
+@import "_common_modal.scss";
+@import "_common_variables.scss";
+@import "_common_classes.scss";

@@ -1,0 +1,72 @@
+// tmon의 서체는 서체별로 font-weight가 없다고 보면 된다
+
+/* TmonMonsori */
+@font-face {
+  font-family: 'TmonMonsori';
+  font-weight: 400;
+  src: url('~@/assets/fonts/TmonFont/TmonMonsori.ttf');
+}
+
+/* TmonTium */
+@font-face {
+  font-family: 'TmonTium';
+  font-weight: 400;
+  src: url('~@/assets/fonts/TmonFont/TmonTium.ttf');
+}
+
+// 아리따움 서체
+
+/* Arita-HLight */
+@font-face {
+  font-family: 'Arita';
+  font-weight: 100;
+  src: url('~@/assets/fonts/AritaBuri/Arita-buriHL.ttf');
+}
+
+/* Arita-Light */
+@font-face {
+  font-family: 'Arita';
+  font-weight: 200;
+  src: url('~@/assets/fonts/AritaBuri/Arita-buriL.ttf');
+}
+
+/* Arita-Medium */
+@font-face {
+  font-family: 'Arita';
+  font-weight: 300;
+  src: url('~@/assets/fonts/AritaBuri/Arita-buriM.ttf');
+}
+
+/* Arita-SemiBold */
+@font-face {
+  font-family: 'Arita';
+  font-weight: 400;
+  src: url('~@/assets/fonts/AritaBuri/Arita-buriSB.ttf');
+}
+
+/* Arita-Bold */
+@font-face {
+  font-family: 'Arita';
+  font-weight: 700;
+  src: url('~@/assets/fonts/AritaBuri/Arita-buriB.ttf');
+}
+
+.font-hair-line {
+  font-weight: 100;
+}
+
+.font-light {
+  font-weight: 200;
+}
+
+.font-regular {
+  font-weight: 300;
+}
+
+.font-semi-bold {
+  font-weight: 400;
+}
+
+.font-bold {
+  font-weight: 700;
+}
