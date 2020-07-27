@@ -9,7 +9,7 @@
             <div class="wrap-slider-contents__wrap-logo">
               <img
                 class="logo"
-                alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어"
+                alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"
                 src="@/assets/images/logos/final-logo.png"
               />
             </div>
@@ -172,6 +172,9 @@
                             .logo {
                                 width: 120px;
                                 height: 120px;
+                                &:hover {
+                                  // TODO: mouse hover시에 이미지 바뀌는 것 부터 구현
+                                }
                                 @media (max-width: $screen-mobile) {
                                     width: 100px;
                                     height: 100px;
