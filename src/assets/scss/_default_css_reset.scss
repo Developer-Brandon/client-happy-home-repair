@@ -4,11 +4,13 @@
 }
 
 body {
+  // font-family: 'TmonMonsori' !important;
   width: 100%;
-  font-family: 'TmonMonsori' !important;
   color: #333;
   font-size: 15px;
   font-weight: 300;
+  margin: 0;
+  padding: 0;
 }
 
 body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select {
@@ -88,7 +90,6 @@ button {
 
 input::-moz-focus-inner,
 button::-moz-focus-inner {
-  // border: 0;
   padding: 0;
 }
 

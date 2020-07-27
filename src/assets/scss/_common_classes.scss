@@ -3,7 +3,6 @@
   clear: both;
 }
 
-
 // '색깔'에 대한 개념은 light -> 아무것도없음 -> deep
 .hhr-light-blue {
   color: $hhr-light-blue;
@@ -60,4 +59,12 @@
   height: 1px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.above-dot {
+  font-size: 30px;
+  text-emphasis-style: dot;
+  text-emphasis-position: over left;
+  -webkit-text-emphasis-style: dot;
+  -webkit-text-emphasis-position: over;
 }

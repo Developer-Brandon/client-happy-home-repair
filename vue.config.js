@@ -4,10 +4,10 @@ module.exports = {
       sass: {
         data: `
           @import "@/assets/scss/whole_style.scss";
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   devServer: { disableHostCheck: true },
-  productionSourceMap: false
-}
+  productionSourceMap: false,
+};
