@@ -1,7 +1,5 @@
 <template>
-  <!-- body -->
   <div class="body">
-    <!-- body - main banner -->
     <div class="body__main-banner">
       <div class="body__main-banner__inner">
         <div class="body__main-banner__inner__contents">
@@ -11,6 +9,7 @@
                 class="logo"
                 alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"
                 src="@/assets/images/logos/final-logo.png"
+                @click="goToNaverBlog"
               />
             </div>
             <div class="wrap-slider-contents__wrap-main-title">
@@ -26,17 +25,15 @@
                 프리미엄 홈 리페어 서비스
               </h3>
               <h2 class="logo-explain font-light">
-                창호수리/방충망/페인트/문짝설치/기타작업
+                "창호수리/방충망/페인트/문짝설치/기타작업"
               </h2>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- 2. 그 외 -->
     <div class="body__other-information">
       <div class="body__other-information__inner">
-        <!-- 2. 기업 안내  -->
         <div class="announce-company">
           <div class="announce-company__inner">
             <h2 class="question font-semi-bold">
@@ -47,25 +44,24 @@
             <div class="hhr-blue-small-divider"></div>
             <div class="question-explain">
               <p class="wrap-contents">
-                <span class="hhr-blue font-bold contents">첫째</span>, 20년
-                경력의 내장수리 전문가가 직접
-                케어해드립니다
+                <span class="hhr-blue font-bold contents">첫째</span>
+                <span class="desktop-visible-inline-only">,</span>
+                <span class="sub-contents">20년 경력의 내장수리 전문가가<br class="mobile-visible-inline-only"/> 직접 케어해드립니다</span>
               </p>
               <p class="wrap-contents">
-                <span class="hhr-blue font-bold contents">둘째</span>, 블로그를
-                시작한 이래로 1,000여건이 넘는
-                시공 사례가 있습니다
+                <span class="hhr-blue font-bold contents">둘째</span>
+                <span class="desktop-visible-inline-only">,</span>
+                <span class="sub-contents">블로그를 시작한 이래로 <br class="mobile-visible-inline-only"/>1,000여건이 넘는 시공 사례가 있습니다</span>
               </p>
               <p class="wrap-contents">
-                <span class="hhr-blue font-bold contents">셋째</span>, 타 업체와
-                비교 불가능한 합리적인 비용으로
-                수리해드립니다
+                <span class="hhr-blue font-bold contents">셋째</span>
+                <span class="desktop-visible-inline-only">,</span>
+                <span class="sub-contents">타 업체와 비교 불가능한 <br class="mobile-visible-inline-only"/>합리적인 비용으로 수리해드립니다</span>
               </p>
             </div>
           </div>
         </div>
         <div class="hhr-small-divider"></div>
-        <!-- 3. 신청서  -->
         <div class="announce-selection-for-client">
           <div class="announce-selection-for-client__inner">
             <h2 class="selection font-semi-bold">
@@ -99,7 +95,6 @@
           </div>
         </div>
         <div class="hhr-small-divider"></div>
-        <!-- 4. 시공 사례모음 -->
         <div class="all-products-announce">
           <div class="all-products-announce__inner">
             <h2 class="big-title font-semi-bold">
@@ -127,14 +122,25 @@
 </template>
 
 <script>
-// // import HelloWorld from '@/components/HelloWorld.vue';
-//
-// export default {
-//   // name: 'Home',
-//   // components: {
-//   //   HelloWorld,
-//   // }
-// };
+
+export default {
+  name: 'Home',
+  components: {},
+  data() {
+    return {
+      values: {
+        boolean: {
+          whereClientInflow: true,
+        },
+      },
+    };
+  },
+  methods: {
+    goToNaverBlog() {
+      window.open('http://blog.naver.com/prologue/PrologueList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true');
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -145,7 +151,7 @@
         &__main-banner {
             height: 400px;
             background-size: $screen-desktop 400px;
-            background: url('~@/assets/images/main/banner/main-slide-background.png') center;
+            background: url('~@/assets/images/main/banner/tool-pic-was-applyed-opacity.png') center;
             @media (max-width: $screen-mobile) {
                 height: 360px;
             }
@@ -172,9 +178,6 @@
                             .logo {
                                 width: 120px;
                                 height: 120px;
-                                &:hover {
-                                  // TODO: mouse hover시에 이미지 바뀌는 것 부터 구현
-                                }
                                 @media (max-width: $screen-mobile) {
                                     width: 100px;
                                     height: 100px;
@@ -199,7 +202,7 @@
                                     text-align: center;
                                 }
                                 &:nth-child(3) {
-                                    font-size: 20px;
+                                    font-size: 18px;
                                     text-align: center;
                                     line-height: 20px;
                                     margin-top: 20px;
@@ -232,19 +235,28 @@
                 .announce-company {
                     padding: 50px 0;
                     @media (max-width: $screen-mobile) {
+                        padding: 40px 0;
                         height: 100%;
                     }
                     &__inner {
-                        width: $contents-width;
+                        max-width: $contents-width;
                         margin: 0 auto;
                         @media (max-width: $screen-mobile) {
                             width: 100%;
+                            padding-left: 15px;
+                            padding-right: 15px;
                         }
                         .question {
                             text-align: center;
                             margin-bottom: 10px;
+                            @media (max-width: $screen-mobile) {
+                                font-size: 15px;
+                            }
                             .title {
                                 font-size: 30px;
+                                @media (max-width: $screen-mobile) {
+                                    font-size: 20px;
+                                }
                             }
                         }
                         .question-explain {
@@ -252,6 +264,21 @@
                             .wrap-contents {
                                 .contents {
                                     font-size: 30px;
+                                    @media (max-width: $screen-mobile) {
+                                        display: block;
+                                        font-size: 20px;
+                                        padding-left: 15px;
+                                        text-align: center;
+                                    }
+                                }
+                                .sub-contents {
+                                    @media (max-width: $screen-mobile) {
+                                        display: block;
+                                        font-size: 14px;
+                                        padding-top: 5px;
+                                        padding-left: 30px;
+                                        padding-right: 30px;
+                                    }
                                 }
                                 &:nth-child(1) {
                                     text-align: left;
@@ -263,8 +290,6 @@
                                 &:nth-child(2) {
                                     text-align: center;
                                     margin-bottom: 25px;
-                                    @media (max-width: $screen-mobile) {
-                                    }
                                 }
                                 &:nth-child(3) {
                                     text-align: right;
@@ -288,12 +313,24 @@
                         margin: 0 auto;
                         text-align: center;
                         padding: 50px 0;
+                        @media (max-width: $screen-mobile) {
+                            height: 100%;
+                            padding: 40px 0;
+                        }
                         .selection {
                             color: white;
                             height: 40px;
                             margin-bottom: 40px;
+                            @media (max-width: $screen-mobile) {
+                                height: 30px;
+                                font-size: 15px;
+                                margin-bottom: 27px;
+                            }
                             .title {
                                 font-size: 30px;
+                                @media (max-width: $screen-mobile) {
+                                    font-size: 20px;
+                                }
                             }
                         }
                         .selection-list {
@@ -339,6 +376,7 @@
                                         width: 100%;
                                         color: $hhr-deep-blue;
                                         background-color: white;
+                                        font-size: 18px;
                                     }
                                 }
                             }
@@ -351,7 +389,7 @@
                                     width: 100%;
                                     clear: both;
                                     margin: 0 auto;
-                                    padding-top: 40px;
+                                    padding-top: 25px;
                                 }
                                 .application-form-logo {
                                     width: 40px;
@@ -380,6 +418,7 @@
                                         width: 100%;
                                         color: $hhr-deep-blue;
                                         background-color: white;
+                                        font-size: 18px;
                                     }
                                 }
                             }
@@ -389,18 +428,30 @@
                 .all-products-announce {
                     padding: 50px 0;
                     height: 600px;
+                    @media (max-width: $screen-mobile) {
+                        padding: 40px 0;
+                    }
                     &__inner {
                         width: 100%;
                         max-width: $screen-desktop;
                         margin: 0 auto;
                         @media (max-width: $screen-mobile) {
                             max-width: $screen-mobile;
+                            padding-left: 15px;
+                            padding-right: 15px;
                         }
                         .big-title {
                             text-align: center;
                             margin-bottom: 10px;
+                            @media (max-width: $screen-mobile) {
+                                font-size: 15px;
+                                margin-bottom: 10px;
+                            }
                             .title {
                                 font-size: 30px;
+                                @media (max-width: $screen-mobile) {
+                                    font-size: 20px;
+                                }
                             }
                         }
                         .small-title {

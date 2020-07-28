@@ -2,46 +2,48 @@
   <header class="header">
     <div id="navigation">
       <div class="wrap-logo-and-title">
-        <img
-          class="logo"
-          alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어"
-          src="@/assets/images/logos/big-main-title-icon.png"
-        />
-        <div class="wrap-titles">
-          <h2 class="sub-title font-light">
-            해피 홈 리페어
-          </h2>
-          <h1 class="title font-bold">
-            HAPPY&nbsp;HOME<br />REPAIR
-          </h1>
-        </div>
+        <router-link to="/">
+          <img
+            class="logo"
+            alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어"
+            src="@/assets/images/logos/big-main-title-icon.png"
+          />
+          <div class="wrap-titles">
+            <h2 class="sub-title font-light">
+              해피 홈 리페어
+            </h2>
+            <h1 class="title font-bold">
+              HAPPY&nbsp;HOME<br />REPAIR
+            </h1>
+          </div>
+        </router-link>
       </div>
       <div class="right-menus__wrapper font-light">
         <router-link
           id="introduce-products"
           class="menus font-regular"
-          to="/introduceProducts"
+          to="/Products"
         >
           제품소개
         </router-link>
         <router-link
           id="introduce-company"
           class="menus font-regular"
-          to="/introduceCompany"
+          to="/About"
         >
           회사소개
         </router-link>
         <router-link
           id="notice"
           class="menus font-regular"
-          to="/notice"
+          to="/Notice"
         >
           공지사항
         </router-link>
         <router-link
           id="price-inquiry"
           class="menus font-regular"
-          to="/priceInquiry"
+          to="/Inquiry"
         >
           견적문의
         </router-link>
@@ -49,6 +51,16 @@
     </div>
   </header>
 </template>
+
+<!--<script>-->
+<!--export default {-->
+<!--methods: {-->
+<!--goToMain () {-->
+<!---->
+<!--}-->
+<!--}-->
+<!--}-->
+<!--</script>-->
 
 <style lang="scss" scoped>
     .header {

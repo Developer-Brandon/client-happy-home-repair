@@ -15,33 +15,33 @@
             <li>메일: lain4444@naver.com</li>
             <li>사업자번호: 392-22-00352</li>
           </ul>
-          <caption class="owner-information__copyright">
+          <caption class="owner-information__copyright desktop-visible-inline-only">
             Copyright©DKStudio
           </caption>
         </div>
       </div>
+      <div class="mobile-visible-block-only clear-both"></div>
       <div class="footer__inner__middle">
         <div class="partnership-information">
           <h2 class="partnership-information__title font-bold">
             대표 전화 / 제휴 문의
           </h2>
           <ul class="partnership-information__explain">
-            <li>CALL<br /><span style="display:block; text-align: right">010-9018-5553</span></li>
+            <li>CALL<br /><span class="email-align">010-9018-5553</span></li>
             <li>
-              E-MAIL<br /><span style="display:block; text-align: right">lain4444@naver.com</span>
+              E-MAIL<br /><span class="email-align">lain4444@naver.com</span>
             </li>
           </ul>
         </div>
-        <div class="hhr-gray-small-divider"></div>
+        <div class="visible desktop-visible-block-only hhr-gray-small-divider"></div>
         <div class="email-information">
           <h2 class="email-information__title">
             CONTACT US
           </h2>
           <ul class="email-information__explain">
             <li>
-              E-MAIL<br /> <span
-                style="display:block; text-align: right"
-              >lovefinance@naver.com</span>
+              E-MAIL<br />
+              <span class="email-align">lovefinance@naver.com</span>
             </li>
           </ul>
         </div>
@@ -49,6 +49,7 @@
           <!-- TODO: 오픈시간을 표기할건지 말건지에 대해서는 아빠랑 추가적으로 상의를 해보아야한다 -->
         </div>
       </div>
+      <div class="mobile-visible-block-only clear-both"></div>
       <div class="footer__inner__right">
         <div class="wrap-all-information">
           <div class="wrap-logo-and-title">
@@ -117,21 +118,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .email-align {
+        display: block;
+        text-align: right;
+        @media (max-width: $screen-mobile) {
+            text-align: left;
+            line-height: 23px;
+            margin-bottom: 10px;
+        }
+    }
+
     .footer {
         width: 100%;
         background-color: $hhr-gray;
+        padding: 60px 0;
         @media (max-width: $screen-mobile) {
-            display: none;
+            height: 100%;
+            padding: 40px 0;
         }
-            &__inner {
-            width: 980px;
+        &__inner {
+            width: $screen-desktop;
             height: 400px;
             margin: 0 auto;
-            padding: 60px 0;
+            @media (max-width: $screen-mobile) {
+                width: 100%;
+                height: 800px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
             &__left {
                 width: 25%;
                 height: 100%;
                 float: left;
+                @media (max-width: $screen-mobile) {
+                    display: block;
+                    width: 100%;
+                    height: 200px;
+                    clear: both;
+                }
                 .owner-information {
                     height: 100%;
                     position: relative;
@@ -140,12 +164,19 @@ export default {
                         font-size: 15px;
                         color: #333333;
                         margin-bottom: 10px;
+                        @media (max-width: $screen-mobile) {
+                            font-size: 20px;
+                        }
                     }
                     &__explain {
                         font-size: 12px;
                         color: #333333;
                         li {
                             line-height: 20px;
+                            @media (max-width: $screen-mobile) {
+                                line-height: 23px;
+                                font-size: 15px;
+                            }
                         }
                     }
                     &__copyright {
@@ -159,31 +190,61 @@ export default {
             &__middle {
                 width: 20%;
                 float: left;
+                @media (max-width: $screen-mobile) {
+                    display: block;
+                    width: 100%;
+                    height: 170px;
+                    clear: both;
+                }
                 .partnership-information {
+                    height: 100%;
+                    @media (max-width: $screen-mobile) {
+                        height: 170px;
+                    }
                     &__title {
                         font-size: 15px;
                         color: #333333;
                         margin-bottom: 20px;
+                        @media (max-width: $screen-mobile) {
+                            font-size: 20px;
+                            margin-bottom: 10px;
+                        }
                     }
                     &__explain {
                         font-size: 12px;
                         color: #333333;
                         li {
                             line-height: 20px;
+                            @media (max-width: $screen-mobile) {
+                                line-height: 23px;
+                                font-size: 15px;
+                            }
                         }
                     }
                 }
                 .email-information {
+                    height: 100%;
+                    @media (max-width: $screen-mobile) {
+                        height: 100px;
+                    }
                     &__title {
                         font-size: 15px;
                         color: #333333;
                         margin-bottom: 20px;
+                        @media (max-width: $screen-mobile) {
+                            font-size: 20px;
+                            margin-bottom: 10px;
+                        }
                     }
                     &__explain {
                         font-size: 12px;
                         color: #333333;
                         li {
                             line-height: 20px;
+                            @media (max-width: $screen-mobile) {
+                                line-height: 23px;
+                                font-size: 15px;
+                            }
                         }
                     }
                 }
@@ -192,10 +253,18 @@ export default {
                 position: relative;
                 width: 55%;
                 float: left;
+                @media (max-width: $screen-mobile) {
+                    width: 100%;
+                    clear: both;
+                }
                 .wrap-all-information {
                     position: absolute;
                     top: 0;
                     right: 0;
+                    @media (max-width: $screen-mobile) {
+                        position: relative;
+                        margin-top: 180px;
+                    }
                     // 1 logo & title
                     .wrap-logo-and-title {
                         cursor: pointer;
@@ -290,6 +359,8 @@ export default {
                     .wrap-sns-logo {
                         display: inline-block;
                         float: right;
+                        @media (max-width: $screen-mobile) {
+                        }
                         .logo {
                             width: 40px;
                             height: 40px;

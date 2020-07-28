@@ -3,6 +3,35 @@
   clear: both;
 }
 
+.mobile-visible-block-only {
+  display: none;
+  @media (max-width: $screen-mobile) {
+    display: block;
+  }
+}
+
+.desktop-visible-block-only {
+  display: block;
+  @media (max-width: $screen-mobile) {
+    display: none;
+  }
+}
+
+.mobile-visible-inline-only {
+  display: none;
+  @media (max-width: $screen-mobile) {
+    display: inline;
+  }
+}
+
+.desktop-visible-inline-only {
+  display: inline;
+  @media (max-width: $screen-mobile) {
+    display: none;
+  }
+}
+
+
 // '색깔'에 대한 개념은 light -> 아무것도없음 -> deep
 .hhr-light-blue {
   color: $hhr-light-blue;
