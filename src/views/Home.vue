@@ -261,6 +261,8 @@ export default {
                         }
                         .question-explain {
                             margin-top: 35px;
+                            margin-left: 10px;
+                            margin-right: 10px;
                             .wrap-contents {
                                 .contents {
                                     font-size: 30px;
