@@ -46,17 +46,17 @@
               <p class="wrap-contents">
                 <span class="hhr-blue font-bold contents">첫째</span>
                 <span class="desktop-visible-inline-only">,</span>
-                <span class="sub-contents">20년 경력의 내장수리 전문가가<br class="mobile-visible-inline-only"/> 직접 케어해드립니다</span>
+                <span class="sub-contents">20년 경력의 내장수리 전문가가<br class="mobile-visible-inline-only" /> 직접 케어해드립니다</span>
               </p>
               <p class="wrap-contents">
                 <span class="hhr-blue font-bold contents">둘째</span>
                 <span class="desktop-visible-inline-only">,</span>
-                <span class="sub-contents">블로그를 시작한 이래로 <br class="mobile-visible-inline-only"/>1,000여건이 넘는 시공 사례가 있습니다</span>
+                <span class="sub-contents">블로그를 시작한 이래로 <br class="mobile-visible-inline-only" />1,000여건이 넘는 시공 사례가 있습니다</span>
               </p>
               <p class="wrap-contents">
                 <span class="hhr-blue font-bold contents">셋째</span>
                 <span class="desktop-visible-inline-only">,</span>
-                <span class="sub-contents">타 업체와 비교 불가능한 <br class="mobile-visible-inline-only"/>합리적인 비용으로 수리해드립니다</span>
+                <span class="sub-contents">타 업체와 비교 불가능한 <br class="mobile-visible-inline-only" />합리적인 비용으로 수리해드립니다</span>
               </p>
             </div>
           </div>
