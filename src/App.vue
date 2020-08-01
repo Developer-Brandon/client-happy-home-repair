@@ -16,13 +16,10 @@ export default {
   name: 'App',
   // metaInfo: {
   //   meta: [
-  //     // TODO: 도메인 등록 후 content attribute 수정 예정입니다
   //     { hid: 'og:url', property: 'og:url', content: '' },
   //     { property: 'og:site_name', content: '해피홈리페어' },
   //     { property: 'og:type', content: 'website' },
-  //     // TODO: open graph title 다시 생각해보아야 합니다
   //     { hid: 'og:title', property: 'og:title', content: '해피홈리페어: 주택내장수리 전문업체' },
-  //     // TODO: open graph description 다시 생각해보아야 합니다
   //     {
   //       hid: 'og:description',
   //       property: 'og:description',
@@ -52,5 +49,45 @@ export default {
             max-width: 100%;
             margin: 0;
         }
+    }
+
+    // CUSTOM HAMBURGER BUTTON
+    .bm-burger-button {
+      width: 34px;
+      height: 27px !important;
+      left: 15px !important;
+      top: 18px !important;
+      cursor: pointer;
+    }
+
+    .bm-burger-bars {
+      background-color: #4296ff !important;
+    }
+
+    .bm-menu {
+      background-color: #1567de !important;
+    }
+
+    .bm-item-list {
+      color: #4296ff !important;
+      margin-left: 10%;
+      font-size: 16px !important;
+    }
+
+    .bm-item-list > * {
+      display: flex;
+      text-decoration: none;
+      padding: 0.7em;
+    }
+
+    .bm-item-list > * > span {
+      font-family: 'TmonTium';
+      margin-left: 10px;
+      font-weight: 700;
+      color: #4296ff !important;
+    }
+
+    .bm-cross {
+      background: #4296ff !important;
     }
 </style>

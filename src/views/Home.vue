@@ -76,7 +76,10 @@
                 />
                 <br />
                 <br />
-                <button class="online-applicationform font-bold">
+                <button
+                  class="online-applicationform font-bold"
+                  @click="callApplicationFormModal"
+                >
                   온라인으로 신청할래요
                 </button>
               </div>
@@ -87,7 +90,10 @@
                 />
                 <br />
                 <br />
-                <button class="call-applicationform font-bold">
+                <button
+                  class="call-applicationform font-bold"
+                  @click="callToPhone"
+                >
                   유선으로 신청할래요
                 </button>
               </div>
@@ -125,7 +131,6 @@
 
 export default {
   name: 'Home',
-  components: {},
   data() {
     return {
       values: {
@@ -138,6 +143,12 @@ export default {
   methods: {
     goToNaverBlog() {
       window.open('http://blog.naver.com/prologue/PrologueList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true');
+    },
+    callToPhone() {
+      document.location.href = 'tel:010-9018-5553';
+    },
+    callApplicationFormModal() {
+      window.alert('준비중인 기능입니다');
     },
   },
 };

@@ -7,14 +7,15 @@
       >
         <div class="wrap-window-section__inner">
           <div
-            class="wrap-window-section__inner__snippet">
+            class="wrap-window-section__inner__snippet"
+          >
             <p>아직도, <br />고장난 창문을<br />그.대.로<br />사용하고 계신가요?</p>
           </div>
         </div>
       </div>
       <div class="wrap-window-section-announcement">
         <div class="wrap-window-section-announcement__inner">
-          <p class="font-light">
+          <p class="font-regular">
             : 샤시수리/나무창문/롤러교체/레일수리/모헤어교체
           </p>
         </div>
@@ -26,32 +27,35 @@
       >
         <div class="wrap-door-section__inner">
           <div
-            class="wrap-door-section__inner__snippet">
+            class="wrap-door-section__inner__snippet"
+          >
             <p>문을<br />통째로<br />교체하기 전에<br />교체하셔야 합니다</p>
           </div>
         </div>
       </div>
       <div class="wrap-door-section-announcement">
         <div class="wrap-door-section-announcement__inner">
-          <p class="font-light">
+          <p class="font-regular">
             ABS도어/포켓도어수리/3연동중문수리/미닫이문수리 :
           </p>
         </div>
       </div>
       <div class="clear-both"></div>
-      <div class="wrap-security-window-section"
-           @click="goToSecurityWindowPage"
+      <div
+        class="wrap-security-window-section"
+        @click="goToSecurityWindowPage"
       >
         <div class="wrap-security-window-section__inner">
           <div
-            class="wrap-security-window-section__inner__snippet">
+            class="wrap-security-window-section__inner__snippet"
+          >
             <p>각종<br />방충망<br />밤벙창<br />교체해 드립니다</p>
           </div>
         </div>
       </div>
       <div class="wrap-security-window-section-announcement">
         <div class="wrap-security-window-section-announcement__inner">
-          <p class="font-light">
+          <p class="font-regular">
             : 미세방충망, 스텐방충망, 현관방충망, 방범방충문, 방범창설치
           </p>
         </div>
@@ -59,37 +63,41 @@
       <div class="clear-both"></div>
     </div>
     <div class="sections__inner">
-      <div class="wrap-paint-section"
-           @click="goToPaintPage"
+      <div
+        class="wrap-paint-section"
+        @click="goToPaintPage"
       >
         <div class="wrap-paint-section__inner">
           <div
-            class="wrap-paint-section__inner__snippet">
+            class="wrap-paint-section__inner__snippet"
+          >
             <p>페인트<br />칠은<br />다시 칠하려면<br />돈이 더 깨집니다</p>
           </div>
         </div>
       </div>
       <div class="wrap-paint-section-announcement">
         <div class="wrap-paint-section-announcement__inner">
-          <p class="font-light">
+          <p class="font-regular">
             아파트, 주택, 상가, 빌라 실내페인트 베란다 칠 옥상방수 :
           </p>
         </div>
       </div>
       <div class="clear-both"></div>
-      <div class="wrap-etc-section"
-           @click="goToEtcPage"
+      <div
+        class="wrap-etc-section"
+        @click="goToEtcPage"
       >
         <div class="wrap-etc-section__inner">
           <div
-            class="wrap-etc-section__inner__snippet">
+            class="wrap-etc-section__inner__snippet"
+          >
             <p>환풍기<br />건조대<br />포함 모든 집안일<br />해결해 드립니다</p>
           </div>
         </div>
       </div>
       <div class="wrap-etc-section-announcement">
         <div class="wrap-etc-section-announcement__inner">
-          <p class="font-light">
+          <p class="font-regular">
             : 아파트, 주택, 상가, 빌라 실내페인트 베란다 칠 옥상방수
           </p>
         </div>
@@ -146,12 +154,14 @@ export default {
             .wrap-window-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
+                margin-left: 30px;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_window.png') center;
                 float: left;
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
+                    margin: 0;
                 }
                 &__inner {
                     font-family: TmonMonsori;
@@ -179,6 +189,7 @@ export default {
                 }
             }
             .wrap-window-section-announcement {
+                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
@@ -200,12 +211,14 @@ export default {
             .wrap-door-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
+                margin-right: 0;
                 float: right;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_door.png') center;
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
+                    margin: 0;
                 }
                 &__inner {
                     font-family: TmonMonsori;
@@ -234,6 +247,7 @@ export default {
                 }
             }
             .wrap-door-section-announcement {
+                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: left;
@@ -257,12 +271,14 @@ export default {
             .wrap-security-window-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
+                margin-left: 100px;
                 float: left;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_security-window.png') center;
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
+                    margin: 0;
                 }
                 &__inner {
                     font-family: TmonMonsori;
@@ -291,6 +307,7 @@ export default {
                 }
             }
             .wrap-security-window-section-announcement {
+                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: left;
@@ -315,9 +332,11 @@ export default {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
+                margin-right: 60px;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_painting.png') center;
                 @media (max-width: $screen-mobile) {
+                    margin-right: 0;
                     width: 100%;
                     height: 100%;
                 }
@@ -348,6 +367,7 @@ export default {
                 }
             }
             .wrap-paint-section-announcement {
+                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
@@ -371,6 +391,7 @@ export default {
             .wrap-etc-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
+                margin-left: 0;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_tools.png') center;
                 float: left;
@@ -404,6 +425,7 @@ export default {
                 }
             }
             .wrap-etc-section-announcement {
+                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;

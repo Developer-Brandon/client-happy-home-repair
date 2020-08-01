@@ -11,8 +11,8 @@
             <li>상호: 해피 홈 리페어</li>
             <li>대표: 전희선</li>
             <li>주소: 인천시 부평구 경인로 705</li>
-            <li>전화: 010-9018-5553</li>
-            <li>메일: lain4444@naver.com</li>
+            <li><a href="tel:01090185553">전화: 010-9018-5553</a></li>
+            <li><a href="mailto:lain4444@naver.com">메일: lain4444@naver.com</a></li>
             <li>사업자번호: 392-22-00352</li>
           </ul>
           <caption class="owner-information__copyright desktop-visible-inline-only">
@@ -27,9 +27,9 @@
             대표 전화 / 제휴 문의
           </h2>
           <ul class="partnership-information__explain">
-            <li>CALL<br /><span class="email-align">010-9018-5553</span></li>
+            <li>CALL<br /><span class="email-align"><a href="tel:01090185553">010-9018-5553</a></span></li>
             <li>
-              E-MAIL<br /><span class="email-align">lain4444@naver.com</span>
+              E-MAIL<br /><span class="email-align"><a href="mailto:lain4444@naver.com">lain4444@naver.com</a></span>
             </li>
           </ul>
         </div>
@@ -41,7 +41,7 @@
           <ul class="email-information__explain">
             <li>
               E-MAIL<br />
-              <span class="email-align">lovefinance@naver.com</span>
+              <span class="email-align"><a href="mailto:lovefinance@naver.com">lovefinance@naver.com</a></span>
             </li>
           </ul>
         </div>
@@ -99,7 +99,7 @@
               <li>"집안 곳곳의 부서진 곳 수리해드립니다"</li>
               <li>"타 업체에서 수리하지 못하는 곳 수리해드립니다"</li>
               <li class="font-regular">
-                해피 홈 리페어 / 010-9018-5553
+                <a href="tel:01090185553">해피 홈 리페어 / 010-9018-5553</a>
               </li>
               <li>내장수리 전문 해피 홈 리페어에 문의해보세요</li>
             </ul>

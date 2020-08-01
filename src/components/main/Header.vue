@@ -1,6 +1,65 @@
 <template>
   <header class="header">
     <div id="navigation">
+      <div class="mobile-visible-block-only">
+        <Slide
+          width="130"
+          :closeOnNavigation="true"
+          no-overlay
+          disable-esc
+        >
+          <router-link
+            id="home-from-hb"
+            class="menus font-regular"
+            to="/"
+          >
+            <span>
+              <img
+                class="logo-by-hb"
+                alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"
+                src="@/assets/images/logos/final-logo.png"
+              />
+            </span>
+          </router-link>
+          <div class="hhr-light-blue-dotted-divider"></div>
+          <router-link
+            id="products-from-hb"
+            class="menus font-regular"
+            to="/Products"
+          >
+            <span>
+              제품소개
+            </span>
+          </router-link>
+            <router-link
+            id="introduce-company-from-hb"
+            class="menus font-regular"
+            to="/About"
+          >
+            <span>
+              회사소개
+            </span>
+          </router-link>
+            <router-link
+            id="notice-from-hb"
+            class="menus font-regular"
+            to="/Notice"
+          >
+            <span>
+              공지사항
+            </span>
+          </router-link>
+            <router-link
+            id="inquiry-from-hb"
+            class="menus font-regular"
+            to="/Inquiry"
+          >
+            <span>
+              견적문의
+            </span>
+          </router-link>
+        </Slide>
+      </div>
       <div class="wrap-logo-and-title">
         <router-link to="/">
           <img
@@ -52,17 +111,34 @@
   </header>
 </template>
 
-<!--<script>-->
-<!--export default {-->
-<!--methods: {-->
-<!--goToMain () {-->
-<!---->
-<!--}-->
-<!--}-->
-<!--}-->
-<!--</script>-->
+<script>
+import { Slide } from 'vue-burger-menu';
+
+export default {
+  components: {
+    Slide,
+  },
+};
+</script>
 
 <style lang="scss" scoped>
+
+    .hhr-light-blue-dotted-divider {
+      width: 100px;
+      height: 1px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color: #4296ff;
+    }
+
+    .logo-by-hb {
+        @media (max-width: $screen-mobile) {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+    }
+
     .header {
         width: 100%;
         max-width: $screen-desktop;
