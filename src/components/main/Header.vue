@@ -4,60 +4,68 @@
       <div class="mobile-visible-block-only">
         <Slide
           width="130"
-          :closeOnNavigation="true"
-          no-overlay
+          :close-on-navigation="true"
           disable-esc
         >
-          <router-link
-            id="home-from-hb"
-            class="menus font-regular"
-            to="/"
-          >
-            <span>
-              <img
-                class="logo-by-hb"
-                alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"
-                src="@/assets/images/logos/final-logo.png"
-              />
-            </span>
-          </router-link>
-          <div class="hhr-light-blue-dotted-divider"></div>
+          <div class="slider__header">
+            <p class="slider__header__main-title">
+              <router-link
+                id="home-from-hb"
+                class="menus font-regular"
+                to="/"
+              >
+                Happy <br /> Home <br /> Repair
+              </router-link>
+            </p>
+          </div>
+          <!--<img-->
+          <!--class="logo-by-hb"-->
+          <!--alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"-->
+          <!--src="@/assets/images/logos/final-logo.png"-->
+          <!--/>-->
+          <!--</router-link>-->
           <router-link
             id="products-from-hb"
-            class="menus font-regular"
+            class="menus-from-hb font-regular"
             to="/Products"
           >
             <span>
               제품소개
             </span>
           </router-link>
-            <router-link
+          <router-link
             id="introduce-company-from-hb"
-            class="menus font-regular"
+            class="menus-from-hb font-regular"
             to="/About"
           >
             <span>
               회사소개
             </span>
           </router-link>
-            <router-link
+          <router-link
             id="notice-from-hb"
-            class="menus font-regular"
+            class="menus-from-hb font-regular"
             to="/Notice"
           >
             <span>
               공지사항
             </span>
           </router-link>
-            <router-link
+          <router-link
             id="inquiry-from-hb"
-            class="menus font-regular"
+            class="menus-from-hb font-regular"
             to="/Inquiry"
           >
             <span>
               견적문의
             </span>
           </router-link>
+          <br />
+          <br />
+          <br />
+          <br />
+          <div class="slider__footer">
+          </div>
         </Slide>
       </div>
       <div class="wrap-logo-and-title">
@@ -122,13 +130,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .slider {
+        &__header {
+            width: 100%;
+            text-align: center;
+            margin-right: 10%;
+            margin-bottom: 20px;
+            /*border-bottom: 1px dotted rgba(211, 211, 211, 0.8);*/
+            &__main-title {
+                margin: 0 auto;
+            }
+        }
+        &__footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            border-top: 1px dotted rgba(211, 211, 211, 0.8);
+            background-color: rgba(211, 211, 211, 0.4);
+        }
+    }
+
+    .menus-from-hb {
+        text-align: center;
+        border-bottom: 1px dotted rgba(211, 211, 211, 0.8);
+    }
 
     .hhr-light-blue-dotted-divider {
-      width: 100px;
-      height: 1px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      color: #4296ff;
+        width: 100px;
+        height: 1px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: #4296ff;
     }
 
     .logo-by-hb {

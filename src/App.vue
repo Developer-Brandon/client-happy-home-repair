@@ -53,41 +53,43 @@ export default {
 
     // CUSTOM HAMBURGER BUTTON
     .bm-burger-button {
-      width: 34px;
+      width: 30px !important;
       height: 27px !important;
-      left: 15px !important;
+      left: 20px !important;
       top: 18px !important;
       cursor: pointer;
     }
 
     .bm-burger-bars {
-      background-color: #4296ff !important;
+      background-color: black !important;
     }
 
     .bm-menu {
-      background-color: #1567de !important;
+      text-align: center !important;
+      background-color: white !important;
     }
 
     .bm-item-list {
-      color: #4296ff !important;
-      margin-left: 10%;
+      color: $hhr-deep-gray !important;
+      margin-left: 0 !important;
       font-size: 16px !important;
     }
 
     .bm-item-list > * {
       display: flex;
       text-decoration: none;
-      padding: 0.7em;
+      padding: 0.6em !important;
     }
 
     .bm-item-list > * > span {
       font-family: 'TmonTium';
-      margin-left: 10px;
+      margin: 0 auto !important;
       font-weight: 700;
-      color: #4296ff !important;
+      color: $hhr-deep-gray !important;
+      text-align: center !important;
     }
 
     .bm-cross {
-      background: #4296ff !important;
+      background: $hhr-deep-gray !important;
     }
 </style>
