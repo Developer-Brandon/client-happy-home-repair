@@ -53,10 +53,10 @@ export default {
 
     // CUSTOM HAMBURGER BUTTON
     .bm-burger-button {
-      width: 30px !important;
-      height: 27px !important;
-      left: 20px !important;
-      top: 18px !important;
+      width: 25px !important;
+      height: 22px !important;
+      left: 22px !important;
+      top: 20px !important;
       cursor: pointer;
     }
 
@@ -82,7 +82,6 @@ export default {
     }
 
     .bm-item-list > * > span {
-      font-family: 'TmonTium';
       margin: 0 auto !important;
       font-weight: 700;
       color: $hhr-deep-gray !important;

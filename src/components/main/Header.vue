@@ -146,7 +146,7 @@ export default {
             left: 0;
             bottom: 0;
             width: 100%;
-            height: 200px;
+            height: 100px;
             border-top: 1px dotted rgba(211, 211, 211, 0.8);
             background-color: rgba(211, 211, 211, 0.4);
         }
@@ -157,20 +157,20 @@ export default {
         border-bottom: 1px dotted rgba(211, 211, 211, 0.8);
     }
 
-    .hhr-light-blue-dotted-divider {
-        width: 100px;
-        height: 1px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        color: #4296ff;
-    }
-
     .logo-by-hb {
         @media (max-width: $screen-mobile) {
             width: 60px;
             height: 60px;
             margin-bottom: 10px;
         }
+    }
+
+    .hhr-light-blue-dotted-divider {
+        width: 100px;
+        height: 1px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: #4296ff;
     }
 
     .header {
