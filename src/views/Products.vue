@@ -154,7 +154,6 @@ export default {
             .wrap-window-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
-                margin-left: 30px;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_window.png') center;
                 float: left;

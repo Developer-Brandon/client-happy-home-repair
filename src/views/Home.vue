@@ -142,7 +142,14 @@ export default {
   },
   methods: {
     goToNaverBlog() {
-      window.open('http://blog.naver.com/prologue/PrologueList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true');
+      const standardOfMatchMedia = window.matchMedia('screen and (max-width: 768px)');
+      const pcNaverBlog = 'https://blog.naver.com/prologue/PrologueList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true';
+      const mobileNaverBlog = 'https://m.blog.naver.com/PostList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true';
+      if (standardOfMatchMedia.matches) {
+        window.open(mobileNaverBlog);
+      } else {
+        window.open(pcNaverBlog);
+      }
     },
     callToPhone() {
       document.location.href = 'tel:010-9018-5553';

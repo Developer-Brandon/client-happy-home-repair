@@ -356,26 +356,30 @@ export default {
                         }
                     }
                     // 2 sns channels
+                  .sns-channels {
+                    width: 100%;
+                    height: 45px;
                     .wrap-sns-logo {
-                        display: inline-block;
-                        float: right;
-                        @media (max-width: $screen-mobile) {
+                      display: inline-block;
+                      float: right;
+                      @media (max-width: $screen-mobile) {
+                      }
+                      .logo {
+                        width: 40px;
+                        height: 40px;
+                        margin-right: 10px;
+                        opacity: 0.5;
+                        transition: 0.3s;
+                        &:last-child {
+                          margin-right: 0;
                         }
-                        .logo {
-                            width: 40px;
-                            height: 40px;
-                            margin-right: 10px;
-                            opacity: 0.5;
-                            transition: 0.3s;
-                            &:last-child {
-                                margin-right: 0;
-                            }
-                            &:hover {
-                                opacity: 1;
-                                cursor: pointer;
-                            }
+                        &:hover {
+                          opacity: 1;
+                          cursor: pointer;
                         }
+                      }
                     }
+                  }
                     // 3 sub title
                     .wrap-sub-title {
                         .sub-title-list {

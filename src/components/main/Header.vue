@@ -3,7 +3,7 @@
     <div id="navigation">
       <div class="mobile-visible-block-only">
         <Slide
-          width="130"
+          width="140"
           :close-on-navigation="true"
           disable-esc
         >
@@ -14,19 +14,17 @@
                 class="menus font-regular"
                 to="/"
               >
-                Happy <br /> Home <br /> Repair
+                <img
+                  class="logo-by-hb"
+                  alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"
+                  src="@/assets/images/logos/main-title-logo-black-version.png"
+                />
               </router-link>
             </p>
           </div>
-          <!--<img-->
-          <!--class="logo-by-hb"-->
-          <!--alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"-->
-          <!--src="@/assets/images/logos/final-logo.png"-->
-          <!--/>-->
-          <!--</router-link>-->
           <router-link
             id="products-from-hb"
-            class="menus-from-hb font-regular"
+            class="menus-from-hb"
             to="/Products"
           >
             <span>
@@ -65,6 +63,29 @@
           <br />
           <br />
           <div class="slider__footer">
+            <div class="sns-channels">
+              <div class="wrap-sns-logo">
+                <img
+                  class="logo"
+                  alt="인스타그램"
+                  src="@/assets/images/logos/sns/icon-instagram.png"
+                />
+              </div>
+              <div class="wrap-sns-logo">
+                <img
+                  class="logo"
+                  alt="네이버 블로그"
+                  src="@/assets/images/logos/sns/icon-naverblog.png"
+                />
+              </div>
+              <div class="wrap-sns-logo">
+                <img
+                  class="logo"
+                  alt="카카오톡"
+                  src="@/assets/images/logos/sns/icon-kakaotalk.png"
+                />
+              </div>
+            </div>
           </div>
         </Slide>
       </div>
@@ -126,17 +147,18 @@ export default {
   components: {
     Slide,
   },
+  methods: {
+    callToPhone() {
+      document.location.href = 'tel:010-9018-5553';
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
     .slider {
         &__header {
-            width: 100%;
             text-align: center;
-            margin-right: 10%;
-            margin-bottom: 20px;
-            /*border-bottom: 1px dotted rgba(211, 211, 211, 0.8);*/
             &__main-title {
                 margin: 0 auto;
             }
@@ -146,22 +168,49 @@ export default {
             left: 0;
             bottom: 0;
             width: 100%;
-            height: 100px;
+            height: 200px;
             border-top: 1px dotted rgba(211, 211, 211, 0.8);
             background-color: rgba(211, 211, 211, 0.4);
+            .sns-channels {
+                width: 120px;
+                height: 45px;
+                padding-top: 10px;
+                .wrap-sns-logo {
+                    @media (max-width: $screen-mobile) {
+                        display: inline-block;
+                        float: right;
+                    }
+                    .logo {
+                        width: 40px;
+                        height: 40px;
+                        margin-right: 10px;
+                        opacity: 0.5;
+                        transition: 0.3s;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                        &:hover {
+                            opacity: 1;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
         }
     }
 
     .menus-from-hb {
+        margin-top: 5px;
+        margin-bottom: 5px;
         text-align: center;
-        border-bottom: 1px dotted rgba(211, 211, 211, 0.8);
+        // border-bottom: 1px dotted rgba(211, 211, 211, 0.8);
     }
 
     .logo-by-hb {
         @media (max-width: $screen-mobile) {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
+            width: 45px;
+            height: 45px;
+            margin-bottom: 5px;
         }
     }
 
@@ -188,8 +237,7 @@ export default {
             padding-left: 40px;
             padding-right: 40px;
             position: center;
-            background-repeat: no-repeat;
-            background-image: none;
+            background: none no-repeat;
             background-position-x: right;
             background-size: 200px 45px;
             @media (max-width: $screen-mobile) {
