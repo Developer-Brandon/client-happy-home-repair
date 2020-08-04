@@ -301,7 +301,7 @@ export default {
                             .sub-title {
                                 position: absolute;
                                 top: 3px;
-                                left: 50%;
+                                left: 40%;
                                 font-size: 9px;
                                 opacity: 0.5;
                                 transition: 0.3s;

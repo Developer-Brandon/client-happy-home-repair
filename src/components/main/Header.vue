@@ -281,7 +281,7 @@ export default {
                     .sub-title {
                         position: absolute;
                         top: 3px;
-                        left: 50%;
+                        left: 40%;
                         font-size: 9px;
                         transition: 0.3s;
                         @media (max-width: $screen-mobile) {

@@ -268,7 +268,7 @@ export default {
             .wrap-security-window-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
-                margin-left: 100px;
+                margin-left: 120px;
                 float: left;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_security-window.png') center;
@@ -278,7 +278,6 @@ export default {
                     margin: 0;
                 }
                 &__inner {
-
                     width: 100%;
                     height: 100%;
                     padding: 20px;
@@ -393,6 +392,7 @@ export default {
                 background: url('~@/assets/images/products/fixed_tools.png') center;
                 float: left;
                 @media (max-width: $screen-mobile) {
+                    width: 100%;
                     height: 100%;
                 }
                 &__inner {
