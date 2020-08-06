@@ -288,7 +288,7 @@ export default {
                     }
                     // 1 logo & title
                     .wrap-logo-and-title {
-                        cursor: pointer;
+                        cursor: default;
                         float: right;
                         padding-left: 15px;
                         margin-bottom: 15px;

@@ -61,11 +61,13 @@ export default {
     }
 
     .bm-menu {
+        transition: 0.2s !important;
         text-align: center !important;
         background-color: white !important;
     }
 
     .bm-item-list {
+        width: 150px !important;
         color: $hhr-deep-gray !important;
         margin-left: 0 !important;
         font-size: 16px !important;
@@ -86,5 +88,10 @@ export default {
 
     .bm-cross {
         background: $hhr-deep-gray !important;
+    }
+
+    .bm-cross-button {
+        width: 30px;
+        height: 30px;
     }
 </style>

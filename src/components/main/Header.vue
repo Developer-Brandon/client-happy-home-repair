@@ -3,7 +3,7 @@
     <div id="navigation">
       <div class="mobile-visible-block-only">
         <Slide
-          width="140"
+          width="150"
           :close-on-navigation="true"
           disable-esc
           @openMenu="handleOpenMenu"
@@ -197,7 +197,7 @@ export default {
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 100%;
+            width: 150px;
             height: 100px;
             border-top: 1px dotted rgba(211, 211, 211, 0.8);
             background-color: rgba(211, 211, 211, 0.4);
@@ -205,6 +205,7 @@ export default {
                 width: 120px;
                 height: 45px;
                 padding-top: 10px;
+                margin: 0 auto;
                 .wrap-sns-logo {
                     @media (max-width: $screen-mobile) {
                         display: inline-block;
