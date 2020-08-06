@@ -11,7 +11,10 @@
   "dependencies": {
     "axios": "^0.19.2",
     "babel-polyfill": "^6.26.0",
+    "cheero": "0.0.1",
     "core-js": "^3.6.5",
+    "es6-promise": "^4.2.8",
+    "jquery": "^3.5.1",
     "vue": "^2.6.11",
     "vue-burger-menu": "^2.0.5",
     "vue-meta": "^2.4.0",

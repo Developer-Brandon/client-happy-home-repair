@@ -138,27 +138,27 @@ export default {
           whereClientInflow: true,
         },
       },
-    };
+    }
   },
   methods: {
     goToNaverBlog() {
-      const standardOfMatchMedia = window.matchMedia('screen and (max-width: 768px)');
-      const pcNaverBlog = 'https://blog.naver.com/prologue/PrologueList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true';
-      const mobileNaverBlog = 'https://m.blog.naver.com/PostList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true';
+      const standardOfMatchMedia = window.matchMedia('screen and (max-width: 768px)')
+      const pcNaverBlog = 'https://blog.naver.com/prologue/PrologueList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true'
+      const mobileNaverBlog = 'https://m.blog.naver.com/PostList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true'
       if (standardOfMatchMedia.matches) {
-        window.open(mobileNaverBlog);
+        window.open(mobileNaverBlog)
       } else {
-        window.open(pcNaverBlog);
+        window.open(pcNaverBlog)
       }
     },
     callToPhone() {
-      document.location.href = 'tel:010-9018-5553';
+      document.location.href = 'tel:010-9018-5553'
     },
     callApplicationFormModal() {
-      window.alert('준비중인 기능입니다');
+      window.alert('준비중인 기능입니다')
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -190,12 +190,12 @@ export default {
                         height: 260px;
                         &__wrap-logo {
                             text-align: center;
-                            &:hover {
-                                cursor: pointer;
-                            }
                             .logo {
                                 width: 120px;
                                 height: 120px;
+                                &:hover {
+                                  cursor: pointer;
+                                }
                                 @media (max-width: $screen-mobile) {
                                     width: 100px;
                                     height: 100px;

@@ -9,7 +9,9 @@
           <div
             class="wrap-window-section__inner__snippet"
           >
-            <p class="font-bold">아직도, <br />고장난 창문을<br />그.대.로<br />사용하고 계신가요?</p>
+            <p class="font-bold">
+              아직도, <br />고장난 창문을<br />그.대.로<br />사용하고 계신가요?
+            </p>
           </div>
         </div>
       </div>
@@ -29,7 +31,9 @@
           <div
             class="wrap-door-section__inner__snippet"
           >
-            <p class="font-bold">문을<br />통째로<br />교체하기 전에<br />교체하셔야 합니다</p>
+            <p class="font-bold">
+              문을<br />통째로<br />교체하기 전에<br />교체하셔야 합니다
+            </p>
           </div>
         </div>
       </div>
@@ -49,7 +53,9 @@
           <div
             class="wrap-security-window-section__inner__snippet"
           >
-            <p class="font-bold">각종<br />방충망<br />밤벙창<br />교체해 드립니다</p>
+            <p class="font-bold">
+              각종<br />방충망<br />밤벙창<br />교체해 드립니다
+            </p>
           </div>
         </div>
       </div>
@@ -71,7 +77,9 @@
           <div
             class="wrap-paint-section__inner__snippet"
           >
-            <p class="font-bold">페인트<br />칠은<br />다시 칠하려면<br />돈이 더 깨집니다</p>
+            <p class="font-bold">
+              페인트<br />칠은<br />다시 칠하려면<br />돈이 더 깨집니다
+            </p>
           </div>
         </div>
       </div>
@@ -91,7 +99,9 @@
           <div
             class="wrap-etc-section__inner__snippet"
           >
-            <p class="font-bold">환풍기<br />건조대<br />포함 모든 집안일<br />해결해 드립니다</p>
+            <p class="font-bold">
+              환풍기<br />건조대<br />포함 모든 집안일<br />해결해 드립니다
+            </p>
           </div>
         </div>
       </div>
@@ -115,22 +125,22 @@ export default {
   name: 'Products',
   methods: {
     goToWindowPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=7');
+      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=7')
     },
     goToDoorPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=9');
+      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=9')
     },
     goToSecurityWindowPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=9');
+      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=9')
     },
     goToPaintPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=33');
+      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=33')
     },
     goToEtcPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=28&parentCategoryNo=28');
+      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=28&parentCategoryNo=28')
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

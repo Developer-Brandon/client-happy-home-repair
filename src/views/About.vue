@@ -93,24 +93,22 @@
             </p>
           </div>
           <div class="contents">
-            <div class="contents__up">
-              <p class="title font-semi-bold">
-                본사안내
-              </p>
+            <div class="wrap-google-map">
+              <iframe
+                class="google-map"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12665.969553240351!2d126.7086183!3d37.4727054!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3f79a53be0c2baa7!2z7ZW07ZS87ZmI66as7Y6Y7Ja0!5e0!3m2!1sko!2skr!4v1596603748019!5m2!1sko!2skr"
+                width="700"
+                height="300"
+                frameborder="0"
+                style="border:0;"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0"
+              ></iframe>
             </div>
-            <div class="contents__down">
-              <div class="naver-address">
-                <!-- * 카카오맵 - 지도퍼가기 -->
-                <!-- 1. 지도 노드 -->
-                <div
-                  id="daumRoughmapContainer1596529272162"
-                  class="root_daum_roughmap root_daum_roughmap_landing"
-                ></div>
-              </div>
-              <div class="address-info">
-                <span class="address">인천시 부평구 경인로 705</span>
-                <span class="phone-number">&nbsp;&nbsp;&nbsp;&nbsp;TEL.010-9018-5553</span>
-              </div>
+            <div class="address-info">
+              <span class="address">인천시 부평구 경인로 705 해피홈리페어</span>
+              <span class="phone-number">&nbsp;/&nbsp;TEL.010-9018-5553</span>
             </div>
           </div>
         </div>
@@ -119,22 +117,6 @@
     </div>
   </div>
 </template>
-
-<!--&lt;!&ndash; 2. 설치 스크립트 * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다. &ndash;&gt;-->
-<!--<script-->
-<!--charset="UTF-8"-->
-<!--class="daum_roughmap_loader_script"-->
-<!--src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"-->
-<!--&gt;</script>-->
-<!--&lt;!&ndash; 3. 실행 스크립트 &ndash;&gt;-->
-<!--<script charset="UTF-8">-->
-<!--new daum.roughmap.Lander({-->
-<!--"timestamp": "1596529272162",-->
-<!--"key": "2zihp",-->
-<!--"mapWidth": "640",-->
-<!--"mapHeight": "360"-->
-<!--}).render();-->
-<!--</script>-->
 
 <style lang="scss" scoped>
     @mixin title-common-style {
@@ -181,7 +163,7 @@
                 &__inner {
                     width: 100%;
                     height: 450px;
-                    margin-bottom: 50px;
+                    margin-bottom: 100px;
                     @media (max-width: $screen-mobile) {
                         height: 100%;
                         margin-bottom: 50px;
@@ -241,7 +223,7 @@
                 &__inner {
                     width: 100%;
                     height: 350px;
-                    margin-bottom: 50px;
+                    margin-bottom: 100px;
                     @media (max-width: $screen-mobile) {
                         height: 100%;
                         margin-bottom: 50px;
@@ -316,7 +298,7 @@
                 &__inner {
                     width: 100%;
                     height: 450px;
-                    margin-bottom: 50px;
+                    margin-bottom: 100px;
                     @media (max-width: $screen-mobile) {
                         height: 100%;
                         margin-bottom: 50px;
@@ -330,23 +312,22 @@
                         @media (max-width: $screen-mobile) {
                             height: 100%;
                         }
-                        &__up {
-                            .title {
-                                margin-top: 15px;
-                                margin-bottom: 5px;
+                        .wrap-google-map {
+                            text-align: center;
+                            margin-bottom: 10px;
+                            .google-map {
+                                @media (max-width: $screen-mobile) {
+                                    width: 100%;
+                                }
                             }
                         }
-                        &__down {
-                            .naver-address {
-                                text-align: center;
+                        .address-info {
+                          text-align: center;
+                            .address {
+                                padding-top: 20px;
+                                margin-bottom: 10px;
                             }
-                            .address-info {
-                                .address {
-                                    padding-top: 20px;
-                                    margin-bottom: 10px;
-                                }
-                                .phone-number {
-                                }
+                            .phone-number {
                             }
                         }
                     }

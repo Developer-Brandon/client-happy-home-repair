@@ -15,8 +15,12 @@
             <li><a href="mailto:lain4444@naver.com">메일: lain4444@naver.com</a></li>
             <li>사업자번호: 392-22-00352</li>
           </ul>
-          <caption class="owner-information__copyright desktop-visible-inline-only">
+          <caption class="owner-information__copyright desktop-visible-block-only">
             Copyright©DKStudio
+          </caption>
+          <caption class="owner-information__clarify-font-copyright desktop-visible-block-only">
+            이 제작물은 아모레퍼시픽의
+            아리따글꼴을 사용하여 디자인 되었습니다.
           </caption>
         </div>
       </div>
@@ -29,7 +33,9 @@
           <ul class="partnership-information__explain">
             <li>CALL<br /><span class="email-align"><a href="tel:01090185553">010-9018-5553</a></span></li>
             <li>
-              E-MAIL<br /><span class="email-align"><a href="mailto:lain4444@naver.com">lain4444@naver.com</a></span>
+              E-MAIL<br /><span class="email-align"><a
+                href="mailto:lain4444@naver.com"
+              >lain4444@naver.com</a></span>
             </li>
           </ul>
         </div>
@@ -41,7 +47,9 @@
           <ul class="email-information__explain">
             <li>
               E-MAIL<br />
-              <span class="email-align"><a href="mailto:lovefinance@naver.com">lovefinance@naver.com</a></span>
+              <span class="email-align"><a
+                href="mailto:lovefinance@naver.com"
+              >lovefinance@naver.com</a></span>
             </li>
           </ul>
         </div>
@@ -103,6 +111,13 @@
               </li>
               <li>내장수리 전문 해피 홈 리페어에 문의해보세요</li>
             </ul>
+            <caption class="copyright mobile-visible-block-only">
+              Copyright©DKStudio
+            </caption>
+            <caption class="clarify-font-copyright mobile-visible-block-only">
+              이 제작물은 아모레퍼시픽의
+              아리따글꼴을 사용하여 디자인 되었습니다.
+            </caption>
           </div>
           <div class="clear-both"></div>
         </div>
@@ -114,7 +129,7 @@
 <script>
 export default {
   name: 'Footer',
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -181,8 +196,14 @@ export default {
                     }
                     &__copyright {
                         position: absolute;
-                        bottom: 0;
+                        bottom: 12px;
                         font-size: 10px;
+                        color: #333333;
+                    }
+                    &__clarify-font-copyright {
+                        position: absolute;
+                        bottom: 0;
+                        font-size: 6pt;
                         color: #333333;
                     }
                 }
@@ -356,37 +377,47 @@ export default {
                         }
                     }
                     // 2 sns channels
-                  .sns-channels {
-                    width: 100%;
-                    height: 45px;
-                    .wrap-sns-logo {
-                      display: inline-block;
-                      float: right;
-                      @media (max-width: $screen-mobile) {
-                      }
-                      .logo {
-                        width: 40px;
-                        height: 40px;
-                        margin-right: 10px;
-                        opacity: 0.5;
-                        transition: 0.3s;
-                        &:last-child {
-                          margin-right: 0;
+                    .sns-channels {
+                        width: 100%;
+                        height: 45px;
+                        .wrap-sns-logo {
+                            display: inline-block;
+                            float: right;
+                            .logo {
+                                width: 40px;
+                                height: 40px;
+                                margin-right: 10px;
+                                opacity: 0.5;
+                                transition: 0.3s;
+                                &:last-child {
+                                    margin-right: 0;
+                                }
+                                &:hover {
+                                    opacity: 1;
+                                    cursor: pointer;
+                                }
+                            }
                         }
-                        &:hover {
-                          opacity: 1;
-                          cursor: pointer;
-                        }
-                      }
                     }
-                  }
                     // 3 sub title
                     .wrap-sub-title {
                         .sub-title-list {
                             line-height: 20px;
                             text-align: right;
                             font-size: 12px;
+                            margin-bottom: 30px;
                         }
+                      .copyright {
+                        @media (max-width: $screen-mobile) {
+                          text-align: right;
+                          font-size: 8px;
+                          margin-bottom: 3px;
+                        }
+                      }
+                      .clarify-font-copyright {
+                        text-align: right;
+                        font-size: 6pt;
+                      }
                     }
                 }
             }

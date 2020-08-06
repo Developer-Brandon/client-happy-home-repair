@@ -6,6 +6,8 @@
           width="140"
           :close-on-navigation="true"
           disable-esc
+          @openMenu="handleOpenMenu"
+          @closeMenu="handleCloseMenu"
         >
           <div class="slider__header">
             <p class="slider__header__main-title">
@@ -58,10 +60,6 @@
               견적문의
             </span>
           </router-link>
-          <br />
-          <br />
-          <br />
-          <br />
           <div class="slider__footer">
             <div class="sns-channels">
               <div class="wrap-sns-logo">
@@ -141,18 +139,50 @@
 </template>
 
 <script>
-import { Slide } from 'vue-burger-menu';
+import { Slide } from 'vue-burger-menu'
 
 export default {
   components: {
     Slide,
   },
   methods: {
+    blockTouchEventWithoutHamburgerButtonSection() {
+      $('#router-view').bind('click', (e) => {
+        e.preventDefault()
+      })
+      $('#router-view').bind('touchstart', (e) => {
+        e.preventDefault()
+      })
+    },
+    activeTouchEvent() {
+      $('#router-view').unbind('click')
+      $('#router-view').unbind('touchstart')
+    },
+    callRemoveWholeWindowScroll() {
+      // firefox, chrome
+      document.documentElement.style.overflow = 'hidden'
+      // ie only
+      document.body.scroll = 'no'
+    },
+    callCreateWholeWindowScroll() {
+      // firefox, chrome
+      document.documentElement.style.overflow = 'auto'
+      // ie only
+      document.body.scroll = 'yes'
+    },
     callToPhone() {
-      document.location.href = 'tel:010-9018-5553';
+      document.location.href = 'tel:010-9018-5553'
+    },
+    handleOpenMenu() {
+      this.callRemoveWholeWindowScroll()
+      this.blockTouchEventWithoutHamburgerButtonSection()
+    },
+    handleCloseMenu() {
+      this.callCreateWholeWindowScroll()
+      this.activeTouchEvent()
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -168,7 +198,7 @@ export default {
             left: 0;
             bottom: 0;
             width: 100%;
-            height: 200px;
+            height: 100px;
             border-top: 1px dotted rgba(211, 211, 211, 0.8);
             background-color: rgba(211, 211, 211, 0.4);
             .sns-channels {
@@ -208,8 +238,8 @@ export default {
 
     .logo-by-hb {
         @media (max-width: $screen-mobile) {
-            width: 45px;
-            height: 45px;
+            width: 55px;
+            height: 55px;
             margin-bottom: 5px;
         }
     }
