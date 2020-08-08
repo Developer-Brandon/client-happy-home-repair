@@ -128,6 +128,11 @@
 </template>
 
 <script>
+import MatchMedia from '@/assets/js/resolution/matchMedia'
+import ContactInformation from '@/assets/js/address/contactInformation'
+
+let matchMedia
+let contactinformation
 
 export default {
   name: 'Home',
@@ -140,19 +145,22 @@ export default {
       },
     }
   },
+  mounted() {
+    matchMedia = new MatchMedia()
+    contactinformation = new ContactInformation()
+  },
   methods: {
     goToNaverBlog() {
-      const standardOfMatchMedia = window.matchMedia('screen and (max-width: 768px)')
-      const pcNaverBlog = 'https://blog.naver.com/prologue/PrologueList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true'
-      const mobileNaverBlog = 'https://m.blog.naver.com/PostList.nhn?blogId=lain4444&skinType=&skinId=&from=menu&userSelectMenu=true'
-      if (standardOfMatchMedia.matches) {
-        window.open(mobileNaverBlog)
+      if (matchMedia.isMobile) {
+        contactinformation.type = 'mobile'
+        window.open(contactinformation.getBlogAddress)
       } else {
-        window.open(pcNaverBlog)
+        contactinformation.type = 'pc'
+        window.open(contactinformation.getBlogAddress)
       }
     },
     callToPhone() {
-      document.location.href = 'tel:010-9018-5553'
+      document.location.href = contactinformation.getPhoneNumber
     },
     callApplicationFormModal() {
       window.alert('준비중인 기능입니다')
@@ -194,7 +202,7 @@ export default {
                                 width: 120px;
                                 height: 120px;
                                 &:hover {
-                                  cursor: pointer;
+                                    cursor: pointer;
                                 }
                                 @media (max-width: $screen-mobile) {
                                     width: 100px;

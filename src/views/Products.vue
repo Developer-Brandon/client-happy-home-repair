@@ -121,23 +121,45 @@
 </template>
 
 <script>
+import ContactInformation from '@/assets/js/address/contactInformation'
+import MatchMedia from '@/assets/js/resolution/matchMedia'
+
+let contactInformation
+let matchMedia
+
 export default {
   name: 'Products',
+  mounted() {
+    contactInformation = new ContactInformation()
+    matchMedia = new MatchMedia()
+  },
   methods: {
+    judgeResolution() {
+      if (matchMedia.isMobile) {
+        contactInformation.type = 'mobile'
+      } else {
+        contactInformation.type = 'pc'
+      }
+    },
     goToWindowPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=7')
+      this.judgeResolution()
+      window.open(contactInformation.getWindowPage())
     },
     goToDoorPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=9')
+      this.judgeResolution()
+      window.open(contactInformation.getDoorPage())
     },
     goToSecurityWindowPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=9')
+      this.judgeResolution()
+      window.open(contactInformation.getSecurityWindowPage())
     },
     goToPaintPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=33')
+      this.judgeResolution()
+      window.open(contactInformation.getPaintPage())
     },
     goToEtcPage() {
-      window.open('https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=28&parentCategoryNo=28')
+      this.judgeResolution()
+      window.open(contactInformation.getEtcPage())
     },
   },
 }

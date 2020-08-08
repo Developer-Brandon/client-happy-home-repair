@@ -1,57 +1,57 @@
-// tmon의 서체는 서체별로 font-weight가 없다고 보면 된다
+/**** 1.Tmon ****/
 
 /* TmonMonsori */
 @font-face {
   font-family: 'TmonMonsori';
   font-weight: 400;
-  src: url('~@/assets/fonts/TmonFont/TmonMonsori.ttf');
+  src: url('~@/assets/fonts/tmonFont/Tmon-Monsori.ttf');
 }
 
 /* TmonTium */
 @font-face {
   font-family: 'TmonTium';
   font-weight: 400;
-  src: url('~@/assets/fonts/TmonFont/TmonTium.ttf');
+  src: url('~@/assets/fonts/tmonFont/Tmon-Tium.ttf');
 }
 
-// 아리따움 서체
+/**** 2.Arita dotum ****/
 
-/* Arita-HLight */
+/* Thin */
 @font-face {
   font-family: 'Arita';
   font-weight: 100;
-  src: url('~@/assets/fonts/AritaBuri/Arita-buriHL.ttf');
+  src: url('~@/assets/fonts/aritaDotum/Arita-Dotum-Thin.ttf');
 }
 
-/* Arita-Light */
+/* Light */
 @font-face {
   font-family: 'Arita';
   font-weight: 200;
-  src: url('~@/assets/fonts/AritaDotum/Arita_Dotum_Light.ttf');
+  src: url('~@/assets/fonts/aritaDotum/Arita-Dotum-Light.ttf');
 }
 
-/* Arita-Medium */
+/* Medium */
 @font-face {
   font-family: 'Arita';
   font-weight: 300;
-  src: url('~@/assets/fonts/AritaDotum/Arita_Dotum_Medium.ttf');
+  src: url('~@/assets/fonts/aritaDotum/Arita-Dotum-Medium.ttf');
 }
 
-/* Arita-SemiBold */
+/* Semi Bold */
 @font-face {
   font-family: 'Arita';
   font-weight: 400;
-  src: url('~@/assets/fonts/AritaDotum/Arita_Dotum_SemiBold.ttf');
+  src: url('~@/assets/fonts/aritaDotum/Arita-Dotum-Semi-Bold.ttf');
 }
 
-/* Arita-Bold */
+/* Bold */
 @font-face {
   font-family: 'Arita';
   font-weight: 700;
-  src: url('~@/assets/fonts/AritaDotum/Arita_Dotum_Bold.ttf');
+  src: url('~@/assets/fonts/aritaDotum/Arita-Dotum-Bold.ttf');
 }
 
-.font-hair-line {
+.font-thin {
   font-weight: 100;
 }
 

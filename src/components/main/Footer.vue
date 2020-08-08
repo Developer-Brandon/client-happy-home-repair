@@ -102,7 +102,7 @@
           <div class="clear-both"></div>
           <div class="hhr-gray-small-divider"></div>
           <div class="wrap-sub-title">
-            <ul class="sub-title-list font-hair-line">
+            <ul class="sub-title-list font-thin">
               <li>내장수리 20년 경력의 전문가가 확실하게 고쳐드립니다</li>
               <li>"집안 곳곳의 부서진 곳 수리해드립니다"</li>
               <li>"타 업체에서 수리하지 못하는 곳 수리해드립니다"</li>

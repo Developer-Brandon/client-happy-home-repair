@@ -67,6 +67,7 @@
                   class="logo"
                   alt="인스타그램"
                   src="@/assets/images/logos/sns/icon-instagram.png"
+                  @click="goInstagram"
                 />
               </div>
               <div class="wrap-sns-logo">
@@ -74,6 +75,7 @@
                   class="logo"
                   alt="네이버 블로그"
                   src="@/assets/images/logos/sns/icon-naverblog.png"
+                  @click="goNaverBlog"
                 />
               </div>
               <div class="wrap-sns-logo">
@@ -81,6 +83,7 @@
                   class="logo"
                   alt="카카오톡"
                   src="@/assets/images/logos/sns/icon-kakaotalk.png"
+                  @click="goKakaotalkChannel"
                 />
               </div>
             </div>
@@ -140,12 +143,21 @@
 
 <script>
 import { Slide } from 'vue-burger-menu'
+import ContactInformation from '@/assets/js/address/contactInformation'
+
+let contactInformation
 
 export default {
   components: {
     Slide,
   },
+  mounted() {
+    this.initialObjects()
+  },
   methods: {
+    initialObjects() {
+      contactInformation = new ContactInformation()
+    },
     blockTouchEventWithoutHamburgerButtonSection() {
       $('#router-view').bind('click', (e) => {
         e.preventDefault()
@@ -180,6 +192,16 @@ export default {
     handleCloseMenu() {
       this.callCreateWholeWindowScroll()
       this.activeTouchEvent()
+    },
+    goInstagram() {
+    },
+    goNaverBlog() {
+      contactInformation.type = 'pc'
+      window.open(contactInformation.getBlogAddress())
+      contactInformation.type = 'mobile'
+      window.open(contactInformation.getBlogAddress())
+    },
+    goKakaotalkChannel() {
     },
   },
 }
@@ -234,7 +256,6 @@ export default {
         margin-top: 5px;
         margin-bottom: 5px;
         text-align: center;
-        // border-bottom: 1px dotted rgba(211, 211, 211, 0.8);
     }
 
     .logo-by-hb {
