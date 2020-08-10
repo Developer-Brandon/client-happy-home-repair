@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <hhr-header />
-      <router-view id="router-view" />
+      <router-view />
       <hhr-footer />
     </div>
   </div>
@@ -38,60 +38,11 @@ export default {
 <style lang="scss">
     // 위에 scss에는 scoped 채우면 안됩니다
     #app {
-        font-family: 'Arita', serif;
         .container {
             overflow-x: hidden;
             overflow-y: auto;
             max-width: 100%;
             margin: 0;
         }
-    }
-
-    // CUSTOM HAMBURGER BUTTON
-    .bm-burger-button {
-        width: 25px !important;
-        height: 22px !important;
-        left: 22px !important;
-        top: 20px !important;
-        cursor: pointer;
-    }
-
-    .bm-burger-bars {
-        background-color: black !important;
-    }
-
-    .bm-menu {
-        transition: 0.2s !important;
-        text-align: center !important;
-        background-color: white !important;
-    }
-
-    .bm-item-list {
-        width: 150px !important;
-        color: $hhr-deep-gray !important;
-        margin-left: 0 !important;
-        font-size: 16px !important;
-    }
-
-    .bm-item-list > * {
-        display: flex;
-        text-decoration: none;
-        padding: 0.6em !important;
-    }
-
-    .bm-item-list > * > span {
-        margin: 0 auto !important;
-        font-weight: 700;
-        color: $hhr-deep-gray !important;
-        text-align: center !important;
-    }
-
-    .bm-cross {
-        background: $hhr-deep-gray !important;
-    }
-
-    .bm-cross-button {
-        width: 30px;
-        height: 30px;
     }
 </style>

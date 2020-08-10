@@ -75,7 +75,7 @@
               </h1>
             </div>
           </div>
-          <div class="clear-both"></div>
+          <hhr-clear-both></hhr-clear-both>
           <div class="sns-channels">
             <div class="wrap-sns-logo">
               <img
@@ -89,6 +89,7 @@
                 class="logo"
                 alt="네이버 블로그"
                 src="@/assets/images/logos/sns/icon-naverblog.png"
+                @click="goNaverBlog"
               />
             </div>
             <div class="wrap-sns-logo">
@@ -99,7 +100,7 @@
               />
             </div>
           </div>
-          <div class="clear-both"></div>
+          <hhr-clear-both></hhr-clear-both>
           <div class="hhr-gray-small-divider"></div>
           <div class="wrap-sub-title">
             <ul class="sub-title-list font-thin">
@@ -119,7 +120,7 @@
               아리따글꼴을 사용하여 디자인 되었습니다.
             </caption>
           </div>
-          <div class="clear-both"></div>
+          <hhr-clear-both></hhr-clear-both>
         </div>
       </div>
     </div>
@@ -127,8 +128,40 @@
 </template>
 
 <script>
+import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
+import MatchMedia from '@/assets/js/resolution/matchMedia'
+import ContactInformation from '@/assets/js/address/contactInformation'
+
+let contactInformation
+let matchMedia
+
 export default {
   name: 'Footer',
+  components: {
+    HhrClearBoth,
+  },
+  mounted() {
+    this.initialObjects()
+  },
+  methods: {
+    initialObjects() {
+      contactInformation = new ContactInformation()
+      matchMedia = new MatchMedia()
+    },
+    goInstagram() {
+    },
+    goNaverBlog() {
+      if (matchMedia.isMobile) {
+        contactInformation.type = 'mobile'
+        window.open(contactInformation.getBlogAddress())
+      } else {
+        contactInformation.type = 'pc'
+        window.open(contactInformation.getBlogAddress())
+      }
+    },
+    goKakaotalkChannel() {
+    },
+  },
 }
 </script>
 
@@ -407,17 +440,17 @@ export default {
                             font-size: 12px;
                             margin-bottom: 30px;
                         }
-                      .copyright {
-                        @media (max-width: $screen-mobile) {
-                          text-align: right;
-                          font-size: 8px;
-                          margin-bottom: 3px;
+                        .copyright {
+                            @media (max-width: $screen-mobile) {
+                                text-align: right;
+                                font-size: 8px;
+                                margin-bottom: 3px;
+                            }
                         }
-                      }
-                      .clarify-font-copyright {
-                        text-align: right;
-                        font-size: 6pt;
-                      }
+                        .clarify-font-copyright {
+                            text-align: right;
+                            font-size: 6pt;
+                        }
                     }
                 }
             }

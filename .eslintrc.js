@@ -46,6 +46,7 @@ module.exports = {
 		'max-len': 'off',
 		'no-underscore-dangle': 'off',
 		'class-methods-use-this': 'off',
+		'import/prefer-default-export': 'off',
 		'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 	},

@@ -27,12 +27,12 @@ export default class ContactInformation {
   getDoorPage() {
     if (this._type !== undefined) {
       if (this._type === 'pc') {
-        return 'https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=9'
+        return 'https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=40'
       }
       if (this._type === 'mobile') {
-        return 'https://m.blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=9'
+        return 'https://m.blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=40'
       }
-      return 'https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=9'
+      return 'https://blog.naver.com/PostList.nhn?blogId=lain4444&from=postList&categoryNo=40'
     }
     return window.alert('You have to insert type argument first!')
   }

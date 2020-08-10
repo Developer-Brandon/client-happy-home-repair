@@ -90,10 +90,17 @@
   margin-bottom: 5px;
 }
 
-.above-dot {
+.hhr-above-dot {
   font-size: 30px;
   text-emphasis-style: dot;
   text-emphasis-position: over left;
   -webkit-text-emphasis-style: dot;
   -webkit-text-emphasis-position: over;
+}
+
+.hhr-display-block {
+  display: block;
+}
+.hhr-display-none {
+  display: none;
 }

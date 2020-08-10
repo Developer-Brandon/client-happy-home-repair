@@ -9,8 +9,9 @@
           <div
             class="wrap-window-section__inner__snippet"
           >
-            <p class="font-bold">
-              아직도, <br />고장난 창문을<br />그.대.로<br />사용하고 계신가요?
+            <p class="font-semi-bold">
+              아직도, 고장난<br /><span class="font-emphasize">샤시창문/나무창문</span>을<br /> 불편한 상태로 그.대.로<br />사용하고
+              계신가요?
             </p>
           </div>
         </div>
@@ -22,7 +23,7 @@
           </p>
         </div>
       </div>
-      <div class="clear-both"></div>
+      <hhr-clear-both></hhr-clear-both>
       <div
         class="wrap-door-section"
         @click="goToDoorPage"
@@ -31,8 +32,8 @@
           <div
             class="wrap-door-section__inner__snippet"
           >
-            <p class="font-bold">
-              문을<br />통째로<br />교체하기 전에<br />교체하셔야 합니다
+            <p class="font-semi-bold">
+              <span class="font-emphasize">방문/중문/포켓도어</span><br />각종 문을<br />편리하게 사용하도록<br />수리해 드립니다
             </p>
           </div>
         </div>
@@ -44,7 +45,7 @@
           </p>
         </div>
       </div>
-      <div class="clear-both"></div>
+      <hhr-clear-both></hhr-clear-both>
       <div
         class="wrap-security-window-section"
         @click="goToSecurityWindowPage"
@@ -53,8 +54,8 @@
           <div
             class="wrap-security-window-section__inner__snippet"
           >
-            <p class="font-bold">
-              각종<br />방충망<br />밤벙창<br />교체해 드립니다
+            <p class="font-semi-bold">
+              각종<br /><span class="font-emphasize">방충망/방범창</span><br />제작,설치,교체 작업<br />해 드립니다
             </p>
           </div>
         </div>
@@ -66,7 +67,7 @@
           </p>
         </div>
       </div>
-      <div class="clear-both"></div>
+      <hhr-clear-both></hhr-clear-both>
     </div>
     <div class="sections__inner">
       <div
@@ -77,8 +78,9 @@
           <div
             class="wrap-paint-section__inner__snippet"
           >
-            <p class="font-bold">
-              페인트<br />칠은<br />다시 칠하려면<br />돈이 더 깨집니다
+            <p class="font-semi-bold">
+              <span class="font-emphasize">주택/상가/베란다</span><br />독한 냄새가 나지 않는<br />친환경 페인트(국산/수입)<br />전문
+              시공합니다
             </p>
           </div>
         </div>
@@ -90,7 +92,7 @@
           </p>
         </div>
       </div>
-      <div class="clear-both"></div>
+      <hhr-clear-both></hhr-clear-both>
       <div
         class="wrap-etc-section"
         @click="goToEtcPage"
@@ -99,8 +101,10 @@
           <div
             class="wrap-etc-section__inner__snippet"
           >
-            <p class="font-bold">
-              환풍기<br />건조대<br />포함 모든 집안일<br />해결해 드립니다
+            <p class="font-semi-bold">
+              <span class="font-emphasize">환풍기/선반</span> 설치<br /><span
+                class="font-emphasize"
+              >빨래건조대</span> 설치<br />각종 철물 설치<br />해결해 드립니다
             </p>
           </div>
         </div>
@@ -112,15 +116,13 @@
           </p>
         </div>
       </div>
-      <div class="clear-both"></div>
-      <!--<p style="text-align: center;margin-top: 150px;margin-bottom: 100px;">-->
-      <!--각종 내장수리 전문 해피 홈 리페어 / 내장수리는 해피 홈 리페어 / 010-8430-2253-->
-      <!--</p>-->
+      <hhr-clear-both></hhr-clear-both>
     </div>
   </div>
 </template>
 
 <script>
+import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 
@@ -129,6 +131,9 @@ let matchMedia
 
 export default {
   name: 'Products',
+  components: {
+    HhrClearBoth,
+  },
   mounted() {
     contactInformation = new ContactInformation()
     matchMedia = new MatchMedia()
@@ -167,6 +172,15 @@ export default {
 
 <style lang="scss" scoped>
     $section-width-and-height: $contents-width / 2;
+
+    .font-emphasize {
+        font-size: 45px;
+        @media (max-width: $screen-mobile) {
+            font-weight: 800;
+            font-size: 30px;
+        }
+    }
+
     .sections {
         display: block;
         width: 100%;
@@ -197,9 +211,12 @@ export default {
                 &__inner {
                     width: 100%;
                     height: 100%;
-                    padding: 20px;
+                    padding: 30px;
                     background-color: rgba(211, 211, 211, 0.8);
                     transition: 0.3s;
+                    @media (max-width: $screen-mobile) {
+                        padding: 20px;
+                    }
                     &:hover {
                         cursor: pointer;
                         background: none;
@@ -209,8 +226,8 @@ export default {
                     }
                     &__snippet {
                         color: $hhr-deep-gray;
-                        font-size: 45px;
-                        line-height: 60px;
+                        font-size: 35px;
+                        line-height: 50px;
                         @media (max-width: $screen-mobile) {
                             font-size: 25px;
                             line-height: 40px;
@@ -253,9 +270,12 @@ export default {
                 &__inner {
                     width: 100%;
                     height: 100%;
-                    padding: 20px;
+                    padding: 30px;
                     background-color: rgba(211, 211, 211, 0.8);
                     transition: 0.3s;
+                    @media (max-width: $screen-mobile) {
+                        padding: 20px;
+                    }
                     &:hover {
                         cursor: pointer;
                         background: none;
@@ -265,10 +285,10 @@ export default {
                     }
                     &__snippet {
                         color: steelblue;
-                        font-size: 45px;
-                        line-height: 60px;
+                        font-size: 35px;
+                        line-height: 50px;
+                        text-align: right;
                         @media (max-width: $screen-mobile) {
-                            text-align: right;
                             font-size: 25px;
                             line-height: 40px;
                         }
@@ -312,9 +332,12 @@ export default {
                 &__inner {
                     width: 100%;
                     height: 100%;
-                    padding: 20px;
+                    padding: 30px;
                     background-color: rgba(211, 211, 211, 0.8);
                     transition: 0.3s;
+                    @media (max-width: $screen-mobile) {
+                        padding: 20px;
+                    }
                     &:hover {
                         cursor: pointer;
                         background: none;
@@ -324,8 +347,8 @@ export default {
                     }
                     &__snippet {
                         color: ivory;
-                        font-size: 45px;
-                        line-height: 60px;
+                        font-size: 35px;
+                        line-height: 50px;
                         @media (max-width: $screen-mobile) {
                             text-align: left;
                             font-size: 25px;
@@ -369,12 +392,14 @@ export default {
                     height: 100%;
                 }
                 &__inner {
-
                     width: 100%;
                     height: 100%;
-                    padding: 20px;
+                    padding: 30px;
                     background-color: rgba(211, 211, 211, 0.8);
                     transition: 0.3s;
+                    @media (max-width: $screen-mobile) {
+                        padding: 20px;
+                    }
                     &:hover {
                         cursor: pointer;
                         background: none;
@@ -384,10 +409,10 @@ export default {
                     }
                     &__snippet {
                         color: #FFDD2E;
-                        font-size: 45px;
-                        line-height: 60px;
+                        font-size: 35px;
+                        line-height: 50px;
+                        text-align: right;
                         @media (max-width: $screen-mobile) {
-                            text-align: right;
                             font-size: 25px;
                             line-height: 40px;
                         }
@@ -428,12 +453,14 @@ export default {
                     height: 100%;
                 }
                 &__inner {
-
                     width: 100%;
                     height: 100%;
-                    padding: 20px;
+                    padding: 30px;
                     background-color: rgba(211, 211, 211, 0.8);
                     transition: 0.3s;
+                    @media (max-width: $screen-mobile) {
+                        padding: 20px;
+                    }
                     &:hover {
                         cursor: pointer;
                         background: none;
@@ -443,8 +470,8 @@ export default {
                     }
                     &__snippet {
                         color: black;
-                        font-size: 45px;
-                        line-height: 60px;
+                        font-size: 35px;
+                        line-height: 50px;
                         @media (max-width: $screen-mobile) {
                             text-align: left;
                             font-size: 25px;

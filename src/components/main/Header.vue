@@ -30,7 +30,7 @@
             to="/Products"
           >
             <span>
-              제품소개
+              시공소개
             </span>
           </router-link>
           <router-link
@@ -113,7 +113,7 @@
           class="menus font-regular"
           to="/Products"
         >
-          제품소개
+          시공소개
         </router-link>
         <router-link
           id="introduce-company"
@@ -143,9 +143,12 @@
 
 <script>
 import { Slide } from 'vue-burger-menu'
+import { EventBus } from '@/assets/js/eventBus'
 import ContactInformation from '@/assets/js/address/contactInformation'
+import MatchMedia from '@/assets/js/resolution/matchMedia'
 
 let contactInformation
+let matchMedia
 
 export default {
   components: {
@@ -157,18 +160,19 @@ export default {
   methods: {
     initialObjects() {
       contactInformation = new ContactInformation()
+      matchMedia = new MatchMedia()
     },
     blockTouchEventWithoutHamburgerButtonSection() {
-      $('#router-view').bind('click', (e) => {
+      $('.body').bind('click', (e) => {
         e.preventDefault()
       })
-      $('#router-view').bind('touchstart', (e) => {
+      $('.body').bind('touchstart', (e) => {
         e.preventDefault()
       })
     },
     activeTouchEvent() {
-      $('#router-view').unbind('click')
-      $('#router-view').unbind('touchstart')
+      $('.body').unbind('click')
+      $('.body').unbind('touchstart')
     },
     callRemoveWholeWindowScroll() {
       // firefox, chrome
@@ -183,23 +187,28 @@ export default {
       document.body.scroll = 'yes'
     },
     callToPhone() {
-      document.location.href = 'tel:010-9018-5553'
+      document.location.href = contactInformation.getPhoneNumber()
     },
     handleOpenMenu() {
       this.callRemoveWholeWindowScroll()
       this.blockTouchEventWithoutHamburgerButtonSection()
+      EventBus.$emit('hamburger-menu-is-opened', true)
     },
     handleCloseMenu() {
       this.callCreateWholeWindowScroll()
       this.activeTouchEvent()
+      EventBus.$emit('hamburger-menu-is-opened', false)
     },
     goInstagram() {
     },
     goNaverBlog() {
-      contactInformation.type = 'pc'
-      window.open(contactInformation.getBlogAddress())
-      contactInformation.type = 'mobile'
-      window.open(contactInformation.getBlogAddress())
+      if (matchMedia.isMobile) {
+        contactInformation.type = 'mobile'
+        window.open(contactInformation.getBlogAddress())
+      } else {
+        contactInformation.type = 'pc'
+        window.open(contactInformation.getBlogAddress())
+      }
     },
     goKakaotalkChannel() {
     },
@@ -208,43 +217,72 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // 1. mobile navigation
     .slider {
-        &__header {
+        .menus-from-hb {
+            margin-top: 5px;
+            margin-bottom: 5px;
             text-align: center;
+        }
+        &__header {
+            @media (max-width: $screen-mobile) {
+                text-align: center;
+            }
             &__main-title {
-                margin: 0 auto;
+                @media (max-width: $screen-mobile) {
+                    margin: 0 auto;
+                }
+                #home-from-hb {
+                    .logo-by-hb {
+                        @media (max-width: $screen-mobile) {
+                            width: 55px;
+                            height: 55px;
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
             }
         }
         &__footer {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 150px;
-            height: 100px;
-            border-top: 1px dotted rgba(211, 211, 211, 0.8);
-            background-color: rgba(211, 211, 211, 0.4);
+            @media (max-width: $screen-mobile) {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 150px;
+                height: 100px;
+                border-top: 1px dotted rgba(211, 211, 211, 0.8);
+                background-color: rgba(211, 211, 211, 0.4);
+            }
             .sns-channels {
-                width: 120px;
-                height: 45px;
-                padding-top: 10px;
-                margin: 0 auto;
+                @media (max-width: $screen-mobile) {
+                    width: 120px;
+                    height: 45px;
+                    padding-top: 10px;
+                    margin: 0 auto;
+                }
                 .wrap-sns-logo {
                     @media (max-width: $screen-mobile) {
                         display: inline-block;
                         float: right;
                     }
                     .logo {
-                        width: 40px;
-                        height: 40px;
-                        margin-right: 10px;
-                        opacity: 0.5;
-                        transition: 0.3s;
+                        @media (max-width: $screen-mobile) {
+                            width: 40px;
+                            height: 40px;
+                            margin-right: 10px;
+                            opacity: 0.5;
+                            transition: 0.3s;
+                        }
                         &:last-child {
-                            margin-right: 0;
+                            @media (max-width: $screen-mobile) {
+                                margin-right: 0;
+                            }
                         }
                         &:hover {
-                            opacity: 1;
-                            cursor: pointer;
+                            @media (max-width: $screen-mobile) {
+                                opacity: 1;
+                                cursor: pointer;
+                            }
                         }
                     }
                 }
@@ -252,28 +290,7 @@ export default {
         }
     }
 
-    .menus-from-hb {
-        margin-top: 5px;
-        margin-bottom: 5px;
-        text-align: center;
-    }
-
-    .logo-by-hb {
-        @media (max-width: $screen-mobile) {
-            width: 55px;
-            height: 55px;
-            margin-bottom: 5px;
-        }
-    }
-
-    .hhr-light-blue-dotted-divider {
-        width: 100px;
-        height: 1px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        color: #4296ff;
-    }
-
+    // 2. pc navigation
     .header {
         width: 100%;
         max-width: $screen-desktop;
