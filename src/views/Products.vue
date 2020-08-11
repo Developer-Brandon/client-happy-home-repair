@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="sections">
     <div class="sections__inner">
       <div

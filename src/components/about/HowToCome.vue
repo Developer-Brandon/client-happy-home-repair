@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="how-to-come">
     <div class="how-to-come__inner">
       <div class="wrap-title">

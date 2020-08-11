@@ -16,8 +16,10 @@ $hhr-light-blue: rgb(169, 196, 245);
 $hhr-blue: rgb(100, 149, 237);
 $hhr-deep-blue: rgb(101, 147, 245);
 
-$hhr-light-gray: rgba(211, 211, 211, 0.1);
 $hhr-gray: rgba(211, 211, 211, 0.5);
-$hhr-deep-gray: #353535;
+$hhr-light-gray: rgba(211, 211, 211, 0.1);
+$hhr-deep-gray: rgb(53,53,53);
+$hhr-opacity-deep-gray: rgba(53,53,53, 0.2);
 
-//
+$hhf-white: rgb(255,255,255);
+$hhf-light-white: rgba(255,255,255,0.5);

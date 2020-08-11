@@ -1,10 +1,9 @@
-<template lang="html">
-  <div></div>
+<template>
 </template>
 
 <script>
 export default {
-  name: 'Notice',
+  name: 'HhrDim',
 }
 </script>
 

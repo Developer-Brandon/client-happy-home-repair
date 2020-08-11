@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div id="app">
     <div class="container">
       <hhr-header />

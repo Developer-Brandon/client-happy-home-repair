@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="other-information">
     <div class="announce-company">
       <div class="announce-company__inner">

@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="introduce-company">
     <div class="introduce-company__inner">
       <div class="wrap-title">

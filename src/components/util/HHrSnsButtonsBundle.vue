@@ -1,10 +1,9 @@
 <template>
-  <div></div>
 </template>
 
 <script>
 export default {
-  name: 'Inquiry',
+  name: 'HHrSnsButtonsBundle',
 }
 </script>
 

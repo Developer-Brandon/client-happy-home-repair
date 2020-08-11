@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="ceo-greetings">
     <div class="ceo-greetings__inner">
       <div class="wrap-title">

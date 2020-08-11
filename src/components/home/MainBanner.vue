@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="main-banner">
     <div class="main-banner__inner">
       <div class="wrap-slider-contents">

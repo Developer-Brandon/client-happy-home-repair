@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="body">
     <section class="body__main-banner">
       <main-banner></main-banner>
@@ -18,6 +18,15 @@ export default {
   components: {
     MainBanner,
     OtherInformation,
+  },
+  mounted() {
+    this.callBlogRecentProductsInformation()
+  },
+  methods: {
+    callBlogRecentProductsInformation() {
+      // TODO: vuex에서 data 긁어와서 other-information에 전해주는 방식도 좋을듯?
+      // 일단 비동기 호출을 하는게 좋을 듯 하다
+    },
   },
 }
 </script>

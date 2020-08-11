@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <header class="header">
     <div id="navigation">
       <div class="mobile-visible-block-only">
@@ -54,7 +54,7 @@
           <router-link
             id="inquiry-from-hb"
             class="menus-from-hb font-regular"
-            to="/Inquiry"
+            to="/Estimate"
           >
             <span>
               견적문의
@@ -132,7 +132,7 @@
         <router-link
           id="price-inquiry"
           class="menus font-regular"
-          to="/Inquiry"
+          to="/Estimate"
         >
           견적문의
         </router-link>
