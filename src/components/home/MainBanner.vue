@@ -114,8 +114,10 @@ export default {
                     .active-logo {
                         width: 120px;
                         height: 120px;
+                        transition: 0.3s;
                         &:hover {
-                            cursor: pointer;
+                          cursor: pointer;
+                          transform: scale(1.1);
                         }
                         @media (max-width: $screen-mobile) {
                             width: 100px;

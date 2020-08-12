@@ -11,8 +11,12 @@
             <li>상호: 해피 홈 리페어</li>
             <li>대표: 전희선</li>
             <li>주소: 인천시 부평구 경인로 705</li>
-            <li><a href="tel:01090185553">전화: 010-9018-5553</a></li>
-            <li><a href="mailto:lain4444@naver.com">메일: lain4444@naver.com</a></li>
+            <li class="hhr-telephone-emphasize">
+              <a href="tel:01090185553">전화: 010-9018-5553</a>
+            </li>
+            <li class="hhr-email-emphasize">
+              <a href="mailto:lain4444@naver.com">메일: lain4444@naver.com</a>
+            </li>
             <li>사업자번호: 392-22-00352</li>
           </ul>
           <caption class="owner-information__copyright desktop-visible-block-only">
@@ -31,9 +35,15 @@
             대표 전화 / 제휴 문의
           </h2>
           <ul class="partnership-information__explain">
-            <li>CALL<br /><span class="email-align"><a href="tel:01090185553">010-9018-5553</a></span></li>
+            <li>
+              CALL<br /><span class="email-align"><a
+                class="hhr-telephone-emphasize"
+                href="tel:01090185553"
+              >010-9018-5553</a></span>
+            </li>
             <li>
               E-MAIL<br /><span class="email-align"><a
+                class="hhr-email-emphasize"
                 href="mailto:lain4444@naver.com"
               >lain4444@naver.com</a></span>
             </li>
@@ -49,6 +59,7 @@
               E-MAIL<br />
               <span class="email-align"><a
                 href="mailto:lovefinance@naver.com"
+                class="hhr-email-emphasize"
               >lovefinance@naver.com</a></span>
             </li>
           </ul>
@@ -108,7 +119,7 @@
               <li>"집안 곳곳의 부서진 곳 수리해드립니다"</li>
               <li>"타 업체에서 수리하지 못하는 곳 수리해드립니다"</li>
               <li class="font-regular">
-                <a href="tel:01090185553">전화상담 / 010-9018-5553</a>
+                <a class="hhr-telephone-emphasize" href="tel:01090185553">전화상담 / 010-9018-5553</a>
               </li>
               <li>리모델링 전문 <span class="font-bold">해피홈 리페어</span>에 문의해보세요</li>
             </ul>
@@ -428,6 +439,7 @@ export default {
                                 &:hover {
                                     opacity: 1;
                                     cursor: pointer;
+                                    transform: scale(1.1);
                                 }
                             }
                         }

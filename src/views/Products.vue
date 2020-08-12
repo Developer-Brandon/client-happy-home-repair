@@ -9,7 +9,7 @@
           <div
             class="wrap-window-section__inner__snippet"
           >
-            <p class="font-semi-bold">
+            <p class="word font-semi-bold">
               아직도, 고장난<br /><span class="font-emphasize">샤시창문/나무창문</span>을<br /> 불편한 상태로 그.대.로<br />사용하고
               계신가요?
             </p>
@@ -32,7 +32,7 @@
           <div
             class="wrap-door-section__inner__snippet"
           >
-            <p class="font-semi-bold">
+            <p class="word font-semi-bold">
               <span class="font-emphasize">방문/중문/포켓도어</span><br />각종 문을<br />편리하게 사용하도록<br />수리해 드립니다
             </p>
           </div>
@@ -54,7 +54,7 @@
           <div
             class="wrap-security-window-section__inner__snippet"
           >
-            <p class="font-semi-bold">
+            <p class="word font-semi-bold">
               각종<br /><span class="font-emphasize">방충망/방범창</span><br />제작,설치,교체 작업<br />해 드립니다
             </p>
           </div>
@@ -78,7 +78,7 @@
           <div
             class="wrap-paint-section__inner__snippet"
           >
-            <p class="font-semi-bold">
+            <p class="word font-semi-bold">
               <span class="font-emphasize">주택/상가/베란다</span><br />독한 냄새가 나지 않는<br />친환경 페인트(국산/수입)<br />전문
               시공합니다
             </p>
@@ -87,7 +87,7 @@
       </div>
       <div class="wrap-paint-section-announcement">
         <div class="wrap-paint-section-announcement__inner">
-          <p class="font-regular">
+          <p class="word font-regular">
             아파트, 주택, 상가, 빌라 실내페인트 베란다 칠 옥상방수 :
           </p>
         </div>
@@ -101,7 +101,7 @@
           <div
             class="wrap-etc-section__inner__snippet"
           >
-            <p class="font-semi-bold">
+            <p class="word font-semi-bold">
               <span class="font-emphasize">환풍기/선반</span> 설치<br /><span
                 class="font-emphasize"
               >빨래건조대</span> 설치<br />각종 철물 설치<br />해결해 드립니다
@@ -203,6 +203,7 @@ export default {
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_window.png') center;
                 float: left;
+                border: 15px solid transparent;
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -220,18 +221,29 @@ export default {
                     &:hover {
                         cursor: pointer;
                         background: none;
-                        &__snippet {
-                            display: none;
-                        }
+                    }
+                    &:hover .wrap-window-section__inner__snippet {
+                        //
+                    }
+                    &:hover .wrap-window-section__inner__snippet .word {
+                        display: none;
                     }
                     &__snippet {
-                        color: $hhr-deep-gray;
-                        font-size: 35px;
-                        line-height: 50px;
-                        @media (max-width: $screen-mobile) {
-                            font-size: 25px;
-                            line-height: 40px;
+                        width: 100%;
+                        height: 100%;
+                        padding: 10px;
+                        .word {
+                            color: $hhr-deep-gray;
+                            font-size: 35px;
+                            line-height: 50px;
+                            transition: 0.3s;
+                            text-shadow: -3px 0 white;
+                            @media (max-width: $screen-mobile) {
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                         }
+
                     }
                 }
             }
@@ -262,6 +274,7 @@ export default {
                 float: right;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_door.png') center;
+                border: 15px solid transparent;
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -283,14 +296,23 @@ export default {
                             display: none;
                         }
                     }
+                    &:hover .wrap-door-section__inner__snippet {
+                        //
+                    }
+                    &:hover .wrap-door-section__inner__snippet .word {
+                        display: none;
+                    }
                     &__snippet {
-                        color: steelblue;
-                        font-size: 35px;
-                        line-height: 50px;
-                        text-align: right;
-                        @media (max-width: $screen-mobile) {
-                            font-size: 25px;
-                            line-height: 40px;
+                        .word {
+                            color: steelblue;
+                            font-size: 35px;
+                            line-height: 50px;
+                            text-align: right;
+                            text-shadow: -3px 0 white;
+                            @media (max-width: $screen-mobile) {
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                         }
                     }
                 }
@@ -324,6 +346,7 @@ export default {
                 float: left;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_security-window.png') center;
+                border: 15px solid transparent;
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -345,14 +368,23 @@ export default {
                             display: none;
                         }
                     }
+                    &:hover .wrap-security-window-section__inner__snippet {
+                        //
+                    }
+                    &:hover .wrap-security-window-section__inner__snippet .word {
+                        display: none;
+                    }
                     &__snippet {
-                        color: ivory;
-                        font-size: 35px;
-                        line-height: 50px;
-                        @media (max-width: $screen-mobile) {
-                            text-align: left;
-                            font-size: 25px;
-                            line-height: 40px;
+                        .word {
+                            color: ivory;
+                            font-size: 35px;
+                            line-height: 50px;
+                            text-shadow: -3px 0 black;
+                            @media (max-width: $screen-mobile) {
+                                text-align: left;
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                         }
                     }
                 }
@@ -386,6 +418,7 @@ export default {
                 margin-right: 60px;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_painting.png') center;
+                border: 15px solid transparent;
                 @media (max-width: $screen-mobile) {
                     margin-right: 0;
                     width: 100%;
@@ -407,15 +440,25 @@ export default {
                             display: none;
                         }
                     }
+                    &:hover .wrap-paint-section__inner__snippet {
+                        //
+                    }
+                    &:hover .wrap-paint-section__inner__snippet .word {
+                        display: none;
+                    }
                     &__snippet {
-                        color: #FFDD2E;
-                        font-size: 35px;
-                        line-height: 50px;
-                        text-align: right;
-                        @media (max-width: $screen-mobile) {
-                            font-size: 25px;
-                            line-height: 40px;
+                        .word {
+                            color: #FFDD2E;
+                            font-size: 35px;
+                            line-height: 50px;
+                            text-align: right;
+                            text-shadow: -2px 0 white;
+                            @media (max-width: $screen-mobile) {
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                         }
+
                     }
                 }
             }
@@ -448,6 +491,7 @@ export default {
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_tools.png') center;
                 float: left;
+                border: 15px solid transparent;
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -468,14 +512,23 @@ export default {
                             display: none;
                         }
                     }
+                    &:hover .wrap-etc-section__inner__snippet {
+                        //
+                    }
+                    &:hover .wrap-etc-section__inner__snippet .word {
+                        display: none;
+                    }
                     &__snippet {
-                        color: black;
-                        font-size: 35px;
-                        line-height: 50px;
-                        @media (max-width: $screen-mobile) {
-                            text-align: left;
-                            font-size: 25px;
-                            line-height: 40px;
+                        .word {
+                            color: black;
+                            font-size: 35px;
+                            line-height: 50px;
+                            text-shadow: -3px 0 white;
+                            @media (max-width: $screen-mobile) {
+                                text-align: left;
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                         }
                     }
                 }

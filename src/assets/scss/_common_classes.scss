@@ -31,7 +31,6 @@
   }
 }
 
-
 // '색깔'에 대한 개념은 light -> 아무것도없음 -> deep
 .hhr-light-blue {
   color: $hhr-light-blue;
@@ -43,6 +42,10 @@
 
 .hhr-deep-blue {
   color: $hhr-deep-blue;
+}
+
+.hhf-red {
+  color: $hhr-red;
 }
 
 // 이 아래것들, 컴포넌트로 만들어야겠는데?
@@ -64,7 +67,6 @@
   width: 100%;
   height: 30px;
 }
-
 
 .hhr-gray-small-divider {
   background-color: $hhr-deep-gray;
@@ -101,6 +103,124 @@
 .hhr-display-block {
   display: block;
 }
+
 .hhr-display-none {
   display: none;
+}
+
+.hhr-telephone-emphasize {
+  &:hover {
+    font-weight: 500;
+  }
+}
+
+.hhr-email-emphasize {
+  &:hover {
+    font-weight: 500;
+  }
+}
+
+.hhr-labeling {
+  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: center;
+  margin-bottom: 3px;
+  @media (max-width: $screen-mobile) {
+  }
+}
+
+.hhr-labeling-title {
+  font-size: 18px;
+  line-height: 30px;
+  @media (max-width: $screen-mobile) {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+
+.hhr-select {
+  width: 60px;
+  height: 30px;
+  line-height: 26px;
+  background: none;
+  outline: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid $hhr-blue;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: inherit;
+  padding: 3px 0 1px 0;
+  cursor: pointer;
+  text-align: center;
+  text-align-last: center;
+  font-weight: 300;
+  @media (max-width: $screen-mobile) {
+    width: 90px;
+    font-size: 18px;
+  }
+    &:focus {
+    color: $hhr-blue;
+  }
+  &:focus, &:active {
+    cursor: pointer;
+  }
+  .hhr-option {
+    width: auto;
+    height: auto;
+    padding: 2px;
+    color: black;
+    font-weight: 300;
+    white-space: pre;
+    line-height: 30px;
+    text-shadow: none;
+  }
+}
+
+.hhr-input {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  font-weight: 200;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  line-height: 22px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  @media (max-width: $screen-mobile) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  &:focus {
+    border: 1px solid $hhr-blue;
+  }
+}
+
+.hhr-textarea {
+  display: block;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  font-weight: 200;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  line-height: 22px;
+  resize: none;
+  border-radius: 3px;
+  width: 100%;
+  overflow: hidden;
+  padding: 5px 10px;
+  @media (max-width: $screen-mobile) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  &:focus {
+    border: 1px solid $hhr-blue;
+  }
 }
