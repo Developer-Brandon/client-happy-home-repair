@@ -42,7 +42,7 @@
             <br />
             <br />
             <button
-              class="online-applicationform font-bold"
+              class="online-applicationform hhr-positive-button"
               @click="callApplicationFormModal"
             >
               온라인으로 신청할래요
@@ -56,7 +56,7 @@
             <br />
             <br />
             <button
-              class="call-applicationform font-bold"
+              class="call-applicationform hhr-positive-button"
               @click="callToPhone"
             >
               유선으로 신청할래요
@@ -240,26 +240,12 @@ export default {
                             }
                         }
                         .online-applicationform {
-                            border: 1px solid white;
-                            border-radius: 5px;
-                            color: white;
                             width: 200px;
                             height: 45px;
                             margin-bottom: 5px;
                             margin-right: 15px;
-                            transition: 0.3s;
-                            &:hover {
-                                color: $hhr-deep-blue;
-                                background-color: white;
-                                font-size: 16.5px;
-                            }
                             @media (max-width: $screen-mobile) {
-                                border: 0;
-                                border-radius: 0;
                                 width: 100%;
-                                color: $hhr-deep-blue;
-                                background-color: white;
-                                font-size: 18px;
                             }
                         }
                     }
@@ -283,25 +269,12 @@ export default {
                             }
                         }
                         .call-applicationform {
-                            border: 1px solid white;
-                            border-radius: 5px;
-                            color: white;
                             width: 200px;
                             height: 45px;
                             margin-bottom: 5px;
-                            transition: 0.3s;
-                            &:hover {
-                                color: $hhr-deep-blue;
-                                background-color: white;
-                                font-size: 16.5px;
-                            }
+                            margin-right: 15px;
                             @media (max-width: $screen-mobile) {
-                                border: 0;
-                                border-radius: 0;
                                 width: 100%;
-                                color: $hhr-deep-blue;
-                                background-color: white;
-                                font-size: 18px;
                             }
                         }
                     }

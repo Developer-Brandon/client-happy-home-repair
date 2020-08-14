@@ -224,3 +224,78 @@
     border: 1px solid $hhr-blue;
   }
 }
+
+.hhr-positive-button {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  transition: 0.3s;
+  &:hover {
+    color: $hhr-deep-blue;
+    background-color: white;
+    font-size: 16.5px;
+    font-weight: 700;
+  }
+  @media (max-width: $screen-mobile) {
+    border: 0;
+    border-radius: 0;
+    color: $hhr-deep-blue;
+    background-color: white;
+    font-size: 18px;
+  }
+}
+
+.hhf-positive-reversal-button {
+  border: 1px solid $hhr-deep-blue;
+  border-radius: 5px;
+  background-color: white;
+  color: $hhr-deep-blue;
+  transition: 0.3s;
+  &:hover {
+    color: $hhr-deep-blue;
+    font-size: 16.5px;
+    font-weight: 700;
+  }
+  @media (max-width: $screen-mobile) {
+    color: $hhr-deep-blue;
+    font-size: 18px;
+    border: 0;
+    border-radius: 0;
+  }
+}
+
+.hhr-negative-button {
+  border: 1px solid $hhr-deep-blue;
+  border-radius: 5px;
+  color: $hhr-deep-blue;
+  transition: 0.3s;
+  &:hover {
+    color: white;
+    background-color: $hhr-deep-blue;
+    font-size: 16.5px;
+    font-weight: 700;
+  }
+  @media (max-width: $screen-mobile) {
+    border: 0;
+    border-radius: 0;
+    color: white;
+    background-color: $hhr-deep-blue;
+    font-size: 18px;
+  }
+}
+
+.hhr-negative-reversal-button {
+  border: 1px solid $hhr-deep-blue;
+  border-radius: 5px;
+  background-color: $hhr-deep-blue;
+  color: white;
+  transition: 0.3s;
+  &:hover {
+    font-size: 16.5px;
+    font-weight: 700;
+  }
+  @media (max-width: $screen-mobile) {
+    background-color: $hhr-deep-blue;
+    font-size: 18px;
+  }
+}

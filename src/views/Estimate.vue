@@ -8,8 +8,11 @@
           </p>
         </div>
         <div class="estimate__sub-title">
-          <p class="word font-regular">
-            <a href=""><span>*</span>&nbsp;블로그 보고 결정할게요</a>
+          <p
+            class="word font-regular"
+            @click="goToNaverBlog"
+          >
+            <span class="word__inner"><span>*</span>&nbsp;블로그 보고 결정할게요</span>
           </p>
         </div>
         <div class="estimate__contents">
@@ -75,6 +78,11 @@
                   for="estimate"
                   class="hhr-textarea estimate-detail"
                 ></textarea>
+                <ul class="estimate-detail-announcement-list">
+                  <li class="default">
+                    100자 이내로 부탁드립니다
+                  </li>
+                </ul>
                 <br />
                 <label class="hhr-labeling">
                   <span class="hhr-labeling-title">&nbsp;이메일&nbsp;</span>
@@ -99,10 +107,10 @@
                 <!--<div></div>-->
               </div>
               <div class="group-of-buttons">
-                <button type="button">
+                <button class="hhf-positive-reversal-button cancel">
                   취소
                 </button>
-                <button type="button">
+                <button class="hhr-negative-reversal-button submit">
                   제출
                 </button>
               </div>
@@ -124,6 +132,12 @@
 // 5.연락처
 // 6.사진첨부
 
+import MatchMedia from '@/assets/js/resolution/matchMedia'
+import ContactInformation from '@/assets/js/address/contactInformation'
+
+let matchMedia
+let contactInformation
+
 export default {
   name: 'Estimate',
   data() {
@@ -138,7 +152,7 @@ export default {
           {
             uid: 2,
             title: '경기도',
-            value: 'keongKiDo',
+            value: 'kyeongKiDo',
           },
         ],
         estimateList: [
@@ -160,6 +174,21 @@ export default {
         ],
       },
     }
+  },
+  mounted() {
+    contactInformation = new ContactInformation()
+    matchMedia = new MatchMedia()
+  },
+  methods: {
+    goToNaverBlog() {
+      if (matchMedia.isMobile) {
+        contactInformation.type = 'mobile'
+        window.open(contactInformation.getBlogAddress())
+      } else {
+        contactInformation.type = 'pc'
+        window.open(contactInformation.getBlogAddress())
+      }
+    },
   },
 }
 </script>
@@ -202,6 +231,7 @@ export default {
                 &__title {
                     @include title-common-style;
                     font-size: 30px;
+                    margin-top: 10px;
                     margin-bottom: 10px;
                     .word {
                         padding-left: 10px;
@@ -211,10 +241,14 @@ export default {
                     font-size: 12px;
                     margin-bottom: 40px;
                     .word {
-                      text-align: right;
-                      @media (max-width: $screen-mobile) {
-                        font-size: 15px;
-                      }
+                        text-align: right;
+                        color: $hhr-red;
+                        @media (max-width: $screen-mobile) {
+                            font-size: 15px;
+                        }
+                        &__inner {
+                            cursor: pointer;
+                        }
                     }
                 }
                 &__contents {
@@ -225,10 +259,6 @@ export default {
                                     .hhr-select {
                                         float: right;
                                     }
-                                    .estimate-detail {
-                                        height: 80px;
-                                        margin-bottom: 10px;
-                                    }
                                     .email {
                                     }
                                     .tel {
@@ -236,14 +266,46 @@ export default {
                                     .image-attachement {
                                     }
                                 }
+                                .estimate-detail {
+                                    height: 80px;
+                                    margin-bottom: 10px;
+                                }
+                                .estimate-detail-announcement-list {
+                                    margin-top: 3px;
+                                    .default {
+                                        text-align: right;
+                                        font-size: 13px;
+                                    }
+                                }
                             }
 
                             .group-of-buttons {
-                                padding-top: 30px;
+                                width: 215px;
+                                float: right;
+                                clear: right;
+                                padding-top: 40px;
                                 padding-bottom: 30px;
                                 @media (max-width: $screen-mobile) {
-                                    padding-top: 20px;
+                                    width: 100%;
+                                    padding-top: 30px;
                                     padding-bottom: 20px;
+                                }
+                                .cancel {
+                                    display: none;
+                                    width: 100px;
+                                    height: 45px;
+                                    @media (max-width: $screen-mobile) {
+                                        width: 100%;
+                                    }
+                                }
+                                .submit {
+                                    width: 100px;
+                                    height: 45px;
+                                    float: right;
+                                    clear: right;
+                                    @media (max-width: $screen-mobile) {
+                                        width: 100%;
+                                    }
                                 }
                             }
                         }

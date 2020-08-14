@@ -292,9 +292,6 @@ export default {
                     &:hover {
                         cursor: pointer;
                         background: none;
-                        &__snippet {
-                            display: none;
-                        }
                     }
                     &:hover .wrap-door-section__inner__snippet {
                         //
@@ -303,6 +300,9 @@ export default {
                         display: none;
                     }
                     &__snippet {
+                        width: 100%;
+                        height: 100%;
+                        padding: 10px;
                         .word {
                             color: steelblue;
                             font-size: 35px;
@@ -364,9 +364,6 @@ export default {
                     &:hover {
                         cursor: pointer;
                         background: none;
-                        &__snippet {
-                            display: none;
-                        }
                     }
                     &:hover .wrap-security-window-section__inner__snippet {
                         //
@@ -436,9 +433,6 @@ export default {
                     &:hover {
                         cursor: pointer;
                         background: none;
-                        &__snippet {
-                            display: none;
-                        }
                     }
                     &:hover .wrap-paint-section__inner__snippet {
                         //
@@ -447,6 +441,9 @@ export default {
                         display: none;
                     }
                     &__snippet {
+                        width: 100%;
+                        height: 100%;
+                        padding: 10px;
                         .word {
                             color: #FFDD2E;
                             font-size: 35px;
@@ -508,9 +505,6 @@ export default {
                     &:hover {
                         cursor: pointer;
                         background: none;
-                        &__snippet {
-                            display: none;
-                        }
                     }
                     &:hover .wrap-etc-section__inner__snippet {
                         //
@@ -519,6 +513,9 @@ export default {
                         display: none;
                     }
                     &__snippet {
+                        width: 100%;
+                        height: 100%;
+                        padding: 10px;
                         .word {
                             color: black;
                             font-size: 35px;
