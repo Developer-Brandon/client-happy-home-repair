@@ -133,7 +133,7 @@
   font-size: 18px;
   line-height: 30px;
   @media (max-width: $screen-mobile) {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 30px;
   }
 }
@@ -146,10 +146,6 @@
   background: none;
   outline: 0;
   border: none;
-  //border-top: none;
-  //border-left: none;
-  //border-right: none;
-  //border-bottom: 1.5px solid $hhr-blue;
   border-radius: 0;
   font-family: inherit;
   padding: 4px 0 0 0;

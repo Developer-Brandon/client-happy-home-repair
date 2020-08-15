@@ -213,20 +213,23 @@ export default {
                     width: 100%;
                     height: 100%;
                     padding: 30px;
-                    background-color: rgba(211, 211, 211, 0.8);
+                    background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     @media (max-width: $screen-mobile) {
                         padding: 20px;
                     }
                     &:hover {
-                        cursor: pointer;
-                        background: none;
+                      cursor: pointer;
+                      background: initial;
                     }
                     &:hover .wrap-window-section__inner__snippet {
                         //
                     }
                     &:hover .wrap-window-section__inner__snippet .word {
-                        display: none;
+                      display: none;
+                      @media (max-width: $screen-mobile) {
+                        display: block;
+                      }
                     }
                     &__snippet {
                         width: 100%;
@@ -243,7 +246,6 @@ export default {
                                 line-height: 40px;
                             }
                         }
-
                     }
                 }
             }
@@ -284,7 +286,7 @@ export default {
                     width: 100%;
                     height: 100%;
                     padding: 30px;
-                    background-color: rgba(211, 211, 211, 0.8);
+                    background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     @media (max-width: $screen-mobile) {
                         padding: 20px;
@@ -297,7 +299,10 @@ export default {
                         //
                     }
                     &:hover .wrap-door-section__inner__snippet .word {
-                        display: none;
+                      display: none;
+                      @media (max-width: $screen-mobile) {
+                        display: block;
+                      }
                     }
                     &__snippet {
                         width: 100%;
@@ -356,7 +361,7 @@ export default {
                     width: 100%;
                     height: 100%;
                     padding: 30px;
-                    background-color: rgba(211, 211, 211, 0.8);
+                    background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     @media (max-width: $screen-mobile) {
                         padding: 20px;
@@ -369,7 +374,10 @@ export default {
                         //
                     }
                     &:hover .wrap-security-window-section__inner__snippet .word {
-                        display: none;
+                      display: none;
+                      @media (max-width: $screen-mobile) {
+                        display: block;
+                      }
                     }
                     &__snippet {
                         .word {
@@ -425,7 +433,7 @@ export default {
                     width: 100%;
                     height: 100%;
                     padding: 30px;
-                    background-color: rgba(211, 211, 211, 0.8);
+                    background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     @media (max-width: $screen-mobile) {
                         padding: 20px;
@@ -438,7 +446,10 @@ export default {
                         //
                     }
                     &:hover .wrap-paint-section__inner__snippet .word {
-                        display: none;
+                      display: none;
+                      @media (max-width: $screen-mobile) {
+                        display: block;
+                      }
                     }
                     &__snippet {
                         width: 100%;
@@ -497,7 +508,7 @@ export default {
                     width: 100%;
                     height: 100%;
                     padding: 30px;
-                    background-color: rgba(211, 211, 211, 0.8);
+                    background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     @media (max-width: $screen-mobile) {
                         padding: 20px;
@@ -510,7 +521,10 @@ export default {
                         //
                     }
                     &:hover .wrap-etc-section__inner__snippet .word {
-                        display: none;
+                      display: none;
+                      @media (max-width: $screen-mobile) {
+                        display: block;
+                      }
                     }
                     &__snippet {
                         width: 100%;

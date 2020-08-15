@@ -250,7 +250,7 @@ export default {
                 bottom: 0;
                 width: 150px;
                 height: 100px;
-                border-top: 1px dotted rgba(211, 211, 211, 0.8);
+                border-top: 1px dotted $hhr-transparent-white;
                 background-color: rgba(211, 211, 211, 0.4);
             }
             .sns-channels {

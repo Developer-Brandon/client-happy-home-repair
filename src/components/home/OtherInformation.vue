@@ -87,16 +87,21 @@
         </div>
       </div>
     </div>
+    <inquiry-estimate-modal ref="inquiryEstimateModal"></inquiry-estimate-modal>
   </div>
 </template>
 
 <script>
 import ContactInformation from '@/assets/js/address/contactInformation'
+import InquiryEstimateModal from '@/components/estimate/InquiryEstimateModal.vue'
 
 let contactInformation
 
 export default {
   name: 'OtherInformation',
+  components: {
+    InquiryEstimateModal,
+  },
   created() {
     contactInformation = new ContactInformation()
   },
@@ -105,7 +110,7 @@ export default {
       document.location.href = contactInformation.getPhoneNumber()
     },
     callApplicationFormModal() {
-      window.alert('준비중인 기능입니다')
+      this.$refs.inquiryEstimateModal.show('default', null)
     },
   },
 }
