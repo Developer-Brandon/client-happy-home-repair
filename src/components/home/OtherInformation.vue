@@ -87,27 +87,49 @@
         </div>
       </div>
     </div>
-    <inquiry-estimate-modal ref="inquiryEstimateModal"></inquiry-estimate-modal>
+    <inquiry-estimate-modal ref="inquiry-estimate-modal" />
+    <question-about-call-way-modal ref="questionAboutCallWayModal" />
+    <announce-call-information-modal ref="announce-call-information-modal" />
   </div>
 </template>
 
 <script>
 import ContactInformation from '@/assets/js/address/contactInformation'
 import InquiryEstimateModal from '@/components/estimate/InquiryEstimateModal.vue'
+import QuestionAboutCallWayModal from '@/components/estimate/QuestionAboutCallWayModal.vue'
+import AnnounceCallInformationModal from '@/components/estimate/AnnounceCallInformationModal.vue'
+import MatchMedia from '@/assets/js/resolution/matchMedia'
+import UserAgent from '@/assets/js/browser/userAgent'
 
 let contactInformation
+let matchMedia
+let userAgent
 
 export default {
   name: 'OtherInformation',
   components: {
     InquiryEstimateModal,
+    QuestionAboutCallWayModal,
+    AnnounceCallInformationModal,
   },
   created() {
+    matchMedia = new MatchMedia()
+    userAgent = new UserAgent()
     contactInformation = new ContactInformation()
   },
   methods: {
     callToPhone() {
-      document.location.href = contactInformation.getPhoneNumber()
+      if (matchMedia.isMobile) {
+        document.location.href = contactInformation.getPhoneNumber()
+      } else {
+        if (userAgent.browserType !== '크롬') {
+          this.$refs.questionAboutCallWayModal.show('default', null)
+          console.log('크롬')
+        } else {
+          this.$refs.announceCallInformationModal.show('default', null)
+          console.log('그외')
+        }
+      }
     },
     callApplicationFormModal() {
       this.$refs.inquiryEstimateModal.show('default', null)

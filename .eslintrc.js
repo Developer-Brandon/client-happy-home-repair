@@ -45,6 +45,7 @@ module.exports = {
 		'semi': [2, "never"],
 		'max-len': 'off',
 		'no-underscore-dangle': 'off',
+		'no-lonely-if': 'off',
 		'class-methods-use-this': 'off',
 		'import/prefer-default-export': 'off',
 		'no-param-reassign': 'off',
