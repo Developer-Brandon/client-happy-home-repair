@@ -109,6 +109,7 @@
 }
 
 .hhr-telephone-emphasize {
+  transition: 0.3s;
   &:hover {
     font-weight: 500;
   }

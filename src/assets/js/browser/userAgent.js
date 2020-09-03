@@ -1,7 +1,6 @@
 export default class UserAgent {
   get browserType() {
     const agent = navigator.userAgent
-    // const browserName = navigator.appName
     switch (agent) {
       case agent.indexOf('Opera') !== -1 || agent.indexOf('OPR') !== -1:
         return '오페라'

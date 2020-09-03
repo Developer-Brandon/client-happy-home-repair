@@ -46,7 +46,7 @@ export default {
         }
         &__other-information {
             width: 100%;
-            height: 1000px;
+            height: calc(100% - 400px);
             @media (max-width: $screen-mobile) {
                 height: 100%;
             }
