@@ -1,11 +1,7 @@
 <template lang="html">
   <div class="how-to-come">
     <div class="how-to-come__inner">
-      <div class="wrap-title">
-        <p class="title font-bold">
-          오시는 길
-        </p>
-      </div>
+      <hhr-page-title title="오시는 길" />
       <div class="contents">
         <div class="wrap-google-map">
           <iframe
@@ -30,8 +26,13 @@
 </template>
 
 <script>
+import HhrPageTitle from '@/components/util/HhrPageTitle.vue'
+
 export default {
   name: 'HowToCome',
+  components: {
+    HhrPageTitle,
+  },
 }
 </script>
 

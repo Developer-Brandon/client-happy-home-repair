@@ -22,7 +22,7 @@
           <p>어떠한 이유로 전화번호가 옮겨지지 않는 분은 아래 번호로 전화 부탁드립니다</p>
           <br />
           <p class="font-semi-bold">
-            해피&nbsp;홈&nbsp;리페어)&nbsp;&nbsp;010-9018-5553
+            해피&nbsp;홈&nbsp;리페어&nbsp;&nbsp;010-9018-5553
           </p>
           <br />
           <br />

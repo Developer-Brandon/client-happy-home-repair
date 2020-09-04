@@ -1,11 +1,7 @@
 <template lang="html">
   <div class="ceo-greetings">
     <div class="ceo-greetings__inner">
-      <div class="wrap-title">
-        <p class="font-bold title">
-          인사말
-        </p>
-      </div>
+      <hhr-page-title title="인사말" />
       <div class="contents">
         <div class="contents__left">
           <img
@@ -50,8 +46,13 @@
 </template>
 
 <script>
+import HhrPageTitle from '@/components/util/HhrPageTitle.vue'
+
 export default {
-  name: 'ceo-greetings',
+  name: 'CeoGreetings',
+  components: {
+    HhrPageTitle,
+  },
 }
 </script>
 
