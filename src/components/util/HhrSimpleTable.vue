@@ -15,8 +15,10 @@
 export default {
   name: 'HhrSimpleRow',
   props: {
-    tableList: Array,
-    default: null,
+    tableList: {
+      type: Array,
+      default: null,
+    },
   },
 }
 </script>

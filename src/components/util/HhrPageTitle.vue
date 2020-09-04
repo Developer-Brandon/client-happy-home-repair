@@ -10,8 +10,10 @@
 export default {
   name: 'HhrPageTitle',
   props: {
-    title: String,
-    default: null,
+    title: {
+      type: String,
+      default: null,
+    },
   },
 }
 </script>
