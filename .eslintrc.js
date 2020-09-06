@@ -19,30 +19,30 @@ module.exports = {
 		sourceType: 'module'
 	},
 	rules: {
-		"vue/html-self-closing": ["error", {
-			"html": {
-				"void": "always",
-				"normal": "never",
-				"component": "any"
+		'vue/html-self-closing': ['error', {
+			'html': {
+				'void': 'always',
+				'normal': 'never',
+				'component': 'any'
 			}
 		}],
-		"vue/attributes-order": ["error", {
-			"order": [
-				"DEFINITION",
-				"LIST_RENDERING",
-				"CONDITIONALS",
-				"RENDER_MODIFIERS",
-				"GLOBAL",
-				"UNIQUE",
-				"TWO_WAY_BINDING",
-				"OTHER_DIRECTIVES",
-				"OTHER_ATTR",
-				"EVENTS",
-				"CONTENT"
+		'vue/attributes-order': ['error', {
+			'order': [
+				'DEFINITION',
+				'LIST_RENDERING',
+				'CONDITIONALS',
+				'RENDER_MODIFIERS',
+				'GLOBAL',
+				'UNIQUE',
+				'TWO_WAY_BINDING',
+				'OTHER_DIRECTIVES',
+				'OTHER_ATTR',
+				'EVENTS',
+				'CONTENT'
 			],
-			"alphabetical": false
+			'alphabetical': false
 		}],
-		'semi': [2, "never"],
+		'semi': [2, 'never'],
 		'max-len': 'off',
 		'no-underscore-dangle': 'off',
 		'no-lonely-if': 'off',
@@ -50,13 +50,15 @@ module.exports = {
 		'import/prefer-default-export': 'off',
 		'no-param-reassign': 'off',
 		'vue/valid-v-model': 'off',
+		'no-else-return': 'off',
+		'no-shadow': ['error', {'allow': ['state']}],
 		'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 	},
 	globals: {
-		"$": true,
-		"_": true,
-		"window.jQuery": true,
-		"Promise": true
+		'$': true,
+		'_': true,
+		'window.jQuery': true,
+		'Promise': true
 	}
 };

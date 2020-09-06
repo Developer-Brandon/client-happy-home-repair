@@ -1,12 +1,12 @@
 <template lang="html">
   <transition name="page-fade">
     <section
-      v-show="values.check.lifecycle"
+      v-show="values.check.lifeCycle"
       class="estimate"
     >
       <div class="estimate__inner">
         <div class="estimate__inner__contents">
-          <form name="estimateForm">
+          <form name="estimateForm" @submit.prevent>
             <fieldset>
               <div class="group-of-form">
                 <label
@@ -126,7 +126,8 @@
                   <br />
                   <input
                     v-model="values.email"
-                    required
+                    autocomplete="off"
+                    autofocus="off"
                     placeholder="이메일 계정 입력"
                     class="hhr-input email"
                     type="email"
@@ -147,7 +148,6 @@
                   <br />
                   <input
                     v-model="values.phoneNumber"
-                    required
                     placeholder="연락처 입력"
                     class="hhr-input tel"
                     type="tel"
@@ -175,12 +175,13 @@
               <div class="group-of-buttons">
                 <button
                   class="hhf-positive-reversal-button cancel"
-                  @click="closeModal"
+                  @click.prevent="closeModal"
                 >
                   취소
                 </button>
                 <button
                   class="hhr-negative-reversal-button submit"
+                  @click.prevent="closeModal"
                 >
                   제출
                 </button>
@@ -276,7 +277,7 @@ export default {
         isPhoneNumberCorrect: false,
         check: {
           type: '',
-          lifecycle: false,
+          lifeCycle: false,
         },
       },
     }
@@ -322,7 +323,7 @@ export default {
       }
     },
   },
-  mounted() {
+  created() {
     contactInformation = new ContactInformation()
     matchMedia = new MatchMedia()
     utilBox = new UtilBox()
@@ -361,18 +362,18 @@ export default {
       utilBox.value = this.values.phoneNumber
       this.values.isPhoneNumberCorrect = utilBox.validatePhoneNumber
     },
-    closeModal() {
-      this.values.check.lifecycle = false
-    },
-    insertValue(message) {
-      this.values.check.lifecycle = true
-      console.log('insertValue - ', message)
-    },
+    /* eslint-disable-next-line */
     show(type, message) {
+      this.$store.dispatch('app/SET_MODAL_STATE', true)
+      this.values.check.lifeCycle = true
       this.values.check.type = type
-      this.insertValue(message)
+    },
+    closeModal() {
+      this.$store.dispatch('app/SET_MODAL_STATE', false)
+      this.values.check.lifeCycle = false
     },
     submit() {
+      this.closeModal()
       if (!this.values.locate) {
         this.values.locateClicked = true
       }

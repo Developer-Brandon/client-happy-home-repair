@@ -323,7 +323,7 @@ export default {
       }
     },
   },
-  mounted() {
+  created() {
     contactInformation = new ContactInformation()
     matchMedia = new MatchMedia()
     utilBox = new UtilBox()

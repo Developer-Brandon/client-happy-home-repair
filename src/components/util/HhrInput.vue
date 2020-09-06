@@ -1,11 +1,11 @@
 <template>
-    
+  <div></div>
 </template>
 
 <script>
-	export default {
-		name: "hhr-input"
-	}
+export default {
+  name: 'HhrInput',
+}
 </script>
 
 <style scoped>

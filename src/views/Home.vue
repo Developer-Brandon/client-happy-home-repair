@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="body">
     <section class="body__main-banner">
-      <main-banner></main-banner>
+      <main-banner />
     </section>
     <section class="body__other-information">
-      <other-information></other-information>
+      <other-information />
     </section>
   </div>
 </template>

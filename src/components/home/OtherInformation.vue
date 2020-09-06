@@ -68,5 +68,6 @@ export default {
 
 <style lang="scss" scoped>
     .other-information {
+        // There is nothing to do ...
     }
 </style>
