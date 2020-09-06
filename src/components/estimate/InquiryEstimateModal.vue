@@ -6,7 +6,10 @@
     >
       <div class="estimate__inner">
         <div class="estimate__inner__contents">
-          <form name="estimateForm" @submit.prevent>
+          <form
+            name="estimateForm"
+            @submit.prevent
+          >
             <fieldset>
               <div class="group-of-form">
                 <label
@@ -329,6 +332,22 @@ export default {
     utilBox = new UtilBox()
   },
   methods: {
+    initalValues() {
+      this.values.locate = ''
+      this.values.locateClicked = false
+      this.values.estimateType = ''
+      this.values.estimateTypeClicked = false
+      this.values.estimateDetail = ''
+      this.values.estimateDetailHasInserted = false
+      this.values.estimateDetailIsReallyShort = false
+      this.values.estimateDetailIsReallyLong = false
+      this.values.email = ''
+      this.values.emailHasInserted = false
+      this.values.isEmailFormCorrect = false
+      this.values.phoneNumber = ''
+      this.values.phoneNumberHasInserted = false
+      this.values.isPhoneNumberCorrect = false
+    },
     goToNaverBlog() {
       if (matchMedia.isMobile) {
         contactInformation.type = 'mobile'
@@ -370,6 +389,7 @@ export default {
     },
     closeModal() {
       this.$store.dispatch('app/SET_MODAL_STATE', false)
+      this.initalValues()
       this.values.check.lifeCycle = false
     },
     submit() {
@@ -403,39 +423,41 @@ export default {
         top: 0;
         width: 100%;
         height: 100%;
-        overflow: hidden;
         background-color: rgba(0, 0, 0, 0.4);
-        padding-top: 15px;
-        padding-bottom: 15px;
+        // overflow: hidden;
         @media (max-width: $screen-mobile) {
             padding: 15px;
         }
         &__inner {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            //
-            width: 500px;
-            height: 570px;
-            padding: 30px;
-            background-color: $hhr-white;
-            border: 1px solid $hhr-white;
-            border-radius: 15px;
-            overflow: auto;
-            @media (max-width: $screen-mobile) {
-                width: 100%;
-                height: 100%;
-                padding: 10px;
-                border: none;
-                border-radius: 0;
-                max-width: 100%;
-                overflow-x: hidden;
-            }
+            clear: both;
+            width: auto;
+            height: auto;
             &__contents {
-                clear: both;
+                // clear: both;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                //
+                width: 500px;
+                height: 580px;
+                // max-height: calc(100vh - 160px);
+                padding: 30px;
+                background-color: $hhr-white;
+                border: 1px solid $hhr-white;
+                border-radius: 15px;
+                overflow: visible;
+                @media (max-width: $screen-mobile) {
+                    width: 100%;
+                    height: 100%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 0;
+                    max-width: 100%;
+                    overflow-x: hidden;
+                }
                 form {
                     fieldset {
                         .group-of-form {
