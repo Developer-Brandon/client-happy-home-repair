@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Products from '../views/Products.vue'
-import About from '../views/About.vue'
-import Notice from '../views/Notice.vue'
-import Estimate from '../views/Estimate.vue'
+import Home from '@/views/Home.vue'
+import Products from '@/views/Products.vue'
+import About from '@/views/About.vue'
+import Notice from '@/views/Notice.vue'
+import Estimate from '@/views/Estimate.vue'
 
 Vue.use(VueRouter)
 

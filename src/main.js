@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import meta from 'vue-meta'
-import mixin from '@/assets/js/mixin'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import mixin from '@/assets/js/global/mixin'
+import router from '@/router'
+import store from '@/store'
+import App from '@/App'
 
 Vue.config.productionTip = false
 Vue.config.devtools = true

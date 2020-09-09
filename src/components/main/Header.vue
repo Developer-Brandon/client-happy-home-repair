@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <header class="header">
     <div id="navigation">
       <div class="mobile-visible-block-only">

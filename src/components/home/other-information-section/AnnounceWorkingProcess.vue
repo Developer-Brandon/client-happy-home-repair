@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="announce-working-process">
     <div class="announce-working-process__inner">
       <h2 class="question font-semi-bold">

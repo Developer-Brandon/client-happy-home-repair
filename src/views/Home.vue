@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="body">
     <section class="body__main-banner">
       <main-banner />

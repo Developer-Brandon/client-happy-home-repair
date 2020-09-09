@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="other-information">
     <announce-company />
     <div class="hhr-small-divider"></div>

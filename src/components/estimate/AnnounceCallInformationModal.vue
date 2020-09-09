@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <transition name="page-fade">
     <section
       v-show="values.check.lifeCycle"

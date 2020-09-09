@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="clear-both"></div>
 </template>
 

@@ -1,5 +1,4 @@
-<template lang="html">
-  <!-- footer -->
+<template>
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__inner__left">

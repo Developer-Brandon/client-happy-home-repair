@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="announce-company">
     <div class="announce-company__inner">
       <h2 class="question font-semi-bold">

@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="ceo-greetings">
     <div class="ceo-greetings__inner">
       <hhr-page-title title="인사말" />

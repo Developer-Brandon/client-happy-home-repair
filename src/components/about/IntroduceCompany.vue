@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="introduce-company">
     <div class="introduce-company__inner">
       <hhr-page-title title="회사소개" />

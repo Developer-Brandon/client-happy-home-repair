@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="how-to-come">
     <div class="how-to-come__inner">
       <hhr-page-title title="오시는 길" />
