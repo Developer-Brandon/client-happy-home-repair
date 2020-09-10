@@ -90,7 +90,7 @@
           </div>
         </Slide>
       </div>
-      <div class="wrap-logo-and-title">
+      <div class="wrap-logo-and-title logo-fade-in">
         <router-link to="/">
           <img
             class="logo"
@@ -110,28 +110,28 @@
       <div class="right-menus__wrapper font-light">
         <router-link
           id="introduce-products"
-          class="menus font-regular"
+          class="menus font-regular introduce-products-fade-in"
           to="/Products"
         >
           시공소개
         </router-link>
         <router-link
           id="introduce-company"
-          class="menus font-regular"
+          class="menus font-regular introduce-company-fade-in"
           to="/About"
         >
           회사소개
         </router-link>
         <router-link
           id="notice"
-          class="menus font-regular"
+          class="menus font-regular notice-fade-in"
           to="/Notice"
         >
           공지사항
         </router-link>
         <router-link
           id="price-inquiry"
-          class="menus font-regular"
+          class="menus font-regular estimate-fade-in"
           to="/Estimate"
         >
           견적문의

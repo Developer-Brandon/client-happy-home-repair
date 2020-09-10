@@ -1,5 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+// const { MiniCssExtractPlugin } = require('mini-css-extract-plugin')
 const banner = require('./vue.banner')
 const provide = require('./vue.provide')
 
@@ -18,6 +20,12 @@ module.exports = {
   configureWebpack: {
     module: {
       rules: [
+        {
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+        },
         {
           test: /\.js$/,
           exclude: /(node_modules)/,
@@ -55,15 +63,16 @@ module.exports = {
         // },
       ],
     },
-    resolve: {
-      alias: {
-        '@': path.join(__dirname, 'src/'),
-      },
-      extensions: ['*', '.js', '.vue', '.json'],
-    },
+    // resolve: {
+    //   alias: {
+    //     '@': path.join(__dirname, 'src/'),
+    //   },
+    //   extensions: ['*', '.js', '.vue', '.json'],
+    // },
     plugins: [
       new webpack.ProvidePlugin(provide),
       new webpack.BannerPlugin(banner),
+      new CleanWebpackPlugin(),
     ],
     optimization: {
       minimize: true,

@@ -10,7 +10,7 @@
             <img
               v-if="!values.boolean.hamburgerMenuIsOpened"
               key="active-logo"
-              class="active-logo"
+              class="active-logo big-logo-fade-in"
               alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"
               src="@/assets/images/logos/final-logo.png"
               @click="goToNaverBlog"
@@ -26,17 +26,17 @@
         </div>
         <div class="wrap-slider-contents__wrap-main-title">
           <h3 class="logo-title font-bold">
-            집안 <span class="hhr-above-dot hhr-deep-blue">곳곳</span>
+            집안 <span class="hhr-above-dot hhr-deep-blue first-detail-detail-text">곳곳</span>
             못고치는게 없는
           </h3>
           <h3 class="logo-title font-bold">
-            전국 <span class="hhr-above-dot hhr-deep-blue">곳곳</span>
+            전국 <span class="hhr-above-dot hhr-deep-blue second-detail-detail-text">곳곳</span>
             안가는곳이 없는
           </h3>
-          <h3 class="logo-title font-bold">
+          <h3 class="logo-title font-bold sub-title-text">
             프리미엄 홈 리페어 서비스
           </h3>
-          <h2 class="logo-explain font-light">
+          <h2 class="logo-explain font-light sub-explain-text">
             "창호수리/방충망/페인트/문짝설치/기타작업"
           </h2>
         </div>

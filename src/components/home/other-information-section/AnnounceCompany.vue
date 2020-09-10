@@ -3,23 +3,23 @@
     <div class="announce-company__inner">
       <h2 class="question font-semi-bold">
         <span
-          class="hhr-blue font-bold title"
+          class="hhr-blue font-bold title introduce-title"
         >해피 홈 리페어</span>는 무엇이 다른가요?
       </h2>
       <div class="hhr-blue-small-divider"></div>
       <div class="question-explain">
         <p class="wrap-contents">
-          <span class="hhr-blue font-bold contents">첫째</span>
+          <span class="hhr-blue font-bold contents introduce-first-sub-title">첫째</span>
           <span class="desktop-visible-inline-only">,</span>
           <span class="sub-contents">&nbsp;25년 경력의 수리 전문가가<br class="mobile-visible-inline-only" /> 직접 점검해드립니다.</span>
         </p>
         <p class="wrap-contents">
-          <span class="hhr-blue font-bold contents">둘째</span>
+          <span class="hhr-blue font-bold contents introduce-second-sub-title">둘째</span>
           <span class="desktop-visible-inline-only">,</span>
           <span class="sub-contents">&nbsp;블로그를 시작한 이래로 <br class="mobile-visible-inline-only" />1,000여건이 넘는 실제 시공사례가 있습니다.</span>
         </p>
         <p class="wrap-contents">
-          <span class="hhr-blue font-bold contents">셋째</span>
+          <span class="hhr-blue font-bold contents introduce-third-sub-title">셋째</span>
           <span class="desktop-visible-inline-only">,</span>
           <span class="sub-contents">&nbsp;불가능한 작업이 거의 없는 <br class="mobile-visible-inline-only" />독보적인 기술력으로 수리해드립니다.</span>
         </p>

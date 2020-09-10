@@ -68,7 +68,6 @@ export default {
             max-width: 100%;
             margin: 0;
             &.modal-has-opened {
-                scrollbar-width: none;
                 -ms-overflow-style: none;
                 overflow-y: hidden;
                 &::-webkit-scrollbar {

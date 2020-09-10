@@ -1,0 +1,57 @@
+// header
+.logo-fade-in {
+  @include primary-fade-in(4);
+}
+
+.introduce-products-fade-in {
+  @include primary-fade-in(2)
+}
+
+.introduce-company-fade-in {
+  @include primary-fade-in(4)
+}
+
+.notice-fade-in {
+  @include primary-fade-in(6)
+}
+
+.estimate-fade-in {
+  @include primary-fade-in(8)
+}
+
+// first-section
+.big-logo-fade-in {
+  @include primary-fade-in-bottom-to-top(1,1);
+}
+
+.first-detail-detail-text {
+  @include primary-fade-in-bottom-to-top(2,1);
+}
+
+.second-detail-detail-text {
+  @include primary-fade-in-bottom-to-top(2,1);
+}
+
+.sub-title-text {
+  @include primary-fade-in-bottom-to-top(3,2);
+}
+.sub-explain-text {
+  @include primary-fade-in-bottom-to-top(3,2);
+}
+
+// second-section
+.introduce-title {
+  @include primary-fade-in-bottom-to-top(2,2);
+}
+.introduce-first-sub-title {
+  @include primary-fade-in-bottom-to-top(2,2);
+}
+.introduce-second-sub-title {
+  @include primary-fade-in-bottom-to-top(2,3);
+}
+.introduce-third-sub-title {
+  @include primary-fade-in-bottom-to-top(2,4);
+}
+
+// fifth-section
+// Dom이 rendering 될 때, 사진 loading animation 삽입 예정
