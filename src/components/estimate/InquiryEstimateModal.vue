@@ -307,6 +307,7 @@ export default {
     },
   },
   watch: {
+    // eslint-disable-next-line
     'values.locate': function (value) {
       if (value) {
         this.values.locate = value
@@ -316,6 +317,7 @@ export default {
         this.values.locateClicked = false
       }
     },
+    // eslint-disable-next-line
     'values.estimateType': function (value) {
       if (value) {
         this.values.estimateType = value
@@ -382,7 +384,7 @@ export default {
       this.values.isPhoneNumberCorrect = utilBox.validatePhoneNumber
     },
     /* eslint-disable-next-line */
-    show(type, message) {
+			show(type, message) {
       this.$store.dispatch('app/SET_MODAL_STATE', true)
       this.values.check.lifeCycle = true
       this.values.check.type = type

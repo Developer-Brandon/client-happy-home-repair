@@ -51,6 +51,7 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'vue/valid-v-model': 'off',
 		'no-else-return': 'off',
+		'no-alert': 'off',
 		'no-shadow': ['error', {'allow': ['state']}],
 		'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',

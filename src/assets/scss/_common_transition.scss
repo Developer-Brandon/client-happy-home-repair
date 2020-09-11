@@ -13,3 +13,11 @@
 .component-fade-enter-active, .component-fade-leave-active {
   transition: opacity .3s ease-out;
 }
+
+.content-fade-enter-active, .content-fade-leave-active {
+  transition: opacity .4s ease-in-out;
+}
+
+.content-fade-enter, .content-fade-leave-to {
+  opacity: 0;
+}

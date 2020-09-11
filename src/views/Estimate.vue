@@ -304,7 +304,8 @@ export default {
     },
   },
   watch: {
-    'values.locate': function (value) {
+    // eslint-disable-next-line
+			'values.locate': function (value) {
       if (value) {
         this.values.locate = value
         this.values.locateClicked = true
@@ -313,7 +314,8 @@ export default {
         this.values.locateClicked = false
       }
     },
-    'values.estimateType': function (value) {
+    // eslint-disable-next-line
+			'values.estimateType': function (value) {
       if (value) {
         this.values.estimateType = value
         this.values.estimateTypeClicked = true

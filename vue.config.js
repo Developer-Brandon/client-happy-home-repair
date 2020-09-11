@@ -1,9 +1,11 @@
 const webpack = require('webpack')
-const path = require('path')
+// const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // const { MiniCssExtractPlugin } = require('mini-css-extract-plugin')
-const banner = require('./vue.banner')
-const provide = require('./vue.provide')
+const developer = 'Brandon Lee'
+const realName = 'Dokyeom Lee'
+const email = 'lovefinance@naver.com'
+const github = 'https://github.com/Developer-Brandon?tab=repositories'
 
 module.exports = {
   css: {
@@ -70,8 +72,14 @@ module.exports = {
     //   extensions: ['*', '.js', '.vue', '.json'],
     // },
     plugins: [
-      new webpack.ProvidePlugin(provide),
-      new webpack.BannerPlugin(banner),
+      new webpack.BannerPlugin(`Developer: ${developer} (${realName})\nEmail: ${email}\nGithub: ${github}\n`),
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        _: 'lodash',
+        'window.jQuery': 'jquery',
+        Promise: 'es6-promise',
+      }),
       new CleanWebpackPlugin(),
     ],
     optimization: {

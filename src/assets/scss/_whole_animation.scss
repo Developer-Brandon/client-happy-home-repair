@@ -10,6 +10,44 @@
   }
 }
 
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -24,12 +62,18 @@
 
 @mixin primary-fade-in($second) {
   opacity: 0;
-  animation: fade-in #{$second}s ease-out 1 forwards;
   -webkit-animation: fade-in #{$second}s ease-out 1 forwards;
+  -moz-animation: fade-in #{$second}s ease-out 1 forwards;
+  -ms-animation: fade-in #{$second}s ease-out 1 forwards;
+  -o-animation: fade-in #{$second}s ease-out 1 forwards;
+  animation: fade-in #{$second}s ease-out 1 forwards;
   @media (max-width: $screen-mobile) {
     opacity: 1;
     animation: none;
     -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    -o-animation: none;
   }
 }
 
@@ -73,5 +117,3 @@
     -webkit-animation: none;
   }
 }
-
-@import 'animation/home';

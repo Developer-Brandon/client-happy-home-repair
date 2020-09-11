@@ -1,7 +1,7 @@
 export default {
   methods: {
     callGlobalMethod() {
-      alert('Hellow world!')
+      console.log('This code works well')
     }
     ,
   },

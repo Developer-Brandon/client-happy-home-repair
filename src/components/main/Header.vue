@@ -217,6 +217,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // animation
+    .logo-fade-in {
+      @include primary-fade-in(4);
+    }
+
+    .introduce-products-fade-in {
+      @include primary-fade-in(2)
+    }
+
+    .introduce-company-fade-in {
+      @include primary-fade-in(4)
+    }
+
+    .notice-fade-in {
+      @include primary-fade-in(6)
+    }
+
+    .estimate-fade-in {
+      @include primary-fade-in(8)
+    }
+
     // 1. mobile navigation
     .slider {
         .menus-from-hb {

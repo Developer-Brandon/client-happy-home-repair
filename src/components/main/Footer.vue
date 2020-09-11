@@ -118,7 +118,10 @@
               <li>"집안 곳곳의 부서진 곳 수리해드립니다"</li>
               <li>"타 업체에서 수리하지 못하는 곳 수리해드립니다"</li>
               <li class="font-regular">
-                <a class="hhr-telephone-emphasize" href="tel:01090185553">전화상담 / 010-9018-5553</a>
+                <a
+                  class="hhr-telephone-emphasize"
+                  href="tel:01090185553"
+                >전화상담 / 010-9018-5553</a>
               </li>
               <li>리모델링 전문 <span class="font-bold">해피홈 리페어</span>에 문의해보세요</li>
             </ul>

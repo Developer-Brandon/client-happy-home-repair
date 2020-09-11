@@ -71,6 +71,22 @@ export default {
     matchMedia = new MatchMedia()
     contactInformation = new ContactInformation()
   },
+  mounted() {
+    this.$nextTick(() => {
+      // 1. below code doesn't work ...
+      // $('.active-logo').addClass('inject-lazy-hover')
+      // 2. below code doesn't work too ...
+      // $('.active-logo').hover(
+      //   () => {
+      //     $(this).find('img').animate({ scale: '+=0.2' }, 300)
+      //   },
+      //   () => {
+      //     $(this).find('img').animate({ scale: '-=0.2' }, 300)
+      //   },
+      // )
+      // I have to fix CSS HOVER effect doesn't work after animation execute
+    })
+  },
   methods: {
     goToNaverBlog() {
       if (matchMedia.isMobile) {
@@ -86,12 +102,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .content-fade-enter-active, .content-fade-leave-active {
-        transition: opacity .4s ease-in-out;
+    .big-logo-fade-in {
+        @include primary-fade-in-bottom-to-top(1, 0.5);
     }
 
-    .content-fade-enter, .content-fade-leave-to {
-        opacity: 0;
+    .first-detail-detail-text {
+        @include primary-fade-in-bottom-to-top(2, 1);
+    }
+
+    .second-detail-detail-text {
+        @include primary-fade-in-bottom-to-top(3, 1.5);
+    }
+
+    .sub-title-text {
+        @include primary-fade-in-bottom-to-top(3, 2);
+    }
+
+    .sub-explain-text {
+        @include primary-fade-in-bottom-to-top(3, 2);
+    }
+
+    .inject-lazy-hover {
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        transition: 0.3s;
+        &:hover {
+            cursor: pointer;
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
     }
 
     .main-banner {
@@ -114,10 +156,16 @@ export default {
                     .active-logo {
                         width: 120px;
                         height: 120px;
+                        -webkit-transition: 0.3s;
+                        -moz-transition: 0.3s;
+                        -ms-transition: 0.3s;
                         transition: 0.3s;
                         &:hover {
-                          cursor: pointer;
-                          transform: scale(1.1);
+                            cursor: pointer;
+                            -webkit-transform: scale(1.1);
+                            -moz-transform: scale(1.1);
+                            -ms-transform: scale(1.1);
+                            transform: scale(1.1);
                         }
                         @media (max-width: $screen-mobile) {
                             width: 100px;

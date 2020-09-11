@@ -10,6 +10,7 @@
       <div class="process-explain">
         <div
           v-for="(object, index) in values.workingProcessList"
+          :ref="'eachWorkingProcess'+index"
           :key="index"
           class="process-explain__inner"
         >
@@ -60,6 +61,13 @@ export default {
         ],
       },
     }
+  },
+  mounted() {
+    // const workinProcess = this.$ref.eachWorkingProcess[0]
+    // console.log('workinProcess', workinProcess)
+    this.$nextTick(() => {
+
+    })
   },
 }
 </script>

@@ -35,6 +35,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // 1. animations
+    .introduce-title {
+        @include primary-fade-in-bottom-to-top(2,2);
+    }
+    .introduce-first-sub-title {
+        @include primary-fade-in-bottom-to-top(2,2);
+    }
+    .introduce-second-sub-title {
+        @include primary-fade-in-bottom-to-top(2,3);
+    }
+    .introduce-third-sub-title {
+        @include primary-fade-in-bottom-to-top(2,4);
+    }
+
+    // 2. classes
     .announce-company {
         padding: 50px 0;
         @media (max-width: $screen-mobile) {
