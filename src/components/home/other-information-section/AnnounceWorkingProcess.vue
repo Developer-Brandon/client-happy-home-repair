@@ -10,8 +10,9 @@
       <div class="process-explain">
         <div
           v-for="(object, index) in values.workingProcessList"
-          :ref="'eachWorkingProcess'+index"
-          :key="index"
+          :ref="'eachWorkingProcess' + index"
+          :key="object.reRenderKey"
+          :class="getPrefix(index+1)+'-working-process-text'"
           class="process-explain__inner"
         >
           <div class="wrap-title">
@@ -43,18 +44,22 @@ export default {
       values: {
         workingProcessList: [
           {
+            reRenderKey: 0,
             title: 'STEP 1',
             contents: '저희는요이렇게할꺼구요저렇게할꺼구요이렇게저렇게할껀데요이렇게저렇게어쩌구저쩌구저쩌구',
           },
           {
+            reRenderKey: 1,
             title: 'STEP 2',
             contents: '저희는요이렇게할꺼구요저렇게할꺼구요이렇게저렇게할껀데요이렇게저렇게어쩌구저쩌구저쩌구',
           },
           {
+            reRenderKey: 2,
             title: 'STEP 3',
             contents: '저희는요이렇게할꺼구요저렇게할꺼구요이렇게저렇게할껀데요이렇게저렇게어쩌구저쩌구저쩌구',
           },
           {
+            reRenderKey: 3,
             title: 'STEP 4',
             contents: '저희는요이렇게할꺼구요저렇게할꺼구요이렇게저렇게할껀데요이렇게저렇게어쩌구저쩌구저쩌구',
           },
@@ -63,17 +68,52 @@ export default {
     }
   },
   mounted() {
-    // const workinProcess = this.$ref.eachWorkingProcess[0]
-    // console.log('workinProcess', workinProcess)
-    this.$nextTick(() => {
-
-    })
+    //
+  },
+  methods: {
+    getPrefix(index) {
+      switch (index) {
+        case 1:
+          return 'first'
+        case 2:
+          return 'second'
+        case 3:
+          return 'third'
+        case 4:
+          return 'fourth'
+        default:
+          return 'none'
+      }
+    },
+    executeWorkingProcessAnimation() {
+      // for re-rendering dom
+      this.$nextTick(() => {
+        for (let i = 0; i <= 3; i += 1) {
+          this.values.workingProcessList[i].reRenderKey = i + 1
+        }
+      })
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
     // @Local util
+    .first-working-process-text {
+        @include primary-fade-in-bottom-to-top(1, 1);
+    }
+
+    .second-working-process-text {
+        @include primary-fade-in-bottom-to-top(1, 1.5);
+    }
+
+    .third-working-process-text {
+        @include primary-fade-in-bottom-to-top(1.5, 2);
+    }
+
+    .fourth-working-process-text {
+        @include primary-fade-in-bottom-to-top(1.5, 2.5);
+    }
 
     // @Class
     .announce-working-process {

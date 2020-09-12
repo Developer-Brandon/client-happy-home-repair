@@ -4,7 +4,7 @@
     <div class="hhr-small-divider"></div>
     <consulting-for-client />
     <div class="hhr-small-divider"></div>
-    <announce-working-process />
+    <announce-working-process ref="workingProcess" />
     <div class="hhr-small-divider"></div>
     <introduce-all-products />
     <inquiry-estimate-modal ref="inquiryEstimateModal" />
@@ -47,7 +47,33 @@ export default {
     userAgent = new UserAgent()
     contactInformation = new ContactInformation()
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.addScrollEventListener()
+    })
+  },
   methods: {
+    conveyWorkingProcessAnimationToChild() {
+      this.$refs.workingProcess.executeWorkingProcessAnimation()
+      window.document.removeEventListener('scroll', this.isCalculateViewPort)
+    },
+    isCalculateViewPort() {
+      const workingProcessDom = this.$refs.workingProcess.$el
+      const wpDomRectedViewPort = workingProcessDom.getBoundingClientRect()
+      const heightOfAboveWorkingProcessElement = wpDomRectedViewPort.top
+      if (matchMedia.isMobile) {
+        if (heightOfAboveWorkingProcessElement < 600) {
+          this.conveyWorkingProcessAnimationToChild()
+        }
+      } else {
+        if (heightOfAboveWorkingProcessElement < 700) {
+          this.conveyWorkingProcessAnimationToChild()
+        }
+      }
+    },
+    addScrollEventListener() {
+      window.document.addEventListener('scroll', this.isCalculateViewPort)
+    },
     callToPhone() {
       if (matchMedia.isMobile) {
         document.location.href = contactInformation.getPhoneNumber()
