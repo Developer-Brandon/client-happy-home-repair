@@ -1,124 +1,129 @@
 <template>
-  <div class="sections">
-    <div class="sections__inner">
-      <div
-        class="wrap-window-section"
-        @click="goToWindowPage"
-      >
-        <div class="wrap-window-section__inner">
-          <div
-            class="wrap-window-section__inner__snippet"
-          >
-            <p class="word font-semi-bold">
-              아직도, 고장난<br /><span class="font-emphasize">샤시창문/나무창문</span>을<br /> 불편한 상태로 그.대.로<br />사용하고
-              계신가요?
+  <transition name="page-fade">
+    <div
+      v-if="values.check.lifeCycle"
+      class="sections"
+    >
+      <div class="sections__inner">
+        <div
+          class="wrap-window-section"
+          @click="goToWindowPage"
+        >
+          <div class="wrap-window-section__inner">
+            <div
+              class="wrap-window-section__inner__snippet"
+            >
+              <p class="word font-semi-bold">
+                아직도, 고장난<br /><span class="font-emphasize">샤시창문/나무창문</span>을<br /> 불편한 상태로 그.대.로<br />사용하고
+                계신가요?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="wrap-window-section-announcement">
+          <div class="wrap-window-section-announcement__inner">
+            <p class="font-regular">
+              : 샤시수리/나무창문/롤러교체/레일수리/모헤어교체
             </p>
           </div>
         </div>
-      </div>
-      <div class="wrap-window-section-announcement">
-        <div class="wrap-window-section-announcement__inner">
-          <p class="font-regular">
-            : 샤시수리/나무창문/롤러교체/레일수리/모헤어교체
-          </p>
+        <hhr-clear-both></hhr-clear-both>
+        <div
+          class="wrap-door-section"
+          @click="goToDoorPage"
+        >
+          <div class="wrap-door-section__inner">
+            <div
+              class="wrap-door-section__inner__snippet"
+            >
+              <p class="word font-semi-bold">
+                <span class="font-emphasize">방문/중문/포켓도어</span><br />각종 문을<br />편리하게 사용하도록<br />수리해 드립니다
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-      <hhr-clear-both></hhr-clear-both>
-      <div
-        class="wrap-door-section"
-        @click="goToDoorPage"
-      >
-        <div class="wrap-door-section__inner">
-          <div
-            class="wrap-door-section__inner__snippet"
-          >
-            <p class="word font-semi-bold">
-              <span class="font-emphasize">방문/중문/포켓도어</span><br />각종 문을<br />편리하게 사용하도록<br />수리해 드립니다
+        <div class="wrap-door-section-announcement">
+          <div class="wrap-door-section-announcement__inner">
+            <p class="font-regular">
+              ABS도어/포켓도어수리/3연동중문수리/미닫이문수리 :
             </p>
           </div>
         </div>
-      </div>
-      <div class="wrap-door-section-announcement">
-        <div class="wrap-door-section-announcement__inner">
-          <p class="font-regular">
-            ABS도어/포켓도어수리/3연동중문수리/미닫이문수리 :
-          </p>
+        <hhr-clear-both></hhr-clear-both>
+        <div
+          class="wrap-security-window-section"
+          @click="goToSecurityWindowPage"
+        >
+          <div class="wrap-security-window-section__inner">
+            <div
+              class="wrap-security-window-section__inner__snippet"
+            >
+              <p class="word font-semi-bold">
+                각종<br /><span class="font-emphasize">방충망/방범창</span><br />제작,설치,교체 작업<br />해 드립니다
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-      <hhr-clear-both></hhr-clear-both>
-      <div
-        class="wrap-security-window-section"
-        @click="goToSecurityWindowPage"
-      >
-        <div class="wrap-security-window-section__inner">
-          <div
-            class="wrap-security-window-section__inner__snippet"
-          >
-            <p class="word font-semi-bold">
-              각종<br /><span class="font-emphasize">방충망/방범창</span><br />제작,설치,교체 작업<br />해 드립니다
+        <div class="wrap-security-window-section-announcement">
+          <div class="wrap-security-window-section-announcement__inner">
+            <p class="font-regular">
+              : 미세방충망, 스텐방충망, 현관방충망, 방범방충문, 방범창설치
             </p>
           </div>
         </div>
+        <hhr-clear-both></hhr-clear-both>
       </div>
-      <div class="wrap-security-window-section-announcement">
-        <div class="wrap-security-window-section-announcement__inner">
-          <p class="font-regular">
-            : 미세방충망, 스텐방충망, 현관방충망, 방범방충문, 방범창설치
-          </p>
+      <div class="sections__inner">
+        <div
+          class="wrap-paint-section"
+          @click="goToPaintPage"
+        >
+          <div class="wrap-paint-section__inner">
+            <div
+              class="wrap-paint-section__inner__snippet"
+            >
+              <p class="word font-semi-bold">
+                <span class="font-emphasize">주택/상가/베란다</span><br />독한 냄새가 나지 않는<br />친환경 페인트(국산/수입)<br />전문
+                시공합니다
+              </p>
+            </div>
+          </div>
         </div>
+        <div class="wrap-paint-section-announcement">
+          <div class="wrap-paint-section-announcement__inner">
+            <p class="word font-regular">
+              아파트, 주택, 상가, 빌라 실내페인트 베란다 칠 옥상방수 :
+            </p>
+          </div>
+        </div>
+        <hhr-clear-both></hhr-clear-both>
+        <div
+          class="wrap-etc-section"
+          @click="goToEtcPage"
+        >
+          <div class="wrap-etc-section__inner">
+            <div
+              class="wrap-etc-section__inner__snippet"
+            >
+              <p class="word font-semi-bold">
+                <span class="font-emphasize">환풍기/선반</span> 설치<br /><span
+                  class="font-emphasize"
+                >빨래건조대</span> 설치<br />각종 철물 설치<br />해결해 드립니다
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="wrap-etc-section-announcement">
+          <div class="wrap-etc-section-announcement__inner">
+            <p class="font-regular">
+              : 아파트, 주택, 상가, 빌라 실내페인트 베란다 칠 옥상방수
+            </p>
+          </div>
+        </div>
+        <hhr-clear-both></hhr-clear-both>
       </div>
-      <hhr-clear-both></hhr-clear-both>
     </div>
-    <div class="sections__inner">
-      <div
-        class="wrap-paint-section"
-        @click="goToPaintPage"
-      >
-        <div class="wrap-paint-section__inner">
-          <div
-            class="wrap-paint-section__inner__snippet"
-          >
-            <p class="word font-semi-bold">
-              <span class="font-emphasize">주택/상가/베란다</span><br />독한 냄새가 나지 않는<br />친환경 페인트(국산/수입)<br />전문
-              시공합니다
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="wrap-paint-section-announcement">
-        <div class="wrap-paint-section-announcement__inner">
-          <p class="word font-regular">
-            아파트, 주택, 상가, 빌라 실내페인트 베란다 칠 옥상방수 :
-          </p>
-        </div>
-      </div>
-      <hhr-clear-both></hhr-clear-both>
-      <div
-        class="wrap-etc-section"
-        @click="goToEtcPage"
-      >
-        <div class="wrap-etc-section__inner">
-          <div
-            class="wrap-etc-section__inner__snippet"
-          >
-            <p class="word font-semi-bold">
-              <span class="font-emphasize">환풍기/선반</span> 설치<br /><span
-                class="font-emphasize"
-              >빨래건조대</span> 설치<br />각종 철물 설치<br />해결해 드립니다
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="wrap-etc-section-announcement">
-        <div class="wrap-etc-section-announcement__inner">
-          <p class="font-regular">
-            : 아파트, 주택, 상가, 빌라 실내페인트 베란다 칠 옥상방수
-          </p>
-        </div>
-      </div>
-      <hhr-clear-both></hhr-clear-both>
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -134,9 +139,21 @@ export default {
   components: {
     HhrClearBoth,
   },
+  data() {
+    return {
+      values: {
+        check: {
+          lifeCycle: false,
+        },
+      },
+    }
+  },
   mounted() {
-    contactInformation = new ContactInformation()
-    matchMedia = new MatchMedia()
+    this.$nextTick(() => {
+      contactInformation = new ContactInformation()
+      matchMedia = new MatchMedia()
+      this.values.check.lifeCycle = true
+    })
   },
   methods: {
     judgeResolution() {
@@ -219,17 +236,17 @@ export default {
                         padding: 20px;
                     }
                     &:hover {
-                      cursor: pointer;
-                      background: initial;
+                        cursor: pointer;
+                        background: initial;
                     }
                     &:hover .wrap-window-section__inner__snippet {
                         //
                     }
                     &:hover .wrap-window-section__inner__snippet .word {
-                      display: none;
-                      @media (max-width: $screen-mobile) {
-                        display: block;
-                      }
+                        display: none;
+                        @media (max-width: $screen-mobile) {
+                            display: block;
+                        }
                     }
                     &__snippet {
                         width: 100%;
@@ -299,10 +316,10 @@ export default {
                         //
                     }
                     &:hover .wrap-door-section__inner__snippet .word {
-                      display: none;
-                      @media (max-width: $screen-mobile) {
-                        display: block;
-                      }
+                        display: none;
+                        @media (max-width: $screen-mobile) {
+                            display: block;
+                        }
                     }
                     &__snippet {
                         width: 100%;
@@ -374,10 +391,10 @@ export default {
                         //
                     }
                     &:hover .wrap-security-window-section__inner__snippet .word {
-                      display: none;
-                      @media (max-width: $screen-mobile) {
-                        display: block;
-                      }
+                        display: none;
+                        @media (max-width: $screen-mobile) {
+                            display: block;
+                        }
                     }
                     &__snippet {
                         .word {
@@ -446,10 +463,10 @@ export default {
                         //
                     }
                     &:hover .wrap-paint-section__inner__snippet .word {
-                      display: none;
-                      @media (max-width: $screen-mobile) {
-                        display: block;
-                      }
+                        display: none;
+                        @media (max-width: $screen-mobile) {
+                            display: block;
+                        }
                     }
                     &__snippet {
                         width: 100%;
@@ -521,10 +538,10 @@ export default {
                         //
                     }
                     &:hover .wrap-etc-section__inner__snippet .word {
-                      display: none;
-                      @media (max-width: $screen-mobile) {
-                        display: block;
-                      }
+                        display: none;
+                        @media (max-width: $screen-mobile) {
+                            display: block;
+                        }
                     }
                     &__snippet {
                         width: 100%;

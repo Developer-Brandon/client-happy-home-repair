@@ -1,14 +1,19 @@
 <template>
-  <div class="sections">
-    <div class="sections__inner">
-      <ceo-greetings></ceo-greetings>
-      <hhr-clear-both></hhr-clear-both>
-      <introduce-company></introduce-company>
-      <hhr-clear-both></hhr-clear-both>
-      <how-to-come></how-to-come>
-      <hhr-clear-both></hhr-clear-both>
+  <transition name="page-fade">
+    <div
+      v-if="values.check.lifeCycle"
+      class="sections"
+    >
+      <div class="sections__inner">
+        <ceo-greetings />
+        <hhr-clear-both />
+        <introduce-company />
+        <hhr-clear-both />
+        <how-to-come />
+        <hhr-clear-both />
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -24,6 +29,20 @@ export default {
     CeoGreetings,
     IntroduceCompany,
     HowToCome,
+  },
+  data() {
+    return {
+      values: {
+        check: {
+          lifeCycle: false,
+        },
+      },
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.values.check.lifeCycle = true
+    })
   },
 }
 </script>

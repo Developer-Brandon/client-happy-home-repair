@@ -1,201 +1,206 @@
 <template>
-  <div class="sections">
-    <section class="sections__inner">
-      <section class="estimate">
-        <div class="estimate__title">
-          <p class="word font-semi-bold">
-            견적 문의하기
-          </p>
-        </div>
-        <div class="estimate__sub-title">
-          <p
-            class="word font-regular"
-            @click="goToNaverBlog"
-          >
-            <span class="word__inner"><span>*</span>&nbsp;블로그 보고 결정할게요</span>
-          </p>
-        </div>
-        <div class="estimate__contents">
-          <form name="estimateForm">
-            <fieldset>
-              <div class="group-of-form">
-                <label
-                  class="hhr-labeling"
-                  style="margin-bottom:7px;"
-                >
-                  <span class="hhr-labeling-title">&nbsp;지역&nbsp;<span class="hhf-red">*</span>&nbsp;&nbsp;</span>
-                  <div class="wrap-local-type">
-                    <select
-                      id="locateType"
-                      v-model="values.locate"
-                      class="hhr-select locate-type"
-                      name="locate-type"
-                    >
-                      <option
-                        class="hhr-option"
-                        selected="selected"
-                        disabled="disabled"
-                        value=""
-                      >선택하기
-                      </option>
-                      <option
-                        v-for="(item, index) in values.locationList"
-                        :key="index"
-                        class="hhr-option"
-                        :value="item.value"
-                      >{{ item.title }}
-                      </option>
-                    </select>
-                  </div>
-                </label>
-                <ul class="locate-type-announcement-list">
-                  <li
-                    v-show="!values.locate && values.locateClicked"
-                    class="error-msg"
+  <transition name="page-fade">
+    <div
+      v-if="values.check.lifeCycle"
+      class="sections"
+    >
+      <section class="sections__inner">
+        <section class="estimate">
+          <div class="estimate__title">
+            <p class="word font-semi-bold">
+              견적 문의하기
+            </p>
+          </div>
+          <div class="estimate__sub-title">
+            <p
+              class="word font-regular"
+              @click="goToNaverBlog"
+            >
+              <span class="word__inner"><span>*</span>&nbsp;블로그 보고 결정할게요</span>
+            </p>
+          </div>
+          <div class="estimate__contents">
+            <form name="estimateForm">
+              <fieldset>
+                <div class="group-of-form">
+                  <label
+                    class="hhr-labeling"
+                    style="margin-bottom:7px;"
                   >
-                    지역은 필수 선택 사항입니다
-                  </li>
-                </ul>
-                <br />
-                <label
-                  class="hhr-labeling"
-                  style="margin-bottom:7px;"
-                >
-                  <span class="hhr-labeling-title">&nbsp;문의 유형&nbsp;<span class="hhf-red">*</span>&nbsp;&nbsp;</span>
-                  <div class="wrap-estimate-type">
-                    <select
-                      id="estimateType"
-                      v-model="values.estimateType"
-                      class="hhr-select estimate-type"
-                      name="estimate-type"
-                    >
-                      <option
-                        class="hhr-option"
-                        selected="selected"
-                        disabled="disabled"
-                        value=""
-                      >선택하기
-                      </option>
-                      <option
-                        v-for="(item, index) in values.estimateList"
-                        :key="index"
-                        class="hhr-option"
-                        :value="item.value"
-                      >{{ item.title }}
-                      </option>
-                    </select>
-                  </div>
-                </label>
-                <ul class="estimate-type-announcement-list">
-                  <li
-                    v-show="!values.estimateType && values.estimateTypeClicked"
-                    class="error-msg"
-                  >
-                    문의유형은 필수 선택 사항입니다
-                  </li>
-                </ul>
-                <br />
-                <label
-                  id="estimate-detail"
-                  class="hhr-labeling"
-                >
-                  <span class="hhr-labeling-title">&nbsp;문의 상세&nbsp;</span>
-                  <br />
-                </label>
-                <textarea
-                  v-model="insertEstimate"
-                  maxlength="201"
-                  for="estimate"
-                  placeholder="문의 상세 입력"
-                  class="hhr-textarea estimate-detail"
-                ></textarea>
-                <ul class="estimate-detail-announcement-list">
-                  <li class="default-msg">
-                    200자 이내로 부탁드립니다
-                  </li>
-                  <li
-                    v-show="values.estimateDetailHasInserted && values.estimateDetailIsReallyShort"
-                    class="error-msg"
-                  >
-                    다섯글자 이상 입력해주셔야합니다
-                  </li>
-                  <li
-                    v-show="values.estimateDetailHasInserted && values.estimateDetailIsReallyLong"
-                    class="error-msg"
-                  >
-                    200자가 초과되었습니다
-                  </li>
-                </ul>
-                <br />
-                <label class="hhr-labeling">
-                  <span class="hhr-labeling-title">&nbsp;이메일&nbsp;<span
-                    class="hhf-red"
-                  >*</span></span>
-                  <br />
-                  <input
-                    v-model="values.email"
-                    required
-                    placeholder="이메일 계정 입력"
-                    class="hhr-input email"
-                    type="email"
-                    @keyup="insertEmail"
-                  />
-                  <ul class="email-announcement-list">
+                    <span class="hhr-labeling-title">&nbsp;지역&nbsp;<span class="hhf-red">*</span>&nbsp;&nbsp;</span>
+                    <div class="wrap-local-type">
+                      <select
+                        id="locateType"
+                        v-model="values.locate"
+                        class="hhr-select locate-type"
+                        name="locate-type"
+                      >
+                        <option
+                          class="hhr-option"
+                          selected="selected"
+                          disabled="disabled"
+                          value=""
+                        >선택하기
+                        </option>
+                        <option
+                          v-for="(item, index) in values.locationList"
+                          :key="index"
+                          class="hhr-option"
+                          :value="item.value"
+                        >{{ item.title }}
+                        </option>
+                      </select>
+                    </div>
+                  </label>
+                  <ul class="locate-type-announcement-list">
                     <li
-                      v-show="values.emailHasInserted && !values.isEmailFormCorrect"
+                      v-show="!values.locate && values.locateClicked"
                       class="error-msg"
-                    >이메일 형식대로 입력해주셔야 합니다
+                    >
+                      지역은 필수 선택 사항입니다
                     </li>
                   </ul>
-                </label>
-                <br />
-                <label class="hhr-labeling">
-                  <span class="hhr-labeling-title"> &nbsp;연락처&nbsp;
-                    <span class="hhf-red">*</span></span>
                   <br />
-                  <input
-                    v-model="values.phoneNumber"
-                    required
-                    placeholder="연락처 입력"
-                    class="hhr-input tel"
-                    type="tel"
-                    maxlength="11"
-                    @blur="validatePhoneNumber"
-                    @keyup="insertPhoneNumber"
-                  />
-                  <ul class="tel-announcement-list">
+                  <label
+                    class="hhr-labeling"
+                    style="margin-bottom:7px;"
+                  >
+                    <span class="hhr-labeling-title">&nbsp;문의 유형&nbsp;<span class="hhf-red">*</span>&nbsp;&nbsp;</span>
+                    <div class="wrap-estimate-type">
+                      <select
+                        id="estimateType"
+                        v-model="values.estimateType"
+                        class="hhr-select estimate-type"
+                        name="estimate-type"
+                      >
+                        <option
+                          class="hhr-option"
+                          selected="selected"
+                          disabled="disabled"
+                          value=""
+                        >선택하기
+                        </option>
+                        <option
+                          v-for="(item, index) in values.estimateList"
+                          :key="index"
+                          class="hhr-option"
+                          :value="item.value"
+                        >{{ item.title }}
+                        </option>
+                      </select>
+                    </div>
+                  </label>
+                  <ul class="estimate-type-announcement-list">
                     <li
-                      v-show="values.phoneNumberHasInserted && !values.phoneNumber"
+                      v-show="!values.estimateType && values.estimateTypeClicked"
                       class="error-msg"
-                    >연락처는 필수 입력사항입니다
-                    </li>
-                    <li
-                      v-show="values.phoneNumberHasInserted && !values.isPhoneNumberCorrect"
-                      class="error-msg"
-                    >연락처의 형식과 일치하지 않습니다(숫자만 입력 가능합니다)
+                    >
+                      문의유형은 필수 선택 사항입니다
                     </li>
                   </ul>
-                </label>
-                <br />
+                  <br />
+                  <label
+                    id="estimate-detail"
+                    class="hhr-labeling"
+                  >
+                    <span class="hhr-labeling-title">&nbsp;문의 상세&nbsp;</span>
+                    <br />
+                  </label>
+                  <textarea
+                    v-model="insertEstimate"
+                    maxlength="201"
+                    for="estimate"
+                    placeholder="문의 상세 입력"
+                    class="hhr-textarea estimate-detail"
+                  ></textarea>
+                  <ul class="estimate-detail-announcement-list">
+                    <li class="default-msg">
+                      200자 이내로 부탁드립니다
+                    </li>
+                    <li
+                      v-show="values.estimateDetailHasInserted && values.estimateDetailIsReallyShort"
+                      class="error-msg"
+                    >
+                      다섯글자 이상 입력해주셔야합니다
+                    </li>
+                    <li
+                      v-show="values.estimateDetailHasInserted && values.estimateDetailIsReallyLong"
+                      class="error-msg"
+                    >
+                      200자가 초과되었습니다
+                    </li>
+                  </ul>
+                  <br />
+                  <label class="hhr-labeling">
+                    <span class="hhr-labeling-title">&nbsp;이메일&nbsp;<span
+                      class="hhf-red"
+                    >*</span></span>
+                    <br />
+                    <input
+                      v-model="values.email"
+                      required
+                      placeholder="이메일 계정 입력"
+                      class="hhr-input email"
+                      type="email"
+                      @keyup="insertEmail"
+                    />
+                    <ul class="email-announcement-list">
+                      <li
+                        v-show="values.emailHasInserted && !values.isEmailFormCorrect"
+                        class="error-msg"
+                      >이메일 형식대로 입력해주셔야 합니다
+                      </li>
+                    </ul>
+                  </label>
+                  <br />
+                  <label class="hhr-labeling">
+                    <span class="hhr-labeling-title"> &nbsp;연락처&nbsp;
+                      <span class="hhf-red">*</span></span>
+                    <br />
+                    <input
+                      v-model="values.phoneNumber"
+                      required
+                      placeholder="연락처 입력"
+                      class="hhr-input tel"
+                      type="tel"
+                      maxlength="11"
+                      @blur="validatePhoneNumber"
+                      @keyup="insertPhoneNumber"
+                    />
+                    <ul class="tel-announcement-list">
+                      <li
+                        v-show="values.phoneNumberHasInserted && !values.phoneNumber"
+                        class="error-msg"
+                      >연락처는 필수 입력사항입니다
+                      </li>
+                      <li
+                        v-show="values.phoneNumberHasInserted && !values.isPhoneNumberCorrect"
+                        class="error-msg"
+                      >연락처의 형식과 일치하지 않습니다(숫자만 입력 가능합니다)
+                      </li>
+                    </ul>
+                  </label>
+                  <br />
                 <!-- TODO: 이미지 업로드 관련되서는, 어떻게 처리할 건지 먼저 생각해보자 -->
                 <!--<div></div>-->
-              </div>
-              <div class="group-of-buttons">
-                <button class="hhf-positive-reversal-button cancel">
-                  취소
-                </button>
-                <button
-                  class="hhr-negative-reversal-button submit"
-                >
-                  제출
-                </button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
+                </div>
+                <div class="group-of-buttons">
+                  <button class="hhf-positive-reversal-button cancel">
+                    취소
+                  </button>
+                  <button
+                    class="hhr-negative-reversal-button submit"
+                  >
+                    제출
+                  </button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </section>
       </section>
-    </section>
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -265,6 +270,9 @@ export default {
             value: '환풍기,선반,건조대',
           },
         ],
+        check: {
+          lifeCycle: false,
+        },
         locate: '',
         locateClicked: false,
         estimateType: '',
@@ -324,6 +332,11 @@ export default {
         this.values.estimateTypeClicked = false
       }
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.values.check.lifeCycle = true
+    })
   },
   created() {
     contactInformation = new ContactInformation()
