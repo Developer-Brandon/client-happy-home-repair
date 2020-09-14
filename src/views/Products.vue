@@ -4,119 +4,145 @@
       v-if="values.check.lifeCycle"
       class="sections"
     >
-      <div class="sections__inner">
+      <div
+        class="sections__inner"
+      >
         <div
-          class="wrap-window-section"
+          class="wrap-window-section window-image-fade-in"
           @click="goToWindowPage"
         >
           <div class="wrap-window-section__inner">
             <div
               class="wrap-window-section__inner__snippet"
             >
-              <p class="word font-semi-bold">
-                아직도, 고장난<br /><span class="font-emphasize">샤시창문/나무창문</span>을<br /> 불편한 상태로 그.대.로<br />사용하고
-                계신가요?
-              </p>
+              <p
+                class="word font-semi-bold"
+                v-html="getWindowSectionAnnounce"
+              ></p>
             </div>
           </div>
         </div>
-        <div class="wrap-window-section-announcement">
+        <div
+          class="wrap-window-section-announcement window-announce-fade-in"
+        >
           <div class="wrap-window-section-announcement__inner">
-            <p class="font-regular">
-              : 샤시수리/나무창문/롤러교체/레일수리/모헤어교체
+            <p
+              class="font-regular"
+              @click="goToWindowPage"
+              v-html="getWindowSectionAnnounce"
+            >
             </p>
           </div>
         </div>
         <hhr-clear-both></hhr-clear-both>
         <div
-          class="wrap-door-section"
+          class="wrap-door-section door-image-fade-in"
           @click="goToDoorPage"
         >
           <div class="wrap-door-section__inner">
             <div
               class="wrap-door-section__inner__snippet"
             >
-              <p class="word font-semi-bold">
-                <span class="font-emphasize">방문/중문/포켓도어</span><br />각종 문을<br />편리하게 사용하도록<br />수리해 드립니다
+              <p
+                class="word font-semi-bold"
+                v-html="getDoorSectionAnnounce"
+              >
               </p>
             </div>
           </div>
         </div>
-        <div class="wrap-door-section-announcement">
+        <div class="wrap-door-section-announcement door-announce-fade-in">
           <div class="wrap-door-section-announcement__inner">
-            <p class="font-regular">
-              ABS도어/포켓도어수리/3연동중문수리/미닫이문수리 :
+            <p
+              class="font-regular"
+              @click="goToDoorPage"
+              v-html="getDoorSectionAnnounce"
+            >
             </p>
           </div>
         </div>
         <hhr-clear-both></hhr-clear-both>
         <div
-          class="wrap-security-window-section"
+          class="wrap-security-window-section security-window-fade-in"
           @click="goToSecurityWindowPage"
         >
           <div class="wrap-security-window-section__inner">
             <div
               class="wrap-security-window-section__inner__snippet"
             >
-              <p class="word font-semi-bold">
-                각종<br /><span class="font-emphasize">방충망/방범창</span><br />제작,설치,교체 작업<br />해 드립니다
+              <p
+                class="word font-semi-bold"
+                v-html="getSecurityWindowAnnounce"
+              >
               </p>
             </div>
           </div>
         </div>
-        <div class="wrap-security-window-section-announcement">
+        <div class="wrap-security-window-section-announcement security-window-announce-fade-in">
           <div class="wrap-security-window-section-announcement__inner">
-            <p class="font-regular">
-              : 미세방충망, 스텐방충망, 현관방충망, 방범방충문, 방범창설치
+            <p
+              class="font-regular"
+              @click="goToSecurityWindowPage"
+              v-html="getSecurityWindowAnnounce"
+            >
             </p>
           </div>
         </div>
         <hhr-clear-both></hhr-clear-both>
       </div>
-      <div class="sections__inner">
+      <div
+        class="sections__inner"
+        @click="goToPaintPage"
+      >
         <div
-          class="wrap-paint-section"
-          @click="goToPaintPage"
+          class="wrap-paint-section paint-fade-in"
         >
           <div class="wrap-paint-section__inner">
             <div
               class="wrap-paint-section__inner__snippet"
             >
-              <p class="word font-semi-bold">
-                <span class="font-emphasize">주택/상가/베란다</span><br />독한 냄새가 나지 않는<br />친환경 페인트(국산/수입)<br />전문
-                시공합니다
+              <p
+                class="word font-semi-bold"
+                v-html="getPaintSectionAnnounce"
+              >
               </p>
             </div>
           </div>
         </div>
-        <div class="wrap-paint-section-announcement">
+        <div class="wrap-paint-section-announcement paint-announce-fade-in">
           <div class="wrap-paint-section-announcement__inner">
-            <p class="word font-regular">
-              아파트, 주택, 상가, 빌라 실내페인트 베란다 칠 옥상방수 :
+            <p
+              class="word font-regular"
+              @click="goToPaintPage"
+              v-html="getPaintSectionAnnounce"
+            >
             </p>
           </div>
         </div>
         <hhr-clear-both></hhr-clear-both>
         <div
-          class="wrap-etc-section"
+          class="wrap-etc-section etc-fade-in"
           @click="goToEtcPage"
         >
           <div class="wrap-etc-section__inner">
             <div
               class="wrap-etc-section__inner__snippet"
             >
-              <p class="word font-semi-bold">
-                <span class="font-emphasize">환풍기/선반</span> 설치<br /><span
-                  class="font-emphasize"
-                >빨래건조대</span> 설치<br />각종 철물 설치<br />해결해 드립니다
+              <p
+                class="word font-semi-bold"
+                v-html="getEtcSectionAnnounce"
+              >
               </p>
             </div>
           </div>
         </div>
-        <div class="wrap-etc-section-announcement">
+        <div class="wrap-etc-section-announcement etc-announce-fade-in">
           <div class="wrap-etc-section-announcement__inner">
-            <p class="font-regular">
-              : 아파트, 주택, 상가, 빌라 실내페인트 베란다 칠 옥상방수
+            <p
+              class="font-regular"
+              @click="goToEtcPage"
+              v-html="getEtcSectionAnnounce"
+            >
             </p>
           </div>
         </div>
@@ -145,8 +171,48 @@ export default {
         check: {
           lifeCycle: false,
         },
+        html: {
+          windowSectionAnnouncementAtPc: '',
+        },
       },
     }
+  },
+  computed: {
+    getWindowSectionAnnounce() {
+      if (matchMedia.isMobile) {
+        return '아직도, 고장난<br /><span class="font-emphasize">샤시창문/나무창문</span>을<br /> 불편한 상태로 그.대.로<br />사용하고 계신가요?\n'
+      } else {
+        return '아직도, 고장난<br /><span class="font-semi-bold">샤시창문/나무창문</span>을<br /> 불편한 상태로 그.대.로<br />사용하고 계신가요?'
+      }
+    },
+    getDoorSectionAnnounce() {
+      if (matchMedia.isMobile) {
+        return '<span class="font-emphasize">방문/중문/포켓도어</span><br />각종 문을<br />편리하게 사용하도록<br />수리해 드립니다'
+      } else {
+        return '<span class="font-semi-bold">방문/중문/포켓도어</span><br />각종 문을<br />편리하게 사용하도록<br />수리해 드립니다'
+      }
+    },
+    getSecurityWindowAnnounce() {
+      if (matchMedia.isMobile) {
+        return '각종<br /><span class="font-emphasize">방충망/방범창</span><br />제작,설치,교체 작업<br />해 드립니다'
+      } else {
+        return '각종<br /><span class="font-semi-bold">방충망/방범창</span><br />제작,설치,교체 작업<br />해 드립니다'
+      }
+    },
+    getPaintSectionAnnounce() {
+      if (matchMedia.isMobile) {
+        return '<span class="font-emphasize">주택/상가/베란다</span><br />독한 냄새가 나지 않는<br />친환경 페인트(국산/수입)<br />전문 시공합니다'
+      } else {
+        return '<span class="font-semi-bold">주택/상가/베란다</span><br />독한 냄새가 나지 않는<br />친환경 페인트(국산/수입)<br />전문 시공합니다'
+      }
+    },
+    getEtcSectionAnnounce() {
+      if (matchMedia.isMobile) {
+        return '<span class="font-emphasize">환풍기/선반</span> 설치<br /><span class="font-emphasize">빨래건조대</span> 설치<br />각종 철물 설치<br />해결해 드립니다'
+      } else {
+        return '<span class="font-semi-bold">환풍기/선반</span> 설치<br /><span class="font-emphasize">빨래건조대</span> 설치<br />각종 철물 설치<br />해결해 드립니다'
+      }
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -156,6 +222,12 @@ export default {
     })
   },
   methods: {
+    // getWindowSectionAnnounce() {
+    //   if (matchMedia.isMobile) {
+    //   } else {
+    //     return
+    //   }
+    // },
     judgeResolution() {
       if (matchMedia.isMobile) {
         contactInformation.type = 'mobile'
@@ -188,14 +260,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // @Local util
     $section-width-and-height: $contents-width / 2;
 
     .font-emphasize {
-        font-size: 45px;
         @media (max-width: $screen-mobile) {
             font-weight: 800;
             font-size: 30px;
         }
+    }
+
+    .window-image-fade-in {
+        @include primary-fade-in-left-to-right(1, 0.5);
+    }
+
+    .window-announce-fade-in {
+        @include primary-fade-in-right-to-left(1, 0.5);
+    }
+
+    .door-image-fade-in {
+        @include primary-fade-in-right-to-left(1.5, 1);
+    }
+
+    .door-announce-fade-in {
+        @include primary-fade-in-left-to-right(1.5, 1);
+    }
+
+    .security-window-fade-in {
+        @include primary-fade-in-right-to-left(2, 1.5);
+
+    }
+
+    .security-window-announce-fade-in {
+        @include primary-fade-in-right-to-left(2, 1.5);
+    }
+
+    .paint-fade-in {
+        @include primary-fade-in-right-to-left(2.5, 2);
+    }
+    .paint-announce-fade-in {
+        @include primary-fade-in-left-to-right(2.5, 2);
+    }
+
+    .etc-fade-in {
+        @include primary-fade-in-right-to-left(3, 2.5);
+    }
+    .etc-announce-fade-in {
+        @include primary-fade-in-left-to-right(3, 2.5);
     }
 
     .sections {
@@ -221,18 +332,23 @@ export default {
                 background: url('~@/assets/images/products/fixed_window.png') center;
                 float: left;
                 border: 15px solid transparent;
+                &:hover {
+                    cursor: pointer;
+                }
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
                     margin: 0;
                 }
                 &__inner {
+                    display: none;
                     width: 100%;
                     height: 100%;
                     padding: 30px;
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     @media (max-width: $screen-mobile) {
+                        display: block;
                         padding: 20px;
                     }
                     &:hover {
@@ -267,7 +383,6 @@ export default {
                 }
             }
             .wrap-window-section-announcement {
-                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
@@ -277,11 +392,12 @@ export default {
                 &__inner {
                     width: 100%;
                     height: 100%;
-                    display: flex;
-                    align-items: flex-end;
+                    padding: calc(50% - 80px) 0;
                     p {
-                        padding-left: 15px;
-                        padding-bottom: 10px;
+                        cursor: pointer;
+                        font-size: 25px;
+                        padding: 20px;
+                        text-align: center;
                         letter-spacing: 2px;
                     }
                 }
@@ -294,18 +410,23 @@ export default {
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_door.png') center;
                 border: 15px solid transparent;
+                &:hover {
+                    cursor: pointer;
+                }
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
                     margin: 0;
                 }
                 &__inner {
+                    display: none;
                     width: 100%;
                     height: 100%;
                     padding: 30px;
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     @media (max-width: $screen-mobile) {
+                        display: block;
                         padding: 20px;
                     }
                     &:hover {
@@ -340,7 +461,6 @@ export default {
                 }
             }
             .wrap-door-section-announcement {
-                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: left;
@@ -350,13 +470,12 @@ export default {
                 &__inner {
                     width: 100%;
                     height: 100%;
-                    display: flex;
-                    align-items: flex-end;
+                    padding: calc(50% - 80px) 0;
                     p {
-                        width: 100%;
-                        text-align: right;
-                        padding-right: 15px;
-                        padding-bottom: 10px;
+                        cursor: pointer;
+                        font-size: 25px;
+                        padding: 20px;
+                        text-align: center;
                         letter-spacing: 2px;
                     }
                 }
@@ -364,11 +483,13 @@ export default {
             .wrap-security-window-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
-                margin-left: 120px;
                 float: left;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_security-window.png') center;
                 border: 15px solid transparent;
+                &:hover {
+                    cursor: pointer;
+                }
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -380,7 +501,9 @@ export default {
                     padding: 30px;
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
+                    display: none;
                     @media (max-width: $screen-mobile) {
+                        display: block;
                         padding: 20px;
                     }
                     &:hover {
@@ -412,7 +535,6 @@ export default {
                 }
             }
             .wrap-security-window-section-announcement {
-                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: left;
@@ -422,13 +544,12 @@ export default {
                 &__inner {
                     width: 100%;
                     height: 100%;
-                    display: flex;
-                    align-items: flex-end;
+                    padding: calc(50% - 80px) 0;
                     p {
-                        width: 100%;
-                        text-align: left;
-                        padding-left: 15px;
-                        padding-bottom: 10px;
+                        cursor: pointer;
+                        font-size: 25px;
+                        padding: 20px;
+                        text-align: center;
                         letter-spacing: 2px;
                     }
                 }
@@ -437,10 +558,12 @@ export default {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
-                margin-right: 60px;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_painting.png') center;
                 border: 15px solid transparent;
+                &:hover {
+                    cursor: pointer;
+                }
                 @media (max-width: $screen-mobile) {
                     margin-right: 0;
                     width: 100%;
@@ -452,7 +575,9 @@ export default {
                     padding: 30px;
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
+                    display: none;
                     @media (max-width: $screen-mobile) {
+                        display: block;
                         padding: 20px;
                     }
                     &:hover {
@@ -488,7 +613,6 @@ export default {
                 }
             }
             .wrap-paint-section-announcement {
-                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
@@ -498,13 +622,12 @@ export default {
                 &__inner {
                     width: 100%;
                     height: 100%;
-                    display: flex;
-                    align-items: flex-end;
+                    padding: calc(50% - 80px) 0;
                     p {
-                        width: 100%;
-                        text-align: right;
-                        padding-right: 15px;
-                        padding-bottom: 10px;
+                        cursor: pointer;
+                        font-size: 25px;
+                        padding: 20px;
+                        text-align: center;
                         letter-spacing: 2px;
                     }
                 }
@@ -512,11 +635,13 @@ export default {
             .wrap-etc-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
-                margin-left: 0;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_tools.png') center;
                 float: left;
                 border: 15px solid transparent;
+                &:hover {
+                    cursor: pointer;
+                }
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -527,7 +652,9 @@ export default {
                     padding: 30px;
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
+                    display: none;
                     @media (max-width: $screen-mobile) {
+                        display: block;
                         padding: 20px;
                     }
                     &:hover {
@@ -562,7 +689,6 @@ export default {
                 }
             }
             .wrap-etc-section-announcement {
-                display: none;
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
@@ -572,13 +698,12 @@ export default {
                 &__inner {
                     width: 100%;
                     height: 100%;
-                    display: flex;
-                    align-items: flex-end;
+                    padding: calc(50% - 80px) 0;
                     p {
-                        width: 100%;
-                        text-align: left;
-                        padding-left: 15px;
-                        padding-bottom: 10px;
+                        cursor: pointer;
+                        font-size: 25px;
+                        padding: 20px;
+                        text-align: center;
                         letter-spacing: 2px;
                     }
                 }
