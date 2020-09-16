@@ -169,36 +169,27 @@
 }
 
 
+@mixin block-animation() {
+  opacity: 1;
+  animation: none;
+  -webkit-animation: none;
+}
+
 
 @mixin primary-fade-in-bottom-to-top($duration, $delay) {
   opacity: 0;
   animation: fade-in-bottom-to-top #{$duration}s ease-out 1 #{$delay}s forwards;
   -webkit-animation: fade-in-bottom-to-top #{$duration}s ease-out 1 #{$delay}s forwards;
-  @media (max-width: $screen-mobile) {
-    opacity: 1;
-    animation: none;
-    -webkit-animation: none;
-  }
 }
 
 @mixin primary-fade-in-left-to-right($duration, $delay) {
   opacity:0;
   animation: fade-in-left-to-right #{$duration}s ease-out 1 #{$delay}s forwards;
   -webkit-animation: fade-in-left-to-right #{$duration}s ease-out 1 #{$delay}s forwards;
-  @media (max-width: $screen-mobile) {
-    opacity: 1;
-    animation: none;
-    -webkit-animation: none;
-  }
 }
 
 @mixin primary-fade-in-right-to-left($duration, $delay) {
   opacity:0;
   animation: fade-in-right-to-left #{$duration}s ease-out 1 #{$delay}s forwards;
   -webkit-animation: fade-in-right-to-left #{$duration}s ease-out 1 #{$delay}s forwards;
-  @media (max-width: $screen-mobile) {
-    opacity: 1;
-    animation: none;
-    -webkit-animation: none;
-  }
 }

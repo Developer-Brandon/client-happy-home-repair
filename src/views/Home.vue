@@ -20,13 +20,16 @@ export default {
     OtherInformation,
   },
   mounted() {
-    this.callBlogRecentProductsInformation()
-  },
-  methods: {
-    callBlogRecentProductsInformation() {
-      // TODO: vuex에서 data 긁어와서 other-information에 전해주는 방식도 좋을듯?
-      // 일단 비동기 호출을 하는게 좋을 듯 하다
-    },
+    // TODO: Must refactoring promise with Async, Await ....
+    this.$nextTick(() => {
+      this.$store.dispatch('home/SET_BLOG_LIST_VIEW_STATE', { blogListViewState: false })
+        .then(() => {
+          this.$store.dispatch('home/CALL_BLOG_PRODUCT_LIST')
+            .then(() => {
+              this.$store.dispatch('home/SET_BLOG_LIST_VIEW_STATE', { blogListViewState: true })
+            })
+        })
+    })
   },
 }
 </script>

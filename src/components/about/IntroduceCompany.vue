@@ -1,5 +1,8 @@
 <template>
-  <div class="introduce-company">
+  <div
+    v-if="values.check.lifeCycle"
+    class="introduce-company"
+  >
     <div class="introduce-company__inner">
       <hhr-page-title title="회사소개" />
       <div class="contents">
@@ -21,34 +24,63 @@ export default {
   },
   data() {
     return {
-      introduceCompanyList: [
+      values: {
+        check: {
+          lifeCycle: false,
+        },
+      },
+      introduceCompanyList: [],
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.init()
+        .then(() => {
+          this.values.check.lifeCycle = true
+        })
+    })
+  },
+  methods: {
+    init() {
+      return new Promise((resolve) => {
+        const ceoInfo = this.getCeoInfo()
+        this.introduceCompanyList = this.getRevisedCeoInfo(ceoInfo)
+        resolve()
+      })
+    },
+    getCeoInfo() {
+      return this.$store.getters['about/ceoInfo']
+    },
+    getRevisedCeoInfo(ceoInfo) {
+      return _.mapKeys(ceoInfo, (value, key) => [
         {
           attribute: '대표이사',
-          contents: '이성일',
+          contents: key.ceoName,
         },
         {
           attribute: '사업분야',
-          contents: '리모델링/집수리',
+          contents: key.industryType,
         },
         {
           attribute: '주요업종',
-          contents: '샤시수리/방문교체/방충망/페인트',
+          contents: key.majorJob,
         },
         {
           attribute: '주소',
-          contents: '인천시 부평구 경인로 705',
+          contents: key.address,
         },
         {
           attribute: '연락처',
-          contents: '010-9018-5553',
+          contents: key.phoneNumber,
         },
         {
           attribute: '이메일',
-          contents: 'lain4444@naver.com',
+          contents: key.email,
         },
-      ],
-    }
-  },
+      ])
+    },
+  }
+  ,
 }
 </script>
 

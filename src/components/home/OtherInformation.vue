@@ -49,9 +49,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      if (matchMedia.isMobile) {
-        this.addScrollEventListener()
-      }
+      this.addScrollEventListener()
     })
   },
   methods: {
@@ -63,8 +61,14 @@ export default {
       const workingProcessDom = this.$refs.workingProcess.$el
       const wpDomRectedViewPort = workingProcessDom.getBoundingClientRect()
       const heightOfAboveWorkingProcessElement = wpDomRectedViewPort.top
-      if (heightOfAboveWorkingProcessElement < 700) { // 모바일은 400으로 적용
-        this.conveyWorkingProcessAnimationToChild()
+      if (matchMedia.isMobile) {
+        if (heightOfAboveWorkingProcessElement < 700) {
+          this.conveyWorkingProcessAnimationToChild()
+        }
+      } else {
+        if (heightOfAboveWorkingProcessElement < 1000) {
+          this.conveyWorkingProcessAnimationToChild()
+        }
       }
     },
     addScrollEventListener() {

@@ -73,9 +73,10 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      // 1. below code doesn't work ...
+      // 1. Below code doesn't work ...
       // $('.active-logo').addClass('inject-lazy-hover')
-      // 2. below code doesn't work too ...
+
+      // 2. Below code doesn't work too ...
       // $('.active-logo').hover(
       //   () => {
       //     $(this).find('img').animate({ scale: '+=0.2' }, 300)
@@ -84,6 +85,7 @@ export default {
       //     $(this).find('img').animate({ scale: '-=0.2' }, 300)
       //   },
       // )
+
       // I have to fix CSS HOVER effect doesn't work after animation execute
     })
   },
@@ -102,24 +104,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // @Local util
     .big-logo-fade-in {
         @include primary-fade-in-bottom-to-top(1, 0.5);
+        @media (max-width: $screen-mobile) {
+            @include block-animation();
+        }
     }
 
     .first-detail-detail-text {
         @include primary-fade-in-bottom-to-top(2, 1);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(1, 0.5);
+        }
     }
 
     .second-detail-detail-text {
         @include primary-fade-in-bottom-to-top(3, 1.5);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(1, 0.5);
+        }
     }
 
     .sub-title-text {
         @include primary-fade-in-bottom-to-top(3, 2);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(1.5, 1);
+        }
     }
 
     .sub-explain-text {
         @include primary-fade-in-bottom-to-top(3, 2);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(1.5, 1);
+        }
     }
 
     .inject-lazy-hover {
@@ -136,6 +154,7 @@ export default {
         }
     }
 
+    // @Class
     .main-banner {
         width: 100%;
         max-width: $screen-desktop;

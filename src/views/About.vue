@@ -41,8 +41,21 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.values.check.lifeCycle = true
+      this.callCeoContents()
+        .then(() => {
+          this.values.check.lifeCycle = true
+        })
     })
+  },
+  methods: {
+    callCeoContents() {
+      return new Promise((resolve) => {
+        this.$store.dispatch('about/CALL_CEO_INFO')
+          .then(() => {
+            resolve()
+          })
+      })
+    },
   },
 }
 </script>

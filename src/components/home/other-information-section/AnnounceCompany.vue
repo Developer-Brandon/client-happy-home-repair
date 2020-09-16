@@ -35,21 +35,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    // 1. animations
+    // @Local util
     .introduce-title {
-        @include primary-fade-in-bottom-to-top(2,2);
-    }
-    .introduce-first-sub-title {
-        @include primary-fade-in-bottom-to-top(2,2);
-    }
-    .introduce-second-sub-title {
-        @include primary-fade-in-bottom-to-top(2,3);
-    }
-    .introduce-third-sub-title {
-        @include primary-fade-in-bottom-to-top(2,4);
+        @include primary-fade-in-bottom-to-top(2, 2);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(1.5, 1.5);
+        }
     }
 
-    // 2. classes
+    .introduce-first-sub-title {
+        @include primary-fade-in-bottom-to-top(2, 2);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(1.5, 1.5);
+        }
+    }
+
+    .introduce-second-sub-title {
+        @include primary-fade-in-bottom-to-top(2, 3);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(2, 2);
+        }
+    }
+
+    .introduce-third-sub-title {
+        @include primary-fade-in-bottom-to-top(2, 4);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(2, 2.5);
+        }
+    }
+
+    // @Classes
     .announce-company {
         padding: 50px 0;
         @media (max-width: $screen-mobile) {

@@ -13,29 +13,14 @@
         <div class="clear-both mobile-visible-block-only"></div>
         <div class="contents__right">
           <div class="headline">
-            <p class="font-bold">
-              안녕하십니까, 평소 저희 <span class="hhr-blue">해리 홈 리페어</span>를 어쩌구 저쩌구...
+            <p
+              class="font-bold"
+              v-html="ceoGreetingTitle"
+            >
             </p><br />
           </div>
           <div class="description">
-            <br />
-            <p>
-              어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌<br />
-              구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구....<br />
-              <br />
-              어쩌구 / 저쩌구 / 어쩌구 / 저쩌구<br />
-              구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저<br />
-              쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구<br />
-              저쩌구어쩌구저쩌구어쩌구저쩌구..어쩌구저쩌구어쩌구<br />
-              저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저<br />
-              쩌구어쩌구저쩌구어쩌구저쩌구, 어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구!<br />
-              <br />
-              <br />
-              <br />
-              쓸말이 이렇게 많이 없으려나?<br />
-              어쩌구 저쩌구<br />
-              그럼 사진의 세로크기를 줄이면...<br />
-              어쩌구 저쩌구<br />
+            <p v-html="ceoGreetingContents">
             </p>
           </div>
         </div>
@@ -52,6 +37,17 @@ export default {
   name: 'CeoGreetings',
   components: {
     HhrPageTitle,
+  },
+  computed: {
+    ceoPicAddress() {
+      return this.$store.getters['about/ceoGreetingAddress']
+    },
+    ceoGreetingTitle() {
+      return this.$store.getters['about/ceoGreetingTitle']
+    },
+    ceoGreetingContents() {
+      return this.$store.getters['about/ceoGreetingContents']
+    },
   },
 }
 </script>

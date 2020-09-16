@@ -86,7 +86,7 @@ export default {
       }
     },
     executeWorkingProcessAnimation() {
-      // for re-rendering dom
+      // This codes are re-rendering dom
       this.$nextTick(() => {
         for (let i = 0; i <= 3; i += 1) {
           this.values.workingProcessList[i].reRenderKey = i + 1
@@ -100,19 +100,31 @@ export default {
 <style lang="scss" scoped>
     // @Local util
     .first-working-process-text {
-        @include primary-fade-in-bottom-to-top(1, 1);
+        @include primary-fade-in-bottom-to-top(0.2, 0.2);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(0.5, 0.5);
+        }
     }
 
     .second-working-process-text {
-        @include primary-fade-in-bottom-to-top(1, 1.5);
+        @include primary-fade-in-bottom-to-top(0.5, 0.5);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(0.5, 1);
+        }
     }
 
     .third-working-process-text {
-        @include primary-fade-in-bottom-to-top(1.5, 2);
+        @include primary-fade-in-bottom-to-top(1, 1);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(1, 1.5);
+        }
     }
 
     .fourth-working-process-text {
-        @include primary-fade-in-bottom-to-top(1.5, 2.5);
+        @include primary-fade-in-bottom-to-top(1.5, 1.5);
+        @media (max-width: $screen-mobile) {
+            @include primary-fade-in-bottom-to-top(1, 2);
+        }
     }
 
     // @Class

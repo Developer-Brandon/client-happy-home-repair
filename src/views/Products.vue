@@ -298,6 +298,7 @@ export default {
     .paint-fade-in {
         @include primary-fade-in-right-to-left(2.5, 2);
     }
+
     .paint-announce-fade-in {
         @include primary-fade-in-left-to-right(2.5, 2);
     }
@@ -305,23 +306,32 @@ export default {
     .etc-fade-in {
         @include primary-fade-in-right-to-left(3, 2.5);
     }
+
     .etc-announce-fade-in {
         @include primary-fade-in-left-to-right(3, 2.5);
     }
 
+    // @Class
     .sections {
         display: block;
         width: 100%;
         height: 100%;
         margin-top: 10px;
-        /*margin-bottom: 50px;*/
+        @media (max-width: $screen-desktop) {
+            margin: 0 auto;
+        }
         @media (max-width: $screen-mobile) {
             margin: 0 auto;
         }
         &__inner {
             width: 100%;
             max-width: $contents-width;
+            height: 100%;
             margin: 0 auto;
+            clear: both;
+            @media (max-width: $screen-desktop) {
+                max-width: $screen-desktop;
+            }
             @media (max-width: $screen-mobile) {
                 max-width: $screen-mobile;
             }
@@ -335,6 +345,11 @@ export default {
                 &:hover {
                     cursor: pointer;
                 }
+                @media (max-width: $screen-desktop) {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -347,6 +362,10 @@ export default {
                     padding: 30px;
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
+                    @media (max-width: $screen-desktop) {
+                        display: block;
+                        padding: 20px;
+                    }
                     @media (max-width: $screen-mobile) {
                         display: block;
                         padding: 20px;
@@ -360,6 +379,9 @@ export default {
                     }
                     &:hover .wrap-window-section__inner__snippet .word {
                         display: none;
+                        @media (max-width: $screen-desktop) {
+                            display: block;
+                        }
                         @media (max-width: $screen-mobile) {
                             display: block;
                         }
@@ -374,6 +396,10 @@ export default {
                             line-height: 50px;
                             transition: 0.3s;
                             text-shadow: -3px 0 white;
+                            @media (max-width: $screen-desktop) {
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                             @media (max-width: $screen-mobile) {
                                 font-size: 25px;
                                 line-height: 40px;
@@ -386,6 +412,9 @@ export default {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
+                @media (max-width: $screen-desktop) {
+                    display: none;
+                }
                 @media (max-width: $screen-mobile) {
                     display: none;
                 }
@@ -413,6 +442,11 @@ export default {
                 &:hover {
                     cursor: pointer;
                 }
+                @media (max-width: $screen-desktop) {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -425,6 +459,10 @@ export default {
                     padding: 30px;
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
+                    @media (max-width: $screen-desktop) {
+                        display: block;
+                        padding: 20px;
+                    }
                     @media (max-width: $screen-mobile) {
                         display: block;
                         padding: 20px;
@@ -438,6 +476,9 @@ export default {
                     }
                     &:hover .wrap-door-section__inner__snippet .word {
                         display: none;
+                        @media (max-width: $screen-desktop) {
+                            display: block;
+                        }
                         @media (max-width: $screen-mobile) {
                             display: block;
                         }
@@ -452,6 +493,10 @@ export default {
                             line-height: 50px;
                             text-align: right;
                             text-shadow: -3px 0 white;
+                            @media (max-width: $screen-desktop) {
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                             @media (max-width: $screen-mobile) {
                                 font-size: 25px;
                                 line-height: 40px;
@@ -464,6 +509,9 @@ export default {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: left;
+                @media (max-width: $screen-desktop) {
+                    display: none;
+                }
                 @media (max-width: $screen-mobile) {
                     display: none;
                 }
@@ -490,6 +538,11 @@ export default {
                 &:hover {
                     cursor: pointer;
                 }
+                @media (max-width: $screen-desktop) {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -502,6 +555,10 @@ export default {
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     display: none;
+                    @media (max-width: $screen-desktop) {
+                        display: block;
+                        padding: 20px;
+                    }
                     @media (max-width: $screen-mobile) {
                         display: block;
                         padding: 20px;
@@ -515,6 +572,9 @@ export default {
                     }
                     &:hover .wrap-security-window-section__inner__snippet .word {
                         display: none;
+                        @media (max-width: $screen-desktop) {
+                            display: block;
+                        }
                         @media (max-width: $screen-mobile) {
                             display: block;
                         }
@@ -525,6 +585,11 @@ export default {
                             font-size: 35px;
                             line-height: 50px;
                             text-shadow: -3px 0 black;
+                            @media (max-width: $screen-desktop) {
+                                text-align: left;
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                             @media (max-width: $screen-mobile) {
                                 text-align: left;
                                 font-size: 25px;
@@ -538,6 +603,9 @@ export default {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: left;
+                @media (max-width: $screen-desktop) {
+                    display: none;
+                }
                 @media (max-width: $screen-mobile) {
                     display: none;
                 }
@@ -564,6 +632,11 @@ export default {
                 &:hover {
                     cursor: pointer;
                 }
+                @media (max-width: $screen-desktop) {
+                    margin-right: 0;
+                    width: 100%;
+                    height: 100%;
+                }
                 @media (max-width: $screen-mobile) {
                     margin-right: 0;
                     width: 100%;
@@ -576,6 +649,10 @@ export default {
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     display: none;
+                    @media (max-width: $screen-desktop) {
+                        display: block;
+                        padding: 20px;
+                    }
                     @media (max-width: $screen-mobile) {
                         display: block;
                         padding: 20px;
@@ -589,6 +666,9 @@ export default {
                     }
                     &:hover .wrap-paint-section__inner__snippet .word {
                         display: none;
+                        @media (max-width: $screen-desktop) {
+                            display: block;
+                        }
                         @media (max-width: $screen-mobile) {
                             display: block;
                         }
@@ -603,6 +683,10 @@ export default {
                             line-height: 50px;
                             text-align: right;
                             text-shadow: -2px 0 white;
+                            @media (max-width: $screen-desktop) {
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                             @media (max-width: $screen-mobile) {
                                 font-size: 25px;
                                 line-height: 40px;
@@ -616,6 +700,9 @@ export default {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
+                @media (max-width: $screen-desktop) {
+                    display: none;
+                }
                 @media (max-width: $screen-mobile) {
                     display: none;
                 }
@@ -642,6 +729,10 @@ export default {
                 &:hover {
                     cursor: pointer;
                 }
+                @media (max-width: $screen-desktop) {
+                    width: 100%;
+                    height: 100%;
+                }
                 @media (max-width: $screen-mobile) {
                     width: 100%;
                     height: 100%;
@@ -653,6 +744,10 @@ export default {
                     background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     display: none;
+                    @media (max-width: $screen-desktop) {
+                        display: block;
+                        padding: 20px;
+                    }
                     @media (max-width: $screen-mobile) {
                         display: block;
                         padding: 20px;
@@ -666,6 +761,9 @@ export default {
                     }
                     &:hover .wrap-etc-section__inner__snippet .word {
                         display: none;
+                        @media (max-width: $screen-desktop) {
+                            display: block;
+                        }
                         @media (max-width: $screen-mobile) {
                             display: block;
                         }
@@ -679,6 +777,11 @@ export default {
                             font-size: 35px;
                             line-height: 50px;
                             text-shadow: -3px 0 white;
+                            @media (max-width: $screen-desktop) {
+                                text-align: left;
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
                             @media (max-width: $screen-mobile) {
                                 text-align: left;
                                 font-size: 25px;
@@ -692,6 +795,9 @@ export default {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: right;
+                @media (max-width: $screen-desktop) {
+                    display: none;
+                }
                 @media (max-width: $screen-mobile) {
                     display: none;
                 }

@@ -9,6 +9,7 @@
           <img
             class="application-form-logo"
             src="@/assets/images/logos/white-application-form.png"
+            @click="callApplicationFormModal"
           />
           <br />
           <br />
@@ -23,6 +24,7 @@
           <img
             class="application-form-logo"
             src="@/assets/images/logos/white-phone-call2.png"
+            @click="callToPhone"
           />
           <br />
           <br />
@@ -108,6 +110,13 @@ export default {
                             width: 50px;
                             height: 50px;
                         }
+                        &:hover {
+                            cursor: pointer;
+                            -webkit-transform: scale(1.1);
+                            -moz-transform: scale(1.1);
+                            -ms-transform: scale(1.1);
+                            transform: scale(1.1);
+                        }
                     }
                     .online-applicationform {
                         width: 200px;
@@ -136,6 +145,13 @@ export default {
                         @media (max-width: $screen-mobile) {
                             width: 50px;
                             height: 50px;
+                        }
+                        &:hover {
+                            cursor: pointer;
+                            -webkit-transform: scale(1.1);
+                            -moz-transform: scale(1.1);
+                            -ms-transform: scale(1.1);
+                            transform: scale(1.1);
                         }
                     }
                     .call-applicationform {
