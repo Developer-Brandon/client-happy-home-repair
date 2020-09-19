@@ -1,28 +1,35 @@
 <template>
-  <div class="how-to-come">
-    <div class="how-to-come__inner">
-      <hhr-page-title title="오시는 길" />
-      <div class="contents">
-        <div class="wrap-google-map">
-          <iframe
-            class="google-map"
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12665.969553240351!2d126.7086183!3d37.4727054!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3f79a53be0c2baa7!2z7ZW07ZS87ZmI66as7Y6Y7Ja0!5e0!3m2!1sko!2skr!4v1596603748019!5m2!1sko!2skr"
-            width="700"
-            height="300"
-            frameborder="0"
-            style="border:0;"
-            allowfullscreen=""
-            aria-hidden="false"
-            tabindex="0"
-          ></iframe>
-        </div>
-        <div class="address-info">
-          <span class="address">인천시 부평구 경인로 705 해피홈리페어</span>
-          <span class="phone-number">&nbsp;/&nbsp;TEL.010-9018-5553</span>
+  <transition name="component-fade">
+    <div
+      v-show="values.check.lifeCycle"
+      class="how-to-come"
+    >
+      <div
+        class="how-to-come__inner"
+      >
+        <hhr-page-title title="오시는 길" />
+        <div class="contents">
+          <div class="wrap-google-map">
+            <iframe
+              class="google-map"
+              :src="values.googleMap.address"
+              width="100%"
+              height="300"
+              frameborder="0"
+              style="border:0;"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+            ></iframe>
+          </div>
+          <div class="address-info">
+            <span class="address">인천시 부평구 경인로 705 해피홈리페어</span>
+            <span class="phone-number">&nbsp;/&nbsp;TEL.010-9018-5553</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -32,6 +39,30 @@ export default {
   name: 'HowToCome',
   components: {
     HhrPageTitle,
+  },
+  data() {
+    return {
+      values: {
+        googleMap: {
+          address: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12665.969553240351!2d126.7086183!3d37.4727054!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3f79a53be0c2baa7!2z7ZW07ZS87ZmI66as7Y6Y7Ja0!5e0!3m2!1sko!2skr!4v1596603748019!5m2!1sko!2skr',
+        },
+        check: {
+          lifeCycle: false,
+        },
+      },
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      // const map = new google.maps.Map(document.getElementsByClassName('google-map'), { zoom: 8 })
+      // google.maps.event.addListenerOnce(map, 'tilesloaded', this.fixMyPageOnce)
+      this.values.check.lifeCycle = true
+    })
+  },
+  methods: {
+    fixMyPageOnce() {
+      // nothing to do ....
+    },
   },
 }
 </script>

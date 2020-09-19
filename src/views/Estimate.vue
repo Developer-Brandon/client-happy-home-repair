@@ -313,7 +313,7 @@ export default {
   },
   watch: {
     // eslint-disable-next-line
-			'values.locate': function (value) {
+    'values.locate': function (value) {
       if (value) {
         this.values.locate = value
         this.values.locateClicked = true
@@ -323,7 +323,7 @@ export default {
       }
     },
     // eslint-disable-next-line
-			'values.estimateType': function (value) {
+    'values.estimateType': function (value) {
       if (value) {
         this.values.estimateType = value
         this.values.estimateTypeClicked = true
@@ -422,11 +422,8 @@ export default {
             .estimate {
                 margin: 0 auto;
                 padding: 35px;
-                border-radius: 15px;
-                background-color: $hhr-light-white;
                 width: 500px;
                 height: 100%;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, .05);
                 @media (max-width: $screen-mobile) {
                     padding: 15px 10px;
                     background-color: transparent;

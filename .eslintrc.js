@@ -60,6 +60,7 @@ module.exports = {
 		'$': true,
 		'_': true,
 		'window.jQuery': true,
-		'Promise': true
+		'Promise': true,
+		'google': true,
 	}
 };

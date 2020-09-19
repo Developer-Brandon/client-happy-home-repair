@@ -8,55 +8,27 @@
         class="sections__inner"
       >
         <div
-          class="wrap-window-section window-image-fade-in"
-          @click="goToWindowPage"
+          class="wrap-paint-section paint-fade-in"
+          @click="goToPaintPage"
         >
-          <div class="wrap-window-section__inner">
+          <div class="wrap-paint-section__inner">
             <div
-              class="wrap-window-section__inner__snippet"
+              class="wrap-paint-section__inner__snippet"
             >
               <p
                 class="word font-semi-bold"
-                v-html="getWindowSectionAnnounce"
-              ></p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="wrap-window-section-announcement window-announce-fade-in"
-        >
-          <div class="wrap-window-section-announcement__inner">
-            <p
-              class="font-regular"
-              @click="goToWindowPage"
-              v-html="getWindowSectionAnnounce"
-            >
-            </p>
-          </div>
-        </div>
-        <hhr-clear-both></hhr-clear-both>
-        <div
-          class="wrap-door-section door-image-fade-in"
-          @click="goToDoorPage"
-        >
-          <div class="wrap-door-section__inner">
-            <div
-              class="wrap-door-section__inner__snippet"
-            >
-              <p
-                class="word font-semi-bold"
-                v-html="getDoorSectionAnnounce"
+                v-html="getPaintSectionAnnounce"
               >
               </p>
             </div>
           </div>
         </div>
-        <div class="wrap-door-section-announcement door-announce-fade-in">
-          <div class="wrap-door-section-announcement__inner">
+        <div class="wrap-paint-section-announcement paint-announce-fade-in">
+          <div class="wrap-paint-section-announcement__inner">
             <p
-              class="font-regular"
-              @click="goToDoorPage"
-              v-html="getDoorSectionAnnounce"
+              class="word font-regular"
+              @click="goToPaintPage"
+              v-html="getPaintSectionAnnounce"
             >
             </p>
           </div>
@@ -89,32 +61,60 @@
           </div>
         </div>
         <hhr-clear-both></hhr-clear-both>
-      </div>
-      <div
-        class="sections__inner"
-        @click="goToPaintPage"
-      >
         <div
-          class="wrap-paint-section paint-fade-in"
+          class="wrap-window-section window-image-fade-in"
+          @click="goToWindowPage"
         >
-          <div class="wrap-paint-section__inner">
+          <div class="wrap-window-section__inner">
             <div
-              class="wrap-paint-section__inner__snippet"
+              class="wrap-window-section__inner__snippet"
             >
               <p
                 class="word font-semi-bold"
-                v-html="getPaintSectionAnnounce"
+                v-html="getWindowSectionAnnounce"
+              ></p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="wrap-window-section-announcement window-announce-fade-in"
+        >
+          <div class="wrap-window-section-announcement__inner">
+            <p
+              class="font-regular"
+              @click="goToWindowPage"
+              v-html="getWindowSectionAnnounce"
+            >
+            </p>
+          </div>
+        </div>
+        <hhr-clear-both></hhr-clear-both>
+      </div>
+      <div
+        class="sections__inner"
+      >
+        <div
+          class="wrap-door-section door-image-fade-in"
+          @click="goToDoorPage"
+        >
+          <div class="wrap-door-section__inner">
+            <div
+              class="wrap-door-section__inner__snippet"
+            >
+              <p
+                class="word font-semi-bold"
+                v-html="getDoorSectionAnnounce"
               >
               </p>
             </div>
           </div>
         </div>
-        <div class="wrap-paint-section-announcement paint-announce-fade-in">
-          <div class="wrap-paint-section-announcement__inner">
+        <div class="wrap-door-section-announcement door-announce-fade-in">
+          <div class="wrap-door-section-announcement__inner">
             <p
-              class="word font-regular"
-              @click="goToPaintPage"
-              v-html="getPaintSectionAnnounce"
+              class="font-regular"
+              @click="goToDoorPage"
+              v-html="getDoorSectionAnnounce"
             >
             </p>
           </div>
@@ -270,45 +270,45 @@ export default {
         }
     }
 
-    .window-image-fade-in {
+    .paint-fade-in {
         @include primary-fade-in-left-to-right(1, 0.5);
     }
 
-    .window-announce-fade-in {
+    .paint-announce-fade-in {
         @include primary-fade-in-right-to-left(1, 0.5);
     }
 
-    .door-image-fade-in {
-        @include primary-fade-in-right-to-left(1.5, 1);
-    }
-
-    .door-announce-fade-in {
-        @include primary-fade-in-left-to-right(1.5, 1);
-    }
-
     .security-window-fade-in {
-        @include primary-fade-in-right-to-left(2, 1.5);
+        @include primary-fade-in-right-to-left(1.5, 1);
 
     }
 
     .security-window-announce-fade-in {
+        @include primary-fade-in-left-to-right(1.5, 1);
+    }
+
+    .window-image-fade-in {
+        @include primary-fade-in-left-to-right(2, 1.5);
+    }
+
+    .window-announce-fade-in {
         @include primary-fade-in-right-to-left(2, 1.5);
     }
 
-    .paint-fade-in {
+    .door-image-fade-in {
         @include primary-fade-in-right-to-left(2.5, 2);
     }
 
-    .paint-announce-fade-in {
+    .door-announce-fade-in {
         @include primary-fade-in-left-to-right(2.5, 2);
     }
 
     .etc-fade-in {
-        @include primary-fade-in-right-to-left(3, 2.5);
+        @include primary-fade-in-left-to-right(3, 2.5);
     }
 
     .etc-announce-fade-in {
-        @include primary-fade-in-left-to-right(3, 2.5);
+        @include primary-fade-in-right-to-left(3, 2.5);
     }
 
     // @Class
@@ -316,7 +316,7 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
-        margin-top: 10px;
+        margin-top: 30px;
         @media (max-width: $screen-desktop) {
             margin: 0 auto;
         }
@@ -531,7 +531,7 @@ export default {
             .wrap-security-window-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
-                float: left;
+                float: right;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_security-window.png') center;
                 border: 15px solid transparent;
@@ -625,7 +625,7 @@ export default {
             .wrap-paint-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
-                float: right;
+                float: left;
                 background-size: 100% 100%;
                 background: url('~@/assets/images/products/fixed_painting.png') center;
                 border: 15px solid transparent;

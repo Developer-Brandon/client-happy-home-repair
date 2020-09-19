@@ -4,7 +4,7 @@
       <h2 class="question font-semi-bold">
         <span
           class="hhr-blue font-bold title"
-        >해피 홈 리페어</span>는 어떤식으로 일하고 있나요?
+        >해피 홈 리페어</span>에게 수리를 맡기려면?
       </h2>
       <div class="hhr-blue-small-divider"></div>
       <div class="process-explain">
@@ -45,23 +45,23 @@ export default {
         workingProcessList: [
           {
             reRenderKey: 0,
-            title: 'STEP 1',
-            contents: '저희는요이렇게할꺼구요저렇게할꺼구요이렇게저렇게할껀데요이렇게저렇게어쩌구저쩌구저쩌구',
+            title: 'STEP 1 : 상담',
+            contents: '전화(문자)로 불편하신점을 말씀해주시고, 사진을 몇장 첨부합니다.',
           },
           {
             reRenderKey: 1,
-            title: 'STEP 2',
-            contents: '저희는요이렇게할꺼구요저렇게할꺼구요이렇게저렇게할껀데요이렇게저렇게어쩌구저쩌구저쩌구',
+            title: 'STEP 2 : 답변',
+            contents: '사진을 확인 후 전화(문자)로 수리가능여부와 예상비용을 말씀드립니다.',
           },
           {
             reRenderKey: 2,
-            title: 'STEP 3',
-            contents: '저희는요이렇게할꺼구요저렇게할꺼구요이렇게저렇게할껀데요이렇게저렇게어쩌구저쩌구저쩌구',
+            title: 'STEP 3 : 예약',
+            contents: '상담 후 수리방향을 결정하고, 작업날짜를 의논하여 예약합니다.',
           },
           {
             reRenderKey: 3,
-            title: 'STEP 4',
-            contents: '저희는요이렇게할꺼구요저렇게할꺼구요이렇게저렇게할껀데요이렇게저렇게어쩌구저쩌구저쩌구',
+            title: 'STEP 4 : 시공',
+            contents: '예약한 날에 현장을 방문하여, 약속된 작업을 정성껏 시공합니다.',
           },
         ],
       },
@@ -129,7 +129,7 @@ export default {
 
     // @Class
     .announce-working-process {
-        padding: 50px 0;
+        padding: 40px 0;
         @media (max-width: $screen-mobile) {
             padding: 40px 0;
             height: 100%;
@@ -159,6 +159,9 @@ export default {
                 margin-top: 35px;
                 margin-left: 10px;
                 margin-right: 10px;
+                @media (max-width: $screen-mobile) {
+                    margin-top: 15px;
+                }
                 &__inner {
                     width: calc(100% / 4);
                     height: 100px;
@@ -169,14 +172,14 @@ export default {
                         height: 100%;
                         clear: left;
                         display: block;
-                        padding: 15px 10px;
+                        padding: 20px 10px;
                     }
                     .wrap-title {
                         font-size: 20px;
                         text-align: center;
                         margin-bottom: 20px;
                         @media (max-width: $screen-mobile) {
-                            margin-bottom: 8px;
+                            margin-bottom: 15px;
                         }
                     }
                     .wrap-contents {

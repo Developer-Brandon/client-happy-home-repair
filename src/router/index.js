@@ -5,6 +5,7 @@ import Products from '@/views/Products.vue'
 import About from '@/views/About.vue'
 import Notice from '@/views/Notice.vue'
 import Estimate from '@/views/Estimate.vue'
+import EstimateInquiry from '@/views/EstimateInquiry.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/Estimate',
     name: 'Estimate',
     component: Estimate,
+  },
+  {
+    path: '/EstimateInquiry',
+    name: 'EstimateInquiry',
+    component: EstimateInquiry,
   },
 ]
 

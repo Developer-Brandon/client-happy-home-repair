@@ -54,7 +54,7 @@
           <router-link
             id="inquiry-from-hb"
             class="menus-from-hb font-regular"
-            to="/Estimate"
+            to="/EstimateInquiry"
           >
             <span>
               견적문의
@@ -132,7 +132,7 @@
         <router-link
           id="price-inquiry"
           class="menus font-regular estimate-fade-in"
-          to="/Estimate"
+          to="/EstimateInquiry"
         >
           견적문의
         </router-link>
