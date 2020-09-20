@@ -7,26 +7,23 @@
       <section class="sections__inner">
         <div
           class="estimate"
-          :class="{ '' : presentEstimateInquiryState === 11}"
+          :class="{ 'location' : presentEstimateInquiryState === 11,
+                    'repair-type' : presentEstimateInquiryState === 12,
+                    'etc-inquiry' : presentEstimateInquiryState === 13,
+                    'email' : presentEstimateInquiryState === 14,
+                    'phone-number' : presentEstimateInquiryState === 15,
+                    'photo-attach' : presentEstimateInquiryState === 16
+          }"
         >
           <!-- 상단의 견적문의 제목/부제목/안내말이고 상태값에 따라 렌더링되는 안내말들이 달라집니다 -->
-          <hhr-guidance
-            :state="presentEstimateInquiry.state"
-            :title="presentEstimateInquiry.title"
-            :sub-title="presentEstimateInquiry.subTitle"
-            :announcement="presentEstimateInquiry.announcement"
-          />
-          <hhr-clear-both></hhr-clear-both>
+          <hhr-guidance />
+          <hhr-clear-both />
           <!-- 상태값에 따라 렌더링 되는 입력란들이 달라집니다 -->
-          <estimate-inputs
-            :state="presentEstimateInquiry.state"
-          />
-          <hhr-clear-both></hhr-clear-both>
+          <estimate-inputs />
+          <hhr-clear-both />
           <!-- 저장되어 있는 상태값에 따라 렌더링 되는 버튼들이 달라집니다 -->
-          <estimate-buttons
-            :state="presentEstimateInquiry.state"
-          />
-          <hhr-clear-both></hhr-clear-both>
+          <estimate-buttons />
+          <hhr-clear-both />
         </div>
       </section>
     </div>
@@ -60,12 +57,6 @@ export default {
     presentEstimateInquiryState() {
       return this.$store.getters['estimate/presentEstimateInquiryState']
     },
-    presentEstimateInquiry() {
-      return this.$store.getters['estimate/presentEstimateInquiry']
-    },
-    estimateInquiryList() {
-      return this.$store.getters['estimate/estimateInquiryList']
-    },
   },
   mounted() {
     // - For dom rendering
@@ -76,8 +67,11 @@ export default {
         })
     })
     this.$root.$on('DomForceRendering', () => {
-      console.log('불리는거실화야?')
       this.$forceUpdate()
+      // - This code isn't working perfectly
+      // window.scrollTo({ top: 0, behavior: 'smooth' })
+      // - This code is working perfectly
+      $('html, body').animate({ scrollTop: 0 }, 'slow')
     })
   },
   methods: {
@@ -123,7 +117,7 @@ export default {
             max-width: $contents-width;
             margin: 0 auto;
             @media (max-width: $screen-mobile) {
-                padding: 15px 10px;
+                padding: 35px 10px;
                 max-width: $screen-mobile;
             }
             .estimate {

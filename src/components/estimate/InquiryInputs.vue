@@ -37,7 +37,7 @@
             class="hhr-input location-do"
             type="email"
           /><br />
-          <hhr-clear-both></hhr-clear-both>
+          <hhr-clear-both />
         </div>
         <!-- 2.문의유형 -->
         <div
@@ -50,6 +50,7 @@
                 친환경페인트
               </button>
             </div>
+            <br class="mobile-visible-block-only"/>
             <div class="wrap-button">
               <button class="hhf-positive-reversal-button window">
                 창호수리/방충망
@@ -61,7 +62,7 @@
               </button>
             </div>
           </div>
-          <hhr-clear-both></hhr-clear-both>
+          <hhr-clear-both />
           <div class="wrap-inquiry-type__inner">
             <div class="wrap-button">
               <button class="hhf-positive-reversal-button door">
@@ -79,7 +80,7 @@
               </button>
             </div>
           </div>
-          <hhr-clear-both></hhr-clear-both>
+          <hhr-clear-both />
         </div>
         <!-- 3.기타사항 -->
         <div
@@ -107,12 +108,12 @@
             class="hhr-input email"
             type="email"
           />
-          <hhr-clear-both></hhr-clear-both>
+          <hhr-clear-both />
         </div>
         <!-- 5.연락처 -->
-        <!-- 연락처를 어떤식으로 입력 받을건지 고민이 필요합니다 -->
+        <!-- TODO: 연락처를 어떤식으로 입력 받을건지 고민이 필요합니다 -->
         <!-- 6.사진첨부 -->
-        <!-- 사진첨부쪽을 어떤식으로 구현할건지 고민이 필요합니다 -->
+        <!-- TODO: 사진첨부쪽을 어떤식으로 구현할건지 고민이 필요합니다 -->
       </div>
     </div>
   </transition>
@@ -204,58 +205,99 @@ export default {
             .wrap-location {
                 padding-top: 40px;
                 float: right;
+                @media (max-width: $screen-mobile) {
+                    padding-top: 20px;
+                }
                 .location-si {
                     width: 100px;
                     margin-right: 10px;
+                    @media (max-width: $screen-mobile) {
+                        width: 80px;
+                        margin-right: 5px;
+                    }
                 }
                 .location-ku {
                     width: 100px;
                     margin-right: 10px;
+                    @media (max-width: $screen-mobile) {
+                        width: 80px;
+                        margin-right: 5px;
+                    }
                 }
                 .location-do {
                     width: 100px;
+                    @media (max-width: $screen-mobile) {
+                        width: 80px;
+                        margin-right: 5px;
+                    }
                 }
             }
             .wrap-inquiry-type {
-                padding-top: 40px;
+                padding-top: 20px;
                 height: 100%;
                 &__inner {
                     padding: 15px 0;
                     height: 100%;
+                    @media (max-width: $screen-mobile) {
+                        padding: 0;
+                    }
                     .wrap-button {
                         float: left;
                         width: 33.3%;
                         height: 100%;
                         text-align: center;
+                        @media (max-width: $screen-mobile) {
+                            width: 100%;
+                            margin-bottom: 10px;
+                            clear: both;
+                        }
                         .paint {
                             width: 200px;
                             height: 50px;
                             font-size: 20px;
+                            @media (max-width: $screen-mobile) {
+                                width: 100%;
+                            }
                         }
                         .window {
                             width: 200px;
                             height: 50px;
                             font-size: 20px;
+                            @media (max-width: $screen-mobile) {
+                                width: 100%;
+                            }
                         }
                         .door-class {
                             width: 200px;
                             height: 50px;
                             font-size: 20px;
+                            @media (max-width: $screen-mobile) {
+                                width: 100%;
+                            }
                         }
                         .door {
                             width: 200px;
                             height: 50px;
                             font-size: 20px;
+                            @media (max-width: $screen-mobile) {
+                                width: 100%;
+                            }
                         }
                         .fan {
                             width: 200px;
                             height: 50px;
                             font-size: 20px;
+                            @media (max-width: $screen-mobile) {
+                                width: 100%;
+                            }
                         }
                         .etc {
                             width: 200px;
                             height: 50px;
                             font-size: 20px;
+                            @media (max-width: $screen-mobile) {
+                                width: 100%;
+                            }
                         }
                     }
                 }
