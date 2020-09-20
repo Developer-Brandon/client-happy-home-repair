@@ -1,0 +1,277 @@
+<template>
+  <transition name="component-fade">
+    <div
+      v-show="values.check.lifeCycle"
+      class="component"
+    >
+      <div class="component__inner">
+        <!-- 1.지역 -->
+        <div
+          v-if="presentEstimateInquiryState === Number(11)"
+          class="wrap-location"
+        >
+          <input
+            v-model="addressSi"
+            maxlength="5"
+            autocomplete="off"
+            autofocus="off"
+            placeholder="시 입력"
+            class="hhr-input location-si"
+            type="email"
+          />
+          <input
+            v-model="addressKu"
+            maxlength="5"
+            autocomplete="off"
+            autofocus="off"
+            placeholder="구 입력"
+            class="hhr-input location-ku"
+            type="email"
+          />
+          <input
+            v-model="addressDo"
+            maxlength="5"
+            autocomplete="off"
+            autofocus="off"
+            placeholder="도 입력"
+            class="hhr-input location-do"
+            type="email"
+          /><br />
+          <hhr-clear-both></hhr-clear-both>
+        </div>
+        <!-- 2.문의유형 -->
+        <div
+          v-if="presentEstimateInquiryState === Number(12)"
+          class="wrap-inquiry-type"
+        >
+          <div class="wrap-inquiry-type__inner">
+            <div class="wrap-button">
+              <button class="hhf-positive-reversal-button paint">
+                친환경페인트
+              </button>
+            </div>
+            <div class="wrap-button">
+              <button class="hhf-positive-reversal-button window">
+                창호수리/방충망
+              </button>
+            </div>
+            <div class="wrap-button">
+              <button class="hhf-positive-reversal-button door-class">
+                문짝/문틀
+              </button>
+            </div>
+          </div>
+          <hhr-clear-both></hhr-clear-both>
+          <div class="wrap-inquiry-type__inner">
+            <div class="wrap-button">
+              <button class="hhf-positive-reversal-button door">
+                중문/포켓도어
+              </button>
+            </div>
+            <div class="wrap-button">
+              <button class="hhf-positive-reversal-button fan">
+                황풍기/선반/건조대
+              </button>
+            </div>
+            <div class="wrap-button">
+              <button class="hhf-positive-reversal-button etc">
+                기타작업
+              </button>
+            </div>
+          </div>
+          <hhr-clear-both></hhr-clear-both>
+        </div>
+        <!-- 3.기타사항 -->
+        <div
+          v-else-if="presentEstimateInquiryState === Number(13)"
+          class="wrap-inquiry-detail"
+        >
+          <textarea
+            v-model="detailInquiry"
+            maxlength="201"
+            for="estimate"
+            placeholder="문의 상세 입력"
+            class="hhr-textarea detail-inquiry-text-area"
+          ></textarea>
+        </div>
+        <!-- 4.이메일 -->
+        <div
+          v-else-if="presentEstimateInquiryState === Number(14)"
+          class="wrap-email"
+        >
+          <input
+            v-model="email"
+            autocomplete="off"
+            autofocus="off"
+            placeholder="이메일 계정 입력"
+            class="hhr-input email"
+            type="email"
+          />
+          <hhr-clear-both></hhr-clear-both>
+        </div>
+        <!-- 5.연락처 -->
+        <!-- 연락처를 어떤식으로 입력 받을건지 고민이 필요합니다 -->
+        <!-- 6.사진첨부 -->
+        <!-- 사진첨부쪽을 어떤식으로 구현할건지 고민이 필요합니다 -->
+      </div>
+    </div>
+  </transition>
+</template>
+
+<script>
+import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
+
+export default {
+  name: 'InquiryInputs',
+  components: {
+    HhrClearBoth,
+  },
+  props: {
+    state: {
+      type: Number,
+      default: null,
+    },
+  },
+  data() {
+    return {
+      values: {
+        email: '',
+        check: {
+          lifeCycle: false,
+        },
+      },
+    }
+  },
+  computed: {
+    presentEstimateInquiryState() {
+      return this.$store.getters['estimate/presentEstimateInquiryState']
+    },
+    addressSi: {
+      get() {
+        return this.$store.getters['estimate/addressSi']
+      },
+      set(si) {
+        this.$store.dispatch('estimate/SET_ADDRESS_SI', { si })
+      },
+    },
+    addressKu: {
+      get() {
+        return this.$store.getters['estimate/addressKu']
+      },
+      set(ku) {
+        this.$store.dispatch('estimate/SET_ADDRESS_KU', { ku })
+      },
+    },
+    addressDo: {
+      get() {
+        return this.$store.getters['estimate/addressDo']
+      },
+      set(aDo) {
+        this.$store.dispatch('estimate/SET_ADDRESS_DO', { aDo })
+      },
+    },
+    detailInquiry: {
+      get() {
+        return this.$store.getters['estimate/detailInquiry']
+      },
+      set(detailInquiry) {
+        this.$store.dispatch('estimate/SET_DETAIL_INQUIRY', { detailInquiry })
+      },
+    },
+    email: {
+      get() {
+        return this.$store.getters['estimate/email']
+      },
+      set(email) {
+        this.$store.dispatch('estimate/SET_EMAIL', { email })
+      },
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.values.check.lifeCycle = true
+    })
+  },
+  methods: {},
+}
+</script>
+
+<style lang="scss" scoped>
+    .component {
+        height: 100%;
+        &__inner {
+            height: 100%;
+            .wrap-location {
+                padding-top: 40px;
+                float: right;
+                .location-si {
+                    width: 100px;
+                    margin-right: 10px;
+                }
+                .location-ku {
+                    width: 100px;
+                    margin-right: 10px;
+                }
+                .location-do {
+                    width: 100px;
+                }
+            }
+            .wrap-inquiry-type {
+                padding-top: 40px;
+                height: 100%;
+                &__inner {
+                    padding: 15px 0;
+                    height: 100%;
+                    .wrap-button {
+                        float: left;
+                        width: 33.3%;
+                        height: 100%;
+                        text-align: center;
+                        .paint {
+                            width: 200px;
+                            height: 50px;
+                            font-size: 20px;
+                        }
+                        .window {
+                            width: 200px;
+                            height: 50px;
+                            font-size: 20px;
+                        }
+                        .door-class {
+                            width: 200px;
+                            height: 50px;
+                            font-size: 20px;
+                        }
+                        .door {
+                            width: 200px;
+                            height: 50px;
+                            font-size: 20px;
+                        }
+                        .fan {
+                            width: 200px;
+                            height: 50px;
+                            font-size: 20px;
+                        }
+                        .etc {
+                            width: 200px;
+                            height: 50px;
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+            .wrap-inquiry-detail {
+                .detail-inquiry-text-area {
+
+                }
+            }
+            .wrap-email {
+            }
+            .wrap-phone-number {
+            }
+            .wrap-attach-file {
+            }
+        }
+    }
+
+</style>

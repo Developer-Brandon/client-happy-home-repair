@@ -16,17 +16,18 @@
             :sub-title="presentEstimateInquiry.subTitle"
             :announcement="presentEstimateInquiry.announcement"
           />
+          <hhr-clear-both></hhr-clear-both>
+          <!-- 상태값에 따라 렌더링 되는 입력란들이 달라집니다 -->
+          <estimate-inputs
+            :state="presentEstimateInquiry.state"
+          />
+          <hhr-clear-both></hhr-clear-both>
+          <!-- 저장되어 있는 상태값에 따라 렌더링 되는 버튼들이 달라집니다 -->
+          <estimate-buttons
+            :state="presentEstimateInquiry.state"
+          />
+          <hhr-clear-both></hhr-clear-both>
         </div>
-        <!-- 상태값에 따라 렌더링 되는 입력란들이 달라집니다 -->
-        <!--
-                <hhr-input-transform
-                :state="presentEstimateInquiry.state"/>
-                -->
-        <!-- 저장되어 있는 상태값에 따라 렌더링 되는 버튼들이 달라집니다 -->
-        <!--
-                <hhr-button-transform
-                :state="presentEstimateInquiry.state" />
-                -->
       </section>
     </div>
   </transition>
@@ -34,11 +35,17 @@
 
 <script>
 import HhrGuidance from '@/components/util/HhrGuidance.vue'
+import EstimateInputs from '@/components/estimate/InquiryInputs.vue'
+import EstimateButtons from '@/components/estimate/InquiryButtons.vue'
+import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
 
 export default {
   name: 'EstimateInquiry',
   components: {
     HhrGuidance,
+    EstimateInputs,
+    EstimateButtons,
+    HhrClearBoth,
   },
   data() {
     return {
@@ -61,11 +68,16 @@ export default {
     },
   },
   mounted() {
+    // - For dom rendering
     this.$nextTick(() => {
       this.judgePresentState()
         .then(() => {
-          // nothing to do ...
+          this.values.check.lifeCycle = true
         })
+    })
+    this.$root.$on('DomForceRendering', () => {
+      console.log('불리는거실화야?')
+      this.$forceUpdate()
     })
   },
   methods: {
@@ -73,7 +85,6 @@ export default {
       return new Promise((resolve) => {
         this.$store.dispatch('estimate/JUDGE_PRESENT_STATE')
           .then(() => {
-            this.values.check.lifeCycle = true
             resolve()
           })
       })
@@ -99,7 +110,7 @@ export default {
     .sections {
         display: block;
         width: 100%;
-        height: 100%;
+        min-height: 600px;
         background-size: 100% 100%;
         background: url('~@/assets/images/estimate/consulting2.png') center;
         @media (max-width: $screen-mobile) {
@@ -108,7 +119,7 @@ export default {
         &__inner {
             width: 100%;
             height: 100%;
-            padding: 100px 20px;
+            padding: 80px 20px;
             max-width: $contents-width;
             margin: 0 auto;
             @media (max-width: $screen-mobile) {
@@ -117,8 +128,8 @@ export default {
             }
             .estimate {
                 margin: 0 auto;
-                padding: 35px;
-                width: 700px;
+                padding: 45px 35px;
+                width: 750px;
                 height: 100%;
                 @media (max-width: $screen-mobile) {
                     padding: 15px 10px;
