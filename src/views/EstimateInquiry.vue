@@ -109,6 +109,7 @@ export default {
         background: url('~@/assets/images/estimate/consulting2.png') center;
         @media (max-width: $screen-mobile) {
             margin: 0 auto;
+            min-height: auto;
         }
         &__inner {
             width: 100%;

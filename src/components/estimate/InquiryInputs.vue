@@ -203,9 +203,11 @@ export default {
         &__inner {
             height: 100%;
             .wrap-location {
+                height: 130px;
                 padding-top: 40px;
                 float: right;
                 @media (max-width: $screen-mobile) {
+                    height: 90px;
                     padding-top: 20px;
                 }
                 .location-si {
@@ -233,8 +235,8 @@ export default {
                 }
             }
             .wrap-inquiry-type {
-                padding-top: 20px;
                 height: 100%;
+                padding-top: 20px;
                 &__inner {
                     padding: 15px 0;
                     height: 100%;
@@ -303,15 +305,39 @@ export default {
                 }
             }
             .wrap-inquiry-detail {
+                height: 130px;
+                padding-top: 40px;
+                @media (max-width: $screen-mobile) {
+                    height: 90px;
+                    padding-top: 20px;
+                }
                 .detail-inquiry-text-area {
 
                 }
             }
             .wrap-email {
+                height: 130px;
+                padding-top: 40px;
+                @media (max-width: $screen-mobile) {
+                    height: 90px;
+                    padding-top: 20px;
+                }
             }
             .wrap-phone-number {
+                height: 130px;
+                padding-top: 40px;
+                @media (max-width: $screen-mobile) {
+                    height: 90px;
+                    padding-top: 20px;
+                }
             }
             .wrap-attach-file {
+                height: 130px;
+                padding-top: 40px;
+                @media (max-width: $screen-mobile) {
+                    height: 90px;
+                    padding-top: 20px;
+                }
             }
         }
     }

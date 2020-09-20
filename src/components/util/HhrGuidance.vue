@@ -8,7 +8,10 @@
         :key="presentEstimateInquiry.index"
         class="wrap-guidance__inner"
       >
-        <p class="title font-bold">
+        <p
+          class="title font-bold"
+          :class="{'add-repair-picture':presentEstimateInquiry.state === 16}"
+        >
           <span v-html="presentEstimateInquiry.title"></span>
         </p>
         <div class="wrap-guidance-inner">
@@ -68,6 +71,9 @@ export default {
                 font-size: 40px;
                 margin-bottom: 35px;
                 letter-spacing: 3px;
+                &.add-repair-picture {
+                    font-size: 32px !important;
+                }
                 @media (max-width: $screen-mobile) {
                     text-align: right;
                     font-size: 30px;
