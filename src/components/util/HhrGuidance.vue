@@ -9,17 +9,17 @@
         class="wrap-guidance__inner"
       >
         <p
-          class="title font-bold"
+          class="title estimate-title-fade-in font-bold"
           :class="{'add-repair-picture':presentEstimateInquiry.state === 16}"
         >
           <span v-html="presentEstimateInquiry.title"></span>
         </p>
         <div class="wrap-guidance-inner">
           <div class="wrap-guidance-inner__inner">
-            <p class="sub-title font-regular">
+            <p class="sub-title estimate-subtitle-fade-in font-regular">
               <span v-html="presentEstimateInquiry.subTitle"></span>
             </p>
-            <p class="announcement font-bold">
+            <p class="announcement estimate-announce-fade-in font-bold">
               <span v-html="presentEstimateInquiry.announcement"></span>
             </p>
           </div>
@@ -56,6 +56,17 @@ export default {
 
 <style lang="scss" scoped>
     // @Local utils
+    .estimate-title-fade-in {
+      @include primary-fade-in-left-to-right(1, 0.5);
+    }
+
+    .estimate-subtitle-fade-in {
+      @include primary-fade-in-right-to-left(1, 0.5);
+    }
+
+    .estimate-announce-fade-in {
+      @include primary-fade-in-right-to-left(1, 0.5);
+    }
 
     // @Classes
     .wrap-guidance {

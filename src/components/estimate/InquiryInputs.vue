@@ -6,114 +6,124 @@
     >
       <div class="component__inner">
         <!-- 1.지역 -->
-        <div
-          v-if="presentEstimateInquiryState === Number(11)"
-          class="wrap-location"
-        >
-          <input
-            v-model="addressSi"
-            maxlength="5"
-            autocomplete="off"
-            autofocus="off"
-            placeholder="시 입력"
-            class="hhr-input location-si"
-            type="email"
-          />
-          <input
-            v-model="addressKu"
-            maxlength="5"
-            autocomplete="off"
-            autofocus="off"
-            placeholder="구 입력"
-            class="hhr-input location-ku"
-            type="email"
-          />
-          <input
-            v-model="addressDo"
-            maxlength="5"
-            autocomplete="off"
-            autofocus="off"
-            placeholder="도 입력"
-            class="hhr-input location-do"
-            type="email"
-          /><br />
-          <hhr-clear-both />
-        </div>
+        <transition name="content-fade">
+          <div
+            v-show="presentEstimateInquiryState === Number(11)"
+            class="wrap-location"
+          >
+            <div class="wrap-location__inner">
+              <input
+                v-model="addressSi"
+                maxlength="5"
+                autocomplete="off"
+                autofocus="off"
+                placeholder="시 입력"
+                class="hhr-input location-si"
+                type="email"
+              />
+              <input
+                v-model="addressKu"
+                maxlength="5"
+                autocomplete="off"
+                autofocus="off"
+                placeholder="구 입력"
+                class="hhr-input location-ku"
+                type="email"
+              />
+              <input
+                v-model="addressDo"
+                maxlength="5"
+                autocomplete="off"
+                autofocus="off"
+                placeholder="도 입력"
+                class="hhr-input location-do"
+                type="email"
+              /><br />
+            </div>
+            <hhr-clear-both />
+          </div>
+        </transition>
         <!-- 2.문의유형 -->
-        <div
-          v-if="presentEstimateInquiryState === Number(12)"
-          class="wrap-inquiry-type"
-        >
-          <div class="wrap-inquiry-type__inner">
-            <div class="wrap-button">
-              <button class="hhf-positive-reversal-button paint">
-                친환경페인트
-              </button>
+        <transition name="content-fade">
+          <div
+            v-show="presentEstimateInquiryState === Number(12)"
+            class="wrap-inquiry-type"
+          >
+            <div class="wrap-inquiry-type__inner">
+              <div class="wrap-button">
+                <button class="hhf-positive-reversal-button paint">
+                  친환경페인트
+                </button>
+              </div>
+              <br class="mobile-visible-block-only" />
+              <div class="wrap-button">
+                <button class="hhf-positive-reversal-button window">
+                  창호수리/방충망
+                </button>
+              </div>
+              <div class="wrap-button">
+                <button class="hhf-positive-reversal-button door-class">
+                  문짝/문틀
+                </button>
+              </div>
             </div>
-            <br class="mobile-visible-block-only" />
-            <div class="wrap-button">
-              <button class="hhf-positive-reversal-button window">
-                창호수리/방충망
-              </button>
+            <hhr-clear-both />
+            <div class="wrap-inquiry-type__inner">
+              <div class="wrap-button">
+                <button class="hhf-positive-reversal-button door">
+                  중문/포켓도어
+                </button>
+              </div>
+              <div class="wrap-button">
+                <button class="hhf-positive-reversal-button fan">
+                  황풍기/선반/건조대
+                </button>
+              </div>
+              <div class="wrap-button">
+                <button class="hhf-positive-reversal-button etc">
+                  기타작업
+                </button>
+              </div>
             </div>
-            <div class="wrap-button">
-              <button class="hhf-positive-reversal-button door-class">
-                문짝/문틀
-              </button>
-            </div>
+            <hhr-clear-both />
           </div>
-          <hhr-clear-both />
-          <div class="wrap-inquiry-type__inner">
-            <div class="wrap-button">
-              <button class="hhf-positive-reversal-button door">
-                중문/포켓도어
-              </button>
-            </div>
-            <div class="wrap-button">
-              <button class="hhf-positive-reversal-button fan">
-                황풍기/선반/건조대
-              </button>
-            </div>
-            <div class="wrap-button">
-              <button class="hhf-positive-reversal-button etc">
-                기타작업
-              </button>
-            </div>
-          </div>
-          <hhr-clear-both />
-        </div>
+        </transition>
         <!-- 3.기타사항 -->
-        <div
-          v-else-if="presentEstimateInquiryState === Number(13)"
-          class="wrap-inquiry-detail"
-        >
-          <textarea
-            v-model="detailInquiry"
-            maxlength="201"
-            for="estimate"
-            placeholder="문의 상세 입력"
-            class="hhr-textarea detail-inquiry-text-area"
-          ></textarea>
-        </div>
+        <transition name="content-fade">
+          <div
+            v-if="presentEstimateInquiryState === Number(13)"
+            class="wrap-inquiry-detail"
+          >
+            <textarea
+              v-model="detailInquiry"
+              maxlength="201"
+              for="estimate"
+              placeholder="문의 상세 입력"
+              class="hhr-textarea detail-inquiry-text-area"
+            ></textarea>
+          </div>
+        </transition>
         <!-- 4.이메일 -->
-        <div
-          v-else-if="presentEstimateInquiryState === Number(14)"
-          class="wrap-email"
-        >
-          <input
-            v-model="email"
-            autocomplete="off"
-            autofocus="off"
-            placeholder="이메일 계정 입력"
-            class="hhr-input email"
-            type="email"
-          />
-          <hhr-clear-both />
-        </div>
+        <transition name="content-fade">
+          <div
+            v-if="presentEstimateInquiryState === Number(14)"
+            class="wrap-email"
+          >
+            <input
+              v-model="email"
+              autocomplete="off"
+              autofocus="off"
+              placeholder="이메일 계정 입력"
+              class="hhr-input email"
+              type="email"
+            />
+            <hhr-clear-both />
+          </div>
+        </transition>
         <!-- 5.연락처 -->
         <!-- TODO: 연락처를 어떤식으로 입력 받을건지 고민이 필요합니다 -->
         <!-- 6.사진첨부 -->
-        <!-- TODO: 사진첨부쪽을 어떤식으로 구현할건지 고민이 필요합니다 -->
+        <!-- TODO: 사진첨부를  어떤식으로 구현할건지 고민이 필요합니다 -->
       </div>
     </div>
   </transition>
@@ -201,8 +211,10 @@ export default {
     .component {
         height: 100%;
         &__inner {
+            width: 100%;
             height: 100%;
             .wrap-location {
+                width: 100%;
                 height: 160px;
                 padding-top: 40px;
                 float: right;
@@ -210,27 +222,30 @@ export default {
                     height: 90px;
                     padding-top: 20px;
                 }
-                .location-si {
-                    width: 100px;
-                    margin-right: 10px;
-                    @media (max-width: $screen-mobile) {
-                        width: 80px;
-                        margin-right: 5px;
+                &__inner {
+                    float:right;
+                    .location-si {
+                        width: 100px;
+                        margin-right: 10px;
+                        @media (max-width: $screen-mobile) {
+                            width: 80px;
+                            margin-right: 5px;
+                        }
                     }
-                }
-                .location-ku {
-                    width: 100px;
-                    margin-right: 10px;
-                    @media (max-width: $screen-mobile) {
-                        width: 80px;
-                        margin-right: 5px;
+                    .location-ku {
+                        width: 100px;
+                        margin-right: 10px;
+                        @media (max-width: $screen-mobile) {
+                            width: 80px;
+                            margin-right: 5px;
+                        }
                     }
-                }
-                .location-do {
-                    width: 100px;
-                    @media (max-width: $screen-mobile) {
-                        width: 80px;
-                        margin-right: 5px;
+                    .location-do {
+                        width: 100px;
+                        @media (max-width: $screen-mobile) {
+                            width: 80px;
+                            margin-right: 5px;
+                        }
                     }
                 }
             }

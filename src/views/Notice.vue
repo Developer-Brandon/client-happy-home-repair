@@ -1,6 +1,8 @@
 <template>
   <transition name="page-fade">
-    <div v-if="values.check.lifeCycle"></div>
+    <div v-if="values.check.lifeCycle">
+      <p style="text-align:center;padding:40px;">준비중인 기능입니다.</p>
+    </div>
   </transition>
 </template>
 
