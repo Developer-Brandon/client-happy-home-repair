@@ -5,7 +5,7 @@
       :key="index"
       class="hhr-simple-table__row"
     >
-      <span class="introduce-box">{{ object.attribute }}</span>
+      <span class="introduce-box">{{ object.attribute | translateToKorean }}</span>
       <span class="introduce-contents">{{ object.contents }}</span>
     </li>
   </ul>

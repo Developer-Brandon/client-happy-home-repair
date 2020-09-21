@@ -7,8 +7,11 @@
       <div
         class="how-to-come__inner"
       >
-        <hhr-page-title title="오시는 길" />
-        <div class="contents">
+        <hhr-page-title
+          class="how-to-come-title-fade-in"
+          title="오시는 길"
+        />
+        <div class="contents how-to-come-map-fade-in">
           <div class="wrap-google-map">
             <iframe
               class="google-map"
@@ -68,6 +71,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    // @Local utils
+    .how-to-come-title-fade-in {
+        @include primary-fade-in-top-to-bottom(3, 2.5)
+    }
+
+    .how-to-come-map-fade-in {
+        @include primary-fade-in-bottom-to-top(3, 2.5)
+    }
+
+    // @Classes
     .how-to-come {
         width: 100%;
         height: 100%;

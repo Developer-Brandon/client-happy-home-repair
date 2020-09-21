@@ -33,7 +33,7 @@
             </p>
           </div>
         </div>
-        <hhr-clear-both></hhr-clear-both>
+        <hhr-clear-both />
         <div
           class="wrap-security-window-section security-window-fade-in"
           @click="goToSecurityWindowPage"
@@ -60,7 +60,7 @@
             </p>
           </div>
         </div>
-        <hhr-clear-both></hhr-clear-both>
+        <hhr-clear-both />
         <div
           class="wrap-window-section window-image-fade-in"
           @click="goToWindowPage"
@@ -88,7 +88,7 @@
             </p>
           </div>
         </div>
-        <hhr-clear-both></hhr-clear-both>
+        <hhr-clear-both />
       </div>
       <div
         class="sections__inner"
@@ -119,7 +119,7 @@
             </p>
           </div>
         </div>
-        <hhr-clear-both></hhr-clear-both>
+        <hhr-clear-both />
         <div
           class="wrap-etc-section etc-fade-in"
           @click="goToEtcPage"
@@ -146,7 +146,7 @@
             </p>
           </div>
         </div>
-        <hhr-clear-both></hhr-clear-both>
+        <hhr-clear-both />
       </div>
     </div>
   </transition>

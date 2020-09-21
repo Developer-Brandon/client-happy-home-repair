@@ -5,32 +5,26 @@
       class="component"
     >
       <div class="component__inner">
-        <div
+        <button
           v-if="presentEstimateInquiryState !== Number(11)"
           class="previous-button"
           @click="pressPreviousButton"
         >
-          <p class="font-thin">
-            {{ values.words.previous }}
-          </p>
-        </div>
-        <div
+          {{ values.words.previous }}
+        </button>
+        <button
+          v-if="presentEstimateInquiryState !== Number(16)"
           class="next-button"
           @click="pressNextButton"
         >
-          <p
-            v-if="presentEstimateInquiryState !== Number(16)"
-            class="font-thin"
-          >
-            {{ values.words.next }}
-          </p>
-          <p
-            v-if="presentEstimateInquiryState === Number(16)"
-            class="font-thin"
-          >
-            {{ values.words.finish }}
-          </p>
-        </div>
+          {{ values.words.next }}
+        </button>
+        <button
+          v-if="presentEstimateInquiryState === Number(16)"
+          class="apply-button"
+        >
+          {{ values.words.finish }}
+        </button>
         <hhr-clear-both></hhr-clear-both>
       </div>
     </div>
@@ -103,28 +97,40 @@ export default {
             height: 100%;
             padding: 45px 0;
             .previous-button {
+                border: 0;
+                outline: none;
                 display: inline-block;
                 font-size: 30px;
                 margin-right: 25px;
-                p {
-                    letter-spacing: 2px;
-                    transition: 0.4s;
-                    &:hover {
-                        font-weight: 700;
-                        cursor: pointer;
-                    }
+                letter-spacing: 2px;
+                transition: 0.4s;
+                &:hover {
+                    font-weight: 700;
+                    cursor: pointer;
                 }
             }
             .next-button {
+                border: 0;
+                outline: none;
                 display: inline-block;
                 font-size: 30px;
-                p {
-                    letter-spacing: 2px;
-                    transition: 0.4s;
-                    &:hover {
-                        font-weight: 700;
-                        cursor: pointer;
-                    }
+                letter-spacing: 2px;
+                transition: 0.4s;
+                &:hover {
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+            }
+            .apply-button {
+                border: 0;
+                outline: none;
+                display: inline-block;
+                font-size: 30px;
+                letter-spacing: 2px;
+                transition: 0.4s;
+                &:hover {
+                    font-weight: 700;
+                    cursor: pointer;
                 }
             }
         }

@@ -4,9 +4,12 @@
     class="introduce-company"
   >
     <div class="introduce-company__inner">
-      <hhr-page-title title="회사소개" />
-      <div class="contents">
-        <hhr-simple-table :table-list="introduceCompanyList" />
+      <hhr-page-title
+        class="introduce-title-fade-in"
+        title="회사소개"
+      />
+      <div class="contents introduce-table-fade-in">
+        <hhr-simple-table :table-list="values.introduceCompanyList" />
       </div>
     </div>
   </div>
@@ -28,31 +31,8 @@ export default {
         check: {
           lifeCycle: false,
         },
+        introduceCompanyList: [],
       },
-      introduceCompanyList: [{
-        attribute: '대표이사',
-        contents: '',
-      },
-      {
-        attribute: '사업분야',
-        contents: '',
-      },
-      {
-        attribute: '주요업종',
-        contents: '',
-      },
-      {
-        attribute: '주소',
-        contents: '',
-      },
-      {
-        attribute: '연락처',
-        contents: '',
-      },
-      {
-        attribute: '이메일',
-        contents: '',
-      }],
     }
   },
   mounted() {
@@ -78,12 +58,10 @@ export default {
     },
     getRevisedCeoInfo(ceoInfo) {
       return new Promise((resolve) => {
-        // TODO: for문을 두번 사용하고 싶지 않은데, 간결하게 만들어서 리펙토링 하기
         _.forEach(ceoInfo, (value, key) => {
-          _.forEach(this.introduceCompanyList, (introduceObject) => {
-            if (key === introduceObject.attribute) {
-              introduceObject.contents = value
-            }
+          this.values.introduceCompanyList.push({
+            attribute: key,
+            contents: value,
           })
         })
         resolve()
@@ -94,6 +72,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // @Local utils
+    .introduce-title-fade-in {
+        @include primary-fade-in-top-to-bottom(2, 1.5)
+    }
+
+    .introduce-table-fade-in {
+        @include primary-fade-in-bottom-to-top(2, 1.5)
+    }
+
+    // @Classes
     .introduce-company {
         width: 100%;
         height: 100%;

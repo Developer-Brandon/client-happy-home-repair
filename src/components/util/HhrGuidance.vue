@@ -55,6 +55,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // @Local utils
+
+    // @Classes
     .wrap-guidance {
         padding-left: 10px;
         height: 120px;

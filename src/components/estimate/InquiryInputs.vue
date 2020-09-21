@@ -50,7 +50,7 @@
                 친환경페인트
               </button>
             </div>
-            <br class="mobile-visible-block-only"/>
+            <br class="mobile-visible-block-only" />
             <div class="wrap-button">
               <button class="hhf-positive-reversal-button window">
                 창호수리/방충망
@@ -203,7 +203,7 @@ export default {
         &__inner {
             height: 100%;
             .wrap-location {
-                height: 130px;
+                height: 160px;
                 padding-top: 40px;
                 float: right;
                 @media (max-width: $screen-mobile) {
@@ -305,7 +305,7 @@ export default {
                 }
             }
             .wrap-inquiry-detail {
-                height: 130px;
+                height: 160px;
                 padding-top: 40px;
                 @media (max-width: $screen-mobile) {
                     height: 90px;
@@ -316,7 +316,7 @@ export default {
                 }
             }
             .wrap-email {
-                height: 130px;
+                height: 160px;
                 padding-top: 40px;
                 @media (max-width: $screen-mobile) {
                     height: 90px;
@@ -324,7 +324,7 @@ export default {
                 }
             }
             .wrap-phone-number {
-                height: 130px;
+                height: 160px;
                 padding-top: 40px;
                 @media (max-width: $screen-mobile) {
                     height: 90px;
@@ -332,7 +332,7 @@ export default {
                 }
             }
             .wrap-attach-file {
-                height: 130px;
+                height: 160px;
                 padding-top: 40px;
                 @media (max-width: $screen-mobile) {
                     height: 90px;

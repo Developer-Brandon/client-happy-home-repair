@@ -4,6 +4,8 @@ import mixin from '@/assets/js/global/mixin'
 import router from '@/router'
 import store from '@/store'
 import App from '@/App'
+// eslint-disable-next-line
+import '@/assets/js/global/filter'
 
 Vue.config.productionTip = false
 Vue.config.devtools = process.env.NODE_ENV !== 'production'
