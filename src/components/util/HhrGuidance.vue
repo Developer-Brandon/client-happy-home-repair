@@ -15,7 +15,7 @@
           <span v-html="presentEstimateInquiry.title"></span>
         </p>
         <div class="wrap-guidance-inner">
-          <div class="wrap-guidance-inner__inner">
+          <div class="wrap-guidance-inner__inner estimate-blue-bar-fade-in">
             <p class="sub-title estimate-subtitle-fade-in font-regular">
               <span v-html="presentEstimateInquiry.subTitle"></span>
             </p>
@@ -58,6 +58,10 @@ export default {
     // @Local utils
     .estimate-title-fade-in {
       @include primary-fade-in-left-to-right(1, 0.5);
+    }
+
+    .estimate-blue-bar-fade-in {
+      @include primary-fade-in-left-to-right(2, 1.5);
     }
 
     .estimate-subtitle-fade-in {

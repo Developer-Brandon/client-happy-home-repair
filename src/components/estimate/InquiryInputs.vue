@@ -41,6 +41,10 @@
               /><br />
             </div>
             <hhr-clear-both />
+            <span
+              v-show="!addressValidation && presentEstimateInquiryState === Number(11)"
+              class="location-validation-error"
+            >{{ estimateInquiryErrorMsgObject.locationValidationErrorMsg }}</span>
           </div>
         </transition>
         <!-- 2.문의유형 -->
@@ -149,6 +153,7 @@ export default {
         email: '',
         check: {
           lifeCycle: false,
+          whenNextButtonClicked: false,
         },
       },
     }
@@ -156,6 +161,9 @@ export default {
   computed: {
     presentEstimateInquiryState() {
       return this.$store.getters['estimate/presentEstimateInquiryState']
+    },
+    estimateInquiryErrorMsgObject() {
+      return this.$store.getters['estimate/estimateInquiryErrorMsgObject']
     },
     addressSi: {
       get() {
@@ -181,6 +189,15 @@ export default {
         this.$store.dispatch('estimate/SET_ADDRESS_DO', { aDo })
       },
     },
+    addressValidation() {
+      return this.$store.getters['estimate/addressValidation']
+    },
+    inquiryType() {
+      return this.$store.getters['estimate/inquiryType']
+    },
+    inquiryTypeValidation() {
+      return this.$store.getters['estimate/inquiryTypeValidation']
+    },
     detailInquiry: {
       get() {
         return this.$store.getters['estimate/detailInquiry']
@@ -197,6 +214,15 @@ export default {
         this.$store.dispatch('estimate/SET_EMAIL', { email })
       },
     },
+    emailValidation() {
+      return this.$store.getters['estimate/emailValidation']
+    },
+    phoneNumber() {
+      return this.$store.getters['estimate/phoneNumber']
+    },
+    phoneNumberValidation() {
+      return this.$store.getters['estimate/phoneNumberValidation']
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -208,6 +234,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // @LocalUtils
+    @mixin common-error-message-style {
+        // TODO: 좌우 bounce animation 넣기
+        padding: 10px 0;
+        display: block;
+        text-align: right;
+        color: $hhr-red;
+    }
+
+    .location-validation-error {
+        @include common-error-message-style
+    }
+
+    // @Classes
     .component {
         height: 100%;
         &__inner {
@@ -223,7 +263,7 @@ export default {
                     padding-top: 20px;
                 }
                 &__inner {
-                    float:right;
+                    float: right;
                     .location-si {
                         width: 100px;
                         margin-right: 10px;
@@ -251,7 +291,6 @@ export default {
             }
             .wrap-inquiry-type {
                 height: 100%;
-                padding-top: 20px;
                 &__inner {
                     padding: 15px 0;
                     height: 100%;

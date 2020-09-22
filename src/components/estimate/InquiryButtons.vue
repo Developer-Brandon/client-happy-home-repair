@@ -22,6 +22,7 @@
         <button
           v-if="presentEstimateInquiryState === Number(16)"
           class="apply-button"
+          @click="pressApplyButton"
         >
           {{ values.words.finish }}
         </button>
@@ -63,6 +64,9 @@ export default {
     presentEstimateInquiryState() {
       return this.$store.getters['estimate/presentEstimateInquiryState']
     },
+    addressValidation() {
+      return this.$store.getters['estimate/addressValidation']
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -80,12 +84,31 @@ export default {
         })
     },
     pressNextButton() {
-      this.$store.dispatch('estimate/PRESS_NEXT_BUTTON')
+      const state = this.presentEstimateInquiryState
+      this.$store.dispatch('estimate/VALIDATE_APPLY_FORM', { state })
+        .then(() => {
+          if (this.addressValidation) {
+            this.$store.dispatch('estimate/PRESS_NEXT_BUTTON')
+              .then(() => {
+                this.callParentsForceDomRenderingUpdate()
+              }).catch((error) => {
+                console.log(`error - ${error}`)
+              })
+          } else {
+            // Nothing to do ....
+          }
+        })
+    },
+    pressApplyButton() {
+      // TODO: whole validation
+      this.$store.dispatch('estimate/PRESS_APPLY_BUTTON')
         .then(() => {
           this.callParentsForceDomRenderingUpdate()
         })
-    },
-  },
+    }
+    ,
+  }
+  ,
 }
 </script>
 

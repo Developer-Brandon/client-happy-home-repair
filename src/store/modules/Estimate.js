@@ -1,6 +1,5 @@
 const state = () => ({
-  // 상태값 관리에 대한 깊은 고민이 필요합니다
-  presentEstimateInquiryState: 11, // 추후 jsCookie 로 바뀔 로직입니다.
+  presentEstimateInquiryState: 11, // TODO: Have to translate ENUM and Have to restore in JS COOKIE
   presentEstimateInquiry: {},
   estimateInquiryList: [
     {
@@ -8,7 +7,7 @@ const state = () => ({
       state: 11,
       title: '어느 지역에서 <br class="mobile-visible-block-only"/>문의하고 계신가요?',
       subTitle: '수리하고 싶으신<br class="mobile-visible-block-only"/> 시/구/도를 입력해주세요.',
-      announcement: '<span class="desktop-visible-inline-only">* </span>입력을 원하지 않으시면, 시와 구까지만 입력해주세요.',
+      announcement: '<span class="desktop-visible-inline-only">* </span>입력을 원하지 않으시면, \'구\'까지만 입력해주세요.',
     },
     {
       index: 2,
@@ -46,44 +45,51 @@ const state = () => ({
       announcement: '',
     },
   ],
+  estimateInquiryErrorMsgObject: {
+    locationValidationErrorMsg: '시와 구까지 입력해주셔야합니다.',
+    inquiryValidationErrorMsg: '문의 유형은 꼭 선택해주셔야합니다.',
+    phoneNumberErrorMsg: '연락처는 필수 입력사항입니다.',
+  },
   addressSi: '',
   addressKu: '',
   addressDo: '',
+  addressValidation: false,
+  inquiryType: 111, // TODO: Have to translate ENUM
+  inquiryTypeValidation: false,
   detailInquiry: '',
   email: '',
+  emailValidation: false,
+  phoneNumber: '01084302253',
+  phoneNumberValidation: false,
+  uploadFilePath: '',
+  uploadFileValidation: false,
 })
 const getters = {
   presentEstimateInquiryState: (state) => state.presentEstimateInquiryState,
   presentEstimateInquiry: (state) => state.presentEstimateInquiry,
   estimateInquiryList: (state) => state.estimateInquiryList,
+  estimateInquiryErrorMsgObject: (state) => state.estimateInquiryErrorMsgObject,
   addressSi: (state) => state.addressSi,
   addressKu: (state) => state.addressKu,
   addressDo: (state) => state.addressDo,
+  addressValidation: (state) => state.addressValidation,
+  inquiryType: (state) => state.inquiryType,
+  inquiryTypeValidation: (state) => state.inquiryTypeValidation,
   detailInquiry: (state) => state.detailInquiry,
   email: (state) => state.email,
+  emailValidation: (state) => state.emailValidation,
+  phoneNumber: (state) => state.phoneNumber,
+  phoneNumberValidation: (state) => state.phoneNumberValidation,
+  uploadFilePath: (state) => state.uploadFilePath,
+  uploadFileValidation: (state) => state.uploadFileValidation,
 }
 const mutations = {
-  judgePresentState(state) {
+  judgePresentStateForView(state) {
     _.mapValues(state.estimateInquiryList, (presentEstimateInquiryObj) => {
       if (state.presentEstimateInquiryState === presentEstimateInquiryObj.state) {
         state.presentEstimateInquiry = presentEstimateInquiryObj
       }
     })
-  },
-  setAddressSi(state, params) {
-    state.addressSi = params.si
-  },
-  setAddressKu(state, params) {
-    state.addressKu = params.ku
-  },
-  setAddressDo(state, params) {
-    state.addressDo = params.aDo
-  },
-  setDetailInquiry(state, params) {
-    state.detailInquiry = params.detailInquiry
-  },
-  setEmail(state, params) {
-    state.email = params.email
   },
   minusPresentState(state) {
     if (state.presentEstimateInquiryState >= 11 && state.presentEstimateInquiryState <= 16) { // 사이값을 정확하게 지정해야할 듯
@@ -95,10 +101,32 @@ const mutations = {
       state.presentEstimateInquiryState += 1
     }
   },
+  setAddressSi(state, params) {
+    state.addressSi = params.si
+  },
+  setAddressKu(state, params) {
+    state.addressKu = params.ku
+  },
+  setAddressDo(state, params) {
+    state.addressDo = params.aDo
+  },
+  validationAddress(state) {
+    if (state.addressSi && state.addressKu) {
+      state.addressValidation = true
+    } else {
+      state.addressValidation = false
+    }
+  },
+  setDetailInquiry(state, params) {
+    state.detailInquiry = params.detailInquiry
+  },
+  setEmail(state, params) {
+    state.email = params.email
+  },
 }
 const actions = {
   JUDGE_PRESENT_STATE: ({ commit }) => new Promise((resolve) => {
-    commit('judgePresentState')
+    commit('judgePresentStateForView')
     resolve()
   }),
   SET_ADDRESS_SI: ({ commit }, params) => new Promise((resolve) => {
@@ -121,14 +149,29 @@ const actions = {
     commit('setEmail', params)
     resolve()
   }),
+  VALIDATE_APPLY_FORM: ({ commit }, params) => new Promise((resolve) => {
+    switch (params.state) {
+      case 11:
+        commit('validationAddress')
+        break
+      default:
+        break
+    }
+    resolve()
+  }),
   PRESS_PREVIOUS_BUTTON: ({ commit }) => new Promise((resolve) => {
     commit('minusPresentState')
-    commit('judgePresentState')
+    commit('judgePresentStateForView')
     resolve()
   }),
   PRESS_NEXT_BUTTON: ({ commit }) => new Promise((resolve) => {
     commit('plusPresentState')
-    commit('judgePresentState')
+    commit('judgePresentStateForView')
+    resolve()
+  }),
+  PRESS_APPLY_BUTTON: ({ commit }) => new Promise((resolve) => {
+    commit('')
+    commit('')
     resolve()
   }),
 }

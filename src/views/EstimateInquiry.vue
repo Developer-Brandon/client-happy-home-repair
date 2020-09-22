@@ -2,6 +2,7 @@
   <transition name="page-fade">
     <div
       v-show="values.check.lifeCycle"
+      ref="estimateSections"
       class="sections"
     >
       <section class="sections__inner">
@@ -48,7 +49,7 @@ export default {
     return {
       values: {
         check: {
-          lifeCycle: false,
+          lifeCycle: true,
         },
       },
     }
@@ -64,14 +65,11 @@ export default {
       this.judgePresentState()
         .then(() => {
           this.values.check.lifeCycle = true
+          this.$root.$on('DomForceRendering', () => {
+            this.$forceUpdate()
+            this.isScrollHaveToMoveToTop()
+          })
         })
-    })
-    this.$root.$on('DomForceRendering', () => {
-      this.$forceUpdate()
-      // - This code isn't working perfectly
-      // window.scrollTo({ top: 0, behavior: 'smooth' })
-      // - This code is working perfectly
-      $('html, body').animate({ scrollTop: 0 }, 'slow')
     })
   },
   methods: {
@@ -82,6 +80,12 @@ export default {
             resolve()
           })
       })
+    },
+    isScrollHaveToMoveToTop() {
+      // - This code isn't working perfectly
+      // window.scrollTo({ top: 0, behavior: 'smooth' })
+      // - This code is working perfectly
+      $('html, body').animate({ scrollTop: 0 }, 'slow')
     },
   },
 }

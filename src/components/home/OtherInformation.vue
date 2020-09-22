@@ -58,16 +58,18 @@ export default {
       window.document.removeEventListener('scroll', this.isCalculateViewPort)
     },
     isCalculateViewPort() {
-      const workingProcessDom = this.$refs.workingProcess.$el
-      const wpDomRectedViewPort = workingProcessDom.getBoundingClientRect()
-      const heightOfAboveWorkingProcessElement = wpDomRectedViewPort.top
-      if (matchMedia.isMobile) {
-        if (heightOfAboveWorkingProcessElement < 700) {
-          this.conveyWorkingProcessAnimationToChild()
-        }
-      } else {
-        if (heightOfAboveWorkingProcessElement < 1000) {
-          this.conveyWorkingProcessAnimationToChild()
+      if (this.$refs.workingProcess) {
+        const workingProcessDom = this.$refs.workingProcess.$el
+        const wpDomRectedViewPort = workingProcessDom.getBoundingClientRect()
+        const heightOfAboveWorkingProcessElement = wpDomRectedViewPort.top
+        if (matchMedia.isMobile) {
+          if (heightOfAboveWorkingProcessElement < 700) {
+            this.conveyWorkingProcessAnimationToChild()
+          }
+        } else {
+          if (heightOfAboveWorkingProcessElement < 1000) {
+            this.conveyWorkingProcessAnimationToChild()
+          }
         }
       }
     },
