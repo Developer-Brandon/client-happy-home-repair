@@ -15,7 +15,7 @@
         <button
           v-if="presentEstimateInquiryState !== Number(16)"
           class="next-button"
-          @click="pressNextButton"
+          @click="validationForm"
         >
           {{ values.words.next }}
         </button>
@@ -67,6 +67,9 @@ export default {
     addressValidation() {
       return this.$store.getters['estimate/addressValidation']
     },
+    inquiryTypeValidation() {
+      return this.$store.getters['estimate/inquiryTypeValidation']
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -84,18 +87,26 @@ export default {
         })
     },
     pressNextButton() {
+      this.$store.dispatch('estimate/PRESS_NEXT_BUTTON')
+        .then(() => {
+          this.callParentsForceDomRenderingUpdate()
+        }).catch((error) => {
+          console.log(`error - ${error}`)
+        })
+    },
+    validationForm() {
       const state = this.presentEstimateInquiryState
       this.$store.dispatch('estimate/VALIDATE_APPLY_FORM', { state })
         .then(() => {
-          if (this.addressValidation) {
-            this.$store.dispatch('estimate/PRESS_NEXT_BUTTON')
-              .then(() => {
-                this.callParentsForceDomRenderingUpdate()
-              }).catch((error) => {
-                console.log(`error - ${error}`)
-              })
-          } else {
-            // Nothing to do ....
+          switch (state) {
+            case Number(11):
+              if (this.addressValidation) this.pressNextButton()
+              break
+            case Number(12):
+              if (this.inquiryTypeValidation) this.pressNextButton()
+              break
+            default:
+              break
           }
         })
     },
@@ -118,7 +129,11 @@ export default {
         &__inner {
             float: right;
             height: 100%;
-            padding: 45px 0;
+            padding: 65px 0 45px 0;
+            @media (max-width: $screen-mobile) {
+                clear:both;
+                width: 100%;
+            }
             .previous-button {
                 border: 0;
                 outline: none;
@@ -127,6 +142,10 @@ export default {
                 margin-right: 25px;
                 letter-spacing: 2px;
                 transition: 0.4s;
+                @media (max-width: $screen-mobile) {
+                    float: left;
+                    padding-left: 15px;
+                }
                 &:hover {
                     font-weight: 700;
                     cursor: pointer;
@@ -139,6 +158,10 @@ export default {
                 font-size: 30px;
                 letter-spacing: 2px;
                 transition: 0.4s;
+                @media (max-width: $screen-mobile) {
+                    float: right;
+                    padding-right: 15px;
+                }
                 &:hover {
                     font-weight: 700;
                     cursor: pointer;
@@ -151,6 +174,10 @@ export default {
                 font-size: 30px;
                 letter-spacing: 2px;
                 transition: 0.4s;
+                @media (max-width: $screen-mobile) {
+                    float: right;
+                    padding-right: 15px;
+                }
                 &:hover {
                     font-weight: 700;
                     cursor: pointer;

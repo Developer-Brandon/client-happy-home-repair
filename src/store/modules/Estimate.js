@@ -1,4 +1,5 @@
 const state = () => ({
+  whenNextButtonClicked: false,
   presentEstimateInquiryState: 11, // TODO: Have to translate ENUM and Have to restore in JS COOKIE
   presentEstimateInquiry: {},
   estimateInquiryList: [
@@ -54,7 +55,7 @@ const state = () => ({
   addressKu: '',
   addressDo: '',
   addressValidation: false,
-  inquiryType: 111, // TODO: Have to translate ENUM
+  inquiryType: '', // TODO: Have to translate ENUM
   inquiryTypeValidation: false,
   detailInquiry: '',
   email: '',
@@ -65,6 +66,7 @@ const state = () => ({
   uploadFileValidation: false,
 })
 const getters = {
+  whenNextButtonClicked: (state) => state.whenNextButtonClicked,
   presentEstimateInquiryState: (state) => state.presentEstimateInquiryState,
   presentEstimateInquiry: (state) => state.presentEstimateInquiry,
   estimateInquiryList: (state) => state.estimateInquiryList,
@@ -84,6 +86,9 @@ const getters = {
   uploadFileValidation: (state) => state.uploadFileValidation,
 }
 const mutations = {
+  toggleNextButtonClickedState(state, params) {
+    state.whenNextButtonClicked = params.state
+  },
   judgePresentStateForView(state) {
     _.mapValues(state.estimateInquiryList, (presentEstimateInquiryObj) => {
       if (state.presentEstimateInquiryState === presentEstimateInquiryObj.state) {
@@ -117,6 +122,16 @@ const mutations = {
       state.addressValidation = false
     }
   },
+  setInquiryType(state, params) {
+    state.inquiryType = params.inquiryType
+  },
+  validationInquiryType(state) {
+    if (state.inquiryType) {
+      state.inquiryTypeValidation = true
+    } else {
+      state.inquiryTypeValidation = false
+    }
+  },
   setDetailInquiry(state, params) {
     state.detailInquiry = params.detailInquiry
   },
@@ -141,6 +156,10 @@ const actions = {
     commit('setAddressDo', params)
     resolve()
   }),
+  SET_INQUIRY_TYPE: ({ commit }, params) => new Promise((resolve) => {
+    commit('setInquiryType', params)
+    resolve()
+  }),
   SET_DETAIL_INQUIRY: ({ commit }, params) => new Promise((resolve) => {
     commit('setDetailInquiry', params)
     resolve()
@@ -153,6 +172,15 @@ const actions = {
     switch (params.state) {
       case 11:
         commit('validationAddress')
+        commit('toggleNextButtonClickedState', { state: true })
+        break
+      case 12:
+        commit('validationInquiryType')
+        commit('toggleNextButtonClickedState', { state: true })
+        break
+      case 13:
+        commit('validationInquiryType')
+        commit('toggleNextButtonClickedState', { state: true })
         break
       default:
         break
@@ -167,6 +195,7 @@ const actions = {
   PRESS_NEXT_BUTTON: ({ commit }) => new Promise((resolve) => {
     commit('plusPresentState')
     commit('judgePresentStateForView')
+    commit('toggleNextButtonClickedState', { state: false })
     resolve()
   }),
   PRESS_APPLY_BUTTON: ({ commit }) => new Promise((resolve) => {

@@ -15,7 +15,7 @@
           <span v-html="presentEstimateInquiry.title"></span>
         </p>
         <div class="wrap-guidance-inner">
-          <div class="wrap-guidance-inner__inner estimate-blue-bar-fade-in">
+          <div class="wrap-guidance-inner__inner">
             <p class="sub-title estimate-subtitle-fade-in font-regular">
               <span v-html="presentEstimateInquiry.subTitle"></span>
             </p>
@@ -60,10 +60,6 @@ export default {
       @include primary-fade-in-left-to-right(1, 0.5);
     }
 
-    .estimate-blue-bar-fade-in {
-      @include primary-fade-in-left-to-right(2, 1.5);
-    }
-
     .estimate-subtitle-fade-in {
       @include primary-fade-in-right-to-left(1, 0.5);
     }
@@ -87,8 +83,8 @@ export default {
             .title {
                 text-align: center;
                 font-size: 40px;
-                margin-bottom: 35px;
                 letter-spacing: 3px;
+                padding-bottom: 20px;
                 &.add-repair-picture {
                     font-size: 32px !important;
                 }
@@ -107,11 +103,6 @@ export default {
                     clear: both;
                 }
                 &__inner {
-                    border-left: 4px solid $hhr-blue;
-                    padding-left: 6px;
-                    @media (max-width: $screen-mobile) {
-                        //
-                    }
                     .sub-title {
                         font-size: 20px;
                         margin-bottom: 5px;
@@ -126,7 +117,7 @@ export default {
                         color: $hhr-red;
                         text-align: right;
                         @media (max-width: $screen-mobile) {
-                            font-size: 11.5px;
+                            font-size: 15px;
                         }
                     }
                 }

@@ -42,8 +42,8 @@
             </div>
             <hhr-clear-both />
             <span
-              v-show="!addressValidation && presentEstimateInquiryState === Number(11)"
-              class="location-validation-error"
+              v-show="whenNextButtonClicked && !addressValidation && presentEstimateInquiryState === Number(11)"
+              class="validation-error"
             >{{ estimateInquiryErrorMsgObject.locationValidationErrorMsg }}</span>
           </div>
         </transition>
@@ -55,18 +55,30 @@
           >
             <div class="wrap-inquiry-type__inner">
               <div class="wrap-button">
-                <button class="hhf-positive-reversal-button paint">
+                <button
+                  class="hhf-positive-reversal-button paint"
+                  :class="[{'add-button-active-style' : inquiryType === Number(111)},'']"
+                  @click="clickProduct(Number(111))"
+                >
                   친환경페인트
                 </button>
               </div>
               <br class="mobile-visible-block-only" />
               <div class="wrap-button">
-                <button class="hhf-positive-reversal-button window">
+                <button
+                  class="hhf-positive-reversal-button window"
+                  :class="[{'add-button-active-style' : inquiryType === Number(222)},'']"
+                  @click="clickProduct(Number(222))"
+                >
                   창호수리/방충망
                 </button>
               </div>
               <div class="wrap-button">
-                <button class="hhf-positive-reversal-button door-class">
+                <button
+                  class="hhf-positive-reversal-button door-class"
+                  :class="[{'add-button-active-style' : inquiryType === Number(333)},'']"
+                  @click="clickProduct(Number(333))"
+                >
                   문짝/문틀
                 </button>
               </div>
@@ -74,22 +86,38 @@
             <hhr-clear-both />
             <div class="wrap-inquiry-type__inner">
               <div class="wrap-button">
-                <button class="hhf-positive-reversal-button door">
+                <button
+                  class="hhf-positive-reversal-button door"
+                  :class="[{'add-button-active-style' : inquiryType === Number(444)},'']"
+                  @click="clickProduct(Number(444))"
+                >
                   중문/포켓도어
                 </button>
               </div>
               <div class="wrap-button">
-                <button class="hhf-positive-reversal-button fan">
+                <button
+                  class="hhf-positive-reversal-button fan"
+                  :class="[{'add-button-active-style' : inquiryType === Number(555)},'']"
+                  @click="clickProduct(Number(555))"
+                >
                   황풍기/선반/건조대
                 </button>
               </div>
               <div class="wrap-button">
-                <button class="hhf-positive-reversal-button etc">
+                <button
+                  class="hhf-positive-reversal-button etc"
+                  :class="[{'add-button-active-style' : inquiryType === Number(666)},'']"
+                  @click="clickProduct(Number(666))"
+                >
                   기타작업
                 </button>
               </div>
             </div>
             <hhr-clear-both />
+            <span
+              v-show="whenNextButtonClicked && !inquiryTypeValidation && presentEstimateInquiryState === Number(12)"
+              class="validation-error"
+            >{{ estimateInquiryErrorMsgObject.inquiryValidationErrorMsg }}</span>
           </div>
         </transition>
         <!-- 3.기타사항 -->
@@ -153,12 +181,14 @@ export default {
         email: '',
         check: {
           lifeCycle: false,
-          whenNextButtonClicked: false,
         },
       },
     }
   },
   computed: {
+    whenNextButtonClicked() {
+      return this.$store.getters['estimate/whenNextButtonClicked']
+    },
     presentEstimateInquiryState() {
       return this.$store.getters['estimate/presentEstimateInquiryState']
     },
@@ -229,22 +259,37 @@ export default {
       this.values.check.lifeCycle = true
     })
   },
-  methods: {},
+  methods: {
+    clickProduct(value) {
+      let inquiryType = value
+      if (this.inquiryType === inquiryType) inquiryType = ''
+      this.$store.dispatch('estimate/SET_INQUIRY_TYPE', { inquiryType })
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
     // @LocalUtils
     @mixin common-error-message-style {
-        // TODO: 좌우 bounce animation 넣기
         padding: 10px 0;
         display: block;
         text-align: right;
         color: $hhr-red;
     }
 
-    .location-validation-error {
-        @include common-error-message-style
+    .validation-error {
+        @include common-error-message-style;
+        @include primary-shake;
+    }
+
+    .add-button-active-style {
+        border: 1px solid $hhr-blue !important;
+        border-radius: 5px !important;
+        background-color: $hhr-deep-blue !important;
+        color: white !important;
+        transition: 0.3s !important;
+        font-weight: 700 !important;
     }
 
     // @Classes
@@ -290,7 +335,11 @@ export default {
                 }
             }
             .wrap-inquiry-type {
-                height: 100%;
+                height: 80px;
+                @media (max-width: $screen-mobile) {
+                  height: 100%;
+                  padding: 15px 0;
+                }
                 &__inner {
                     padding: 15px 0;
                     height: 100%;
