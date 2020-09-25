@@ -17,13 +17,13 @@
           }"
         >
           <!-- 상단의 견적문의 제목/부제목/안내말이고 상태값에 따라 렌더링되는 안내말들이 달라집니다 -->
-          <hhr-guidance />
+          <hhr-guidance :key="values.check.partialForceRenderForGuidance" />
           <hhr-clear-both />
           <!-- 상태값에 따라 렌더링 되는 입력란들이 달라집니다 -->
           <estimate-inputs />
           <hhr-clear-both />
           <!-- 저장되어 있는 상태값에 따라 렌더링 되는 버튼들이 달라집니다 -->
-          <estimate-buttons />
+          <estimate-buttons :key="values.check.partialForceRenderForButtons" />
           <hhr-clear-both />
         </div>
       </section>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import HhrNetwork from '@/assets/js/network/HhrNetwork'
 import HhrGuidance from '@/components/util/HhrGuidance.vue'
 import EstimateInputs from '@/components/estimate/InquiryInputs.vue'
 import EstimateButtons from '@/components/estimate/InquiryButtons.vue'
@@ -50,6 +51,8 @@ export default {
       values: {
         check: {
           lifeCycle: true,
+          partialForceRenderForGuidance: 0,
+          partialForceRenderForButtons: 1,
         },
       },
     }
@@ -59,14 +62,19 @@ export default {
       return this.$store.getters['estimate/presentEstimateInquiryState']
     },
   },
+  created() {
+    this.callCollectOfPrivacyInfo()
+  },
   mounted() {
-    // - For dom rendering
     this.$nextTick(() => {
       this.judgePresentState()
         .then(() => {
           this.values.check.lifeCycle = true
+          // - For dom rendering
           this.$root.$on('DomForceRendering', () => {
-            this.$forceUpdate()
+            // this.$forceUpdate()
+            this.values.check.partialForceRenderForGuidance += 1
+            this.values.check.partialForceRenderForButtons += 1
             this.isScrollHaveToMoveToTop()
           })
         })
@@ -87,6 +95,20 @@ export default {
       // - This code is working perfectly
       $('html, body').animate({ scrollTop: 0 }, 'slow')
     },
+    callCollectOfPrivacyInfo() {
+      return new Promise((resolve, reject) => {
+        HhrNetwork.getLocalFile('privacy-information')
+          .then((response) => {
+            const collectionOfPersonalInformation = response.data
+            this.$store.dispatch('estimate/SET_PERSONAL_INFO_GUIDANCE', { collectionOfPersonalInformation })
+              .then(() => {
+                resolve()
+              })
+          }).catch((error) => {
+            reject(error)
+          })
+      })
+    },
   },
 }
 </script>
@@ -104,7 +126,7 @@ export default {
         color: $hhr-red;
     }
 
-    // @Class
+    // @Classes
     .sections {
         display: block;
         width: 100%;

@@ -123,19 +123,9 @@
                 </ul>
                 <br />
                 <label class="hhr-labeling">
-                  <span class="hhr-labeling-title">&nbsp;이메일&nbsp;<span
-                    class="hhf-red"
-                  >*</span></span>
+                  <span class="hhr-labeling-title">&nbsp;사진첨부&nbsp;</span>
                   <br />
-                  <input
-                    v-model="values.email"
-                    autocomplete="off"
-                    autofocus="off"
-                    placeholder="이메일 계정 입력"
-                    class="hhr-input email"
-                    type="email"
-                    @keyup="insertEmail"
-                  />
+                    <p style="text-align:right;">준비중인 기능입니다.</p>
                   <ul class="email-announcement-list">
                     <li
                       v-show="values.emailHasInserted && !values.isEmailFormCorrect"

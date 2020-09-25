@@ -73,7 +73,7 @@ export default {
                 padding: 40px 0;
             }
             .selection {
-                color: white;
+                color: $hhr-white;
                 height: 40px;
                 margin-bottom: 40px;
                 @media (max-width: $screen-mobile) {

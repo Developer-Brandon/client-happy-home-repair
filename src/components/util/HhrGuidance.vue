@@ -5,7 +5,6 @@
       class="wrap-guidance"
     >
       <div
-        :key="presentEstimateInquiry.index"
         class="wrap-guidance__inner"
       >
         <p

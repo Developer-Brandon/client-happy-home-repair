@@ -31,7 +31,7 @@ export default {
                     display: inline-block;
                     width: 400px;
                     background-color: $hhr-blue;
-                    color: white;
+                    color: $hhr-white;
                     font-size: 20px;
                     padding: 10px 0 10px 15px;
                     @media (max-width: $screen-mobile) {

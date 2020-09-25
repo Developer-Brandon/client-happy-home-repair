@@ -55,6 +55,19 @@ export default class UtilBox {
     return false
   }
 
+  get validationPhoneNumberWithDash() {
+    const PHONE_NUMBER_REGIX = /^\d{3}-\d{3,4}-\d{4}$/
+    if (this._type === 'phoneNumber') {
+      if (PHONE_NUMBER_REGIX.test(this._value)) {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  }
+
   get validateNumber() {
     const NUMBER_REGIX = /^[0-9]+$/
     if (this._type === 'number') {

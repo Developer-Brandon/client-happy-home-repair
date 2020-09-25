@@ -4,6 +4,7 @@ import mixin from '@/assets/js/global/mixin'
 import router from '@/router'
 import store from '@/store'
 import App from '@/App'
+import VueTheMask from 'vue-the-mask'
 // eslint-disable-next-line
 import '@/assets/js/global/filter'
 
@@ -12,6 +13,7 @@ Vue.config.devtools = process.env.NODE_ENV !== 'production'
 
 Vue.use(meta)
 Vue.mixin(mixin)
+Vue.use(VueTheMask)
 
 new Vue({
   router,

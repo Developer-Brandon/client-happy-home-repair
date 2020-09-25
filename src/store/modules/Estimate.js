@@ -1,3 +1,5 @@
+import UtilBox from '@/assets/js/validation/utilBox'
+
 const state = () => ({
   whenNextButtonClicked: false,
   presentEstimateInquiryState: 11, // TODO: Have to translate ENUM and Have to restore in JS COOKIE
@@ -27,21 +29,14 @@ const state = () => ({
     {
       index: 4,
       state: 14,
-      title: '이메일을<br class="mobile-visible-block-only"/> 입력해주세요.',
-      subTitle: '준비중인 기능입니다',
-      announcement: '',
+      title: '연락처를<br class="mobile-visible-block-only"/> 입력해주세요.',
+      subTitle: '개인정보 수집에 관한 동의 부탁드립니다.',
+      announcement: '<span class="desktop-visible-inline-only">* </span>필수 입력사항입니다.',
     },
     {
       index: 5,
       state: 15,
-      title: '연락처를<br class="mobile-visible-block-only"/> 입력해주세요.',
-      subTitle: '준비중인 기능입니다.',
-      announcement: '',
-    },
-    {
-      index: 6,
-      state: 16,
-      title: '시공을<br class="mobile-visible-block-only"/> 원하시는 곳의<br class="mobile-visible-block-only"/> 사진을 첨부해주세요.',
+      title: '시공을<br class="mobile-visible-block-only"/> 원하시는 곳의<br class="mobile-visible-block-only"/> 사진을<br class="desktop-visible-block-only"/> 첨부해주세요.',
       subTitle: '준비중인 기능입니다.',
       announcement: '',
     },
@@ -50,6 +45,7 @@ const state = () => ({
     locationValidationErrorMsg: '시와 구까지 입력해주셔야합니다.',
     inquiryValidationErrorMsg: '문의 유형은 꼭 선택해주셔야합니다.',
     phoneNumberErrorMsg: '연락처는 필수 입력사항입니다.',
+    whetherCollectPersonalInfoMsg: '개인정보 수집에 동의해주셔야합니다.',
   },
   addressSi: '',
   addressKu: '',
@@ -58,10 +54,10 @@ const state = () => ({
   inquiryType: '', // TODO: Have to translate ENUM
   inquiryTypeValidation: false,
   detailInquiry: '',
-  email: '',
-  emailValidation: false,
-  phoneNumber: '01084302253',
+  phoneNumber: '',
   phoneNumberValidation: false,
+  collectionOfPersonalInformation: '1.준비중입니다.<br />2.준비중입니다.<br />3.준비중입니다.<br />4.준비중입니다.<br />5.준비중입니다.<br />6.준비중입니다.<br />7.준비중입니다.<br />8.준비중입니다.<br />9.준비중입니다.<br />10.준비중입니다.',
+  whetherCollectionOfPersonal: false,
   uploadFilePath: '',
   uploadFileValidation: false,
 })
@@ -82,6 +78,8 @@ const getters = {
   emailValidation: (state) => state.emailValidation,
   phoneNumber: (state) => state.phoneNumber,
   phoneNumberValidation: (state) => state.phoneNumberValidation,
+  collectionOfPersonalInformation: (state) => state.collectionOfPersonalInformation,
+  whetherCollectionOfPersonal: (state) => state.whetherCollectionOfPersonal,
   uploadFilePath: (state) => state.uploadFilePath,
   uploadFileValidation: (state) => state.uploadFileValidation,
 }
@@ -115,7 +113,7 @@ const mutations = {
   setAddressDo(state, params) {
     state.addressDo = params.aDo
   },
-  validationAddress(state) {
+  validateAdress(state) {
     if (state.addressSi && state.addressKu) {
       state.addressValidation = true
     } else {
@@ -125,7 +123,7 @@ const mutations = {
   setInquiryType(state, params) {
     state.inquiryType = params.inquiryType
   },
-  validationInquiryType(state) {
+  validateInquiryType(state) {
     if (state.inquiryType) {
       state.inquiryTypeValidation = true
     } else {
@@ -135,8 +133,24 @@ const mutations = {
   setDetailInquiry(state, params) {
     state.detailInquiry = params.detailInquiry
   },
-  setEmail(state, params) {
-    state.email = params.email
+  setPhoneNumber(state, params) {
+    state.phoneNumber = params.phoneNumber
+  },
+  setAnnouncePersonalInformationGuidance(state, params) {
+    state.collectionOfPersonalInformation = params.collectionOfPersonalInformation
+  },
+  setWhetherCollectPersonalInfo(state, params) {
+    state.whetherCollectionOfPersonal = params.whetherCollectionOfPersonal
+  },
+  validationPhoneNumber(state) {
+    const utilBox = new UtilBox()
+    utilBox.type = 'phoneNumber'
+    utilBox.value = state.phoneNumber
+    if (utilBox.validationPhoneNumberWithDash) {
+      state.phoneNumberValidation = true
+    } else {
+      state.phoneNumberValidation = false
+    }
   },
 }
 const actions = {
@@ -164,22 +178,33 @@ const actions = {
     commit('setDetailInquiry', params)
     resolve()
   }),
-  SET_EMAIL: ({ commit }, params) => new Promise((resolve) => {
-    commit('setEmail', params)
+  SET_PHONE_NUMBER: ({ commit }, params) => new Promise((resolve) => {
+    commit('setPhoneNumber', params)
+    resolve()
+  }),
+  SET_PERSONAL_INFO_GUIDANCE: ({ commit }, params) => new Promise((resolve) => {
+    commit('setAnnouncePersonalInformationGuidance', params)
+    resolve()
+  }),
+  SET_WHETHER_COLLECT_PERSONAL_INFO: ({ commit }, params) => new Promise((resolve) => {
+    commit('setWhetherCollectPersonalInfo', params)
     resolve()
   }),
   VALIDATE_APPLY_FORM: ({ commit }, params) => new Promise((resolve) => {
     switch (params.state) {
       case 11:
-        commit('validationAddress')
+        commit('validateAdress')
         commit('toggleNextButtonClickedState', { state: true })
         break
       case 12:
-        commit('validationInquiryType')
+        commit('validateInquiryType')
         commit('toggleNextButtonClickedState', { state: true })
         break
       case 13:
-        commit('validationInquiryType')
+        commit('toggleNextButtonClickedState', { state: true })
+        break
+      case 14:
+        commit('validationPhoneNumber')
         commit('toggleNextButtonClickedState', { state: true })
         break
       default:
