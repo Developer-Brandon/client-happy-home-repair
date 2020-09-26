@@ -4,8 +4,10 @@
   "autor": "Brandon Lee <lovefinance@naver.com>",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev-local": "NODE_PHASE=dev NODE_ENV=local vue-cli-service serve",
+    "dist-dev-server": "NODE_PHASE=dev NODE_ENV=server vue-cli-service build",
+    "prod-local": "NODE_PHASE=production NODE_ENV=local vue-cli-service serve",
+    "dist-prod-server": "NODE_PHASE=production NODE_ENV=server vue-cli-service build",
     "lint": "vue-cli-service lint",
     "force-lint": "vue-cli-service lint --fix"
   },

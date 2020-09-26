@@ -12,7 +12,7 @@
       <!-- 4.연락처 및 개인정보 수집 동의 -->
       <phone-number-and-guidance-of-privacy-input />
       <!-- 5.사진첨부 -->
-      <!-- TODO: 사진첨부를  어떤식으로 구현할건지 고민이 필요합니다 -->
+      <!-- TODO: 사진첨부를 어떤식으로 구현할건지 고민이 필요합니다 -->
     </div>
   </div>
 </template>

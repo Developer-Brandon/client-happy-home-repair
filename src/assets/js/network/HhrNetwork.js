@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:8080'
+const whetherServerEnvOrNot = (process.env.NODE_ENV === 'server')
+const baseUrl = whetherServerEnvOrNot ? 'http://hhr-client-app.s3-website.ap-northeast-2.amazonaws.com' : 'http://localhost:8080'
 
 const axiosInstance = axios.create({
   baseURL: baseUrl,

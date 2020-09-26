@@ -125,7 +125,7 @@
                 <label class="hhr-labeling">
                   <span class="hhr-labeling-title">&nbsp;사진첨부&nbsp;</span>
                   <br />
-                    <p style="text-align:right;">준비중인 기능입니다.</p>
+                  <p style="text-align:right;">준비중인 기능입니다.</p>
                   <ul class="email-announcement-list">
                     <li
                       v-show="values.emailHasInserted && !values.isEmailFormCorrect"
@@ -298,7 +298,7 @@ export default {
   },
   watch: {
     // eslint-disable-next-line
-    'values.locate': function (value) {
+			'values.locate': function (value) {
       if (value) {
         this.values.locate = value
         this.values.locateClicked = true
@@ -308,7 +308,7 @@ export default {
       }
     },
     // eslint-disable-next-line
-    'values.estimateType': function (value) {
+			'values.estimateType': function (value) {
       if (value) {
         this.values.estimateType = value
         this.values.estimateTypeClicked = true
