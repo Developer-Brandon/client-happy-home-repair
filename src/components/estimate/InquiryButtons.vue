@@ -10,7 +10,7 @@
         class="component__inner"
       >
         <button
-          v-show="presentEstimateInquiryState !== Number(11)"
+          v-show="presentEstimateInquiryState !== Number(10)"
           class="previous-button left-button-fade-in"
           @click="pressPreviousButton"
         >
@@ -108,6 +108,9 @@ export default {
       this.$store.dispatch('estimate/VALIDATE_APPLY_FORM', { state })
         .then(() => {
           switch (state) {
+            case Number(10):
+              if (this.whetherCollectionOfPersonal) this.pressNextButton()
+              break
             case Number(11):
               if (this.addressValidation) this.pressNextButton()
               break
@@ -118,7 +121,7 @@ export default {
               this.pressNextButton()
               break
             case Number(14):
-              if (this.phoneNumberValidation && this.whetherCollectionOfPersonal) this.pressNextButton()
+              if (this.phoneNumberValidation) this.pressNextButton()
               break
             default:
               break
@@ -126,16 +129,14 @@ export default {
         })
     },
     pressApplyButton() {
-      // TODO: whole validation before apply form
-      // this.$store.dispatch('estimate/PRESS_APPLY_BUTTON')
-      //   .then(() => {
-      //     this.callParentsForceDomRenderingUpdate()
-      //   })
+    // TODO: whole validation before apply form
+    // this.$store.dispatch('estimate/PRESS_APPLY_BUTTON')
+    //   .then(() => {
+    //     this.callParentsForceDomRenderingUpdate()
+    //   })
       window.alert('개발중인 기능입니다')
-    }
-    ,
-  }
-  ,
+    },
+  },
 }
 </script>
 

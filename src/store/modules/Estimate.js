@@ -2,9 +2,16 @@ import UtilBox from '@/assets/js/validation/utilBox'
 
 const state = () => ({
   whenNextButtonClicked: false,
-  presentEstimateInquiryState: 11, // TODO: Have to translate ENUM and Have to restore in JS COOKIE
+  presentEstimateInquiryState: 10, // TODO: Have to translate ENUM and Have to restore in JS COOKIE
   presentEstimateInquiry: {},
   estimateInquiryList: [
+    {
+      index: 0,
+      state: 10,
+      title: '(주)해피홈리페어',
+      subTitle: '어떠한 개인정보도 상담을 위한 연락<br class="mobile-visible-block-only"/> 이외의 용도로 사용하지 않습니다.',
+      announcement: '<span class="desktop-visible-inline-only">*</span> 필수 동의 사항입니다',
+    },
     {
       index: 1,
       state: 11,
@@ -95,12 +102,12 @@ const mutations = {
     })
   },
   minusPresentState(state) {
-    if (state.presentEstimateInquiryState >= 11 && state.presentEstimateInquiryState <= 16) { // 사이값을 정확하게 지정해야할 듯
+    if (state.presentEstimateInquiryState >= 10 && state.presentEstimateInquiryState <= 16) { // 사이값을 정확하게 지정해야할 듯
       state.presentEstimateInquiryState -= 1
     }
   },
   plusPresentState(state) {
-    if (state.presentEstimateInquiryState >= 11 && state.presentEstimateInquiryState <= 16) { // 사이값을 정확하게 지정해야할 듯
+    if (state.presentEstimateInquiryState >= 10 && state.presentEstimateInquiryState <= 16) { // 사이값을 정확하게 지정해야할 듯
       state.presentEstimateInquiryState += 1
     }
   },
@@ -192,6 +199,9 @@ const actions = {
   }),
   VALIDATE_APPLY_FORM: ({ commit }, params) => new Promise((resolve) => {
     switch (params.state) {
+      case 10:
+        commit('toggleNextButtonClickedState', { state: true })
+        break
       case 11:
         commit('validateAdress')
         commit('toggleNextButtonClickedState', { state: true })

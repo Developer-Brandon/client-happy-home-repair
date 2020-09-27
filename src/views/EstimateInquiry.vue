@@ -8,12 +8,14 @@
       <section class="sections__inner">
         <div
           class="estimate"
-          :class="{ 'location' : presentEstimateInquiryState === 11,
-                    'repair-type' : presentEstimateInquiryState === 12,
-                    'etc-inquiry' : presentEstimateInquiryState === 13,
-                    'email' : presentEstimateInquiryState === 14,
-                    'phone-number' : presentEstimateInquiryState === 15,
-                    'photo-attach' : presentEstimateInquiryState === 16
+          :class="{
+            'agreement' : presentEstimateInquiryState === 10,
+            'location' : presentEstimateInquiryState === 11,
+            'repair-type' : presentEstimateInquiryState === 12,
+            'etc-inquiry' : presentEstimateInquiryState === 13,
+            'email' : presentEstimateInquiryState === 14,
+            'phone-number' : presentEstimateInquiryState === 15,
+            'photo-attach' : presentEstimateInquiryState === 16
           }"
         >
           <!-- 상단의 견적문의 제목/부제목/안내말이고 상태값에 따라 렌더링되는 안내말들이 달라집니다 -->

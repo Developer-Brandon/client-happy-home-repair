@@ -1,22 +1,35 @@
 <template>
   <transition name="content-fade">
     <div
-      v-if="presentEstimateInquiryState === Number(14)"
-      class="wrap-phone-number"
+      v-if="presentEstimateInquiryState === Number(10)"
+      class="wrap-collection-of-personal-information"
     >
-      <input
-        v-model="phoneNumber"
-        v-mask="'###-####-####'"
-        autocomplete="off"
-        placeholder="전화번호 입력"
-        class="hhr-input phone-number"
-        type="tel"
-      />
+      <div
+        class="wrap-collection-of-personal-information__inner"
+      >
+        <span
+          class="collection-of-personal-information"
+          v-html="collectionOfPersonalInformation"
+        ></span>
+      </div>
       <hhr-clear-both />
+      <div style="text-align: right;">
+        <input
+          v-model="values.booleans.collectPersonalInformation"
+          type="checkbox"
+          class="custom-checkbox"
+          :class="{'on': values.booleans.collectPersonalInformation,'off': !values.booleans.collectPersonalInformation}"
+          @click="callHtmlPopUp"
+        />
+        <span
+          class="announcement-with-checkbox"
+          @click="toggleCollectPersonalInformation"
+        >개인정보 수집에 동의합니다.</span>
+      </div>
       <span
-        v-show="whenNextButtonClicked && !phoneNumberValidation && presentEstimateInquiryState === Number(14)"
+        v-show="whenNextButtonClicked && !whetherCollectionOfPersonal && presentEstimateInquiryState === Number(10)"
         class="validation-error"
-      >{{ estimateInquiryErrorMsgObject.phoneNumberErrorMsg }}</span>
+      >{{ estimateInquiryErrorMsgObject.whetherCollectPersonalInfoMsg }}</span>
     </div>
   </transition>
 </template>
@@ -25,34 +38,54 @@
 import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
 
 export default {
-  name: 'PhoneNumberWithPrivacyGuidance',
+  name: 'PrivacyGuidance',
   components: {
     HhrClearBoth,
+  },
+  data() {
+    return {
+      values: {
+        booleans: {
+          collectPersonalInformation: false,
+        },
+      },
+    }
   },
   computed: {
     whenNextButtonClicked() {
       return this.$store.getters['estimate/whenNextButtonClicked']
     },
-    presentEstimateInquiryState() {
-      return this.$store.getters['estimate/presentEstimateInquiryState']
-    },
     estimateInquiryErrorMsgObject() {
       return this.$store.getters['estimate/estimateInquiryErrorMsgObject']
     },
-    phoneNumber: {
-      get() {
-        return this.$store.getters['estimate/phoneNumber']
-      },
-      set(phoneNumber) {
-        this.$store.dispatch('estimate/SET_PHONE_NUMBER', { phoneNumber })
-      },
+    presentEstimateInquiryState() {
+      return this.$store.getters['estimate/presentEstimateInquiryState']
     },
-    phoneNumberValidation() {
-      return this.$store.getters['estimate/phoneNumberValidation']
+    collectionOfPersonalInformation() {
+      return this.$store.getters['estimate/collectionOfPersonalInformation']
+    },
+    whetherCollectionOfPersonal() {
+      return this.$store.getters['estimate/whetherCollectionOfPersonal']
+    },
+  },
+  watch: {
+    'values.booleans.collectPersonalInformation': function (newValue) {
+      const whetherCollectionOfPersonal = newValue
+      this.$store.dispatch('estimate/SET_WHETHER_COLLECT_PERSONAL_INFO', { whetherCollectionOfPersonal })
+    }
+    ,
+  },
+  methods: {
+    toggleCollectPersonalInformation() {
+      this.values.booleans.collectPersonalInformation = !this.values.booleans.collectPersonalInformation
+    },
+    callHtmlPopUp() {
+    // TODO: 약관을 간단하게 뿌려주는 모달 개발 예정
     },
   },
 }
 </script>
+
 <style lang="scss" scoped>
     // @LocalUtils
     @mixin common-error-message-style {
@@ -89,17 +122,15 @@ export default {
     }
 
     // @Classes
-    .wrap-phone-number {
+    .wrap-collection-of-personal-information {
         height: 230px;
-        padding-top: 40px;
         @media (max-width: $screen-mobile) {
             height: 100%;
-            padding-top: 20px;
         }
-        .wrap-collection-of-personal-information {
+        &__inner {
             margin: 15px 0;
             width: 100%;
-            height: 80px;
+            height: 200px;
             @media (max-width: $screen-mobile) {
                 height: 100%;
             }
@@ -120,14 +151,6 @@ export default {
                 @media (max-width: $screen-mobile) {
                     height: 250px;
                 }
-            }
-        }
-        .phone-number {
-            width: 25%;
-            text-align: center;
-            float: right;
-            @media (max-width: $screen-mobile) {
-                width: 75%;
             }
         }
     }
