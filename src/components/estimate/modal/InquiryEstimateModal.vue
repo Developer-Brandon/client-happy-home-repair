@@ -2,9 +2,56 @@
   <transition name="page-fade">
     <section
       v-show="values.check.lifeCycle"
-      class="estimate"
+      class="estimate collection-information-agreement"
     >
-      <div class="estimate__inner">
+      <!-- 개인정보 동의 약관 -->
+      <div
+        v-if="!values.booleans.isClientAgreeCollectPersonalInfo"
+        class="collection-information-agreement__inner"
+      >
+        <div class="collection-information-agreement__inner__contents">
+          <p class="title">
+            (주)해피 홈 리페어 개인정보<br class="mobile-visible-block-only" /> 이용 동의 약관
+          </p>
+          <div class="info">
+            <span
+              class="info__inner"
+              v-html="collectionOfPersonalInformation"
+            ></span>
+          </div>
+          <div class="privacy-agreement-check-box">
+            <input
+              v-model="values.booleans.collectPersonalInformation"
+              type="checkbox"
+              class="custom-checkbox"
+              :class="{'on': values.booleans.collectPersonalInformation,'off': !values.booleans.collectPersonalInformation}"
+            />
+            <span
+              class="announcement-with-checkbox"
+              @click="toggleCollectPersonalInformation"
+            >개인정보 수집에 동의합니다.</span>
+          </div>
+          <div class="group-of-buttons">
+            <button
+              class="hhf-positive-reversal-button close"
+              @click="closeModal"
+            >
+              닫기
+            </button>
+            <button
+              class="hhr-negative-reversal-button next"
+              @click="pressNextButton"
+            >
+              다음
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- 견적 문의 -->
+      <div
+        v-else-if="values.booleans.isClientAgreeCollectPersonalInfo"
+        class="estimate__inner"
+      >
         <div class="estimate__inner__contents">
           <form
             name="estimateForm"
@@ -125,7 +172,7 @@
                 <label class="hhr-labeling">
                   <span class="hhr-labeling-title">&nbsp;사진첨부&nbsp;</span>
                   <br />
-                  <p style="text-align:right;">준비중인 기능입니다.</p>
+                  <p style="text-align:right;margin-bottom:7px;">준비중인 기능입니다.</p>
                   <ul class="email-announcement-list">
                     <li
                       v-show="values.emailHasInserted && !values.isEmailFormCorrect"
@@ -168,9 +215,9 @@
               <div class="group-of-buttons">
                 <button
                   class="hhf-positive-reversal-button cancel"
-                  @click.prevent="closeModal"
+                  @click.prevent="moveToBeforeState"
                 >
-                  취소
+                  뒤로
                 </button>
                 <button
                   class="hhr-negative-reversal-button submit"
@@ -197,6 +244,7 @@
 // 5.연락처
 // 6.사진첨부
 
+import HhrNetwork from '@/assets/js/network/HhrNetwork'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import UtilBox from '@/assets/js/validation/utilBox'
@@ -272,6 +320,10 @@ export default {
           type: '',
           lifeCycle: false,
         },
+        booleans: {
+          collectPersonalInformation: false,
+          isClientAgreeCollectPersonalInfo: false,
+        },
       },
     }
   },
@@ -295,10 +347,12 @@ export default {
         }
       },
     },
+    collectionOfPersonalInformation() {
+      return this.$store.getters['estimate/collectionOfPersonalInformation']
+    },
   },
   watch: {
-    // eslint-disable-next-line
-			'values.locate': function (value) {
+    'values.locate': function (value) {
       if (value) {
         this.values.locate = value
         this.values.locateClicked = true
@@ -307,8 +361,7 @@ export default {
         this.values.locateClicked = false
       }
     },
-    // eslint-disable-next-line
-			'values.estimateType': function (value) {
+    'values.estimateType': function (value) {
       if (value) {
         this.values.estimateType = value
         this.values.estimateTypeClicked = true
@@ -324,21 +377,19 @@ export default {
     utilBox = new UtilBox()
   },
   methods: {
-    initalValues() {
-      this.values.locate = ''
-      this.values.locateClicked = false
-      this.values.estimateType = ''
-      this.values.estimateTypeClicked = false
-      this.values.estimateDetail = ''
-      this.values.estimateDetailHasInserted = false
-      this.values.estimateDetailIsReallyShort = false
-      this.values.estimateDetailIsReallyLong = false
-      this.values.email = ''
-      this.values.emailHasInserted = false
-      this.values.isEmailFormCorrect = false
-      this.values.phoneNumber = ''
-      this.values.phoneNumberHasInserted = false
-      this.values.isPhoneNumberCorrect = false
+    callCollectOfPrivacyInfo() {
+      return new Promise((resolve, reject) => {
+        HhrNetwork.getLocalFile('privacy-information')
+          .then((response) => {
+            const collectionOfPersonalInformation = response.data
+            this.$store.dispatch('estimate/SET_PERSONAL_INFO_GUIDANCE', { collectionOfPersonalInformation })
+              .then(() => {
+                resolve()
+              })
+          }).catch((error) => {
+            reject(error)
+          })
+      })
     },
     goToNaverBlog() {
       if (matchMedia.isMobile) {
@@ -373,15 +424,18 @@ export default {
       utilBox.value = this.values.phoneNumber
       this.values.isPhoneNumberCorrect = utilBox.validatePhoneNumber
     },
-    /* eslint-disable-next-line */
-			show(type, message) {
+    show(type, message) {
+      console.log('show log message: ', message)
       this.$store.dispatch('app/SET_MODAL_STATE', true)
-      this.values.check.lifeCycle = true
-      this.values.check.type = type
+      this.callCollectOfPrivacyInfo()
+        .then(() => {
+          this.values.check.lifeCycle = true
+          this.values.check.type = type
+        })
     },
     closeModal() {
       this.$store.dispatch('app/SET_MODAL_STATE', false)
-      this.initalValues()
+      this.initialValues()
       this.values.check.lifeCycle = false
     },
     submit() {
@@ -390,12 +444,51 @@ export default {
         this.values.locateClicked = true
       }
     },
+    moveToBeforeState() {
+      this.values.booleans.collectPersonalInformation = false
+      this.values.booleans.isClientAgreeCollectPersonalInfo = false
+      const whetherCollectionOfPersonal = this.values.booleans.collectPersonalInformation
+      this.$store.dispatch('home/SET_PRIVACY_GUIDANCE_AGREEMENT', { whetherCollectionOfPersonal })
+    },
+    pressNextButton() {
+      if (this.values.booleans.collectPersonalInformation) {
+        this.values.booleans.isClientAgreeCollectPersonalInfo = true
+      } else {
+        this.values.booleans.isClientAgreeCollectPersonalInfo = false
+        window.alert('약관동의 해주셔야 문의가 가능합니다.\n고객님의 개인정보는 전화상담 이외의 어떠한 용도로도 사용되지 않습니다.')
+      }
+    },
+    toggleCollectPersonalInformation() {
+      this.values.booleans.collectPersonalInformation = !this.values.booleans.collectPersonalInformation
+      const whetherCollectionOfPersonal = this.values.booleans.collectPersonalInformation
+      this.$store.dispatch('home/SET_PRIVACY_GUIDANCE_AGREEMENT', { whetherCollectionOfPersonal })
+    },
+    initialValues() {
+      this.values.locate = ''
+      this.values.locateClicked = false
+      this.values.estimateType = ''
+      this.values.estimateTypeClicked = false
+      this.values.estimateDetail = ''
+      this.values.estimateDetailHasInserted = false
+      this.values.estimateDetailIsReallyShort = false
+      this.values.estimateDetailIsReallyLong = false
+      this.values.email = ''
+      this.values.emailHasInserted = false
+      this.values.isEmailFormCorrect = false
+      this.values.phoneNumber = ''
+      this.values.phoneNumberHasInserted = false
+      this.values.isPhoneNumberCorrect = false
+      this.values.booleans.collectPersonalInformation = false
+      this.values.booleans.isClientAgreeCollectPersonalInfo = false
+      const whetherCollectionOfPersonal = false
+      this.$store.dispatch('home/SET_PRIVACY_GUIDANCE_AGREEMENT', { whetherCollectionOfPersonal })
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-    // @Local util
+    // @LocalUtils
     .default-msg {
         text-align: right;
         font-size: 13px;
@@ -407,6 +500,31 @@ export default {
         color: $hhr-red;
     }
 
+    .custom-checkbox {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        margin-bottom: 3px;
+        margin-right: 10px;
+        cursor: pointer;
+        background-size: cover;
+        &.on {
+            background-image: url('~@/assets/images/icons/icon_check_hhr_blue_background.png');
+        }
+        &.off {
+            background-image: url('~@/assets/images/icons/icon_check_gray_background.png');
+        }
+    }
+
+    .announcement-with-checkbox {
+        cursor: pointer;
+        font-size: 15px;
+        @media (max-width: $screen-mobile) {
+            font-size: 20px;
+        }
+    }
+
     // @Class
     .estimate {
         position: fixed;
@@ -416,7 +534,6 @@ export default {
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.4);
-        // overflow: hidden;
         @media (max-width: $screen-mobile) {
             padding: 15px;
         }
@@ -425,29 +542,24 @@ export default {
             width: auto;
             height: auto;
             &__contents {
-                // clear: both;
                 position: absolute;
                 top: 0;
                 bottom: 0;
                 left: 0;
                 right: 0;
                 margin: auto;
-                //
                 width: 500px;
                 height: 580px;
-                // max-height: calc(100vh - 160px);
                 padding: 30px;
                 background-color: $hhr-white;
                 border: 1px solid $hhr-white;
                 border-radius: 15px;
                 overflow: visible;
                 @media (max-width: $screen-mobile) {
-                    width: 100%;
-                    height: 100%;
+                    width: 90%;
+                    height: 90%;
+                    max-height: 615px;
                     padding: 10px;
-                    border: none;
-                    border-radius: 0;
-                    max-width: 100%;
                     overflow-x: hidden;
                 }
                 form {
@@ -529,6 +641,9 @@ export default {
                                 height: auto;
                                 float: right;
                                 clear: right;
+                                @media (max-width: $screen-mobile) {
+                                    margin-bottom: 7px;
+                                }
                             }
                         }
 
@@ -565,6 +680,123 @@ export default {
                                     margin-bottom: 10px;
                                 }
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .collection-information-agreement {
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        @media (max-width: $screen-mobile) {
+            padding: 15px;
+        }
+        &__inner {
+            clear: both;
+            width: auto;
+            height: auto;
+            &__contents {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 500px;
+                height: 580px;
+                padding: 30px;
+                background-color: $hhr-white;
+                border: 1px solid $hhr-white;
+                border-radius: 15px;
+                overflow: visible;
+                @media (max-width: $screen-mobile) {
+                    width: 90%;
+                    height: 90%;
+                    max-height: 560px;
+                    padding: 10px;
+                    overflow-x: hidden;
+                }
+                .title {
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                    @media (max-width: $screen-mobile) {
+                        font-size: 17px;
+                        padding: 20px 0 15px 0;
+                        margin-bottom: 0;
+                    }
+                }
+                .info {
+                    width: 100%;
+                    height: 365px;
+                    margin-bottom: 10px;
+                    @media (max-width: $screen-mobile) {
+                        height: 270px;
+                    }
+                    &__inner {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: black;
+                        background-color: $hhr-white;
+                        border: 1px solid $hhr-gray;
+                        font-weight: 200;
+                        border-radius: 3px;
+                        overflow-x: hidden;
+                        overflow-y: scroll;
+                        padding: 5px;
+                        @media (max-width: $screen-mobile) {
+                            height: 250px;
+                            font-size: 18px;
+                        }
+                    }
+                }
+                .privacy-agreement-check-box {
+                    text-align: right;
+                    margin-bottom: 20px;
+                }
+                .group-of-buttons {
+                    width: 270px;
+                    height: 100%;
+                    margin: 0 auto;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    @media (max-width: $screen-mobile) {
+                        width: 100%;
+                        height: auto;
+                        padding: 15px 10px 30px 10px;
+                    }
+                    .close {
+                        width: 120px;
+                        height: 45px;
+                        margin-right: 30px;
+                        @media (max-width: $screen-mobile) {
+                            width: 100%;
+                            height: 50px;
+                            margin-bottom: 10px;
+                            border: 1px solid $hhr-deep-blue;
+                            border-radius: 5px;
+                        }
+                    }
+                    .next {
+                        width: 120px;
+                        height: 45px;
+                        float: right;
+                        clear: right;
+                        @media (max-width: $screen-mobile) {
+                            width: 100%;
+                            height: 50px;
+                            margin-bottom: 10px;
                         }
                     }
                 }

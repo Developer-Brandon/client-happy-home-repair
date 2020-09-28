@@ -24,7 +24,7 @@ import GuidanceOfPrivacyInput from '@/components/estimate/inputs/PrivacyGuidance
 import LocalAddressInput from '@/components/estimate/inputs/LocalAddress.vue'
 import InquiryTypeInput from '@/components/estimate/inputs/InquiryType.vue'
 import InquiryDetailInput from '@/components/estimate/inputs/InquiryDetail.vue'
-import PhoneNumberAndGuidanceOfPrivacyInput from '@/components/estimate/inputs/PhoneNumberWithPrivacyGuidance.vue'
+import PhoneNumberAndGuidanceOfPrivacyInput from '@/components/estimate/inputs/PhoneNumber.vue'
 
 export default {
   name: 'InquiryInputs',

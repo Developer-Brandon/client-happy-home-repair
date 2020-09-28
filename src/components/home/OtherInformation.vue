@@ -1,11 +1,11 @@
 <template>
   <div class="other-information">
     <announce-company />
-    <div class="hhr-small-divider"></div>
+    <hhr-divider height="10" color="$hhr-light-gray"/>
     <consulting-for-client />
-    <div class="hhr-small-divider"></div>
+    <hhr-divider height="10" color="$hhr-light-gray"/>
     <announce-working-process ref="workingProcess" />
-    <div class="hhr-small-divider"></div>
+    <hhr-divider height="10" color="$hhr-light-gray"/>
     <introduce-all-products />
     <inquiry-estimate-modal ref="inquiryEstimateModal" />
     <question-about-call-way-modal ref="questionAboutCallWayModal" />
@@ -22,6 +22,7 @@ import AnnounceCompany from '@/components/home/other-information-section/Announc
 import ConsultingForClient from '@/components/home/other-information-section/ConsultingForClient.vue'
 import AnnounceWorkingProcess from '@/components/home/other-information-section/AnnounceWorkingProcess.vue'
 import IntroduceAllProducts from '@/components/home/other-information-section/IntroduceAllProducts.vue'
+import HhrDivider from '@/components/util/HhrDivider.vue'
 
 import ContactInformation from '@/assets/js/address/contactInformation'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
@@ -41,6 +42,7 @@ export default {
     ConsultingForClient,
     AnnounceWorkingProcess,
     IntroduceAllProducts,
+    HhrDivider,
   },
   created() {
     matchMedia = new MatchMedia()

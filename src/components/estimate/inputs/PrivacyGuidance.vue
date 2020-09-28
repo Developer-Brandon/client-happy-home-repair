@@ -9,17 +9,17 @@
       >
         <span
           class="collection-of-personal-information"
+          @click="callHtmlPopUp"
           v-html="collectionOfPersonalInformation"
         ></span>
       </div>
       <hhr-clear-both />
       <div style="text-align: right;">
         <input
-          v-model="values.booleans.collectPersonalInformation"
+          v-model="values.booleans.whetherPrivacyInfoCollectAgreementOrNot"
           type="checkbox"
           class="custom-checkbox"
-          :class="{'on': values.booleans.collectPersonalInformation,'off': !values.booleans.collectPersonalInformation}"
-          @click="callHtmlPopUp"
+          :class="{'on': values.booleans.whetherPrivacyInfoCollectAgreementOrNot,'off': !values.booleans.whetherPrivacyInfoCollectAgreementOrNot}"
         />
         <span
           class="announcement-with-checkbox"
@@ -46,7 +46,7 @@ export default {
     return {
       values: {
         booleans: {
-          collectPersonalInformation: false,
+          whetherPrivacyInfoCollectAgreementOrNot: false,
         },
       },
     }
@@ -69,15 +69,14 @@ export default {
     },
   },
   watch: {
-    'values.booleans.collectPersonalInformation': function (newValue) {
+    'values.booleans.whetherPrivacyInfoCollectAgreementOrNot': function (newValue) {
       const whetherCollectionOfPersonal = newValue
       this.$store.dispatch('estimate/SET_WHETHER_COLLECT_PERSONAL_INFO', { whetherCollectionOfPersonal })
-    }
-    ,
+    },
   },
   methods: {
     toggleCollectPersonalInformation() {
-      this.values.booleans.collectPersonalInformation = !this.values.booleans.collectPersonalInformation
+      this.values.booleans.whetherPrivacyInfoCollectAgreementOrNot = !this.values.booleans.whetherPrivacyInfoCollectAgreementOrNot
     },
     callHtmlPopUp() {
     // TODO: 약관을 간단하게 뿌려주는 모달 개발 예정

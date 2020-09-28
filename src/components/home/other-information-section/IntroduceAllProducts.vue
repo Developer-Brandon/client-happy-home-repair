@@ -10,7 +10,11 @@
           시공 후기를 살펴보고
           결정하세요
         </h2>
-        <div class="hhr-blue-small-divider"></div>
+        <hhr-divider
+          height="1"
+          color="$hhr-deep-blue"
+          style="margin-top:5px;margin-bottom:5px;"
+        />
         <p class="small-title font-semi-bold">
           약 <span
             class="hhr-blue font-bold title"
@@ -30,8 +34,13 @@
 </template>
 
 <script>
+import HhrDivider from '@/components/util/HhrDivider.vue'
+
 export default {
   name: 'IntroduceAllProducts',
+  components: {
+    HhrDivider,
+  },
   computed: {
     stateOfBlogListAreCalled() {
       return this.$store.getters['home/blogListViewState']

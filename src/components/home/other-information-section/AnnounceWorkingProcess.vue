@@ -6,7 +6,11 @@
           class="hhr-blue font-bold title"
         >해피 홈 리페어</span>에게 수리를 맡기려면?
       </h2>
-      <div class="hhr-blue-small-divider"></div>
+      <hhr-divider
+        height="1"
+        color="$hhr-deep-blue"
+        style="margin-top:5px;margin-bottom:5px;"
+      />
       <div class="process-explain">
         <div
           v-for="(object, index) in values.workingProcessList"
@@ -28,16 +32,18 @@
         </div>
       </div>
     </div>
-    <hhr-clear-both></hhr-clear-both>
+    <hhr-clear-both />
   </div>
 </template>
 <script>
 import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
+import HhrDivider from '@/components/util/HhrDivider.vue'
 
 export default {
   name: 'AnnounceWorkingProcess',
   components: {
     HhrClearBoth,
+    HhrDivider,
   },
   data() {
     return {

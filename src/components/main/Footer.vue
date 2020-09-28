@@ -48,7 +48,12 @@
             </li>
           </ul>
         </div>
-        <div class="visible desktop-visible-block-only hhr-gray-small-divider"></div>
+        <hhr-divider
+          height="0.5"
+          color="$hhr-deep-gray"
+          class="visible desktop-visible-block-only"
+          style="margin-top:17px;margin-bottom:17px;"
+        />
         <div class="email-information">
           <h2 class="email-information__title">
             CONTACT US
@@ -111,7 +116,11 @@
             </div>
           </div>
           <hhr-clear-both></hhr-clear-both>
-          <div class="hhr-gray-small-divider"></div>
+          <hhr-divider
+            height="0.5"
+            color="$hhr-deep-gray"
+            style="margin-top:17px;margin-bottom:17px;"
+          />
           <div class="wrap-sub-title">
             <ul class="sub-title-list font-thin">
               <li>"25년 경력의 전문가가 확실하게 고쳐드립니다"</li>
@@ -144,6 +153,7 @@
 import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
+import HhrDivider from '@/components/util/HhrDivider.vue'
 
 let contactInformation
 let matchMedia
@@ -152,6 +162,7 @@ export default {
   name: 'Footer',
   components: {
     HhrClearBoth,
+    HhrDivider,
   },
   mounted() {
     this.initialObjects()

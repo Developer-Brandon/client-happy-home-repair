@@ -6,7 +6,11 @@
           class="hhr-blue font-bold title introduce-title"
         >해피 홈 리페어</span>는 무엇이 다른가요?
       </h2>
-      <div class="hhr-blue-small-divider"></div>
+      <hhr-divider
+        height="1"
+        color="$hhr-deep-blue"
+        style="margin-top:5px;margin-bottom:5px;"
+      />
       <div class="question-explain">
         <p class="wrap-contents">
           <span class="hhr-blue font-bold contents introduce-first-sub-title">첫째</span>
@@ -29,8 +33,13 @@
 </template>
 
 <script>
+import HhrDivider from '@/components/util/HhrDivider.vue'
+
 export default {
   name: 'AnnounceCompany',
+  components: {
+    HhrDivider,
+  },
 }
 </script>
 

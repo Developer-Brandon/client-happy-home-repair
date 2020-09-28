@@ -95,7 +95,7 @@ export default {
                 }
             }
             .wrap-guidance-inner {
-                width: 55%;
+                width: 65%;
                 float: right;
                 @media (max-width: $screen-mobile) {
                     width: 100%;

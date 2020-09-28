@@ -48,50 +48,6 @@
   color: $hhr-red;
 }
 
-// 이 아래것들, 컴포넌트로 만들어야겠는데?
-// '크기' 에 대한 개념은 small -> regular -> large
-.hhr-small-divider {
-  background-color: $hhr-light-gray;
-  width: 100%;
-  height: 10px;
-}
-
-.hhr-regular-divider {
-  background-color: $hhr-light-gray;
-  width: 100%;
-  height: 20px;
-}
-
-.hhr-large-divider {
-  background-color: $hhr-light-gray;
-  width: 100%;
-  height: 30px;
-}
-
-.hhr-gray-small-divider {
-  background-color: $hhr-deep-gray;
-  width: 100%;
-  height: 0.5px;
-  margin-top: 17px;
-  margin-bottom: 17px;
-}
-
-.hhr-blue-small-divider {
-  background-color: $hhr-deep-blue;
-  width: 100%;
-  height: 1px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.hhr-white-small-divider {
-  background-color: $hhr-white;
-  width: 100%;
-  height: 1px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
 .hhr-above-dot {
   font-size: 30px;
   text-emphasis-style: dot;

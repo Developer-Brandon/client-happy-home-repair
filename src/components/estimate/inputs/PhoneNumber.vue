@@ -25,7 +25,7 @@
 import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
 
 export default {
-  name: 'PhoneNumberWithPrivacyGuidance',
+  name: 'PhoneNumber',
   components: {
     HhrClearBoth,
   },
@@ -90,7 +90,7 @@ export default {
 
     // @Classes
     .wrap-phone-number {
-        height: 230px;
+        height: 160px;
         padding-top: 40px;
         @media (max-width: $screen-mobile) {
             height: 100%;

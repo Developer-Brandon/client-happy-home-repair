@@ -1,10 +1,12 @@
 const state = () => ({
   blogListViewState: false,
   blogProductsList: [],
+  whetherCollectionOfPersonal: false,
 })
 const getters = {
   blogListViewState: (state) => state.blogListViewState,
   blogProdctList: (state) => state.blogProductsList,
+  whetherCollectionOfPersonal: (state) => state.whetherCollectionOfPersonal,
 }
 const mutations = {
   setBlogListViewState(state, params) {
@@ -12,6 +14,9 @@ const mutations = {
   },
   setBlogProductList(state, params) {
     state.blogProductsList = params.blogProductsList
+  },
+  privacyGuidanceAgreement(state, params) {
+    state.whetherCollectionOfPersonal = params.whetherCollectionOfPersonal
   },
 }
 const actions = {
@@ -52,6 +57,10 @@ const actions = {
       target: 'https://blog.naver.com/PostView.nhn?blogId=lain4444&logNo=222054100175&redirect=Dlog',
     }]
     commit('setBlogProductList', productList)
+    resolve()
+  }),
+  SET_PRIVACY_GUIDANCE_AGREEMENT: ({ commit }, params) => new Promise((resolve) => {
+    commit('privacyGuidanceAgreement', params)
     resolve()
   }),
 }
