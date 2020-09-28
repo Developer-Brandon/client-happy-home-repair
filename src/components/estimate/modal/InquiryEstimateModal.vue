@@ -565,9 +565,12 @@ export default {
                 form {
                     fieldset {
                         .group-of-form {
+                            height: auto;
+                            min-height: 417px;
                             margin-top: 30px;
                             margin-bottom: 10px;
                             @media (max-width: $screen-mobile) {
+                                min-height: auto;
                                 margin-top: 40px;
                                 padding-left: 18px;
                                 padding-right: 18px;
@@ -767,7 +770,7 @@ export default {
                 }
                 .group-of-buttons {
                     width: 270px;
-                    height: 100%;
+                    height: auto;
                     margin: 0 auto;
                     padding-top: 10px;
                     padding-bottom: 10px;
