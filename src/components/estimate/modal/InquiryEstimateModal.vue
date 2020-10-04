@@ -15,7 +15,8 @@
           </p>
           <div class="info">
             <span
-              class="info__inner"
+              class="info__inner hhr-scrollbar"
+              @click="callPersonalInfoPage"
               v-html="collectionOfPersonalInformation"
             ></span>
           </div>
@@ -33,7 +34,7 @@
           </div>
           <div class="group-of-buttons">
             <button
-              class="hhf-positive-reversal-button close"
+              class="hhr-positive-reversal-button close"
               @click="closeModal"
             >
               닫기
@@ -64,7 +65,7 @@
                   style="margin-top:20px;margin-bottom:7px;"
                 >
                   <span class="hhr-labeling-title">&nbsp;지역&nbsp;<span
-                    class="hhf-red"
+                    class="hhr-red"
                   >*</span>&nbsp;&nbsp;</span>
                   <div class="wrap-local-type">
                     <select
@@ -103,7 +104,7 @@
                   class="hhr-labeling"
                   style="margin-bottom:7px;"
                 >
-                  <span class="hhr-labeling-title">&nbsp;문의 유형&nbsp;<span class="hhf-red">*</span>&nbsp;&nbsp;</span>
+                  <span class="hhr-labeling-title">&nbsp;문의 유형&nbsp;<span class="hhr-red">*</span>&nbsp;&nbsp;</span>
                   <div class="wrap-estimate-type">
                     <select
                       id="estimateType"
@@ -171,6 +172,8 @@
                 <br />
                 <label class="hhr-labeling">
                   <span class="hhr-labeling-title">&nbsp;사진첨부&nbsp;</span>
+                  <br class="mobile-visible-block-only" />
+                  <span class="hhr-labeling-subtitle">문자로 따로 주셔도 됩니다.</span>
                   <br />
                   <p style="text-align:right;margin-bottom:7px;">준비중인 기능입니다.</p>
                   <ul class="email-announcement-list">
@@ -184,7 +187,7 @@
                 <br />
                 <label class="hhr-labeling">
                   <span class="hhr-labeling-title"> &nbsp;연락처&nbsp;
-                    <span class="hhf-red">*</span></span>
+                    <span class="hhr-red">*</span></span>
                   <br />
                   <input
                     v-model="values.phoneNumber"
@@ -214,7 +217,7 @@
               </div>
               <div class="group-of-buttons">
                 <button
-                  class="hhf-positive-reversal-button cancel"
+                  class="hhr-positive-reversal-button cancel"
                   @click.prevent="moveToBeforeState"
                 >
                   뒤로
@@ -377,6 +380,9 @@ export default {
     utilBox = new UtilBox()
   },
   methods: {
+    callPersonalInfoPage() {
+      window.open(`${HhrNetwork.getBaseUrl()}/privacy-information.html`)
+    },
     callCollectOfPrivacyInfo() {
       return new Promise((resolve, reject) => {
         HhrNetwork.getLocalFile('privacy-information')
@@ -533,7 +539,7 @@ export default {
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: $hhr-black;
         @media (max-width: $screen-mobile) {
             padding: 15px;
         }
@@ -548,6 +554,7 @@ export default {
                 left: 0;
                 right: 0;
                 margin: auto;
+                //
                 width: 500px;
                 height: 580px;
                 padding: 30px;

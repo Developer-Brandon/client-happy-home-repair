@@ -44,7 +44,7 @@
   color: $hhr-deep-blue;
 }
 
-.hhf-red {
+.hhr-red {
   color: $hhr-red;
 }
 
@@ -95,6 +95,17 @@
   }
 }
 
+.hhr-labeling-subtitle {
+  font-size: 13px;
+  line-height: 20px;
+  color: $hhr-blue;
+  @media (max-width: $screen-mobile) {
+    display: block;
+    font-size: 15px;
+    text-align: right;
+  }
+}
+
 
 .hhr-select {
   width: auto;
@@ -127,7 +138,7 @@
     width: auto;
     height: auto;
     padding: 2px;
-    color: black;
+    color: $hhr-black;
     font-weight: 300;
     white-space: pre;
     line-height: 30px;
@@ -136,8 +147,8 @@
 }
 
 .hhr-input {
-  background-color: #FFFFFF;
-  border: 1px solid #CCCCCC;
+  background-color: $hhr-white;
+  border: 1px solid $hhr-transparent-white;
   font-weight: 200;
   font-size: 15px;
   letter-spacing: -0.5px;
@@ -159,8 +170,8 @@
 
 .hhr-textarea {
   display: block;
-  background-color: #FFFFFF;
-  border: 1px solid #CCCCCC;
+  background-color: $hhr-white;
+  border: 1px solid $hhr-transparent-white;
   font-weight: 200;
   font-size: 15px;
   letter-spacing: -0.5px;
@@ -180,7 +191,7 @@
 }
 
 .hhr-positive-button {
-  border: 1px solid white;
+  border: 1px solid $hhr-white;
   border-radius: 5px;
   color: $hhr-white;
   transition: 0.3s;
@@ -199,7 +210,7 @@
   }
 }
 
-.hhf-positive-reversal-button {
+.hhr-positive-reversal-button {
   border: 1px solid $hhr-deep-blue;
   border-radius: 5px;
   background-color: $hhr-white;
@@ -251,5 +262,21 @@
   @media (max-width: $screen-mobile) {
     background-color: $hhr-deep-blue;
     font-size: 18px;
+  }
+}
+
+.hhr-scrollbar {
+  &:hover {
+    cursor: pointer;
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $hhr-gray;
+    transition: 0.3s;
+    &:hover {
+      background: $hhr-opacity-deep-gray;
+    }
   }
 }

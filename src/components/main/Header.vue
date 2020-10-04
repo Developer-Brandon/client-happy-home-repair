@@ -51,15 +51,15 @@
               공지사항
             </span>
           </router-link>
-          <router-link
+          <span
             id="inquiry-from-hb"
             class="menus-from-hb font-regular"
-            to="/EstimateInquiry"
+            @click="callInquiryEstimateModal"
           >
             <span>
               견적문의
             </span>
-          </router-link>
+          </span>
           <div class="slider__footer">
             <div class="sns-channels">
               <div class="wrap-sns-logo">
@@ -129,15 +129,16 @@
         >
           공지사항
         </router-link>
-        <router-link
+        <span
           id="price-inquiry"
           class="menus font-regular estimate-fade-in"
-          to="/EstimateInquiry"
+          @click="callInquiryEstimateModal"
         >
           견적문의
-        </router-link>
+        </span>
       </div>
     </div>
+    <inquiry-estimate-modal ref="inquiryEstimateModal" />
   </header>
 </template>
 
@@ -146,6 +147,7 @@ import { Slide } from 'vue-burger-menu'
 import { EventBus } from '@/assets/js/eventBus'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
+import InquiryEstimateModal from '@/components/estimate/modal/InquiryEstimateModal.vue'
 
 let contactInformation
 let matchMedia
@@ -153,6 +155,7 @@ let matchMedia
 export default {
   components: {
     Slide,
+    InquiryEstimateModal,
   },
   mounted() {
     this.initialObjects()
@@ -212,12 +215,15 @@ export default {
     },
     goKakaotalkChannel() {
     },
+    callInquiryEstimateModal() {
+      this.$refs.inquiryEstimateModal.show('default', null)
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-    // animation
+    // Local utils
     .logo-fade-in {
       @include primary-fade-in(4);
     }
@@ -238,7 +244,11 @@ export default {
       @include primary-fade-in(8)
     }
 
-    // 1. mobile navigation
+    #price-inquiry {
+      cursor: pointer;
+    }
+
+    //@ Classes
     .slider {
         .menus-from-hb {
             margin-top: 5px;

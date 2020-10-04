@@ -1,11 +1,20 @@
 <template>
   <div class="other-information">
     <announce-company />
-    <hhr-divider height="10" color="$hhr-light-gray"/>
+    <hhr-divider
+      height="10"
+      color="$hhr-light-gray"
+    />
     <consulting-for-client />
-    <hhr-divider height="10" color="$hhr-light-gray"/>
+    <hhr-divider
+      height="10"
+      color="$hhr-light-gray"
+    />
     <announce-working-process ref="workingProcess" />
-    <hhr-divider height="10" color="$hhr-light-gray"/>
+    <hhr-divider
+      height="10"
+      color="$hhr-light-gray"
+    />
     <introduce-all-products />
     <inquiry-estimate-modal ref="inquiryEstimateModal" />
     <question-about-call-way-modal ref="questionAboutCallWayModal" />
@@ -82,6 +91,7 @@ export default {
       if (matchMedia.isMobile) {
         document.location.href = contactInformation.getPhoneNumber()
       } else {
+        // TODO: 브라우저를 정확하게 판단할 수 있게 스크립트 개발예정
         if (userAgent.browserType === '크롬') {
           this.$refs.questionAboutCallWayModal.show('default', null)
         } else {

@@ -7,7 +7,7 @@
       <div class="wrap-inquiry-type__inner">
         <div class="wrap-button">
           <button
-            class="hhf-positive-reversal-button paint"
+            class="hhr-positive-reversal-button paint"
             :class="[{'add-button-active-style' : inquiryType === Number(111)},'']"
             @click="clickProduct(Number(111))"
           >
@@ -17,7 +17,7 @@
         <br class="mobile-visible-block-only" />
         <div class="wrap-button">
           <button
-            class="hhf-positive-reversal-button window"
+            class="hhr-positive-reversal-button window"
             :class="[{'add-button-active-style' : inquiryType === Number(222)},'']"
             @click="clickProduct(Number(222))"
           >
@@ -26,7 +26,7 @@
         </div>
         <div class="wrap-button">
           <button
-            class="hhf-positive-reversal-button door-class"
+            class="hhr-positive-reversal-button door-class"
             :class="[{'add-button-active-style' : inquiryType === Number(333)},'']"
             @click="clickProduct(Number(333))"
           >
@@ -38,7 +38,7 @@
       <div class="wrap-inquiry-type__inner">
         <div class="wrap-button">
           <button
-            class="hhf-positive-reversal-button door"
+            class="hhr-positive-reversal-button door"
             :class="[{'add-button-active-style' : inquiryType === Number(444)},'']"
             @click="clickProduct(Number(444))"
           >
@@ -47,7 +47,7 @@
         </div>
         <div class="wrap-button">
           <button
-            class="hhf-positive-reversal-button fan"
+            class="hhr-positive-reversal-button fan"
             :class="[{'add-button-active-style' : inquiryType === Number(555)},'']"
             @click="clickProduct(Number(555))"
           >
@@ -56,7 +56,7 @@
         </div>
         <div class="wrap-button">
           <button
-            class="hhf-positive-reversal-button etc"
+            class="hhr-positive-reversal-button etc"
             :class="[{'add-button-active-style' : inquiryType === Number(666)},'']"
             @click="clickProduct(Number(666))"
           >

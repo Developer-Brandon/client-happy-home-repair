@@ -21,6 +21,7 @@
           <caption class="owner-information__copyright desktop-visible-block-only">
             Copyright©DKStudio
           </caption>
+          <br />
           <caption class="owner-information__clarify-font-copyright desktop-visible-block-only">
             이 제작물은 아모레퍼시픽의
             아리따글꼴을 사용하여 디자인 되었습니다.
@@ -234,7 +235,7 @@ export default {
                     margin-right: 10px;
                     &__title {
                         font-size: 15px;
-                        color: #333333;
+                        color: $hhr-deep-gray;
                         margin-bottom: 10px;
                         @media (max-width: $screen-mobile) {
                             font-size: 20px;
@@ -242,7 +243,7 @@ export default {
                     }
                     &__explain {
                         font-size: 12px;
-                        color: #333333;
+                        color: $hhr-deep-gray;
                         li {
                             line-height: 20px;
                             @media (max-width: $screen-mobile) {
@@ -252,16 +253,17 @@ export default {
                         }
                     }
                     &__copyright {
-                        position: absolute;
-                        bottom: 12px;
-                        font-size: 10px;
-                        color: #333333;
+                      position: absolute;
+                      bottom: 25px;
+                      font-size: 10px;
+                      color: $hhr-deep-gray;
+                      letter-spacing: 2px;
                     }
                     &__clarify-font-copyright {
-                        position: absolute;
-                        bottom: 0;
-                        font-size: 6pt;
-                        color: #333333;
+                      position: absolute;
+                      bottom: 0;
+                      font-size: 8pt;
+                      color: $hhr-deep-gray;
                     }
                 }
             }
@@ -281,7 +283,7 @@ export default {
                     }
                     &__title {
                         font-size: 15px;
-                        color: #333333;
+                        color: $hhr-deep-gray;
                         margin-bottom: 20px;
                         @media (max-width: $screen-mobile) {
                             font-size: 20px;
@@ -290,7 +292,7 @@ export default {
                     }
                     &__explain {
                         font-size: 12px;
-                        color: #333333;
+                        color: $hhr-deep-gray;
                         li {
                             line-height: 20px;
                             @media (max-width: $screen-mobile) {
@@ -307,7 +309,7 @@ export default {
                     }
                     &__title {
                         font-size: 15px;
-                        color: #333333;
+                        color: $hhr-deep-gray;
                         margin-bottom: 20px;
                         @media (max-width: $screen-mobile) {
                             font-size: 20px;
@@ -316,7 +318,7 @@ export default {
                     }
                     &__explain {
                         font-size: 12px;
-                        color: #333333;
+                        color: $hhr-deep-gray;
                         li {
                             line-height: 20px;
                             @media (max-width: $screen-mobile) {

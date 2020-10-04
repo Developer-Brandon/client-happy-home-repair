@@ -14,6 +14,10 @@ class HhrNetwork {
     axiosInstance.interceptors.response.use((response) => response, (error) => Promise.reject(error))
   }
 
+  getBaseUrl() {
+    return baseUrl
+  }
+
   getLocalFile(filename) {
     return new Promise((resolve, reject) => {
       axiosInstance.get(`/${filename}.html`)

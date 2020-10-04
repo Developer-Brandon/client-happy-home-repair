@@ -21,7 +21,7 @@
           <br />
           <p>어떠한 이유로 전화번호가 옮겨지지 않는 분은 아래 번호로 전화 부탁드립니다</p>
           <br />
-          <p class="font-semi-bold">
+          <p class="font-semi-bold" style="text-align: center;">
             해피&nbsp;홈&nbsp;리페어&nbsp;&nbsp;010-9018-5553
           </p>
           <br />
@@ -76,8 +76,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    // @Local util
-
     // @Class
     .call-way-question {
         position: fixed;
@@ -87,7 +85,7 @@ export default {
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: $hhr-black;
         padding-top: 15px;
         padding-bottom: 15px;
         @media (max-width: $screen-mobile) {
@@ -107,15 +105,13 @@ export default {
             background-color: $hhr-white;
             border: 1px solid $hhr-white;
             border-radius: 15px;
-            overflow: auto;
+            overflow: visible;
             @media (max-width: $screen-mobile) {
-                width: 100%;
-                height: 100%;
-                padding: 10px;
-                border: none;
-                border-radius: 0;
-                max-width: 100%;
-                overflow-x: hidden;
+              width: 90%;
+              height: 90%;
+              max-height: 615px;
+              padding: 10px;
+              overflow-x: hidden;
             }
             &__contents {
                 .wrap-request-call-preview-image {

@@ -395,7 +395,7 @@ export default {
                             font-size: 35px;
                             line-height: 50px;
                             transition: 0.3s;
-                            text-shadow: -3px 0 white;
+                            text-shadow: -3px 0 $hhr-white;
                             @media (max-width: $screen-desktop) {
                                 font-size: 25px;
                                 line-height: 40px;
@@ -488,11 +488,11 @@ export default {
                         height: 100%;
                         padding: 10px;
                         .word {
-                            color: steelblue;
+                            color: $hhr-deep-blue;
                             font-size: 35px;
                             line-height: 50px;
                             text-align: right;
-                            text-shadow: -3px 0 white;
+                            text-shadow: -3px 0 $hhr-white;
                             @media (max-width: $screen-desktop) {
                                 font-size: 25px;
                                 line-height: 40px;
@@ -581,7 +581,7 @@ export default {
                     }
                     &__snippet {
                         .word {
-                            color: ivory;
+                            color: $hhr-ivory;
                             font-size: 35px;
                             line-height: 50px;
                             text-shadow: -3px 0 black;
@@ -678,11 +678,11 @@ export default {
                         height: 100%;
                         padding: 10px;
                         .word {
-                            color: #FFDD2E;
+                            color: $hhr-yellow;
                             font-size: 35px;
                             line-height: 50px;
                             text-align: right;
-                            text-shadow: -2px 0 white;
+                            text-shadow: -2px 0 $hhr-white;
                             @media (max-width: $screen-desktop) {
                                 font-size: 25px;
                                 line-height: 40px;
@@ -773,10 +773,10 @@ export default {
                         height: 100%;
                         padding: 10px;
                         .word {
-                            color: black;
+                            color: $hhr-black;
                             font-size: 35px;
                             line-height: 50px;
-                            text-shadow: -3px 0 white;
+                            text-shadow: -3px 0 $hhr-white;
                             @media (max-width: $screen-desktop) {
                                 text-align: left;
                                 font-size: 25px;
