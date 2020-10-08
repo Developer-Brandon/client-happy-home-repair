@@ -89,6 +89,7 @@
                       >{{ item.title }}
                       </option>
                     </select>
+                    <up-and-down-arrow />
                   </div>
                 </label>
                 <ul class="locate-type-announcement-list">
@@ -127,6 +128,7 @@
                       >{{ item.title }}
                       </option>
                     </select>
+                    <up-and-down-arrow />
                   </div>
                 </label>
                 <ul class="estimate-type-announcement-list">
@@ -251,6 +253,7 @@ import HhrNetwork from '@/assets/js/network/HhrNetwork'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import UtilBox from '@/assets/js/validation/utilBox'
+import UpAndDownArrow from '@/components/util/icons/UpAndDownIcon.vue'
 
 let matchMedia
 let contactInformation
@@ -258,6 +261,9 @@ let utilBox
 
 export default {
   name: 'InquiryModal',
+  components: {
+    UpAndDownArrow,
+  },
   data() {
     return {
       values: {
@@ -584,8 +590,8 @@ export default {
                             }
                             .hhr-labeling {
                                 .wrap-local-type {
+                                    position: relative;
                                     width: 120px;
-                                    border-bottom: 1px solid $hhr-deep-blue;
                                     text-align: center;
                                     float: right;
                                     clear: right;
@@ -597,10 +603,12 @@ export default {
                                     }
                                     .locate-type-announcement-list {
                                     }
+                                    .chevron-icon {
+                                    }
                                 }
                                 .wrap-estimate-type {
+                                    position: relative;
                                     width: 120px;
-                                    border-bottom: 1px solid $hhr-deep-blue;
                                     text-align: center;
                                     float: right;
                                     clear: right;

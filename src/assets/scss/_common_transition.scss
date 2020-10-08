@@ -17,13 +17,9 @@
 }
 
 // Slide
-.component-slide-enter {
-  //
-}
+.component-slide-enter {}
 
-.component-slide-leave-to {
-  //
-}
+.component-slide-leave-to {}
 
 .component-slide-enter-active {
   animation: slide-in 0.5s forwards;
@@ -43,7 +39,5 @@
 .content-fade-enter-active {
   transition: opacity 1.5s ease-in-out;
 }
-.content-fade-leave-active {
-  //
-}
+.content-fade-leave-active {}
 

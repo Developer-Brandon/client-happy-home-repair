@@ -1,4 +1,4 @@
-// screen size variable
+//@ Screen size variable
 $screen-desktop: 992px;
 $screen-tablet: 768px;
 $screen-mobile: $screen-tablet - 1px;
@@ -7,11 +7,11 @@ $screen-tablet-max: $screen-desktop - 1px;
 $screen-tablet-max-another: $screen-desktop-another - 1px;
 $grid-gutter-width: 30px !default;
 
-// contents size variable
+//@ Contents size variable
 $contents-width: 980px;
 $contents-height: 0;
 
-// color variable
+//@ Color variable
 $hhr-light-blue: rgb(169, 196, 245);
 $hhr-blue: rgb(100, 149, 237);
 $hhr-deep-blue: rgb(101, 147, 245);
@@ -32,4 +32,4 @@ $hhr-deep-red: rgb(145,18,27);
 
 $hhr-yellow: rgb(255,221,46);
 
-$hhr-black: rgba(0, 0, 0, 0.4);
+$hhr-black: rgb(0, 0, 0);
