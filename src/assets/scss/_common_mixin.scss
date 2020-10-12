@@ -1,7 +1,7 @@
 @mixin title-common-style {
   margin: 0 auto;
   max-width: 870px;
-  border-left: 3px solid cornflowerblue;
+  border-left: 3px solid $hhr-blue;
   padding-left: 10px;
   @media (max-width: $screen-mobile) {
     max-width: $screen-mobile;

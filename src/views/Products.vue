@@ -335,6 +335,190 @@ export default {
             @media (max-width: $screen-mobile) {
                 max-width: $screen-mobile;
             }
+            .wrap-paint-section {
+                width: $section-width-and-height;
+                height: $section-width-and-height;
+                float: left;
+                background-size: 100% 100%;
+                background: url('~@/assets/images/products/fixed_painting.png') center;
+                border: 15px solid transparent;
+                &:hover {
+                    cursor: pointer;
+                }
+                @media (max-width: $screen-desktop) {
+                    margin-right: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                @media (max-width: $screen-mobile) {
+                    margin-right: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                &__inner {
+                    width: 100%;
+                    height: 100%;
+                    padding: 30px;
+                    transition: 0.3s;
+                    display: none;
+                    @media (max-width: $screen-desktop) {
+                        display: block;
+                        padding: 20px;
+                    }
+                    @media (max-width: $screen-mobile) {
+                        display: block;
+                        padding: 20px;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        background: none;
+                    }
+                    &:hover .wrap-paint-section__inner__snippet .word {
+                        display: none;
+                        @media (max-width: $screen-desktop) {
+                            display: block;
+                        }
+                        @media (max-width: $screen-mobile) {
+                            display: block;
+                        }
+                    }
+                    &__snippet {
+                        width: 100%;
+                        height: 100%;
+                        padding: 10px;
+                        .word {
+                            color: $hhr-white;
+                            font-size: 35px;
+                            line-height: 50px;
+                            text-align: right;
+                            text-shadow: -1.2px 0 $hhr-gray;
+                            -webkit-text-stroke: 0.5px $hhr-black;
+                            @media (max-width: $screen-desktop) {
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
+                            @media (max-width: $screen-mobile) {
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
+                        }
+
+                    }
+                }
+            }
+            .wrap-paint-section-announcement {
+                width: $section-width-and-height;
+                height: $section-width-and-height;
+                float: right;
+                @media (max-width: $screen-desktop) {
+                    display: none;
+                }
+                @media (max-width: $screen-mobile) {
+                    display: none;
+                }
+                &__inner {
+                    width: 100%;
+                    height: 100%;
+                    padding: calc(50% - 80px) 0;
+                    p {
+                        cursor: pointer;
+                        font-size: 25px;
+                        padding: 20px;
+                        text-align: center;
+                        letter-spacing: 2px;
+                    }
+                }
+            }
+            .wrap-security-window-section {
+                width: $section-width-and-height;
+                height: $section-width-and-height;
+                float: right;
+                background-size: 100% 100%;
+                background: url('~@/assets/images/products/fixed_security-window.png') center;
+                border: 15px solid transparent;
+                &:hover {
+                    cursor: pointer;
+                }
+                @media (max-width: $screen-desktop) {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
+                @media (max-width: $screen-mobile) {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
+                &__inner {
+                    width: 100%;
+                    height: 100%;
+                    padding: 30px;
+                    display: none;
+                    @media (max-width: $screen-desktop) {
+                        display: block;
+                        padding: 20px;
+                    }
+                    @media (max-width: $screen-mobile) {
+                        display: block;
+                        padding: 20px;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        background: none;
+                    }
+                    &:hover .wrap-security-window-section__inner__snippet .word {
+                        display: none;
+                        @media (max-width: $screen-desktop) {
+                            display: block;
+                        }
+                        @media (max-width: $screen-mobile) {
+                            display: block;
+                        }
+                    }
+                    &__snippet {
+                        .word {
+                            color: $hhr-white;
+                            font-size: 35px;
+                            line-height: 50px;
+                            text-shadow: -1.2px 0 $hhr-ivory;
+                            -webkit-text-stroke: 0.5px $hhr-black;
+                            @media (max-width: $screen-desktop) {
+                                text-align: left;
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
+                            @media (max-width: $screen-mobile) {
+                                text-align: left;
+                                font-size: 25px;
+                                line-height: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+            .wrap-security-window-section-announcement {
+                width: $section-width-and-height;
+                height: $section-width-and-height;
+                float: left;
+                @media (max-width: $screen-desktop) {
+                    display: none;
+                }
+                @media (max-width: $screen-mobile) {
+                    display: none;
+                }
+                &__inner {
+                    width: 100%;
+                    height: 100%;
+                    padding: calc(50% - 80px) 0;
+                    p {
+                        cursor: pointer;
+                        font-size: 25px;
+                        padding: 20px;
+                        text-align: center;
+                        letter-spacing: 2px;
+                    }
+                }
+            }
             .wrap-window-section {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
@@ -360,8 +544,6 @@ export default {
                     width: 100%;
                     height: 100%;
                     padding: 30px;
-                    background-color: $hhr-transparent-white;
-                    transition: 0.3s;
                     @media (max-width: $screen-desktop) {
                         display: block;
                         padding: 20px;
@@ -373,9 +555,6 @@ export default {
                     &:hover {
                         cursor: pointer;
                         background: initial;
-                    }
-                    &:hover .wrap-window-section__inner__snippet {
-                        //
                     }
                     &:hover .wrap-window-section__inner__snippet .word {
                         display: none;
@@ -391,11 +570,12 @@ export default {
                         height: 100%;
                         padding: 10px;
                         .word {
-                            color: $hhr-deep-gray;
+                            color: $hhr-white;
                             font-size: 35px;
                             line-height: 50px;
-                            transition: 0.3s;
-                            text-shadow: -3px 0 $hhr-white;
+                            text-shadow: -1.2px 0 $hhr-ivory;
+                            text-align: right;
+                            -webkit-text-stroke: 0.5px $hhr-black;
                             @media (max-width: $screen-desktop) {
                                 font-size: 25px;
                                 line-height: 40px;
@@ -457,8 +637,6 @@ export default {
                     width: 100%;
                     height: 100%;
                     padding: 30px;
-                    background-color: $hhr-transparent-white;
-                    transition: 0.3s;
                     @media (max-width: $screen-desktop) {
                         display: block;
                         padding: 20px;
@@ -470,9 +648,6 @@ export default {
                     &:hover {
                         cursor: pointer;
                         background: none;
-                    }
-                    &:hover .wrap-door-section__inner__snippet {
-                        //
                     }
                     &:hover .wrap-door-section__inner__snippet .word {
                         display: none;
@@ -488,11 +663,12 @@ export default {
                         height: 100%;
                         padding: 10px;
                         .word {
-                            color: $hhr-deep-blue;
+                            color: $hhr-white;
                             font-size: 35px;
                             line-height: 50px;
-                            text-align: right;
-                            text-shadow: -3px 0 $hhr-white;
+                            text-align: left;
+                            text-shadow: -1.2px 0 $hhr-ivory;
+                            -webkit-text-stroke: 0.5px $hhr-black;
                             @media (max-width: $screen-desktop) {
                                 font-size: 25px;
                                 line-height: 40px;
@@ -509,197 +685,6 @@ export default {
                 width: $section-width-and-height;
                 height: $section-width-and-height;
                 float: left;
-                @media (max-width: $screen-desktop) {
-                    display: none;
-                }
-                @media (max-width: $screen-mobile) {
-                    display: none;
-                }
-                &__inner {
-                    width: 100%;
-                    height: 100%;
-                    padding: calc(50% - 80px) 0;
-                    p {
-                        cursor: pointer;
-                        font-size: 25px;
-                        padding: 20px;
-                        text-align: center;
-                        letter-spacing: 2px;
-                    }
-                }
-            }
-            .wrap-security-window-section {
-                width: $section-width-and-height;
-                height: $section-width-and-height;
-                float: right;
-                background-size: 100% 100%;
-                background: url('~@/assets/images/products/fixed_security-window.png') center;
-                border: 15px solid transparent;
-                &:hover {
-                    cursor: pointer;
-                }
-                @media (max-width: $screen-desktop) {
-                    width: 100%;
-                    height: 100%;
-                    margin: 0;
-                }
-                @media (max-width: $screen-mobile) {
-                    width: 100%;
-                    height: 100%;
-                    margin: 0;
-                }
-                &__inner {
-                    width: 100%;
-                    height: 100%;
-                    padding: 30px;
-                    background-color: $hhr-transparent-white;
-                    transition: 0.3s;
-                    display: none;
-                    @media (max-width: $screen-desktop) {
-                        display: block;
-                        padding: 20px;
-                    }
-                    @media (max-width: $screen-mobile) {
-                        display: block;
-                        padding: 20px;
-                    }
-                    &:hover {
-                        cursor: pointer;
-                        background: none;
-                    }
-                    &:hover .wrap-security-window-section__inner__snippet {
-                        //
-                    }
-                    &:hover .wrap-security-window-section__inner__snippet .word {
-                        display: none;
-                        @media (max-width: $screen-desktop) {
-                            display: block;
-                        }
-                        @media (max-width: $screen-mobile) {
-                            display: block;
-                        }
-                    }
-                    &__snippet {
-                        .word {
-                            color: $hhr-ivory;
-                            font-size: 35px;
-                            line-height: 50px;
-                            text-shadow: -3px 0 black;
-                            @media (max-width: $screen-desktop) {
-                                text-align: left;
-                                font-size: 25px;
-                                line-height: 40px;
-                            }
-                            @media (max-width: $screen-mobile) {
-                                text-align: left;
-                                font-size: 25px;
-                                line-height: 40px;
-                            }
-                        }
-                    }
-                }
-            }
-            .wrap-security-window-section-announcement {
-                width: $section-width-and-height;
-                height: $section-width-and-height;
-                float: left;
-                @media (max-width: $screen-desktop) {
-                    display: none;
-                }
-                @media (max-width: $screen-mobile) {
-                    display: none;
-                }
-                &__inner {
-                    width: 100%;
-                    height: 100%;
-                    padding: calc(50% - 80px) 0;
-                    p {
-                        cursor: pointer;
-                        font-size: 25px;
-                        padding: 20px;
-                        text-align: center;
-                        letter-spacing: 2px;
-                    }
-                }
-            }
-            .wrap-paint-section {
-                width: $section-width-and-height;
-                height: $section-width-and-height;
-                float: left;
-                background-size: 100% 100%;
-                background: url('~@/assets/images/products/fixed_painting.png') center;
-                border: 15px solid transparent;
-                &:hover {
-                    cursor: pointer;
-                }
-                @media (max-width: $screen-desktop) {
-                    margin-right: 0;
-                    width: 100%;
-                    height: 100%;
-                }
-                @media (max-width: $screen-mobile) {
-                    margin-right: 0;
-                    width: 100%;
-                    height: 100%;
-                }
-                &__inner {
-                    width: 100%;
-                    height: 100%;
-                    padding: 30px;
-                    background-color: $hhr-transparent-white;
-                    transition: 0.3s;
-                    display: none;
-                    @media (max-width: $screen-desktop) {
-                        display: block;
-                        padding: 20px;
-                    }
-                    @media (max-width: $screen-mobile) {
-                        display: block;
-                        padding: 20px;
-                    }
-                    &:hover {
-                        cursor: pointer;
-                        background: none;
-                    }
-                    &:hover .wrap-paint-section__inner__snippet {
-                        //
-                    }
-                    &:hover .wrap-paint-section__inner__snippet .word {
-                        display: none;
-                        @media (max-width: $screen-desktop) {
-                            display: block;
-                        }
-                        @media (max-width: $screen-mobile) {
-                            display: block;
-                        }
-                    }
-                    &__snippet {
-                        width: 100%;
-                        height: 100%;
-                        padding: 10px;
-                        .word {
-                            color: $hhr-yellow;
-                            font-size: 35px;
-                            line-height: 50px;
-                            text-align: right;
-                            text-shadow: -2px 0 $hhr-white;
-                            @media (max-width: $screen-desktop) {
-                                font-size: 25px;
-                                line-height: 40px;
-                            }
-                            @media (max-width: $screen-mobile) {
-                                font-size: 25px;
-                                line-height: 40px;
-                            }
-                        }
-
-                    }
-                }
-            }
-            .wrap-paint-section-announcement {
-                width: $section-width-and-height;
-                height: $section-width-and-height;
-                float: right;
                 @media (max-width: $screen-desktop) {
                     display: none;
                 }
@@ -741,7 +726,6 @@ export default {
                     width: 100%;
                     height: 100%;
                     padding: 30px;
-                    background-color: $hhr-transparent-white;
                     transition: 0.3s;
                     display: none;
                     @media (max-width: $screen-desktop) {
@@ -755,9 +739,6 @@ export default {
                     &:hover {
                         cursor: pointer;
                         background: none;
-                    }
-                    &:hover .wrap-etc-section__inner__snippet {
-                        //
                     }
                     &:hover .wrap-etc-section__inner__snippet .word {
                         display: none;
@@ -776,14 +757,14 @@ export default {
                             color: $hhr-black;
                             font-size: 35px;
                             line-height: 50px;
-                            text-shadow: -3px 0 $hhr-white;
+                            text-shadow: -1.2px 0 $hhr-white;
+                            text-align: right;
+                            -webkit-text-stroke: $hhr-gray;
                             @media (max-width: $screen-desktop) {
-                                text-align: left;
                                 font-size: 25px;
                                 line-height: 40px;
                             }
                             @media (max-width: $screen-mobile) {
-                                text-align: left;
                                 font-size: 25px;
                                 line-height: 40px;
                             }
