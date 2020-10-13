@@ -85,7 +85,7 @@ export default {
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background-color: $hhr-black;
+        background-color: $hhr-transparent-black;
         padding-top: 15px;
         padding-bottom: 15px;
         @media (max-width: $screen-mobile) {
