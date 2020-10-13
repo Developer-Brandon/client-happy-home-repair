@@ -1,24 +1,3 @@
 # happy-home-repair
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<img src="https://dk-projects-images.s3.ap-northeast-2.amazonaws.com/github_happyhomerepair.png" />
