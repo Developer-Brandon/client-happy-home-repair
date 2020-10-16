@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { EventBus } from '@/assets/js/eventBus'
+import { EventBus } from '@/assets/js/plugin/eventBus'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
 

@@ -222,12 +222,6 @@ export default {
     })
   },
   methods: {
-    // getWindowSectionAnnounce() {
-    //   if (matchMedia.isMobile) {
-    //   } else {
-    //     return
-    //   }
-    // },
     judgeResolution() {
       if (matchMedia.isMobile) {
         contactInformation.type = 'mobile'

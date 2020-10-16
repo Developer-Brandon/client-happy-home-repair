@@ -4,7 +4,7 @@
       <h2 class="question font-semi-bold">
         <span
           class="hhr-blue font-bold title introduce-title"
-        >해피 홈 리페어</span>는 무엇이 다른가요?
+        >{{ getCommonCompanyNameWithSpace() }}</span>는 무엇이 다른가요?
       </h2>
       <hhr-divider
         height="1"

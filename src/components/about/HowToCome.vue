@@ -26,8 +26,8 @@
             ></iframe>
           </div>
           <div class="address-info">
-            <span class="address">인천시 부평구 경인로 705 해피홈리페어</span>
-            <span class="phone-number">&nbsp;/&nbsp;TEL.010-9018-5553</span>
+            <span class="address">{{ getCommonAddress() }}</span>
+            <span class="phone-number">&nbsp;/&nbsp;TEL.{{ getCommonPhoneNumber() }}</span>
           </div>
         </div>
       </div>

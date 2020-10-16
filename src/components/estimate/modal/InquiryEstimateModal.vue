@@ -11,7 +11,7 @@
       >
         <div class="collection-information-agreement__inner__contents">
           <p class="title">
-            (주)해피 홈 리페어 개인정보<br class="mobile-visible-block-only" /> 이용 동의 약관
+            (주){{ getCommonCompanyName() }} 개인정보<br class="mobile-visible-block-only" /> 이용 동의 약관
           </p>
           <div class="info">
             <span

@@ -9,10 +9,10 @@
           <br />
           <div class="announce-group font-semi-bold">
             <p class="title">
-              해피홈리페어
+              {{ getCommonCompanyName() }}
             </p>
             <p class="sub-title font-semi-bold">
-              010-9018-5553
+              {{ getCommonPhoneNumber() }}
             </p>
           </div>
           <br />
@@ -21,7 +21,7 @@
           </p>
           <br />
           <p class="email font-semi-bold">
-            lovefinance@naver.com
+            {{ getDeveloperEmail() }}
           </p>
           <br />
           <button
@@ -123,8 +123,8 @@ export default {
                     width: 100px;
                     height: 45px;
                     position: absolute;
-                    bottom:30px;
-                    right:30px;
+                    bottom: 30px;
+                    right: 30px;
                     @media (max-width: $screen-mobile) {
                         width: 100%;
                         height: 50px;

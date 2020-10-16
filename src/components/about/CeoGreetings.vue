@@ -9,7 +9,7 @@
         <div class="contents__left">
           <img
             class="ceo-picture greeting-pic-fade-in"
-            alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"
+            :alt="getCommonAnnouncement()"
             src="@/assets/images/about/rivised-ddong-e.png"
           />
         </div>

@@ -9,6 +9,7 @@
           title="공지사항"
           class="notice-title notice-title-fade-in"
         />
+        <!-- Data load ended -->
         <div
           v-if="values.check.dataLoadedEnd"
           class="when-browser-can-load-notice-list"
@@ -24,6 +25,7 @@
             </li>
           </ul>
         </div>
+        <!-- Data load failed -->
         <div
           v-else
           class="when-browser-cant-load-notice-list"

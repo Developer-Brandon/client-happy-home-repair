@@ -18,7 +18,7 @@
               >
                 <img
                   class="logo-by-hb"
-                  alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어,010-9018-5553"
+                  :alt="getCommonAnnouncement()"
                   src="@/assets/images/logos/main-title-logo-black-version.png"
                 />
               </router-link>
@@ -94,12 +94,12 @@
         <router-link to="/">
           <img
             class="logo"
-            alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어"
+            :alt="getCommonAnnouncement()"
             src="@/assets/images/logos/big-main-title-icon.png"
           />
           <div class="wrap-titles">
             <h2 class="sub-title font-light">
-              해피 홈 리페어
+              {{ getCommonCompanyNameWithSpace() }}
             </h2>
             <h1 class="title font-bold">
               HAPPY&nbsp;HOME<br />REPAIR
@@ -144,7 +144,7 @@
 
 <script>
 import { Slide } from 'vue-burger-menu'
-import { EventBus } from '@/assets/js/eventBus'
+import { EventBus } from '@/assets/js/plugin/eventBus'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import InquiryEstimateModal from '@/components/estimate/modal/InquiryEstimateModal.vue'

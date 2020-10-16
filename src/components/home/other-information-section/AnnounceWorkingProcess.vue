@@ -4,7 +4,7 @@
       <h2 class="question font-semi-bold">
         <span
           class="hhr-blue font-bold title"
-        >해피 홈 리페어</span>에게 수리를 맡기려면?
+        >{{ getCommonCompanyNameWithSpace() }}</span>에게 수리를 맡기려면?
       </h2>
       <hhr-divider
         height="1"

@@ -2,7 +2,7 @@
   <div id="app">
     <div
       class="container"
-      :class="{'removeWholeScroll':modalLifeCycle, 'createWholeScroll':!modalLifeCycle ,
+      :class="{'removeWholeScroll':modalLifeCycle,'createWholeScroll':!modalLifeCycle ,
                'modal-has-opened':modalLifeCycle, 'modal-has-close':!modalLifeCycle}"
     >
       <hhr-header />

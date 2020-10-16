@@ -1,7 +1,12 @@
 import axios from 'axios'
 
 const whetherServerEnvOrNot = (process.env.NODE_ENV === 'server')
-const baseUrl = whetherServerEnvOrNot ? 'http://hhr-client-app.s3-website.ap-northeast-2.amazonaws.com' : 'http://localhost:8080'
+const portNumber = process.env.VUE_APP_PORT
+// const apiUrl = process.env.WEB_API_URL
+const s3Url = process.env.VUE_APP_S3_URL
+const localUrl = `http://localhost:${portNumber}`
+
+const baseUrl = whetherServerEnvOrNot ? s3Url : localUrl
 
 const axiosInstance = axios.create({
   baseURL: baseUrl,
