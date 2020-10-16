@@ -19,6 +19,7 @@
               v-for="(notice, index) in noticeList"
               :key="index"
               class="notice-list__item"
+              @click="clickNoticeItem(notice)"
             >
               <span class="notice-list__item__left-side">{{ notice.title }}</span>
               <span class="notice-list__item__right-side">{{ notice.registeredDate }}</span>
@@ -74,10 +75,17 @@ export default {
   methods: {
     callNoticeList() {
       return new Promise((resolve) => {
-        this.$store.dispatch('notice/CALL_NOTICE')
+        this.$store.dispatch('notice/CALL_NOTICE_LIST')
           .then(() => {
             resolve()
           })
+      })
+    },
+    clickNoticeItem(notice) {
+      console.log(notice.index)
+      this.$router.push({
+        name: 'NoticeDetail',
+        params: { noticeIndex: notice.index },
       })
     },
   },

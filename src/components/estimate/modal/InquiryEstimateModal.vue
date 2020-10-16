@@ -436,8 +436,8 @@ export default {
       utilBox.value = this.values.phoneNumber
       this.values.isPhoneNumberCorrect = utilBox.validatePhoneNumber
     },
-    show(type, message) {
-      console.log('show log message: ', message)
+    show(...params) {
+      const { type } = params
       this.$store.dispatch('app/SET_MODAL_STATE', true)
       this.callCollectOfPrivacyInfo()
         .then(() => {

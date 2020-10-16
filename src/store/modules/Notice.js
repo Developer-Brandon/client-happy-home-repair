@@ -1,4 +1,5 @@
 const state = () => ({
+  notice: {},
   noticeList: [],
 })
 const getters = {
@@ -51,10 +52,17 @@ const mutations = {
       registeredDate: '2020-01-01',
     }]
   },
+  setNotice(state, params) {
+    state.notice = params.notice
+  },
 }
 const actions = {
-  CALL_NOTICE: ({ commit }, params) => new Promise((resolve) => {
+  CALL_NOTICE_LIST: ({ commit }, params) => new Promise((resolve) => {
     commit('setNoticeList', params)
+    resolve()
+  }),
+  CALL_NOTICE: ({ commit }, params) => new Promise((resolve) => {
+    commit('setNotice', params)
     resolve()
   }),
 }
