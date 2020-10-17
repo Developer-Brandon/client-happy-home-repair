@@ -223,7 +223,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    // Local utils
+    // @Local util
     .logo-fade-in {
       @include primary-fade-in(4);
     }

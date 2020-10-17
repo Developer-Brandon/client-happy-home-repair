@@ -93,7 +93,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    // @Local Utils
+    // @Local Util
     .notice-title-fade-in {
         @include primary-fade-in(2);
     }

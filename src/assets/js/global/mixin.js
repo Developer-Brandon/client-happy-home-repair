@@ -6,6 +6,9 @@ export default {
     getCommonAddress() {
       return '인천시 부평구 경인로 705 해피홈리페어'
     },
+    getCommonAderessWithoutCompanyName() {
+      return '인천시 부평구 경인로 705'
+    },
     getCommonPhoneNumber() {
       return '010-9018-5553'
     },
@@ -14,6 +17,9 @@ export default {
     },
     getCommonCompanyNameWithSpace() {
       return '해피 홈 리페어'
+    },
+    getOwnerEmail() {
+      return 'lain4444@naver.com'
     },
     getDeveloperEmail() {
       return 'lovefinance@naver.com'

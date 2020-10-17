@@ -26,7 +26,7 @@
 import InquiryEstimateModal from '@/components/estimate/modal/InquiryEstimateModal.vue'
 import QuestionAboutCallWayModal from '@/components/estimate/modal/QuestionAboutCallWayModal.vue'
 import AnnounceCallInformationModal from '@/components/estimate/modal/AnnounceCallInformationModal.vue'
-// sections
+
 import AnnounceCompany from '@/components/home/other-information-section/AnnounceCompany.vue'
 import ConsultingForClient from '@/components/home/other-information-section/ConsultingForClient.vue'
 import AnnounceWorkingProcess from '@/components/home/other-information-section/AnnounceWorkingProcess.vue'

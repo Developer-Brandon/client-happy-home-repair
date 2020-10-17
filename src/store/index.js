@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import app from './App'
-import about from './modules/About'
 import home from './modules/Home'
+import about from './modules/About'
 import estimate from './modules/Estimate'
 import notice from './modules/Notice'
 import products from './modules/Products'
@@ -14,8 +14,8 @@ const entryPointOfStore = () => new Vuex.Store({
   namespaced: true,
   modules: {
     app,
-    about,
     home,
+    about,
     estimate,
     notice,
     products,

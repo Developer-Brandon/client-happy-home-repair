@@ -72,7 +72,7 @@ export default {
 
 <style lang="scss" scoped>
 
-    // @Local utils
+    // @Local util
     .how-to-come-title-fade-in {
         @include primary-fade-in-top-to-bottom(3, 2.5)
     }

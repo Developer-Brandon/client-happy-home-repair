@@ -141,7 +141,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    // @Local utils
+    // @Local util
     .left-button-fade-in {
         @include primary-fade-in-left-to-right(1, 0.5);
 
