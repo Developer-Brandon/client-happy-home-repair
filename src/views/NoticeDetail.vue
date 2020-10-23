@@ -180,7 +180,7 @@ export default {
                             line-height: 56px;
                             vertical-align: middle;
                             @media (max-width: $screen-mobile) {
-                                min-width: 50px;
+                              max-width: 50px;
                             }
                         }
                         .next-title {
