@@ -2,7 +2,6 @@
   <div id="app">
     <div
       class="container"
-      onmousedown="return false"
       :class="{'removeWholeScroll':modalLifeCycle,'createWholeScroll':!modalLifeCycle ,
                'modal-has-opened':modalLifeCycle, 'modal-has-close':!modalLifeCycle}"
     >
