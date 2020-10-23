@@ -14,26 +14,30 @@
               <span class="before">
                 이전글
               </span>
-              <span
-                class="before-title"
-                @click="callNotice(values.notice.beforeIndex)"
-              >
-                {{ values.notice.beforeTitle }}
-              </span>
+              <div class="before-title hhr-ellipsis">
+                <span
+                  class="before-title__contents hhr-ellipsis"
+                  @click="callNotice(values.notice.beforeIndex)"
+                >
+                  {{ values.notice.beforeTitle }}
+                </span>
+              </div>
             </div>
             <div
               v-show="values.notice.nextTitle"
-              class="next-notice"
+              class="next-notice hhr-ellipsis"
             >
               <span class="next">
                 다음글
               </span>
-              <span
-                class="next-title"
-                @click="callNotice(values.notice.nextIndex)"
-              >
-                {{ values.notice.nextTitle }}
-              </span>
+              <div class="next-title hhr-ellipsis">
+                <span
+                  class="next-title__contents hhr-ellipsis"
+                  @click="callNotice(values.notice.nextIndex)"
+                >
+                  {{ values.notice.nextTitle }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -51,8 +55,8 @@
           <div class="number">
             <span>{{ values.notice.index }}</span>
           </div>
-          <div class="title">
-            <span>{{ values.notice.title }}</span>
+          <div class="title hhr-ellipsis">
+            <span class="hhr-ellipsis">{{ values.notice.title }}</span>
           </div>
           <div class="registered-date">
             <span>{{ values.notice.registeredDate }}</span>
@@ -106,9 +110,9 @@ export default {
           this.values.notice = {
             index: 1,
             title: '첫번째 게시물 제목입니다',
-            beforeTitle: '이전게시물입니다',
+            beforeTitle: '이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.',
             beforeIndex: 0,
-            nextTitle: '다음게시물입니다',
+            nextTitle: '이전게시물입니다',
             nextIndex: 2,
             registeredDate: '2020-01-01',
             contents: '첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.',
@@ -127,52 +131,69 @@ export default {
             margin: 0 auto;
             .index-box {
                 margin-top: 20px;
-                height: 100px;
+                height: 112px;
                 &__inner {
                     width: 100%;
-                    height: 100%;
-                    padding-bottom: 20px;
+                    height: 112px;
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid $hhr-opacity-deep-gray;
                     .before-notice {
-                        display: table;
                         cursor: pointer;
                         padding-left: 20px;
                         width: 100%;
                         height: 50%;
                         transition: 0.3s;
-                        span {
-                            display: table-cell;
-                            vertical-align: middle;
-                        }
                         .before {
+                            display: inline-block;
                             width: 80px;
-                        }
-                        .before-notice {
-                            cursor:default;
                             line-height: 56px;
                             vertical-align: middle;
+                            @media (max-width: $screen-mobile) {
+                                max-width: 50px;
+                            }
+                        }
+                        .before-title {
+                            display: inline-block;
+                            width: calc(100% - 100px);
+                            line-height: 56px;
+                            vertical-align: middle;
+                            @media (max-width: $screen-mobile) {
+                                width: calc(100% - 70px);
+                            }
+                            &__contents {
+                                width: 580px;
+                            }
                         }
                         &:hover {
                             background-color: $hhr-opacity-deep-gray;
                         }
                     }
                     .next-notice {
-                        display: table;
                         cursor: pointer;
+                        padding-left: 20px;
                         width: 100%;
                         height: 50%;
-                        padding-left: 20px;
                         transition: 0.3s;
-                        span {
-                            display: table-cell;
-                            vertical-align: middle;
-                        }
                         .next {
+                            display: inline-block;
                             width: 80px;
-                        }
-                        .next-notice {
-                            cursor:default;
                             line-height: 56px;
                             vertical-align: middle;
+                            @media (max-width: $screen-mobile) {
+                                min-width: 50px;
+                            }
+                        }
+                        .next-title {
+                            display: inline-block;
+                            width: calc(100% - 100px);
+                            line-height: 56px;
+                            vertical-align: middle;
+                            @media (max-width: $screen-mobile) {
+                                width: calc(100% - 70px);
+                            }
+                            &__contents {
+                                width: 580px;
+                            }
                         }
                         &:hover {
                             background-color: $hhr-opacity-deep-gray;
@@ -181,30 +202,47 @@ export default {
                 }
             }
             .wrap-go-to-list {
-                height: 15px;
-                cursor: pointer;
+                position: relative;
+                height: 70px;
+                .go-to-list {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 50%;
+                    @media (max-width: $screen-mobile) {
+                        padding-left: 30px;
+                    }
+                }
             }
             .header {
                 margin-top: 15px;
                 height: 60px;
-                border-top: 2px solid $hhr-opacity-deep-gray;
-                border-bottom: 2px solid $hhr-opacity-deep-gray;
+                border-top: 1px solid $hhr-opacity-deep-gray;
+                border-bottom: 1px solid $hhr-opacity-deep-gray;
+                @media (max-width: $screen-mobile) {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
                 .number {
                     float: left;
                     width: 70px;
                     text-align: center;
+                    @media (max-width: $screen-mobile) {
+                        width: 50px;
+                    }
                     span {
-                        cursor:default;
                         line-height: 56px;
                         vertical-align: middle;
                     }
                 }
                 .title {
                     float: left;
-                    text-align: center;
                     width: calc(100% - 220px);
+                    text-align: center;
+                    @media (max-width: $screen-mobile) {
+                        width: calc(100% - 150px);
+                    }
                     span {
-                        cursor:default;
+                        width: inherit;
                         line-height: 56px;
                         vertical-align: middle;
                     }
@@ -213,8 +251,10 @@ export default {
                     float: left;
                     text-align: center;
                     width: 150px;
+                    @media (max-width: $screen-mobile) {
+                        width: 100px;
+                    }
                     span {
-                        cursor:default;
                         line-height: 56px;
                         vertical-align: middle;
                     }

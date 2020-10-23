@@ -9,7 +9,7 @@
           title="공지사항"
           class="notice-title notice-title-fade-in"
         />
-        <!-- Data load ended -->
+        <!-- Data load is finished -->
         <div
           v-if="values.check.dataLoadedEnd"
           class="when-browser-can-load-notice-list"
@@ -26,7 +26,7 @@
             </li>
           </ul>
         </div>
-        <!-- Data load failed -->
+        <!-- Data load is failed -->
         <div
           v-else
           class="when-browser-cant-load-notice-list"
@@ -106,7 +106,13 @@ export default {
         padding-top: 25px;
         &__inner {
             .notice-title {
-                margin-bottom: 25px;
+              margin-bottom: 25px;
+              @media (max-width: $screen-mobile) {
+                width: auto;
+                margin: 0;
+                text-align: center;
+                border-left: 0 !important;
+              }
             }
 
             .when-browser-can-load-notice-list {
@@ -127,6 +133,13 @@ export default {
                         line-height: 50px;
                         cursor: pointer;
                         transition: 0.4s;
+                        border-bottom: 1px solid $hhr-gray;
+                        &:last-child {
+                          border-bottom: none;
+                        }
+                        @media (max-width: $screen-mobile) {
+                          padding: 10px;
+                        }
                         &:hover {
                             border-left: 5px solid $hhr-blue;
                             background-color: $hhr-transparent-light-black;

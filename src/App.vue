@@ -2,6 +2,7 @@
   <div id="app">
     <div
       class="container"
+      onmousedown="return false"
       :class="{'removeWholeScroll':modalLifeCycle,'createWholeScroll':!modalLifeCycle ,
                'modal-has-opened':modalLifeCycle, 'modal-has-close':!modalLifeCycle}"
     >
@@ -43,13 +44,13 @@ export default {
       window.scrollTo(0, 0)
     },
     createWholeScroll() {
-      // firefox, chrome
+    // firefox, chrome
       document.documentElement.style.overflow = 'auto'
       // ie only
       document.body.scroll = 'yes'
     },
     removeWholeScroll() {
-      // firefox, chrome
+    // firefox, chrome
       window.removeEventListener('scroll')
       document.documentElement.style.overflow = 'hidden'
       // ie only
