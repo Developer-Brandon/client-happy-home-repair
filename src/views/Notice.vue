@@ -82,7 +82,6 @@ export default {
       })
     },
     clickNoticeItem(notice) {
-      console.log(notice.index)
       this.$router.push({
         name: 'NoticeDetail',
         params: { noticeIndex: notice.index },

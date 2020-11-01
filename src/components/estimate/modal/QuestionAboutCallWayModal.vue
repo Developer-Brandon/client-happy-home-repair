@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    // @Class
+    // @Classes
     .call-way-question {
         position: fixed;
         z-index: 1;
