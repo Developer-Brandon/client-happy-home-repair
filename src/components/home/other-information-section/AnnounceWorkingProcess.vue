@@ -133,7 +133,7 @@ export default {
         }
     }
 
-    // @Class
+    // @Classes
     .announce-working-process {
         padding: 40px 0;
         @media (max-width: $screen-mobile) {

@@ -1,4 +1,4 @@
-export const EstimateLocalType = Object.freeze({
+export const EstimateLocalState = Object.freeze({
   SEOUL: {
     name: 'opera',
     value: 1,

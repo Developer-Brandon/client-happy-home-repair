@@ -1,4 +1,4 @@
-export const BrowserType = Object.freeze({
+export const BrowserState = Object.freeze({
   OPERA: {
     name: 'opera',
     value: 1,

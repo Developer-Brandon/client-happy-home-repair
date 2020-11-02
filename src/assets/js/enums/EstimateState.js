@@ -1,4 +1,4 @@
-export const BrowserType = Object.freeze({
+export const EstimateState = Object.freeze({
   PAINT: {
     name: '친환경페인트',
     value: 1,

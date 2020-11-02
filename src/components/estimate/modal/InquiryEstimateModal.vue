@@ -214,7 +214,7 @@
                   </ul>
                 </label>
                 <br />
-                <!-- TODO: 이미지 업로드 관련되서는, 어떻게 처리할 건지 먼저 생각해보자 -->
+                <!-- TODO: 이미지 업로드 관련되서는, 어떻게 처리할 건지 먼저 생각해보 -->
                 <!--<div></div>-->
               </div>
               <div class="group-of-buttons">
@@ -254,6 +254,7 @@ import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import UtilBox from '@/assets/js/validation/utilBox'
 import UpAndDownArrow from '@/components/util/icons/UpAndDownIcon.vue'
+import { DeviceState } from '@/assets/js/enums/DeviceState'
 
 let matchMedia
 let contactInformation
@@ -357,7 +358,7 @@ export default {
       },
     },
     collectionOfPersonalInformation() {
-      return this.$store.getters['estimate/collectionOfPersonalInformation']
+      return this.$store.getters['home/collectionOfPersonalInformation']
     },
   },
   watch: {
@@ -394,7 +395,8 @@ export default {
         HhrNetwork.getLocalFile('privacy-information')
           .then((response) => {
             const collectionOfPersonalInformation = response.data
-            this.$store.dispatch('estimate/SET_PERSONAL_INFO_GUIDANCE', { collectionOfPersonalInformation })
+            console.log(collectionOfPersonalInformation)
+            this.$store.dispatch('home/SET_PERSONAL_INFO_GUIDANCE', { collectionOfPersonalInformation })
               .then(() => {
                 resolve()
               })
@@ -405,10 +407,10 @@ export default {
     },
     goToNaverBlog() {
       if (matchMedia.isMobile) {
-        contactInformation.type = 'mobile'
+        contactInformation.type = DeviceState.MOBILE
         window.open(contactInformation.getBlogAddress())
       } else {
-        contactInformation.type = 'pc'
+        contactInformation.type = DeviceState.PC
         window.open(contactInformation.getBlogAddress())
       }
     },

@@ -148,6 +148,7 @@ import { EventBus } from '@/assets/js/plugin/eventBus'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import InquiryEstimateModal from '@/components/estimate/modal/InquiryEstimateModal.vue'
+import { DeviceState } from '@/assets/js/enums/DeviceState'
 
 let contactInformation
 let matchMedia
@@ -206,10 +207,10 @@ export default {
     },
     goNaverBlog() {
       if (matchMedia.isMobile) {
-        contactInformation.type = 'mobile'
+        contactInformation.type = DeviceState.MOBILE
         window.open(contactInformation.getBlogAddress())
       } else {
-        contactInformation.type = 'pc'
+        contactInformation.type = DeviceState.PC
         window.open(contactInformation.getBlogAddress())
       }
     },

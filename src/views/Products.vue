@@ -156,6 +156,7 @@
 import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
+import { DeviceState } from '@/assets/js/enums/DeviceState'
 
 let contactInformation
 let matchMedia
@@ -224,9 +225,9 @@ export default {
   methods: {
     judgeResolution() {
       if (matchMedia.isMobile) {
-        contactInformation.type = 'mobile'
+        contactInformation.type = DeviceState.MOBILE
       } else {
-        contactInformation.type = 'pc'
+        contactInformation.type = DeviceState.PC
       }
     },
     goToWindowPage() {

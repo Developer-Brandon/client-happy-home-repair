@@ -49,6 +49,7 @@
 import { EventBus } from '@/assets/js/plugin/eventBus'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
+import { DeviceState } from '@/assets/js/enums/DeviceState'
 
 let matchMedia
 let contactInformation
@@ -73,8 +74,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      // 1. Below code doesn't work ...
-      // $('.active-logo').addClass('inject-lazy-hover')
+    // 1. Below code doesn't work ...
+    // $('.active-logo').addClass('inject-lazy-hover')
 
       // 2. Below code doesn't work too ...
       // $('.active-logo').hover(
@@ -86,16 +87,16 @@ export default {
       //   },
       // )
 
-      // I have to fix CSS HOVER effect doesn't work after animation execute
+    // I have to fix CSS HOVER effect doesn't work after animation execute
     })
   },
   methods: {
     goToNaverBlog() {
       if (matchMedia.isMobile) {
-        contactInformation.type = 'mobile'
+        contactInformation.type = DeviceState.MOBILE
         window.open(contactInformation.getBlogAddress())
       } else {
-        contactInformation.type = 'pc'
+        contactInformation.type = DeviceState.PC
         window.open(contactInformation.getBlogAddress())
       }
     },
@@ -154,7 +155,7 @@ export default {
         }
     }
 
-    // @Class
+    // @Classes
     .main-banner {
         width: 100%;
         max-width: $screen-desktop;

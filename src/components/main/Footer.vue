@@ -114,7 +114,7 @@
               />
             </div>
           </div>
-          <hhr-clear-both></hhr-clear-both>
+          <hhr-clear-both />
           <hhr-divider
             height="0.5"
             color="$hhr-deep-gray"
@@ -131,7 +131,9 @@
                   href="tel:01090185553"
                 >전화상담 / {{ getCommonPhoneNumber() }}</a>
               </li>
-              <li>리모델링 전문 <span class="font-bold">{{ getCommonCompanyNameWithSpace() }}</span>에 문의해보세요</li>
+              <li>
+                리모델링 전문 <span class="font-bold">{{ getCommonCompanyNameWithSpace() }}</span>에 문의해보세요
+              </li>
             </ul>
             <caption class="copyright mobile-visible-block-only">
               Copyright©DKStudio
@@ -141,7 +143,7 @@
               아리따글꼴을 사용하여 디자인 되었습니다.
             </caption>
           </div>
-          <hhr-clear-both></hhr-clear-both>
+          <hhr-clear-both />
         </div>
       </div>
     </div>
@@ -153,6 +155,7 @@ import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import HhrDivider from '@/components/util/HhrDivider.vue'
+import { DeviceState } from '@/assets/js/enums/DeviceState'
 
 let contactInformation
 let matchMedia
@@ -172,23 +175,26 @@ export default {
       matchMedia = new MatchMedia()
     },
     goInstagram() {
+    // TODO: 인스타그램 개설 후 링크 삽입 예정
     },
     goNaverBlog() {
       if (matchMedia.isMobile) {
-        contactInformation.type = 'mobile'
+        contactInformation.type = DeviceState.MOBILE
         window.open(contactInformation.getBlogAddress())
       } else {
-        contactInformation.type = 'pc'
+        contactInformation.type = DeviceState.PC
         window.open(contactInformation.getBlogAddress())
       }
     },
     goKakaotalkChannel() {
+    // TODO: 카카오 채널 개설 후 링크 삽입 예정
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+    // @Util
     .email-align {
         display: block;
         text-align: right;
@@ -199,6 +205,7 @@ export default {
         }
     }
 
+    // @Classes
     .footer {
         width: 100%;
         background-color: $hhr-gray;
@@ -251,17 +258,17 @@ export default {
                         }
                     }
                     &__copyright {
-                      position: absolute;
-                      bottom: 25px;
-                      font-size: 10px;
-                      color: $hhr-deep-gray;
-                      letter-spacing: 2px;
+                        position: absolute;
+                        bottom: 25px;
+                        font-size: 10px;
+                        color: $hhr-deep-gray;
+                        letter-spacing: 2px;
                     }
                     &__clarify-font-copyright {
-                      position: absolute;
-                      bottom: 0;
-                      font-size: 8pt;
-                      color: $hhr-deep-gray;
+                        position: absolute;
+                        bottom: 0;
+                        font-size: 8pt;
+                        color: $hhr-deep-gray;
                     }
                 }
             }

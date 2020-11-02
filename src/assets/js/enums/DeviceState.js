@@ -1,4 +1,4 @@
-export const DeviceType = Object.freeze({
+export const DeviceState = Object.freeze({
   PC: {
     name: 'pc',
     value: 1,

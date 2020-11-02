@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    // @Class
+    // @Classes
     .announce-call-information {
         position: fixed;
         z-index: 1;

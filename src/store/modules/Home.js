@@ -2,11 +2,13 @@ const state = () => ({
   blogListViewState: false,
   blogProductsList: [],
   whetherCollectionOfPersonal: false,
+  collectionOfPersonalInformation: '1.준비중입니다.<br />2.준비중입니다.<br />3.준비중입니다.<br />4.준비중입니다.<br />5.준비중입니다.<br />6.준비중입니다.<br />7.준비중입니다.<br />8.준비중입니다.<br />9.준비중입니다.<br />10.준비중입니다.',
 })
 const getters = {
   blogListViewState: (state) => state.blogListViewState,
   blogProdctList: (state) => state.blogProductsList,
   whetherCollectionOfPersonal: (state) => state.whetherCollectionOfPersonal,
+  collectionOfPersonalInformation: (state) => state.collectionOfPersonalInformation,
 }
 const mutations = {
   setBlogListViewState(state, params) {
@@ -17,6 +19,9 @@ const mutations = {
   },
   privacyGuidanceAgreement(state, params) {
     state.whetherCollectionOfPersonal = params.whetherCollectionOfPersonal
+  },
+  setAnnouncePersonalInformationGuidance(state, params) {
+    state.collectionOfPersonalInformation = params.collectionOfPersonalInformation
   },
 }
 const actions = {
@@ -61,6 +66,10 @@ const actions = {
   }),
   SET_PRIVACY_GUIDANCE_AGREEMENT: ({ commit }, params) => new Promise((resolve) => {
     commit('privacyGuidanceAgreement', params)
+    resolve()
+  }),
+  SET_PERSONAL_INFO_GUIDANCE: ({ commit }, params) => new Promise((resolve) => {
+    commit('setAnnouncePersonalInformationGuidance', params)
     resolve()
   }),
 }
