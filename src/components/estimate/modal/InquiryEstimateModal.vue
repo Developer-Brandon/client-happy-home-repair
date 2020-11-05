@@ -89,7 +89,7 @@
                       >{{ item.title }}
                       </option>
                     </select>
-                    <up-and-down-arrow />
+                    <up-and-down-arrow :toggle="!!values.locate" />
                   </div>
                 </label>
                 <ul class="locate-type-announcement-list">
@@ -128,7 +128,7 @@
                       >{{ item.title }}
                       </option>
                     </select>
-                    <up-and-down-arrow />
+                    <up-and-down-arrow :toggle="!!values.estimateType" />
                   </div>
                 </label>
                 <ul class="estimate-type-announcement-list">
@@ -463,6 +463,9 @@ export default {
       this.values.booleans.isClientAgreeCollectPersonalInfo = false
       const whetherCollectionOfPersonal = this.values.booleans.collectPersonalInformation
       this.$store.dispatch('home/SET_PRIVACY_GUIDANCE_AGREEMENT', { whetherCollectionOfPersonal })
+        .then(() => {
+          this.initialValues()
+        })
     },
     pressNextButton() {
       if (this.values.booleans.collectPersonalInformation) {
@@ -593,7 +596,7 @@ export default {
                             .hhr-labeling {
                                 .wrap-local-type {
                                     position: relative;
-                                    width: 120px;
+                                    width: 130px;
                                     text-align: center;
                                     float: right;
                                     clear: right;
@@ -610,7 +613,7 @@ export default {
                                 }
                                 .wrap-estimate-type {
                                     position: relative;
-                                    width: 120px;
+                                    width: 130px;
                                     text-align: center;
                                     float: right;
                                     clear: right;

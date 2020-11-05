@@ -1,16 +1,16 @@
 <template>
   <div>
-    <!-- TODO: gray button 디자인 후 src 삽입-->
     <img
       v-if="!toggle"
       class="up-and-down-arrow-icon"
       alt="위아래화살표아이콘"
+      src="@/assets/images/icons/up-and-down-icon-gray.png"
     />
     <img
       v-else-if="toggle"
       class="up-and-down-arrow-icon"
       alt="위아래화살표아이콘"
-      src="@/assets/images/icons/icon-up-and-down-arrow.png"
+      src="@/assets/images/icons/up-and-down-icon-black.png"
     />
   </div>
 </template>
@@ -26,3 +26,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.up-and-down-arrow-icon {
+    width: 14px !important;
+    height: 16px !important;
+}
+</style>
