@@ -9,18 +9,22 @@
       <router-view />
       <hhr-footer />
     </div>
+    <hhr-simple-modal ref="hhrSimpleModal" />
   </div>
 </template>
 
 <script>
+import { EventBus } from '@/assets/js/plugin/eventBus'
 import hhrHeader from '@/components/main/Header.vue'
 import hhrFooter from '@/components/main/Footer.vue'
+import HhrSimpleModal from '@/components/util/HhrSimpleModal.vue'
 
 export default {
   name: 'App',
   components: {
     hhrHeader,
     hhrFooter,
+    HhrSimpleModal,
   },
   data() {
     return {
@@ -37,6 +41,9 @@ export default {
     modalLifeCycle() {
       return this.$store.getters['app/getModalState']
     },
+  },
+  mounted() {
+    EventBus.$on('callHhrSimpleModal', (message) => this.$refs.hhrSimpleModal.show(message))
   },
   methods: {
     noScroll() {

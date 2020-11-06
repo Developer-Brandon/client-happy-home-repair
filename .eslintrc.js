@@ -53,6 +53,7 @@ module.exports = {
 		'vue/no-v-html': 'off',
 		'no-else-return': 'off',
 		'no-alert': 'off',
+		'consistent-return': 'off',
 		'no-shadow': ['error', {'allow': ['state']}],
 		'no-console': process.env.VUE_APP_PHASE === 'production' ? 'warn' : 'off',
 		'no-debugger': process.env.VUE_APP_PHASE === 'production' ? 'warn' : 'off',

@@ -85,8 +85,8 @@
                         v-for="(item, index) in values.locationList"
                         :key="index"
                         class="hhr-option"
-                        :value="item.value"
-                      >{{ item.title }}
+                        :value="item.name"
+                      >{{ item.name }}
                       </option>
                     </select>
                     <up-and-down-arrow :toggle="!!values.locate" />
@@ -124,8 +124,8 @@
                         v-for="(item, index) in values.estimateList"
                         :key="index"
                         class="hhr-option"
-                        :value="item.value"
-                      >{{ item.title }}
+                        :value="item.name"
+                      >{{ item.name }}
                       </option>
                     </select>
                     <up-and-down-arrow :toggle="!!values.estimateType" />
@@ -177,7 +177,21 @@
                   <br class="mobile-visible-block-only" />
                   <span class="hhr-labeling-subtitle">문자로 따로 주셔도 됩니다.</span>
                   <br />
-                  <p style="text-align:right;margin-bottom:7px;">준비중인 기능입니다.</p>
+                  <div class="wrap-attach-explain-and-button">
+                    <input
+                      ref="makeFileInput"
+                      type="file"
+                      style="display:none;"
+                      accept=".jpg, .jpeg, .png, .pdf"
+                      @change="fileIsPicked"
+                    />
+                    <p class="explain">{{ values.attachedFile.name }}</p>
+                    <button
+                      class="hhr-negative-reversal-button attach-button"
+                      @click.stop="fileAttach($refs[`makeFileInput`])"
+                    >선택하기
+                    </button>
+                  </div>
                   <ul class="email-announcement-list">
                     <li
                       v-show="values.emailHasInserted && !values.isEmailFormCorrect"
@@ -197,7 +211,6 @@
                     class="hhr-input tel"
                     type="tel"
                     maxlength="11"
-                    @blur="validatePhoneNumber"
                     @keyup="insertPhoneNumber"
                   />
                   <ul class="tel-announcement-list">
@@ -214,8 +227,6 @@
                   </ul>
                 </label>
                 <br />
-                <!-- TODO: 이미지 업로드 관련되서는, 어떻게 처리할 건지 먼저 생각해보 -->
-                <!--<div></div>-->
               </div>
               <div class="group-of-buttons">
                 <button
@@ -226,7 +237,7 @@
                 </button>
                 <button
                   class="hhr-negative-reversal-button submit"
-                  @click.prevent="closeModal"
+                  @click.prevent="submit"
                 >
                   제출
                 </button>
@@ -240,21 +251,15 @@
 </template>
 
 <script>
-
-// TODO: Database table 설계하기
-// 1.지역
-// 2.문의유형
-// 3.문의상세
-// 4.이메일
-// 5.연락처
-// 6.사진첨부
-
+import { EventBus } from '@/assets/js/plugin/eventBus'
 import HhrNetwork from '@/assets/js/network/HhrNetwork'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import UtilBox from '@/assets/js/validation/utilBox'
 import UpAndDownArrow from '@/components/util/icons/UpAndDownIcon.vue'
 import { DeviceState } from '@/assets/js/enums/DeviceState'
+import { EstimateLocalState } from '@/assets/js/enums/EstimateLocalState'
+import { EstimateState } from '@/assets/js/enums/EstimateState'
 
 let matchMedia
 let contactInformation
@@ -268,50 +273,8 @@ export default {
   data() {
     return {
       values: {
-        locationList: [
-          {
-            uid: 1,
-            title: '서울',
-            value: '서울',
-          },
-          {
-            uid: 2,
-            title: '인천',
-            value: '인천',
-          },
-          {
-            uid: 3,
-            title: '경기도',
-            value: '경기도',
-          },
-        ],
-        estimateList: [
-          {
-            uid: 1,
-            title: '친환경페인트',
-            value: '친환경페인트',
-          },
-          {
-            uid: 2,
-            title: '창호수리,방충망',
-            value: '창호수리,방충망',
-          },
-          {
-            uid: 3,
-            title: '문짝,문틀',
-            value: '문짝,문틀',
-          },
-          {
-            uid: 4,
-            title: '중문,포켓도어',
-            value: '중문,포켓도어',
-          },
-          {
-            uid: 5,
-            title: '환풍기,선반,건조대',
-            value: '환풍기,선반,건조대',
-          },
-        ],
+        locationList: [],
+        estimateList: [],
         locate: '',
         locateClicked: false,
         estimateType: '',
@@ -326,6 +289,8 @@ export default {
         phoneNumber: '',
         phoneNumberHasInserted: false,
         isPhoneNumberCorrect: false,
+        attachedFile: {},
+        attachedFileUid: '',
         check: {
           type: '',
           lifeCycle: false,
@@ -334,6 +299,10 @@ export default {
           collectPersonalInformation: false,
           isClientAgreeCollectPersonalInfo: false,
         },
+      },
+      enums: {
+        estimateState: EstimateState,
+        estimateLocalState: EstimateLocalState,
       },
     }
   },
@@ -385,17 +354,25 @@ export default {
     contactInformation = new ContactInformation()
     matchMedia = new MatchMedia()
     utilBox = new UtilBox()
+    this.makeEnumsToList()
   },
   methods: {
     callPersonalInfoPage() {
       window.open(`${HhrNetwork.getBaseUrl()}/privacy-information.html`)
+    },
+    makeEnumsToList() {
+      _.forEach(this.enums.estimateLocalState, (object) => {
+        this.values.locationList.push(object)
+      })
+      _.forEach(this.enums.estimateState, (object) => {
+        this.values.estimateList.push(object)
+      })
     },
     callCollectOfPrivacyInfo() {
       return new Promise((resolve, reject) => {
         HhrNetwork.getLocalFile('privacy-information')
           .then((response) => {
             const collectionOfPersonalInformation = response.data
-            console.log(collectionOfPersonalInformation)
             this.$store.dispatch('home/SET_PERSONAL_INFO_GUIDANCE', { collectionOfPersonalInformation })
               .then(() => {
                 resolve()
@@ -428,15 +405,14 @@ export default {
         this.values.isEmailFormCorrect = false
       }
     },
-    insertPhoneNumber(event) {
-      this.values.phoneNumberHasInserted = true
-      this.values.phoneNumber = utilBox.convertNumber(event.target.value)
-      this.validatePhoneNumber()
-    },
     validatePhoneNumber() {
       utilBox.type = 'phoneNumber'
       utilBox.value = this.values.phoneNumber
       this.values.isPhoneNumberCorrect = utilBox.validatePhoneNumber
+    },
+    insertPhoneNumber() {
+      this.values.phoneNumberHasInserted = true
+      this.validatePhoneNumber()
     },
     show(...params) {
       const { type } = params
@@ -452,33 +428,108 @@ export default {
       this.initialValues()
       this.values.check.lifeCycle = false
     },
-    submit() {
-      this.closeModal()
-      if (!this.values.locate) {
-        this.values.locateClicked = true
+    validation() {
+      return new Promise((resolve, reject) => {
+        if (!this.values.locate) {
+          this.values.locateClicked = true
+          reject(new Error('locate validation'))
+        } else if (!this.values.estimateType) {
+          this.values.estimateTypeClicked = true
+          reject(new Error('estimate validation'))
+        } else {
+          resolve()
+        }
+      })
+    },
+    wrapValuesToJson() {
+      return {
+        estimateLocate: this.values.locate,
+        estimateType: this.values.estimateType,
+        estimateDetail: this.values.estimateDetail,
+        attachedFileUid: this.values.attachedFileUid,
+        phoneNumber: this.values.phoneNumber,
       }
+    },
+    getSendValues() {
+    // TODO: File을 upload 먼저하고, 응답해서 받은 documentsUid 를 가져다가 그것만 최종 제출하는 것으로 개발
+      if (this.values.attachedFile.length > 0) {
+        this.uploadFile(this.values.attachedFile)
+          .then(() => this.wrapValuesToJson())
+          .catch((error) => EventBus.$emit('callHhrSimpleModal', `알수없는 오류로 인하여\n제출에 실패하였습니다\n${error.response.data.data.message}`))
+      } else {
+        return this.wrapValuesToJson()
+      }
+    },
+    submit() {
+      this.validation()
+        .then(() => {
+          const estateValues = this.getSendValues()
+          this.$store.dispatch('home/SEND_ESTATE_VALUES', estateValues)
+            .then(() => {
+              this.closeModal()
+              EventBus.$emit('callHhrSimpleModal', '제출이 완료되었습니다!')
+            })
+            .catch((response) => EventBus.$emit('callHhrSimpleModal', response))
+        })
+        .catch((error) => {
+          // 아래는 메세지 띄우면 안됩니다.
+          console.log(error)
+        })
     },
     moveToBeforeState() {
       this.values.booleans.collectPersonalInformation = false
       this.values.booleans.isClientAgreeCollectPersonalInfo = false
       const whetherCollectionOfPersonal = this.values.booleans.collectPersonalInformation
       this.$store.dispatch('home/SET_PRIVACY_GUIDANCE_AGREEMENT', { whetherCollectionOfPersonal })
-        .then(() => {
-          this.initialValues()
-        })
+        .then(() => this.initialValues())
     },
     pressNextButton() {
       if (this.values.booleans.collectPersonalInformation) {
         this.values.booleans.isClientAgreeCollectPersonalInfo = true
       } else {
         this.values.booleans.isClientAgreeCollectPersonalInfo = false
-        window.alert('약관동의 해주셔야 문의가 가능합니다.\n고객님의 개인정보는 전화상담 이외의 어떠한 용도로도 사용되지 않습니다.')
+        EventBus.$emit('callHhrSimpleModal', '약관동의 해주셔야 문의가 가능합니다.\n고객님의 개인정보는 전화상담 이외의 어떠한 용도로도 사용되지 않습니다.')
       }
     },
     toggleCollectPersonalInformation() {
       this.values.booleans.collectPersonalInformation = !this.values.booleans.collectPersonalInformation
       const whetherCollectionOfPersonal = this.values.booleans.collectPersonalInformation
       this.$store.dispatch('home/SET_PRIVACY_GUIDANCE_AGREEMENT', { whetherCollectionOfPersonal })
+    },
+    uploadFile(file) {
+      return new Promise((resolve) => {
+        this.$store.dispatch('home/SEND_FILE_TO_SERVER', { file })
+          .then(() => resolve())
+          .catch((error) => EventBus.$emit('callHhrSimpleModal', error))
+      })
+    },
+    fileIsPicked(event) {
+      const { files } = event.target
+      if (files[0] !== undefined) {
+        utilBox.type = 'fileSize'
+        utilBox.value = files[0].size
+        if (utilBox.validationFileSize) {
+          utilBox.type = 'fileType'
+          utilBox.value = files[0].type
+          if (utilBox.validationFileType) {
+            if (files[0].name.lastIndexOf('.') <= 0) return
+            const fr = new FileReader()
+            fr.readAsDataURL(files[0])
+            fr.addEventListener('load', () => {
+              // eslint-disable-next-line
+              this.values.attachedFile = files[0]
+              console.log(this.values.attachedFile)
+            })
+          } else {
+            EventBus.$emit('callHhrSimpleModal', '확장자 JPG, PNG, PDF파일만\n등록할 수 있습니다')
+          }
+        } else {
+          EventBus.$emit('callHhrSimpleModal', '최대 10MB까지\n등록할 수 있습니다')
+        }
+      }
+    },
+    fileAttach(fileRef) {
+      fileRef.click()
     },
     initialValues() {
       this.values.locate = ''
@@ -497,6 +548,7 @@ export default {
       this.values.isPhoneNumberCorrect = false
       this.values.booleans.collectPersonalInformation = false
       this.values.booleans.isClientAgreeCollectPersonalInfo = false
+      this.values.attachedFile = {}
       const whetherCollectionOfPersonal = false
       this.$store.dispatch('home/SET_PRIVACY_GUIDANCE_AGREEMENT', { whetherCollectionOfPersonal })
     },
@@ -638,6 +690,34 @@ export default {
                                 }
                                 .email-announcement-list {
                                     clear: both;
+                                }
+                                .wrap-attach-explain-and-button {
+                                    float: right;
+                                    clear: right;
+                                    margin-bottom: 7px;
+                                    @media (max-width: $screen-mobile) {
+                                        width: 100%;
+                                    }
+                                    .explain {
+                                        display: inline-block;
+                                        margin-right: 8px;
+                                        @media (max-width: $screen-mobile) {
+                                            display: block;
+                                            margin-bottom: 0;
+                                            padding: 10px;
+                                        }
+                                    }
+                                    .attach-button {
+                                        display: inline-block;
+                                        width: 80px;
+                                        height: 35px;
+                                        @media (max-width: $screen-mobile) {
+                                            display: inline-block;
+                                            width: 100%;
+                                            height: 50px;
+                                            margin-bottom: 10px;
+                                        }
+                                    }
                                 }
                                 .tel {
                                     width: 60%;

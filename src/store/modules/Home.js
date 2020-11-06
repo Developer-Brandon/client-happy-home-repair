@@ -72,6 +72,18 @@ const actions = {
     commit('setAnnouncePersonalInformationGuidance', params)
     resolve()
   }),
+  // eslint-disable-next-line
+ SEND_FILE_TO_SERVER: ({ commit }, params) => new Promise((resolve) => {
+  // TODO: file 업로드 api가 만들어 진 후 개발
+    // commit('', params)
+    resolve()
+  }),
+  // eslint-disable-next-line
+ SEND_ESTATE_VALUES: ({ commit }, params) => new Promise((resolve) => {
+  // TODO: estate 제출 api가 만들어 진 후 개발
+    // commit('', params)
+    resolve()
+  }),
 }
 export default {
   namespaced: true,

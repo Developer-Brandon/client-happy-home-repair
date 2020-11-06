@@ -80,4 +80,29 @@ export default class UtilBox {
     }
     return false
   }
+
+  get validationFileSize() {
+    if (this._type === 'fileSize') {
+      if (this._value > 10000000) {
+        return false
+      } else {
+        return true
+      }
+    }
+    return false
+  }
+
+  get validationFileType() {
+    if (this._type === 'fileType') {
+      if (this._value === 'image/png'
+          || this._value === 'application/pdf'
+          || this._value === 'image/jpg'
+          || this._value === 'image/jpeg') {
+        return true
+      } else {
+        return false
+      }
+    }
+    return false
+  }
 }
