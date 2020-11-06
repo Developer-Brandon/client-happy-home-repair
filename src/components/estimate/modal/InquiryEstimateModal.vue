@@ -443,6 +443,7 @@ export default {
     },
     wrapValuesToJson() {
       return {
+        agreement: this.values.booleans.collectPersonalInformation,
         estimateLocate: this.values.locate,
         estimateType: this.values.estimateType,
         estimateDetail: this.values.estimateDetail,
@@ -455,7 +456,8 @@ export default {
       if (this.values.attachedFile.length > 0) {
         this.uploadFile(this.values.attachedFile)
           .then(() => this.wrapValuesToJson())
-          .catch((error) => EventBus.$emit('callHhrSimpleModal', `알수없는 오류로 인하여\n제출에 실패하였습니다\n${error.response.data.data.message}`))
+          .catch((error) => EventBus.$emit('callHhrSimpleModal',
+            `알수없는 오류로 인하여\n제출에 실패하였습니다\n${error.response.data.data.message}`))
       } else {
         return this.wrapValuesToJson()
       }
