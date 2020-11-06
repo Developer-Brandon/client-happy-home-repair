@@ -1,7 +1,7 @@
 <template>
   <transition name="component-fade">
     <div
-      v-show="stateOfBlogListAreCalled"
+      v-show="values.lifeCycle"
       class="all-products-announce"
     >
       <div class="all-products-announce__inner">
@@ -23,10 +23,31 @@
         </p>
         <div class="all-products-list">
           <div class="all-products-list__inner">
-            <div class="ready-page">
-              <p>준비중인 기능입니다.</p>
+            <div
+              v-if="values.postingsAreExisting"
+              class="call-posting-success"
+            >
+              <img
+                v-for="(product, index) in blogProductList"
+                :key="index"
+                class="posting-image"
+                :class="{'except-right-margin': judgeProductsCount(product.uid)}"
+                :src="product.imageUrl"
+                :alt="product.title"
+                @click="goToBlog(product.targetUrl)"
+              />
+            </div>
+            <div
+              v-else-if="!values.postingsAreExisting"
+              class="call-posting-failed"
+            >
+              <p>포스팅이 존재하지 않습니다.</p>
             </div>
           </div>
+          <span
+            class="view-more-posting"
+            @click="goToBlog(getBlogMainUrl())"
+          >더 많은 포스팅 보러가기</span>
         </div>
       </div>
     </div>
@@ -35,25 +56,77 @@
 
 <script>
 import HhrDivider from '@/components/util/HhrDivider.vue'
+import MatchMedia from '@/assets/js/resolution/matchMedia'
+
+let matchMedia
 
 export default {
   name: 'IntroduceAllProducts',
   components: {
     HhrDivider,
   },
+  data() {
+    return {
+      values: {
+        lifeCycle: false,
+        postingsAreExisting: false,
+      },
+    }
+  },
   computed: {
     stateOfBlogListAreCalled() {
       return this.$store.getters['home/blogListViewState']
+    },
+    blogProductList() {
+      return this.$store.getters['home/blogProductList']
+    },
+  },
+  mounted() {
+    matchMedia = new MatchMedia()
+    let limit
+    if (matchMedia.isMobile) {
+      limit = 10
+    } else {
+      limit = -1
+    }
+    this.values.lifeCycle = this.callPostings({ limit })
+      .then(() => true)
+      .catch(() => false)
+  },
+  methods: {
+    callPostings(params) {
+      return new Promise((resolve) => {
+        this.$store.dispatch('home/CALL_BLOG_PRODUCT_LIST', params)
+          .then(() => {
+            this.values.postingsAreExisting = true
+            resolve()
+          })
+      })
+    },
+    goToBlog(blogUrl) {
+      window.open(blogUrl)
+    },
+    judgeProductsCount(productUid) {
+      if (matchMedia.isMobile) {
+        return productUid % 2 === 0
+      } else {
+        return productUid % 5 === 0
+      }
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+    // @Local Utils
+    .except-right-margin {
+        margin-right: 0 !important;
+    }
+
     // @Class
     .all-products-announce {
         padding: 50px 0;
-        height: 600px;
+        height: auto;
         @media (max-width: $screen-mobile) {
             padding: 40px 0;
         }
@@ -86,14 +159,38 @@ export default {
             }
             .all-products-list {
                 &__inner {
-                    // 네이버 블로그에서 사진과 글귀
-                    /*width: 580px;*/
                     width: 100%;
-                    height: 100%;
-                    .ready-page {
+                    height: auto;
+                    .call-posting-success {
+                      margin: 0 auto;
+                      padding: 40px 0 20px 0;
+                      max-width: 900px;
+                      @media (max-width: $screen-mobile) {
+                        max-width: 290px;
+                      }
+                      .posting-image {
+                        cursor: pointer;
+                        width: 170px;
+                        height: 170px;
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                        opacity: 0.5;
+                        transition: 0.3s;
+                        border-radius: 5px;
+                        &:hover {
+                          opacity: 1;
+                        }
+                        @media (max-width: $screen-mobile) {
+                          width: 135px;
+                          height: 135px;
+                        }
+                      }
+                    }
+                    .call-posting-failed {
                         margin: 0 auto;
                         p {
                             margin-top: 100px;
+                            padding-bottom: 20px;
                             text-align: center;
                             font-size: 30px;
                             @media (max-width: $screen-mobile) {
@@ -102,6 +199,18 @@ export default {
                         }
                     }
                 }
+              .view-more-posting {
+                display: block;
+                font-size: 20px;
+                text-align: center;
+                transition: 0.3s;
+                margin-bottom: 55px;
+                &:hover {
+                  cursor: pointer;
+                  color: $hhr-blue;
+                  font-weight: 700;
+                }
+              }
             }
         }
     }

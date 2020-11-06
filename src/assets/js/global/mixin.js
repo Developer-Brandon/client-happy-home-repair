@@ -27,5 +27,8 @@ export default {
     getDeveloperEmail() {
       return 'lovefinance@naver.com'
     },
+    getBlogMainUrl() {
+      return 'https://blog.naver.com/lain4444'
+    },
   },
 }
