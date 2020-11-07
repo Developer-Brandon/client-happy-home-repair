@@ -88,7 +88,7 @@ export default {
         height: 100%;
         &__inner {
             width: 100%;
-            height: 450px;
+            height: 400px;
             margin-bottom: 100px;
             @media (max-width: $screen-mobile) {
                 height: 100%;
@@ -104,6 +104,7 @@ export default {
                     height: 100%;
                 }
                 &__left {
+                    display:none;
                     width: 300px;
                     height: 350px;
                     float: left;
@@ -115,9 +116,11 @@ export default {
                     }
                 }
                 &__right {
-                    width: calc(100% - 300px);
+                    width: 100%;
                     height: 350px;
-                    float: right;
+                    padding-top: 40px;
+                    padding-bottom: 40px;
+                    float: left;
                     @media (max-width: $screen-mobile) {
                         padding-top: 25px;
                         width: 100%;
@@ -126,15 +129,16 @@ export default {
                     }
                     .headline {
                         padding-left: 25px;
-                        font-size: 20px;
+                        font-size: 35px;
                         @media (max-width: $screen-mobile) {
                             padding-left: 0;
                             clear: both;
                         }
                     }
                     .description {
-                        padding-left: 25px;
-                        @media (max-width: $screen-mobile) {
+                      padding-left: 35px;
+                      font-size: 25px;
+                      @media (max-width: $screen-mobile) {
                             padding-left: 0;
                             clear: both;
                         }
