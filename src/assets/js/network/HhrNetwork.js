@@ -33,6 +33,32 @@ class HhrNetwork {
         })
     })
   }
+
+  getBlogList(offset, limit) {
+    return new Promise((resolve, reject) => {
+      axiosInstance.get(`/blog/list?${offset}&${limit}`)
+        .then((response) => {
+          resolve(response)
+        }).catch((error) => {
+          reject(error)
+        })
+    })
+  }
+
+  getNoticeList(offset, limit) {
+    return new Promise((resolve, reject) => {
+      axiosInstance.get(`/notice/list?${offset}&${limit}`)
+        .then((response) => {
+          resolve(response)
+        }).catch((error) => {
+          reject(error)
+        })
+    })
+  }
+
+  postFileUpload() {}
+
+  postEstimateValues() {}
 }
 
 const network = new HhrNetwork()

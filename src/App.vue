@@ -10,6 +10,7 @@
       <hhr-footer />
     </div>
     <hhr-simple-modal ref="hhrSimpleModal" />
+    <hhr-simple-confirm-modal ref="hhrSimpleConfirmModal" />
   </div>
 </template>
 
@@ -18,6 +19,8 @@ import { EventBus } from '@/assets/js/plugin/eventBus'
 import hhrHeader from '@/components/main/Header.vue'
 import hhrFooter from '@/components/main/Footer.vue'
 import HhrSimpleModal from '@/components/util/HhrSimpleModal.vue'
+import HhrSimpleConfirmModal from '@/components/util/HhrSimpleConfirmModal.vue'
+import HhrNetwork from '@/assets/js/network/HhrNetwork'
 
 export default {
   name: 'App',
@@ -25,6 +28,7 @@ export default {
     hhrHeader,
     hhrFooter,
     HhrSimpleModal,
+    HhrSimpleConfirmModal,
   },
   data() {
     return {
@@ -44,6 +48,8 @@ export default {
   },
   mounted() {
     EventBus.$on('callHhrSimpleModal', (message) => this.$refs.hhrSimpleModal.show(message))
+    EventBus.$on('callHhrSimpleConfirmModal', (type, message) => this.$refs.hhrSimpleConfirmModal.show(type, message))
+    EventBus.$on('callAgreementPageAtTheNewTab', () => window.open(`${HhrNetwork.getBaseUrl()}/privacy-information.html`))
   },
   methods: {
     noScroll() {

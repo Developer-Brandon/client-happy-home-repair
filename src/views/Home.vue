@@ -22,12 +22,8 @@ export default {
   mounted() {
     // TODO: Must refactoring promise with Async, Await ....
     this.$nextTick(() => {
-      this.$store.dispatch('home/SET_BLOG_LIST_VIEW_STATE', { blogListViewState: false })
+      this.$store.dispatch('home/CALL_BLOG_PRODUCT_LIST')
         .then(() => {
-          this.$store.dispatch('home/CALL_BLOG_PRODUCT_LIST')
-            .then(() => {
-              this.$store.dispatch('home/SET_BLOG_LIST_VIEW_STATE', { blogListViewState: true })
-            })
         })
     })
   },

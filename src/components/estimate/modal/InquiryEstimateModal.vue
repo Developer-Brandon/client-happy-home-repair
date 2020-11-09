@@ -260,6 +260,7 @@ import UpAndDownArrow from '@/components/util/icons/UpAndDownIcon.vue'
 import { DeviceState } from '@/assets/js/enums/DeviceState'
 import { EstimateLocalState } from '@/assets/js/enums/EstimateLocalState'
 import { EstimateState } from '@/assets/js/enums/EstimateState'
+import { SimpleConfirmModalState } from '@/assets/js/enums/SimpleConfirmModalState'
 
 let matchMedia
 let contactInformation
@@ -358,7 +359,11 @@ export default {
   },
   methods: {
     callPersonalInfoPage() {
-      window.open(`${HhrNetwork.getBaseUrl()}/privacy-information.html`)
+      EventBus.$emit(
+        'callHhrSimpleConfirmModal',
+        SimpleConfirmModalState.URL,
+        '약관을 새 창에서 띄우시겠습니까?',
+      )
     },
     makeEnumsToList() {
       _.forEach(this.enums.estimateLocalState, (object) => {
@@ -519,7 +524,7 @@ export default {
             fr.readAsDataURL(files[0])
             fr.addEventListener('load', () => {
               // eslint-disable-next-line
-              this.values.attachedFile = files[0]
+        this.values.attachedFile = files[0]
               console.log(this.values.attachedFile)
             })
           } else {

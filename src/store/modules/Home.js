@@ -20,10 +20,6 @@ const mutations = {
   },
 }
 const actions = {
-  SET_BLOG_LIST_VIEW_STATE: ({ commit }, params) => new Promise((resolve) => {
-    commit('setBlogListViewState', params)
-    resolve()
-  }),
   CALL_BLOG_PRODUCT_LIST: ({ commit }, params) => new Promise((resolve) => {
     // TODO: server 단 cron tab 관련 작업 후 연동
     // 이미지 제목, 이미지 주소, 이동 주소
@@ -117,13 +113,13 @@ const actions = {
   }),
   // eslint-disable-next-line
  SEND_FILE_TO_SERVER: ({commit}, params) => new Promise((resolve) => {
-  // TODO: file 업로드 api가 만들어 진 후 개발
+  // TODO: file 업로드 api가 만들어 진 후 연동
   // commit('', params)
     resolve()
   }),
   // eslint-disable-next-line
  SEND_ESTATE_VALUES: ({commit}, params) => new Promise((resolve) => {
-  // TODO: estate 제출 api가 만들어 진 후 개발
+  // TODO: estate 제출 api가 만들어 진 후 연동
   // commit('', params)
     resolve()
   }),

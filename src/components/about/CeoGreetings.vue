@@ -50,10 +50,6 @@ export default {
     HhrPageTitle,
   },
   computed: {
-    // TODO: 사진이 확정되고 나면 S3에서 참조하게끔 개발
-    ceoPicAddress() {
-      return this.$store.getters['about/ceoGreetingAddress']
-    },
     ceoGreetingTitle() {
       return this.$store.getters['about/ceoGreetingTitle']
     },
@@ -104,7 +100,7 @@ export default {
                     height: 100%;
                 }
                 &__left {
-                    display:none;
+                    display: none;
                     width: 300px;
                     height: 350px;
                     float: left;
@@ -132,14 +128,16 @@ export default {
                         font-size: 35px;
                         @media (max-width: $screen-mobile) {
                             padding-left: 0;
+                            font-size: 30px;
                             clear: both;
                         }
                     }
                     .description {
-                      padding-left: 35px;
-                      font-size: 25px;
-                      @media (max-width: $screen-mobile) {
+                        padding-left: 35px;
+                        font-size: 25px;
+                        @media (max-width: $screen-mobile) {
                             padding-left: 0;
+                            font-size: 20px;
                             clear: both;
                         }
                     }

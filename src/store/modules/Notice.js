@@ -58,6 +58,7 @@ const mutations = {
 }
 const actions = {
   CALL_NOTICE_LIST: ({ commit }, params) => new Promise((resolve) => {
+    // TODO: 게시판 API 완성 후 연동
     commit('setNoticeList', params)
     resolve()
   }),

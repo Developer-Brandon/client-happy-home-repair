@@ -2,10 +2,10 @@
   <transition name="page-fade">
     <section
       v-show="values.check.lifeCycle"
-      class="hhr-simple-modal"
+      class="hhr-simple-confirm-modal"
     >
-      <div class="hhr-simple-modal__inner">
-        <div class="hhr-simple-modal__inner__contents">
+      <div class="hhr-simple-confirm-modal__inner">
+        <div class="hhr-simple-confirm-modal__inner__contents">
           <div
             class="wrap-image"
           >
@@ -27,6 +27,12 @@
             class="add-button"
           >
             <button
+              class="hhr-positive-reversal-button cancel"
+              @click.stop="cancel"
+            >
+              취소
+            </button>
+            <button
               class="hhr-negative-reversal-button confirm"
               @click.stop="confirm"
             >
@@ -40,14 +46,19 @@
 </template>
 
 <script>
+import { SimpleConfirmModalState } from '@/assets/js/enums/SimpleConfirmModalState'
+import { EventBus } from '@/assets/js/plugin/eventBus'
 
 export default {
-  name: 'HhrSimpleModal',
+  name: 'HhrSimpleConfirmModal',
   data() {
     return {
       values: {
         string: {
           message: '',
+        },
+        boolean: {
+          confirm: false,
         },
         check: {
           lifeCycle: false,
@@ -59,11 +70,17 @@ export default {
     close() {
       this.values.check.lifeCycle = false
     },
-    show(message) {
+    show(type, message) {
       this.values.check.lifeCycle = true
       this.values.string.message = message
     },
+    cancel() {
+      this.values.boolean.confirm = false
+      this.close()
+    },
     confirm() {
+      this.values.boolean.confirm = true
+      if (SimpleConfirmModalState.URL) EventBus.$emit('callAgreementPageAtTheNewTab')
       this.close()
     },
   },
@@ -73,11 +90,11 @@ export default {
 <style lang="scss" scoped>
     // @Local Utils
     .change-font-size-to-small {
-      font-size: 20px !important;
+        font-size: 20px !important;
     }
 
     // @Classes
-    .hhr-simple-modal {
+    .hhr-simple-confirm-modal {
         position: fixed;
         z-index: 1;
         left: 0;
@@ -108,7 +125,7 @@ export default {
             @media (max-width: $screen-mobile) {
                 width: 90%;
                 overflow-x: hidden;
-                height: 275px;
+                height: 315px;
             }
             &__contents {
                 position: relative;
@@ -135,6 +152,24 @@ export default {
                     }
                 }
               .add-button {
+                .cancel {
+                  position: absolute;
+                  bottom: 0;
+                  right: 130px;
+                  width: 120px;
+                  height: 45px;
+                  float: right;
+                  clear: right;
+                  @media (max-width: $screen-mobile) {
+                    position: relative;
+                    width: 100%;
+                    height: 50px;
+                    clear: both;
+                    bottom: auto;
+                    right: auto;
+                    margin-bottom: 10px;
+                  }
+                }
                 .confirm {
                   position: absolute;
                   bottom: 0;
@@ -144,9 +179,12 @@ export default {
                   float: right;
                   clear: right;
                   @media (max-width: $screen-mobile) {
+                    position: relative;
                     width: 100%;
                     height: 50px;
-                    margin-bottom: 10px;
+                    clear: both;
+                    bottom: auto;
+                    right: auto;
                   }
                 }
               }
