@@ -1,14 +1,14 @@
 export const EstimateLocalState = Object.freeze({
   SEOUL: {
-    name: '서울',
+    name: 'seoul',
     value: 1,
   },
   INCHEON: {
-    name: '인천',
+    name: 'incheon',
     value: 2,
   },
   GYEONGGIDO: {
-    name: '경기도',
+    name: 'gyeonggido',
     value: 3,
   },
 })
