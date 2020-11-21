@@ -73,7 +73,7 @@ export default {
 <style lang="scss" scoped>
     // @Local Utils
     .change-font-size-to-small {
-      font-size: 20px !important;
+      font-size: 18px !important;
     }
 
     // @Classes
@@ -130,7 +130,7 @@ export default {
                         color: $hhr-black;
                         font-size: 25px;
                         @media (max-width: $screen-mobile) {
-                            font-size: 18px;
+                            font-size: 15px !important;
                         }
                     }
                 }

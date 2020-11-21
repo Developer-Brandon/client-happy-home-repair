@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div
-      class="container"
+      class="container hhr-block-select"
       :class="{'removeWholeScroll':modalLifeCycle,'createWholeScroll':!modalLifeCycle ,
                'modal-has-opened':modalLifeCycle, 'modal-has-close':!modalLifeCycle}"
     >

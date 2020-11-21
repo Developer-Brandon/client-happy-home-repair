@@ -86,7 +86,7 @@
                         :key="index"
                         class="hhr-option"
                         :value="item.name"
-                      >{{ item.name }}
+                      >{{ item.description }}
                       </option>
                     </select>
                     <up-and-down-arrow :toggle="!!values.locate" />
@@ -125,7 +125,7 @@
                         :key="index"
                         class="hhr-option"
                         :value="item.name"
-                      >{{ item.name }}
+                      >{{ item.description }}
                       </option>
                     </select>
                     <up-and-down-arrow :toggle="!!values.estimateType" />
@@ -188,7 +188,7 @@
                     <p class="explain">{{ values.attachedFile.name }}</p>
                     <button
                       class="hhr-negative-reversal-button attach-button"
-                      @click.stop="fileAttach($refs[`makeFileInput`])"
+                      @click.prevent="fileAttach($refs[`makeFileInput`])"
                     >선택하기
                     </button>
                   </div>
@@ -207,7 +207,7 @@
                   <br />
                   <input
                     v-model="values.phoneNumber"
-                    placeholder="연락처 입력"
+                    placeholder="01000000000"
                     class="hhr-input tel"
                     type="tel"
                     maxlength="11"
@@ -495,7 +495,7 @@ export default {
         this.values.booleans.isClientAgreeCollectPersonalInfo = true
       } else {
         this.values.booleans.isClientAgreeCollectPersonalInfo = false
-        EventBus.$emit('callHhrSimpleModal', '약관동의 해주셔야 문의가 가능합니다.\n고객님의 개인정보는 전화상담 이외의 어떠한 용도로도 사용되지 않습니다.')
+        EventBus.$emit('callHhrSimpleModal', '약관에 동의 해주셔야 문의가 가능합니다.\n고객님의 개인정보는 전화상담 이외의 어떠한 용도로도 사용되지 않습니다.')
       }
     },
     toggleCollectPersonalInformation() {
@@ -715,7 +715,6 @@ export default {
                                         }
                                     }
                                     .attach-button {
-                                        display: inline-block;
                                         width: 80px;
                                         height: 35px;
                                         @media (max-width: $screen-mobile) {
