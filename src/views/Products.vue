@@ -215,10 +215,12 @@ export default {
       }
     },
   },
+  created() {
+    contactInformation = new ContactInformation()
+    matchMedia = new MatchMedia()
+  },
   mounted() {
     this.$nextTick(() => {
-      contactInformation = new ContactInformation()
-      matchMedia = new MatchMedia()
       this.values.check.lifeCycle = true
     })
   },

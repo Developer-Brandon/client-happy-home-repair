@@ -19,6 +19,7 @@ module.exports = {
   },
   devServer: { disableHostCheck: true },
   productionSourceMap: false,
+  runtimeCompiler: true,
   configureWebpack: {
     module: {
       rules: [

@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { EventBus } from '@/assets/js/plugin/eventBus'
 import MainBanner from '@/components/home/MainBanner.vue'
 import OtherInformation from '@/components/home/OtherInformation.vue'
 

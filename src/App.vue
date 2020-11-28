@@ -11,6 +11,7 @@
     </div>
     <hhr-simple-modal ref="hhrSimpleModal" />
     <hhr-simple-confirm-modal ref="hhrSimpleConfirmModal" />
+    <hhr-loading-progress ref="hhrLoadingProgress" />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import hhrFooter from '@/components/main/Footer.vue'
 import HhrSimpleModal from '@/components/util/HhrSimpleModal.vue'
 import HhrSimpleConfirmModal from '@/components/util/HhrSimpleConfirmModal.vue'
 import HhrNetwork from '@/assets/js/network/HhrNetwork'
+import HhrLoadingProgress from '@/components/util/HhrLoadingProgress.vue'
 
 export default {
   name: 'App',
@@ -29,6 +31,7 @@ export default {
     hhrFooter,
     HhrSimpleModal,
     HhrSimpleConfirmModal,
+    HhrLoadingProgress,
   },
   data() {
     return {
@@ -50,6 +53,7 @@ export default {
     EventBus.$on('callHhrSimpleModal', (message) => this.$refs.hhrSimpleModal.show(message))
     EventBus.$on('callHhrSimpleConfirmModal', (type, message) => this.$refs.hhrSimpleConfirmModal.show(type, message))
     EventBus.$on('callAgreementPageAtTheNewTab', () => window.open(`${HhrNetwork.getBaseUrl()}/privacy-information.html`))
+    EventBus.$on('callHhrLoadingProgress', (visible) => this.$refs.hhrLoadingProgress.show(visible))
   },
   methods: {
     noScroll() {

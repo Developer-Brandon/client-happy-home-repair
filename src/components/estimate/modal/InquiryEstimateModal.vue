@@ -470,13 +470,18 @@ export default {
     submit() {
       this.validation()
         .then(() => {
+          EventBus.$emit('callHhrLoadingProgress', true)
           const estateValues = this.getSendValues()
           this.$store.dispatch('home/SEND_ESTATE_VALUES', estateValues)
             .then(() => {
+              EventBus.$emit('callHhrLoadingProgress', false)
               this.closeModal()
               EventBus.$emit('callHhrSimpleModal', '제출이 완료되었습니다!')
             })
-            .catch((response) => EventBus.$emit('callHhrSimpleModal', response))
+            .catch((response) => {
+              EventBus.$emit('callHhrLoadingProgress', false)
+              EventBus.$emit('callHhrSimpleModal', response)
+            })
         })
         .catch((error) => {
           // 아래는 메세지 띄우면 안됩니다.

@@ -39,13 +39,12 @@
 </template>
 
 <script>
-// import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
+import { EventBus } from '@/assets/js/plugin/eventBus'
 import HhrPageTitle from '@/components/util/HhrPageTitle.vue'
 
 export default {
   name: 'Notice',
   components: {
-    // HhrClearBoth,
     HhrPageTitle,
   },
   data() {
@@ -74,9 +73,11 @@ export default {
   },
   methods: {
     callNoticeList() {
+      EventBus.$emit('callHhrLoadingProgress', true)
       return new Promise((resolve) => {
         this.$store.dispatch('notice/CALL_NOTICE_LIST')
           .then(() => {
+            EventBus.$emit('callHhrLoadingProgress', false)
             resolve()
           })
       })
@@ -96,6 +97,7 @@ export default {
     .notice-title-fade-in {
         @include primary-fade-in(2);
     }
+
     .notice-list-fade-in {
         @include primary-fade-in(2);
     }
@@ -105,13 +107,13 @@ export default {
         padding-top: 25px;
         &__inner {
             .notice-title {
-              margin-bottom: 25px;
-              @media (max-width: $screen-mobile) {
-                width: auto;
-                margin: 0;
-                text-align: center;
-                border-left: 0 !important;
-              }
+                margin-bottom: 25px;
+                @media (max-width: $screen-mobile) {
+                    width: auto;
+                    margin: 0;
+                    text-align: center;
+                    border-left: 0 !important;
+                }
             }
 
             .when-browser-can-load-notice-list {
@@ -134,10 +136,10 @@ export default {
                         transition: 0.4s;
                         border-bottom: 1px solid $hhr-gray;
                         &:last-child {
-                          border-bottom: none;
+                            border-bottom: none;
                         }
                         @media (max-width: $screen-mobile) {
-                          padding: 10px;
+                            padding: 10px;
                         }
                         &:hover {
                             border-left: 5px solid $hhr-blue;
