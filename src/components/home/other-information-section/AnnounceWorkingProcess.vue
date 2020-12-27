@@ -73,9 +73,6 @@ export default {
       },
     }
   },
-  mounted() {
-    //
-  },
   methods: {
     getPrefix(index) {
       switch (index) {

@@ -14,8 +14,7 @@ const mutations = {
   setAboutPageData(state, params) {
     state.ceoGreetingTitle = params.ceoGreetingTitle
     state.ceoGreetingContents = params.ceoGreetingContents
-    //
-    const ceoInfo = {
+    state.ceoInfo = {
       ceoName: params.ceoName,
       industryType: params.industryType,
       coreIndustry: params.coreIndustry,
@@ -23,7 +22,6 @@ const mutations = {
       phoneNumber: params.phoneNumber,
       email: params.email,
     }
-    state.ceoInfo = ceoInfo
   },
 }
 const actions = {

@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HhrClearBoth from '@/components/util/HhrClearBoth.vue'
 import HhrPageTitle from '@/components/util/HhrPageTitle.vue'
 
@@ -50,12 +51,10 @@ export default {
     HhrPageTitle,
   },
   computed: {
-    ceoGreetingTitle() {
-      return this.$store.getters['about/ceoGreetingTitle']
-    },
-    ceoGreetingContents() {
-      return this.$store.getters['about/ceoGreetingContents']
-    },
+    ...mapGetters('about', [
+      'ceoGreetingTitle',
+      'ceoGreetingContents',
+    ]),
   },
 }
 </script>

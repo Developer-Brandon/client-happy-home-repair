@@ -251,6 +251,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { EventBus } from '@/assets/js/plugin/eventBus'
 import HhrNetwork from '@/assets/js/network/HhrNetwork'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
@@ -327,9 +328,9 @@ export default {
         }
       },
     },
-    collectionOfPersonalInformation() {
-      return this.$store.getters['home/collectionOfPersonalInformation']
-    },
+    ...mapGetters('home', [
+      'collectionOfPersonalInformation',
+    ]),
   },
   watch: {
     'values.locate': function (value) {

@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HhrDivider from '@/components/util/HhrDivider.vue'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 
@@ -74,12 +75,9 @@ export default {
     }
   },
   computed: {
-    stateOfBlogListAreCalled() {
-      return this.$store.getters['home/blogListViewState']
-    },
-    blogProductList() {
-      return this.$store.getters['home/blogProductList']
-    },
+    ...mapGetters('home', [
+      'blogProductList',
+    ]),
   },
   mounted() {
     matchMedia = new MatchMedia()

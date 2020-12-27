@@ -1,13 +1,26 @@
 const webpack = require('webpack')
 // const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+// const { VueLoaderPlugin } = require('vue-loader')
 // const { MiniCssExtractPlugin } = require('mini-css-extract-plugin')
+
 const developer = 'Brandon Lee'
 const realName = 'Dokyeom Lee'
 const email = 'lovefinance@naver.com'
 const github = 'https://github.com/Developer-Brandon?tab=repositories'
 
 module.exports = {
+  // pages: {
+  //   index: {
+  //     entry: ['./src/main.js'],
+  //     template: 'public/index.html',
+  //     output: {
+  //       filename: 'bundle.js',
+  //       path: path.resolve(__dirname, './dist'),
+  //       publicPath: './dist/',
+  //     },
+  //   },
+  // },
   css: {
     loaderOptions: {
       sass: {
@@ -17,7 +30,9 @@ module.exports = {
       },
     },
   },
-  devServer: { disableHostCheck: true },
+  devServer: {
+    disableHostCheck: true,
+  },
   productionSourceMap: false,
   runtimeCompiler: true,
   configureWebpack: {
@@ -42,25 +57,19 @@ module.exports = {
           },
         },
         // {
-        //   test: /.vue$/,
-        //   loader: 'vue-loader',
-        //   options: {
-        //     loaders: {
-        //       scss: 'vue-style-loader!css-loader!sass-loader',
-        //     },
+        // test: /\.vue$/,
+        // loader: 'vue-loader',
+        // options: {
+        //   loaders: {
+        //     scss: 'vue-style-loader!css-loader!sass-loader',
         //   },
         // },
         // {
-        //   test: /\.scss$/,
-        //   use: [
-        //     'vue-style-loader',
-        //   ],
-        // },
-        // {
-        //   test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        //   loader: 'url-loader',
+        //   test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+        //   loader: 'file-loader',
         //   options: {
-        //     name: '[name].[hash].[ext]',
+        //     outputPath: './dist/',
+        //     name: '[name].[ext]?[hash]',
         //     limit: 10000,
         //   },
         // },
@@ -82,6 +91,7 @@ module.exports = {
         Promise: 'es6-promise',
       }),
       new CleanWebpackPlugin(),
+      // new VueLoaderPlugin(),
     ],
     optimization: {
       minimize: true,
