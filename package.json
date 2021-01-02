@@ -1,6 +1,6 @@
 {
   "name": "happy-home-repair",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "autor": "Brandon Lee <lovefinance@naver.com>",
   "private": true,
   "scripts": {
@@ -15,20 +15,22 @@
     "axios": "^0.19.2",
     "cheero": "0.0.1",
     "core-js": "^3.6.5",
+    "file-loader": "^6.2.0",
     "jquery": "^3.5.1",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.20",
     "moment": "^2.27.0",
     "postcss": "^7.0.32",
     "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11",
-    "vuex": "^3.4.0",
     "vue-burger-menu": "^2.0.5",
     "vue-meta": "^2.4.0",
     "vue-progress-path": "0.0.2",
     "vue-router": "^3.2.0",
+    "vue-template-compiler": "^2.6.11",
     "vue-the-mask": "^0.11.1",
-    "webpack": "^4.44.1"
+    "vuex": "^3.4.0",
+    "webpack": "^4.44.1",
+    "webpack-dev-server": "^3.11.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
@@ -46,7 +48,6 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.26.0",
-    "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.2",
     "css-loader": "^4.3.0",
     "es6-promise": "^4.2.8",
@@ -57,12 +58,13 @@
     "eslint-plugin-vue": "^6.2.2",
     "mini-css-extract-plugin": "^0.11.1",
     "node-sass": "^4.12.0",
-    "postcss-loader": "^4.0.1",
+    "postcss-loader": "^4.1.0",
     "sass-loader": "^7.1.0",
     "scss-loader": "0.0.1",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "vue-loader": "^15.9.3",
-    "vue-style-loader": "^4.1.2"
+    "vue-style-loader": "^4.1.2",
+    "webpack-bundle-analyzer": "^4.3.0"
   }
 }
