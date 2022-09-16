@@ -4,10 +4,10 @@
   "autor": "Brandon Lee <lovefinance@naver.com>",
   "private": true,
   "scripts": {
-    "dev-local": "PORT=3003 NODE_ENV=local vue-cli-service serve --mode development --open",
-    "dist-dev-server": "NODE_ENV=server vue-cli-service --mode development build",
-    "prod-local": "PORT=3004 NODE_ENV=local vue-cli-service serve --mode production --open",
-    "dist-prod-server": "NODE_ENV=server vue-cli-service build",
+    "dev-local": "cross-env PORT=3003 NODE_ENV=local vue-cli-service serve --mode development --open",
+    "dist-dev-server": "cross-env NODE_ENV=server vue-cli-service --mode development build",
+    "prod-local": "cross-env PORT=3004 NODE_ENV=local vue-cli-service serve --mode production --open",
+    "dist-prod-server": "cross-env NODE_ENV=server vue-cli-service build",
     "lint": "vue-cli-service lint",
     "force-lint": "vue-cli-service lint --fix"
   },
