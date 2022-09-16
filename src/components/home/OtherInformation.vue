@@ -33,13 +33,13 @@ import AnnounceWorkingProcess from '@/components/home/other-information-section/
 import IntroduceAllProducts from '@/components/home/other-information-section/IntroduceAllProducts.vue'
 import HhrDivider from '@/components/util/HhrDivider.vue'
 
-import ContactInformation from '@/assets/js/address/contactInformation'
+// import ContactInformation from '@/assets/js/address/contactInformation'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
-import UserAgent from '@/assets/js/browser/userAgent'
+// import UserAgent from '@/assets/js/browser/userAgent'
 
-let contactInformation
+// let contactInformation
 let matchMedia
-let userAgent
+// let userAgent
 
 export default {
   name: 'OtherInformation',
@@ -55,8 +55,8 @@ export default {
   },
   created() {
     matchMedia = new MatchMedia()
-    userAgent = new UserAgent()
-    contactInformation = new ContactInformation()
+    // userAgent = new UserAgent()
+    // contactInformation = new ContactInformation()
   },
   mounted() {
     this.$nextTick(() => {
@@ -88,16 +88,17 @@ export default {
       window.document.addEventListener('scroll', this.isCalculateViewPort)
     },
     callToPhone() {
-      if (matchMedia.isMobile) {
-        document.location.href = contactInformation.getPhoneNumber()
-      } else {
-        // TODO: 브라우저를 정확하게 판단할 수 있게 스크립트 개발예정
-        if (userAgent.browserType === '크롬') {
-          this.$refs.questionAboutCallWayModal.show('default', null)
-        } else {
-          this.$refs.questionAboutCallWayModal.show('default', null)
-        }
-      }
+      // if (matchMedia.isMobile) {
+      //   document.location.href = contactInformation.getPhoneNumber()
+      // } else {
+      //   // TODO: 브라우저를 정확하게 판단할 수 있게 스크립트 개발예정
+      //   if (userAgent.browserType === '크롬') {
+      //     this.$refs.questionAboutCallWayModal.show('default', null)
+      //   } else {
+      //     this.$refs.questionAboutCallWayModal.show('default', null)
+      //   }
+      // }
+      this.$refs.questionAboutCallWayModal.show('default', null)
     },
     callApplicationFormModal() {
       this.$refs.inquiryEstimateModal.show('default', null)

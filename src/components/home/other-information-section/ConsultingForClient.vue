@@ -45,11 +45,11 @@
 export default {
   name: 'ConsultingForClient',
   methods: {
-    callToPhone() {
-      this.$parent.callToPhone()
-    },
     callApplicationFormModal() {
       this.$parent.callApplicationFormModal()
+    },
+    callToPhone() {
+      this.$parent.callToPhone()
     },
   },
 }

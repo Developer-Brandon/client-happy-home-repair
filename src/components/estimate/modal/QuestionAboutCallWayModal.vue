@@ -6,34 +6,52 @@
     >
       <div class="call-way-question__inner">
         <div class="call-way-question__inner__contents">
-          <div class="wrap-request-call-preview-image">
-            <img
-              class="select-phone-number-in-browser"
-              alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어"
-              src="@/assets/images/main/select-phone-number-in-browser.png"
-            />
-          </div>
-          <br />
-          <p>
-            Pc혹은 Tablet 혹은 Chrome 브라우저에서 전화를 걸 경우, 지정하신 휴대폰으로 전화번호를 옮길 수 있습니다. 브라우저 상단의 지정 핸드폰을 눌러서 전화번호를 옮긴
-            후 통화해주세요.
-          </p>
-          <br />
-          <p>어떠한 이유로 전화번호가 옮겨지지 않는 분은 아래 번호로 전화 부탁드립니다</p>
+<!--          <div class="wrap-request-call-preview-image">-->
+<!--            <img-->
+<!--              class="select-phone-number-in-browser"-->
+<!--              alt="해피홈리페어,샤시/방충망/창문/문틀/ABS도어"-->
+<!--              src="@/assets/images/main/select-phone-number-in-browser.png"-->
+<!--            />-->
+<!--          </div>-->
           <br />
           <p
             class="font-semi-bold"
-            style="text-align: center;"
+            style="text-align: center; font-size: 28px;"
           >
-            {{ getCommonCompanyNameWithSpace() }}&nbsp;&nbsp;{{ getCommonPhoneNumber() }}
+            {{ getCommonCompanyNameWithSpace() }}
           </p>
+          <p
+            class="font-semi-bold"
+            style="text-align: center; font-size: 28px;"
+          >
+            {{ getCommonPhoneNumber() }}
+          </p>
+          <br />
+          <p style="text-align: center;" class="hhr-blue">문자 혹은 통화때에 말씀주시면 좋은 사항</p>
+          <br />
+          <div style="text-align: center;">
+            <p style="font-size:20px;">1.위치</p>
+            <br />
+            <p style="font-size:20px;">2.작업받으실 종류</p>
+            <br />
+            <p style="font-size:20px;">3.문제점</p>
+            <br />
+            <p style="font-size:20px;">4.그외 궁금하신점</p>
+            <br />
+            <p style="font-size:20px;">5.사진</p>
+          </div>
+          <br />
+          <br />
+          <span class="hhr-red">* 꼭 알려주셔야 한다는 것이 아니라, 알려주시면 비교적 정확하게 답변드리기에 좋습니다. 감사합니다.</span>
+          <br />
+          <br />
           <br />
           <br />
           <button
             class="hhr-negative-reversal-button submit"
             @click="submit"
           >
-            번호 전송하기
+            확인
           </button>
         </div>
       </div>
@@ -42,9 +60,9 @@
 </template>
 
 <script>
-import ContactInformation from '@/assets/js/address/contactInformation'
+// import ContactInformation from '@/assets/js/address/contactInformation'
 
-let contactInformation
+// let contactInformation
 
 export default {
   name: 'QuestionAboutCallWayModal',
@@ -62,12 +80,12 @@ export default {
     }
   },
   created() {
-    contactInformation = new ContactInformation()
+    // contactInformation = new ContactInformation()
   },
   methods: {
     submit() {
       this.values.check.lifeCycle = false
-      document.location.href = contactInformation.getPhoneNumber()
+      // document.location.href = contactInformation.getPhoneNumber()
     },
     show(type, message) {
       this.values.check.lifeCycle = true
@@ -103,7 +121,7 @@ export default {
             margin: auto;
             //
             width: 500px;
-            height: 580px;
+            height: 470px;
             padding: 30px;
             background-color: $hhr-white;
             border: 1px solid $hhr-white;
@@ -112,7 +130,7 @@ export default {
             @media (max-width: $screen-mobile) {
                 width: 90%;
                 height: 90%;
-                max-height: 615px;
+                max-height: 440px;
                 padding: 10px;
                 overflow-x: hidden;
             }

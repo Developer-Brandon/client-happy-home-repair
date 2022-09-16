@@ -89,7 +89,7 @@
                       >{{ item.description }}
                       </option>
                     </select>
-                    <up-and-down-arrow :toggle="!!values.locate" />
+                    <!--<up-and-down-arrow :toggle="!!values.locate" />-->
                   </div>
                 </label>
                 <ul class="locate-type-announcement-list">
@@ -128,7 +128,7 @@
                       >{{ item.description }}
                       </option>
                     </select>
-                    <up-and-down-arrow :toggle="!!values.estimateType" />
+                  <!--<up-and-down-arrow :toggle="!!values.estimateType" />-->
                   </div>
                 </label>
                 <ul class="estimate-type-announcement-list">
@@ -175,22 +175,22 @@
                 <label class="hhr-labeling">
                   <span class="hhr-labeling-title">&nbsp;사진첨부&nbsp;</span>
                   <br class="mobile-visible-block-only" />
-                  <span class="hhr-labeling-subtitle">문자로 따로 주셔도 됩니다.</span>
                   <br />
                   <div class="wrap-attach-explain-and-button">
-                    <input
-                      ref="makeFileInput"
-                      type="file"
-                      style="display:none;"
-                      accept=".jpg, .jpeg, .png, .pdf"
-                      @change="fileIsPicked"
-                    />
-                    <p class="explain">{{ values.attachedFile.name }}</p>
-                    <button
-                      class="hhr-negative-reversal-button attach-button"
-                      @click.prevent="fileAttach($refs[`makeFileInput`])"
-                    >선택하기
-                    </button>
+                    <!--                  <input-->
+                    <!--                    ref="makeFileInput"-->
+                    <!--                    type="file"-->
+                    <!--                    style="display:none;"-->
+                    <!--                    accept=".jpg, .jpeg, .png, .pdf"-->
+                    <!--                    @change="fileIsPicked"-->
+                    <!--                  />-->
+                    <!--                  <p class="explain">{{ values.attachedFile.name }}</p>-->
+                    <!--                  <button-->
+                    <!--                    class="hhr-negative-reversal-button attach-button"-->
+                    <!--                    @click.prevent="fileAttach($refs[`makeFileInput`])"-->
+                    <!--                  >선택하기-->
+                    <!--                  </button>-->
+                    <span class="hhr-labeling-subtitle">* 필요시 문자 혹은 영상통화로 요청드리겠습니다</span>
                   </div>
                   <ul class="email-announcement-list">
                     <li
@@ -257,7 +257,7 @@ import HhrNetwork from '@/assets/js/network/HhrNetwork'
 import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import UtilBox from '@/assets/js/validation/utilBox'
-import UpAndDownArrow from '@/components/util/icons/UpAndDownIcon.vue'
+// import UpAndDownArrow from '@/components/util/icons/UpAndDownIcon.vue'
 import { DeviceState } from '@/assets/js/enums/DeviceState'
 import { EstimateLocalState } from '@/assets/js/enums/EstimateLocalState'
 import { EstimateState } from '@/assets/js/enums/EstimateState'
@@ -270,7 +270,7 @@ let utilBox
 export default {
   name: 'InquiryModal',
   components: {
-    UpAndDownArrow,
+    // UpAndDownArrow,
   },
   data() {
     return {
