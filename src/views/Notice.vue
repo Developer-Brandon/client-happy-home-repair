@@ -41,6 +41,7 @@
 <script>
 import { EventBus } from '@/assets/js/plugin/eventBus'
 import HhrPageTitle from '@/components/util/HhrPageTitle.vue'
+import HhrNetwork from '@/assets/js/network/HhrNetwork'
 
 export default {
   name: 'Notice',
@@ -74,12 +75,21 @@ export default {
   methods: {
     callNoticeList() {
       EventBus.$emit('callHhrLoadingProgress', true)
-      return new Promise((resolve) => {
-        this.$store.dispatch('notice/CALL_NOTICE_LIST')
-          .then(() => {
-            EventBus.$emit('callHhrLoadingProgress', false)
+      return new Promise((resolve, reject) => {
+        HhrNetwork.getNoticeList(true, 100)
+          .then((response) => {
+            const information = response.data
+            console.log('인포메이션: ', information)
             resolve()
           })
+          .catch((error) => {
+            reject(error)
+          })
+        // this.$store.dispatch('notice/CALL_NOTICE_LIST')
+        //   .then(() => {
+        //     EventBus.$emit('callHhrLoadingProgress', false)
+        //     resolve()
+        //   })
       })
     },
     clickNoticeItem(notice) {

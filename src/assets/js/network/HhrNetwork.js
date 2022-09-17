@@ -2,14 +2,17 @@ import axios from 'axios'
 
 const whetherServerEnvOrNot = (process.env.NODE_ENV === 'server')
 const portNumber = process.env.VUE_APP_PORT
-// const apiUrl = process.env.WEB_API_URL
 const s3Url = process.env.VUE_APP_S3_URL
 const localUrl = `http://localhost:${portNumber}`
 
 const baseUrl = whetherServerEnvOrNot ? s3Url : localUrl
 
+const serverPortNumber = process.env.SERVER_PORT
+const serverApiUrl = process.env.SERVER_WEB_API_URL
+const serverUrl = `${serverApiUrl}:${serverPortNumber}`
+
 const axiosInstance = axios.create({
-  baseURL: baseUrl,
+  baseURL: serverUrl,
   timeout: 50000,
   headers: { 'Content-Type': 'application/json' },
 })
@@ -45,9 +48,9 @@ class HhrNetwork {
     })
   }
 
-  getNoticeList(offset, limit) {
+  getNoticeList(manyNoticeOrNot, noticeSize) {
     return new Promise((resolve, reject) => {
-      axiosInstance.get(`/notice/list?${offset}&${limit}`)
+      axiosInstance.get(`/notice/list?manyNoticeOrNot=${manyNoticeOrNot}&noticeSize=${noticeSize}`)
         .then((response) => {
           resolve(response)
         }).catch((error) => {
