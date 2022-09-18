@@ -7,13 +7,16 @@ const localUrl = `http://localhost:${portNumber}`
 
 const baseUrl = whetherServerEnvOrNot ? s3Url : localUrl
 
-const serverPortNumber = process.env.SERVER_PORT
-const serverApiUrl = process.env.SERVER_WEB_API_URL
+// process.env.SERVER_PORT
+const serverPortNumber = 8080
+// process.env.SERVER_WEB_API_URL
+const serverApiUrl = 'http://localhost'
 const serverUrl = `${serverApiUrl}:${serverPortNumber}`
 
 const axiosInstance = axios.create({
   baseURL: serverUrl,
   timeout: 50000,
+  withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 })
 

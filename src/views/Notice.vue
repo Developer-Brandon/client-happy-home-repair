@@ -74,15 +74,16 @@ export default {
   },
   methods: {
     callNoticeList() {
-      EventBus.$emit('callHhrLoadingProgress', true)
       return new Promise((resolve, reject) => {
         HhrNetwork.getNoticeList(true, 100)
           .then((response) => {
             const information = response.data
             console.log('인포메이션: ', information)
+            EventBus.$emit('callHhrLoadingProgress', true)
             resolve()
           })
           .catch((error) => {
+            console.log(`error 추적 : ${error}`)
             reject(error)
           })
         // this.$store.dispatch('notice/CALL_NOTICE_LIST')
