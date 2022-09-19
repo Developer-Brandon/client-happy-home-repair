@@ -22,7 +22,7 @@
               @click="clickNoticeItem(notice)"
             >
               <span class="notice-list__item__left-side">{{ notice.title }}</span>
-              <span class="notice-list__item__right-side">{{ notice.registeredDate }}</span>
+              <span class="notice-list__item__right-side">{{ notice.regDt }}</span>
             </li>
           </ul>
         </div>
@@ -77,26 +77,23 @@ export default {
       return new Promise((resolve, reject) => {
         HhrNetwork.getNoticeList(true, 100)
           .then((response) => {
-            const information = response.data
-            console.log('인포메이션: ', information)
-            EventBus.$emit('callHhrLoadingProgress', true)
+            this.$store.dispatch('notice/CALL_NOTICE_LIST', response.data)
+              .then(() => {
+                EventBus.$emit('callHhrLoadingProgress', false)
+                resolve()
+              })
             resolve()
           })
           .catch((error) => {
             console.log(`error 추적 : ${error}`)
             reject(error)
           })
-        // this.$store.dispatch('notice/CALL_NOTICE_LIST')
-        //   .then(() => {
-        //     EventBus.$emit('callHhrLoadingProgress', false)
-        //     resolve()
-        //   })
       })
     },
     clickNoticeItem(notice) {
       this.$router.push({
         name: 'NoticeDetail',
-        params: { noticeIndex: notice.index },
+        params: { noticeIndex: notice.noticeNo },
       })
     },
   },
