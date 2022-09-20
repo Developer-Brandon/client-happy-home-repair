@@ -12,6 +12,8 @@
 <script>
 import MainBanner from '@/components/home/MainBanner.vue'
 import OtherInformation from '@/components/home/OtherInformation.vue'
+import HhrNetwork from '@/assets/js/network/HhrNetwork'
+import { EventBus } from '@/assets/js/plugin/eventBus'
 
 export default {
   name: 'Home',
@@ -20,12 +22,21 @@ export default {
     OtherInformation,
   },
   mounted() {
-    // TODO: Must refactoring promise with Async, Await ....
-    this.$nextTick(() => {
-      this.$store.dispatch('home/CALL_BLOG_PRODUCT_LIST')
-        .then(() => {
+    this.$nextTick(() => new Promise((resolve, reject) => {
+      HhrNetwork.getBlogList()
+        .then((response) => {
+          this.$store.dispatch('home/CALL_BLOG_PRODUCT_LIST', response.data)
+            .then(() => {
+              EventBus.$emit('callHhrLoadingProgress', false)
+              resolve()
+            })
+          resolve()
         })
-    })
+        .catch((error) => {
+          console.log(`error 추적 : ${error}`)
+          reject(error)
+        })
+    }))
   },
 }
 </script>

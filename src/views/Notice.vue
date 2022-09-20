@@ -75,7 +75,7 @@ export default {
   methods: {
     callNoticeList() {
       return new Promise((resolve, reject) => {
-        HhrNetwork.getNoticeList(true, 100)
+        HhrNetwork.getNoticeList()
           .then((response) => {
             this.$store.dispatch('notice/CALL_NOTICE_LIST', response.data)
               .then(() => {

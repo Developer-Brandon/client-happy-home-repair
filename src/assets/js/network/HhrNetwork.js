@@ -40,9 +40,9 @@ class HhrNetwork {
     })
   }
 
-  getBlogList(offset, limit) {
+  getBlogList() {
     return new Promise((resolve, reject) => {
-      axiosInstance.get(`/blog/list?${offset}&${limit}`)
+      axiosInstance.get('/blog/list')
         .then((response) => {
           resolve(response)
         }).catch((error) => {
@@ -51,9 +51,9 @@ class HhrNetwork {
     })
   }
 
-  getNoticeList(manyNoticeOrNot, noticeSize) {
+  getNoticeList() {
     return new Promise((resolve, reject) => {
-      axiosInstance.get(`/notice/list?manyNoticeOrNot=${manyNoticeOrNot}&noticeSize=${noticeSize}`)
+      axiosInstance.get('/notice/list')
         .then((response) => {
           resolve(response)
         }).catch((error) => {
