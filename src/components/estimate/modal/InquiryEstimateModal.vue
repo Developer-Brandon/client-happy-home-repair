@@ -128,7 +128,7 @@
                       >{{ item.description }}
                       </option>
                     </select>
-                  <!--<up-and-down-arrow :toggle="!!values.estimateType" />-->
+                    <!--<up-and-down-arrow :toggle="!!values.estimateType" />-->
                   </div>
                 </label>
                 <ul class="estimate-type-announcement-list">
@@ -376,6 +376,8 @@ export default {
     },
     callCollectOfPrivacyInfo() {
       return new Promise((resolve, reject) => {
+        // todo: 현재 HhrNetwork의 baseURL이 serverUrl로 지정되어있어서 에러가 나는데,
+        // localhost:3003으로 바꿀 수 있는 방법을 강구 한 후에 작업하면 정상 작동할 것으로 예상됨
         HhrNetwork.getLocalFile('privacy-information')
           .then((response) => {
             const collectionOfPersonalInformation = response.data
@@ -458,7 +460,7 @@ export default {
       }
     },
     getSendValues() {
-    // TODO: File을 upload 먼저하고, 응답해서 받은 documentsUid 를 가져다가 그것만 최종 제출하는 것으로 개발
+      // TODO: File을 upload 먼저하고, 응답해서 받은 documentsUid 를 가져다가 그것만 최종 제출하는 것으로 개발
       if (this.values.attachedFile.length > 0) {
         this.uploadFile(this.values.attachedFile)
           .then(() => this.wrapValuesToJson())
@@ -485,7 +487,7 @@ export default {
             })
         })
         .catch((error) => {
-          // 아래는 메세지 띄우면 안됩니다.
+        // 아래는 메세지 띄우면 안됩니다.
           console.log(error)
         })
     },
@@ -530,7 +532,7 @@ export default {
             fr.readAsDataURL(files[0])
             fr.addEventListener('load', () => {
               // eslint-disable-next-line
-        this.values.attachedFile = files[0]
+              this.values.attachedFile = files[0]
               console.log(this.values.attachedFile)
             })
           } else {
@@ -570,352 +572,385 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    // @LocalUtils
-    .default-msg {
-        text-align: right;
-        font-size: 13px;
-    }
+// @LocalUtils
+.default-msg {
+  text-align: right;
+  font-size: 13px;
+}
 
-    .error-msg {
-        text-align: right;
-        font-size: 12px;
-        color: $hhr-red;
-    }
+.error-msg {
+  text-align: right;
+  font-size: 12px;
+  color: $hhr-red;
+}
 
-    .custom-checkbox {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        vertical-align: middle;
-        margin-bottom: 3px;
-        margin-right: 10px;
-        cursor: pointer;
-        background-size: cover;
-        &.on {
-            background-image: url('~@/assets/images/icons/icon_check_hhr_blue_background.png');
-        }
-        &.off {
-            background-image: url('~@/assets/images/icons/icon_check_gray_background.png');
-        }
-    }
+.custom-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-bottom: 3px;
+  margin-right: 10px;
+  cursor: pointer;
+  background-size: cover;
 
-    .announcement-with-checkbox {
-        cursor: pointer;
-        font-size: 15px;
-        @media (max-width: $screen-mobile) {
-            font-size: 20px;
-        }
-    }
+  &.on {
+    background-image: url('~@/assets/images/icons/icon_check_hhr_blue_background.png');
+  }
 
-    // @Class
-    .estimate {
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $hhr-black;
-        @media (max-width: $screen-mobile) {
-            padding: 15px;
-        }
-        &__inner {
-            clear: both;
-            width: auto;
+  &.off {
+    background-image: url('~@/assets/images/icons/icon_check_gray_background.png');
+  }
+}
+
+.announcement-with-checkbox {
+  cursor: pointer;
+  font-size: 15px;
+  @media (max-width: $screen-mobile) {
+    font-size: 20px;
+  }
+}
+
+// @Class
+.estimate {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $hhr-black;
+  @media (max-width: $screen-mobile) {
+    padding: 15px;
+  }
+
+  &__inner {
+    clear: both;
+    width: auto;
+    height: auto;
+
+    &__contents {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      //
+      width: 500px;
+      height: 580px;
+      padding: 30px;
+      background-color: $hhr-white;
+      border: 1px solid $hhr-white;
+      border-radius: 15px;
+      overflow: visible;
+      @media (max-width: $screen-mobile) {
+        width: 90%;
+        height: 90%;
+        max-height: 615px;
+        padding: 10px;
+        overflow-x: hidden;
+      }
+
+      form {
+        fieldset {
+          .group-of-form {
             height: auto;
-            &__contents {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin: auto;
-                //
-                width: 500px;
-                height: 580px;
-                padding: 30px;
-                background-color: $hhr-white;
-                border: 1px solid $hhr-white;
-                border-radius: 15px;
-                overflow: visible;
-                @media (max-width: $screen-mobile) {
-                    width: 90%;
-                    height: 90%;
-                    max-height: 615px;
-                    padding: 10px;
-                    overflow-x: hidden;
-                }
-                form {
-                    fieldset {
-                        .group-of-form {
-                            height: auto;
-                            min-height: 417px;
-                            margin-top: 30px;
-                            margin-bottom: 10px;
-                            @media (max-width: $screen-mobile) {
-                                min-height: auto;
-                                margin-top: 40px;
-                                padding-left: 18px;
-                                padding-right: 18px;
-                            }
-                            .hhr-labeling {
-                                .wrap-local-type {
-                                    position: relative;
-                                    width: 130px;
-                                    text-align: center;
-                                    float: right;
-                                    clear: right;
-                                    @media (max-width: $screen-mobile) {
-                                        width: 140px;
-                                        border-bottom: none;
-                                    }
-                                    .locate-type {
-                                    }
-                                    .locate-type-announcement-list {
-                                    }
-                                    .chevron-icon {
-                                    }
-                                }
-                                .wrap-estimate-type {
-                                    position: relative;
-                                    width: 130px;
-                                    text-align: center;
-                                    float: right;
-                                    clear: right;
-                                    @media (max-width: $screen-mobile) {
-                                        width: 140px;
-                                        border-bottom: none;
-                                    }
-                                    .estimate-type {
-                                    }
-                                    .estimate-type-announcement-list {
-                                    }
-                                }
-                                .email {
-                                    width: 60%;
-                                    margin-bottom: 5px;
-                                    text-align: right;
-                                    float: right;
-                                    @media (max-width: $screen-mobile) {
-                                        width: 100%;
-                                        text-align: left;
-                                    }
-                                }
-                                .email-announcement-list {
-                                    clear: both;
-                                }
-                                .wrap-attach-explain-and-button {
-                                    float: right;
-                                    clear: right;
-                                    margin-bottom: 7px;
-                                    @media (max-width: $screen-mobile) {
-                                        width: 100%;
-                                    }
-                                    .explain {
-                                        display: inline-block;
-                                        margin-right: 8px;
-                                        @media (max-width: $screen-mobile) {
-                                            display: block;
-                                            margin-bottom: 0;
-                                            padding: 10px;
-                                        }
-                                    }
-                                    .attach-button {
-                                        width: 80px;
-                                        height: 35px;
-                                        @media (max-width: $screen-mobile) {
-                                            display: inline-block;
-                                            width: 100%;
-                                            height: 50px;
-                                            margin-bottom: 10px;
-                                        }
-                                    }
-                                }
-                                .tel {
-                                    width: 60%;
-                                    margin-bottom: 5px;
-                                    text-align: right;
-                                    float: right;
-                                    @media (max-width: $screen-mobile) {
-                                        width: 100%;
-                                        text-align: left;
-                                    }
-                                }
-                                .tel-announcement-list {
-                                    clear: both;
-                                }
-                                .image-attachement {
-                                }
-                            }
-                            .estimate-detail {
-                                height: 80px;
-                                margin-bottom: 5px;
-                            }
-                            .estimate-detail-announcement-list {
-                                width: 100%;
-                                height: auto;
-                                float: right;
-                                clear: right;
-                                @media (max-width: $screen-mobile) {
-                                    margin-bottom: 7px;
-                                }
-                            }
-                        }
-
-                        .group-of-buttons {
-                            width: 270px;
-                            height: 100%;
-                            margin: 0 auto;
-                            padding-top: 10px;
-                            padding-bottom: 10px;
-                            @media (max-width: $screen-mobile) {
-                                width: 100%;
-                                padding: 15px 10px 30px 10px;
-                            }
-                            .cancel {
-                                width: 120px;
-                                height: 45px;
-                                margin-right: 30px;
-                                @media (max-width: $screen-mobile) {
-                                    width: 100%;
-                                    height: 50px;
-                                    margin-bottom: 10px;
-                                    border: 1px solid $hhr-deep-blue;
-                                    border-radius: 5px;
-                                }
-                            }
-                            .submit {
-                                width: 120px;
-                                height: 45px;
-                                float: right;
-                                clear: right;
-                                @media (max-width: $screen-mobile) {
-                                    width: 100%;
-                                    height: 50px;
-                                    margin-bottom: 10px;
-                                }
-                            }
-                        }
-                    }
-                }
+            min-height: 417px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            @media (max-width: $screen-mobile) {
+              min-height: auto;
+              margin-top: 40px;
+              padding-left: 18px;
+              padding-right: 18px;
             }
-        }
-    }
 
-    .collection-information-agreement {
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $hhr-transparent-black;
-        @media (max-width: $screen-mobile) {
-            padding: 15px;
-        }
-        &__inner {
-            clear: both;
-            width: auto;
-            height: auto;
-            &__contents {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin: auto;
-                width: 500px;
-                height: 580px;
-                padding: 30px;
-                background-color: $hhr-white;
-                border: 1px solid $hhr-white;
-                border-radius: 15px;
-                overflow: visible;
+            .hhr-labeling {
+              .wrap-local-type {
+                position: relative;
+                width: 130px;
+                text-align: center;
+                float: right;
+                clear: right;
                 @media (max-width: $screen-mobile) {
-                    width: 90%;
-                    height: 90%;
-                    max-height: 560px;
+                  width: 140px;
+                  border-bottom: none;
+                }
+
+                .locate-type {
+                }
+
+                .locate-type-announcement-list {
+                }
+
+                .chevron-icon {
+                }
+              }
+
+              .wrap-estimate-type {
+                position: relative;
+                width: 130px;
+                text-align: center;
+                float: right;
+                clear: right;
+                @media (max-width: $screen-mobile) {
+                  width: 140px;
+                  border-bottom: none;
+                }
+
+                .estimate-type {
+                }
+
+                .estimate-type-announcement-list {
+                }
+              }
+
+              .email {
+                width: 60%;
+                margin-bottom: 5px;
+                text-align: right;
+                float: right;
+                @media (max-width: $screen-mobile) {
+                  width: 100%;
+                  text-align: left;
+                }
+              }
+
+              .email-announcement-list {
+                clear: both;
+              }
+
+              .wrap-attach-explain-and-button {
+                float: right;
+                clear: right;
+                margin-bottom: 7px;
+                @media (max-width: $screen-mobile) {
+                  width: 100%;
+                }
+
+                .explain {
+                  display: inline-block;
+                  margin-right: 8px;
+                  @media (max-width: $screen-mobile) {
+                    display: block;
+                    margin-bottom: 0;
                     padding: 10px;
-                    overflow-x: hidden;
+                  }
                 }
-                .title {
-                    text-align: center;
-                    font-size: 20px;
-                    font-weight: 700;
-                    margin-bottom: 20px;
-                    @media (max-width: $screen-mobile) {
-                        font-size: 17px;
-                        padding: 20px 0 15px 0;
-                        margin-bottom: 0;
-                    }
-                }
-                .info {
+
+                .attach-button {
+                  width: 80px;
+                  height: 35px;
+                  @media (max-width: $screen-mobile) {
+                    display: inline-block;
                     width: 100%;
-                    height: 365px;
+                    height: 50px;
                     margin-bottom: 10px;
-                    @media (max-width: $screen-mobile) {
-                        height: 270px;
-                    }
-                    &__inner {
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        font-size: 16px;
-                        line-height: 24px;
-                        color: black;
-                        background-color: $hhr-white;
-                        border: 1px solid $hhr-gray;
-                        font-weight: 200;
-                        border-radius: 3px;
-                        overflow-x: hidden;
-                        overflow-y: scroll;
-                        padding: 5px;
-                        @media (max-width: $screen-mobile) {
-                            height: 250px;
-                            font-size: 18px;
-                        }
-                    }
+                  }
                 }
-                .privacy-agreement-check-box {
-                    text-align: right;
-                    margin-bottom: 20px;
+              }
+
+              .tel {
+                width: 60%;
+                margin-bottom: 5px;
+                text-align: right;
+                float: right;
+                @media (max-width: $screen-mobile) {
+                  width: 100%;
+                  text-align: left;
                 }
-                .group-of-buttons {
-                    width: 270px;
-                    height: auto;
-                    margin: 0 auto;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
-                    @media (max-width: $screen-mobile) {
-                        width: 100%;
-                        height: auto;
-                        padding: 15px 10px 30px 10px;
-                    }
-                    .close {
-                        width: 120px;
-                        height: 45px;
-                        margin-right: 30px;
-                        @media (max-width: $screen-mobile) {
-                            width: 100%;
-                            height: 50px;
-                            margin-bottom: 10px;
-                            border: 1px solid $hhr-deep-blue;
-                            border-radius: 5px;
-                        }
-                    }
-                    .next {
-                        width: 120px;
-                        height: 45px;
-                        float: right;
-                        clear: right;
-                        @media (max-width: $screen-mobile) {
-                            width: 100%;
-                            height: 50px;
-                            margin-bottom: 10px;
-                        }
-                    }
-                }
+              }
+
+              .tel-announcement-list {
+                clear: both;
+              }
+
+              .image-attachement {
+              }
             }
+
+            .estimate-detail {
+              height: 80px;
+              margin-bottom: 5px;
+            }
+
+            .estimate-detail-announcement-list {
+              width: 100%;
+              height: auto;
+              float: right;
+              clear: right;
+              @media (max-width: $screen-mobile) {
+                margin-bottom: 7px;
+              }
+            }
+          }
+
+          .group-of-buttons {
+            width: 270px;
+            height: 100%;
+            margin: 0 auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            @media (max-width: $screen-mobile) {
+              width: 100%;
+              padding: 15px 10px 30px 10px;
+            }
+
+            .cancel {
+              width: 120px;
+              height: 45px;
+              margin-right: 30px;
+              @media (max-width: $screen-mobile) {
+                width: 100%;
+                height: 50px;
+                margin-bottom: 10px;
+                border: 1px solid $hhr-deep-blue;
+                border-radius: 5px;
+              }
+            }
+
+            .submit {
+              width: 120px;
+              height: 45px;
+              float: right;
+              clear: right;
+              @media (max-width: $screen-mobile) {
+                width: 100%;
+                height: 50px;
+                margin-bottom: 10px;
+              }
+            }
+          }
         }
+      }
     }
+  }
+}
+
+.collection-information-agreement {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $hhr-transparent-black;
+  @media (max-width: $screen-mobile) {
+    padding: 15px;
+  }
+
+  &__inner {
+    clear: both;
+    width: auto;
+    height: auto;
+
+    &__contents {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 500px;
+      height: 580px;
+      padding: 30px;
+      background-color: $hhr-white;
+      border: 1px solid $hhr-white;
+      border-radius: 15px;
+      overflow: visible;
+      @media (max-width: $screen-mobile) {
+        width: 90%;
+        height: 90%;
+        max-height: 560px;
+        padding: 10px;
+        overflow-x: hidden;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        @media (max-width: $screen-mobile) {
+          font-size: 17px;
+          padding: 20px 0 15px 0;
+          margin-bottom: 0;
+        }
+      }
+
+      .info {
+        width: 100%;
+        height: 365px;
+        margin-bottom: 10px;
+        @media (max-width: $screen-mobile) {
+          height: 270px;
+        }
+
+        &__inner {
+          display: block;
+          width: 100%;
+          height: 100%;
+          font-size: 16px;
+          line-height: 24px;
+          color: black;
+          background-color: $hhr-white;
+          border: 1px solid $hhr-gray;
+          font-weight: 200;
+          border-radius: 3px;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          padding: 5px;
+          @media (max-width: $screen-mobile) {
+            height: 250px;
+            font-size: 18px;
+          }
+        }
+      }
+
+      .privacy-agreement-check-box {
+        text-align: right;
+        margin-bottom: 20px;
+      }
+
+      .group-of-buttons {
+        width: 270px;
+        height: auto;
+        margin: 0 auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        @media (max-width: $screen-mobile) {
+          width: 100%;
+          height: auto;
+          padding: 15px 10px 30px 10px;
+        }
+
+        .close {
+          width: 120px;
+          height: 45px;
+          margin-right: 30px;
+          @media (max-width: $screen-mobile) {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 10px;
+            border: 1px solid $hhr-deep-blue;
+            border-radius: 5px;
+          }
+        }
+
+        .next {
+          width: 120px;
+          height: 45px;
+          float: right;
+          clear: right;
+          @media (max-width: $screen-mobile) {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
 </style>
