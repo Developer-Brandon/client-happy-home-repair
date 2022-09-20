@@ -376,8 +376,6 @@ export default {
     },
     callCollectOfPrivacyInfo() {
       return new Promise((resolve, reject) => {
-        // todo: 현재 HhrNetwork의 baseURL이 serverUrl로 지정되어있어서 에러가 나는데,
-        // localhost:3003으로 바꿀 수 있는 방법을 강구 한 후에 작업하면 정상 작동할 것으로 예상됨
         HhrNetwork.getLocalFile('privacy-information')
           .then((response) => {
             const collectionOfPersonalInformation = response.data

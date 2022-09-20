@@ -20,6 +20,13 @@ const axiosInstance = axios.create({
   headers: { 'Content-Type': 'application/json' },
 })
 
+const localAxiosInstance = axios.create({
+  baseURL: baseUrl,
+  timeout: 50000,
+  withCredentials: true,
+  headers: { 'Content-Type': 'application/json' },
+})
+
 class HhrNetwork {
   constructor() {
     axiosInstance.interceptors.response.use((response) => response, (error) => Promise.reject(error))
@@ -31,7 +38,7 @@ class HhrNetwork {
 
   getLocalFile(filename) {
     return new Promise((resolve, reject) => {
-      axiosInstance.get(`/${filename}.html`)
+      localAxiosInstance.get(`/${filename}.html`)
         .then((response) => {
           resolve(response)
         }).catch((error) => {
