@@ -27,14 +27,16 @@
               v-if="values.postingsAreExisting"
               class="call-posting-success"
             >
+              <!-- https://velog.io/@heelieben/403-Error-img-%ED%83%9C%EA%B7%B8-%EC%99%B8%EB%B6%80-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%9A%94%EC%B2%AD-forbidden-%EB%90%98%EB%8A%94-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95 -->
               <img
                 v-for="(product, index) in blogProductList"
                 :key="index"
                 class="posting-image"
-                :class="{'except-right-margin': judgeProductsCount(product.uid)}"
-                :src="product.imageUrl"
+                referrerpolicy="no-referrer"
+                :class="{'except-right-margin': judgeProductsCount(index)}"
+                :src="product.imgSrc"
                 :alt="product.title"
-                @click="goToBlog(product.targetUrl)"
+                @click="goToBlog(product.imgSrc)"
               />
             </div>
             <div
@@ -104,11 +106,12 @@ export default {
     goToBlog(blogUrl) {
       window.open(blogUrl)
     },
-    judgeProductsCount(productUid) {
-      if (matchMedia.isMobile) {
-        return productUid % 2 === 0
-      } else {
-        return productUid % 5 === 0
+    judgeProductsCount(index) {
+      index += 1 // 0부터 counting되는 문제 때문에 보정작업을 해줍니다.
+      if (matchMedia.isMobile) { // 모바일이면..
+        return index % 2 === 0
+      } else { // pc면....
+        return index % 5 === 0
       }
     },
   },
