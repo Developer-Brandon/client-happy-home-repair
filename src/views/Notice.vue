@@ -93,6 +93,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      // https://berrrrr.github.io/programming/2020/11/15/vue-b-pagination-page-click/
       this.callNoticeList()
         .then(() => {
           this.values.check.lifeCycle = true
