@@ -77,6 +77,7 @@ export default {
 </script>
 
 <style lang="scss">
+
     // 위에 scss에는 scoped 채우면 안됩니다
     #app {
         .container {

@@ -58,13 +58,28 @@ class HhrNetwork {
     })
   }
 
-  getNoticeList() {
+  getNoticeList(currentPage = 1) {
+    let requestUrl = '/notice/list'
+
+    if (currentPage !== undefined) {
+      requestUrl += `?currentPage=${currentPage}`
+    }
+
     return new Promise((resolve, reject) => {
-      axiosInstance.get('/notice/list')
+      axiosInstance.get(requestUrl)
         .then((response) => {
           resolve(response)
         }).catch((error) => {
           reject(error)
+        })
+    })
+  }
+
+  getNoticeCount() {
+    return new Promise((resolve) => {
+      axiosInstance.get('/notice/count')
+        .then((reesponse) => {
+          resolve(reesponse)
         })
     })
   }

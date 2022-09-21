@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "bootstrap": "^5.2.1",
+    "bootstrap-vue": "^2.22.0",
     "cheero": "0.0.1",
     "core-js": "^3.6.5",
     "file-loader": "^6.2.0",

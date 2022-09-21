@@ -31,6 +31,17 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        test: /\.js$/,
+        // Exclude transpiling `node_modules`, except `bootstrap-vue/src`
+        exclude: /node_modules\/(?!bootstrap-vue\/src\/)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env'],
+          },
+        },
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
@@ -42,6 +53,7 @@ module.exports = {
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm.js',
+      'bootstrap-vue$': 'bootstrap-vue/src/index.js',
     },
     extensions: ['*', '.js', '.vue', '.json'],
   },
