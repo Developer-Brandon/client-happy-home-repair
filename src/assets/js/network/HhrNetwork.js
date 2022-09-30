@@ -8,10 +8,10 @@ const localUrl = `http://localhost:${portNumber}`
 const baseUrl = whetherServerEnvOrNot ? s3Url : localUrl
 
 // process.env.SERVER_PORT
-const serverPortNumber = 8080
+// const serverPortNumber = 8080
 // process.env.SERVER_WEB_API_URL
-const serverApiUrl = 'http://localhost'
-const serverUrl = `${serverApiUrl}:${serverPortNumber}`
+const serverApiUrl = 'http://happy-home-repair-env.eba-atufrayj.ap-northeast-2.elasticbeanstalk.com'
+const serverUrl = `${serverApiUrl}`
 
 const axiosInstance = axios.create({
   baseURL: serverUrl,

@@ -16,7 +16,7 @@
           <br />
           <p
             class="font-semi-bold"
-            style="text-align: center; font-size: 30px;"
+            style="text-align: center; font-size: 20px;"
           >
             {{ getCommonCompanyNameWithSpace() }}
           </p>
@@ -24,40 +24,40 @@
             class="font-semi-bold"
             style="text-align: center; font-size: 30px;"
           >
-            ☎ {{ getCommonPhoneNumber() }} ☎
+            {{ getCommonPhoneNumber() }}
           </p>
-          <br />
-          <p
-            style="text-align: center;"
-            class="hhr-blue"
-          >
-            <span class="font-semi-bold">문자 혹은 통화때에 말씀주시면 좋은 사항</span>
-            <br />
-          </p>
-          <br />
-<!--          <span class="hhr-red">꼭 알려주셔야 한다는 것이 아니라, 알려주시면 비교적 정확하게 답변드리기에 좋습니다. 감사합니다.</span>-->
-          <br />
-          <div style="text-align: center;">
-            <p style="font-size:17px; line-height:10px;">
-              ✔ 위치
-            </p>
-            <br />
-            <p style="font-size:17px; line-height:10px;">
-              ✔ 작업받으실 종류
-            </p>
-            <br />
-            <p style="font-size:17px; line-height:10px;">
-              ✔ 문제점
-            </p>
-            <br />
-            <p style="font-size:17px; line-height:10px;">
-              ✔ 그외 궁금하신점
-            </p>
-            <br />
-            <p style="font-size:17px; line-height:10px;">
-              ✔ 사진
-            </p>
-          </div>
+          <!--          <br />-->
+          <!--          <p-->
+          <!--            style="text-align: center;"-->
+          <!--            class="hhr-blue"-->
+          <!--          >-->
+          <!--            <span class="font-semi-bold">문자 혹은 통화때에 말씀주시면 좋은 사항</span>-->
+          <!--            <br />-->
+          <!--          </p>-->
+          <!--          <br />-->
+          <!--          <span class="hhr-red">꼭 알려주셔야 한다는 것이 아니라, 알려주시면 비교적 정확하게 답변드리기에 좋습니다. 감사합니다.</span>-->
+          <!--          <br />-->
+          <!--          <div style="text-align: center;">-->
+          <!--            <p style="font-size:17px; line-height:10px;">-->
+          <!--              ✔ 위치-->
+          <!--            </p>-->
+          <!--            <br />-->
+          <!--            <p style="font-size:17px; line-height:10px;">-->
+          <!--              ✔ 작업받으실 종류-->
+          <!--            </p>-->
+          <!--            <br />-->
+          <!--            <p style="font-size:17px; line-height:10px;">-->
+          <!--              ✔ 문제점-->
+          <!--            </p>-->
+          <!--            <br />-->
+          <!--            <p style="font-size:17px; line-height:10px;">-->
+          <!--              ✔ 그외 궁금하신점-->
+          <!--            </p>-->
+          <!--            <br />-->
+          <!--            <p style="font-size:17px; line-height:10px;">-->
+          <!--              ✔ 사진-->
+          <!--            </p>-->
+          <!--          </div>-->
           <br />
           <br />
           <br />
@@ -136,7 +136,7 @@ export default {
             margin: auto;
             //
             width: 500px;
-            height: 420px;
+            height: 290px;
             padding: 30px;
             background-color: $hhr-white;
             border: 1px solid $hhr-white;

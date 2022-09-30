@@ -104,7 +104,8 @@ export default {
       })
     },
     goToBlog(blogUrl) {
-      window.open(blogUrl)
+      console.log(blogUrl)
+      window.open(this.getBlogMainUrl())
     },
     judgeProductsCount(index) {
       index += 1 // 0부터 counting되는 문제 때문에 보정작업을 해줍니다.
