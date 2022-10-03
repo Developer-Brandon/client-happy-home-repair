@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-const whetherServerEnvOrNot = (process.env.NODE_ENV === 'server')
+// const whetherServerEnvOrNot = (process.env.NODE_ENV === 'server')
 const portNumber = process.env.VUE_APP_PORT
-const s3Url = process.env.VUE_APP_S3_URL
+// const s3Url = process.env.VUE_APP_S3_URL
 const localUrl = `http://localhost:${portNumber}`
 
-const baseUrl = whetherServerEnvOrNot ? s3Url : localUrl
+const baseUrl = localUrl
 
 const serverUrl = 'http://happy-home-repair-env.eba-atufrayj.ap-northeast-2.elasticbeanstalk.com'
 
