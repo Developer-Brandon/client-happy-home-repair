@@ -1,11 +1,8 @@
 import axios from 'axios'
 
-// const whetherServerEnvOrNot = (process.env.NODE_ENV === 'server')
-const portNumber = process.env.VUE_APP_PORT
-// const s3Url = process.env.VUE_APP_S3_URL
-const localUrl = `http://localhost:${portNumber}`
-
-const baseUrl = localUrl
+const whetherServerEnvOrNot = (process.env.NODE_ENV === 'server')
+const s3Url = process.env.VUE_APP_DOMAIN_URL
+const innerLocalUrl = `http://localhost:${process.env.VUE_APP_PORT}`
 
 const serverUrl = 'http://happy-home-repair-env.eba-atufrayj.ap-northeast-2.elasticbeanstalk.com'
 
@@ -16,8 +13,10 @@ const axiosInstance = axios.create({
   headers: { 'Content-Type': 'application/json' },
 })
 
+const localUrl = whetherServerEnvOrNot ? s3Url : innerLocalUrl
+
 const localAxiosInstance = axios.create({
-  baseURL: baseUrl,
+  baseURL: localUrl,
   timeout: 50000,
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
@@ -26,10 +25,6 @@ const localAxiosInstance = axios.create({
 class HhrNetwork {
   constructor() {
     axiosInstance.interceptors.response.use((response) => response, (error) => Promise.reject(error))
-  }
-
-  getBaseUrl() {
-    return baseUrl
   }
 
   getLocalFile(filename) {
@@ -80,9 +75,11 @@ class HhrNetwork {
     })
   }
 
-  postFileUpload() {}
+  postFileUpload() {
+  }
 
-  postEstimateValues() {}
+  postEstimateValues() {
+  }
 }
 
 const network = new HhrNetwork()
