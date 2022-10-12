@@ -113,7 +113,17 @@ class HhrNetwork {
   postFileUpload() {
   }
 
-  postEstimateValues() {
+  postEstimateValues(params) {
+    const requestUrl = '/repair'
+
+    return new Promise((resolve, reject) => {
+      axiosInstance.post(requestUrl, JSON.stringify(params))
+        .then((response) => {
+          resolve(response)
+        }).catch((error) => {
+          reject(error)
+        })
+    })
   }
 }
 
