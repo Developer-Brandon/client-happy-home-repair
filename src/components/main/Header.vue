@@ -42,15 +42,6 @@
               회사소개
             </span>
           </router-link>
-          <router-link
-            id="notice-from-hb"
-            class="menus-from-hb font-regular"
-            to="/Notice"
-          >
-            <span>
-              공지사항
-            </span>
-          </router-link>
           <span
             id="inquiry-from-hb"
             class="menus-from-hb font-regular"
@@ -60,6 +51,15 @@
               견적문의
             </span>
           </span>
+          <router-link
+            id="notice-from-hb"
+            class="menus-from-hb font-regular"
+            to="/Notice"
+          >
+            <span>
+              공지사항
+            </span>
+          </router-link>
           <div class="slider__footer">
             <div class="sns-channels">
               <div class="wrap-sns-logo">
@@ -122,13 +122,6 @@
         >
           회사소개
         </router-link>
-        <router-link
-          id="notice"
-          class="menus font-regular notice-fade-in"
-          to="/Notice"
-        >
-          공지사항
-        </router-link>
         <span
           id="price-inquiry"
           class="menus font-regular estimate-fade-in"
@@ -136,6 +129,13 @@
         >
           견적문의
         </span>
+        <router-link
+          id="notice"
+          class="menus font-regular notice-fade-in"
+          to="/Notice"
+        >
+          공지사항
+        </router-link>
       </div>
     </div>
     <inquiry-estimate-modal ref="inquiryEstimateModal" />
