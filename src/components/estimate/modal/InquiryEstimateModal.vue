@@ -515,8 +515,8 @@ export default {
       } else {
         this.values.booleans.isClientAgreeCollectPersonalInfo = false
         const message = {
-          title: '안내',
-          message: '약관에 동의 해주셔야 문의가 가능합니다.\n고객님의 개인정보는 전화상담 이외의 어떠한 용도로도 사용되지 않습니다.',
+          title: '약관에 동의 해주셔야 문의가 가능합니다.',
+          message: '고객님의 개인정보는 전화상담 이외의 어떠한 용도로도 사용되지 않습니다.',
         }
         EventBus.$emit('callHhrSimpleModal', message)
       }

@@ -1,10 +1,16 @@
+import HhrNetwork from '@/assets/js/network/HhrNetwork'
+
 const state = () => ({
-  notice: {},
+  noticeDetail: {},
   noticeList: [],
   noticeCurrentPage: 1,
   noticeWholeCount: 1,
 })
 const getters = {
+  noticeDetailNo: (state) => state.noticeDetail.noticeNo,
+  noticeDetailTitle: (state) => state.noticeDetail.title,
+  noticeDetailContent: (state) => state.noticeDetail.content,
+  noticeDetailRegDt: (state) => state.noticeDetail.regDt,
   noticeList: (state) => state.noticeList,
   noticeWholeCount: (state) => state.noticeWholeCount,
 }
@@ -16,7 +22,7 @@ const mutations = {
     state.noticeWholeCount = params
   },
   setNotice(state, params) {
-    state.notice = params.notice
+    state.noticeDetail = params.data
   },
 }
 const actions = {
@@ -28,9 +34,14 @@ const actions = {
     commit('setNoticeWholeCount', params)
     resolve()
   }),
-  CALL_NOTICE: ({ commit }, params) => new Promise((resolve) => {
-    commit('setNotice', params)
-    resolve()
+  CALL_NOTICE: ({ commit }, params) => new Promise((resolve, reject) => {
+    HhrNetwork.getNotice(params.noticeNo)
+      .then((response) => {
+        commit('setNotice', response)
+        resolve()
+      }).catch((error) => {
+        reject(error)
+      })
   }),
 }
 export default {

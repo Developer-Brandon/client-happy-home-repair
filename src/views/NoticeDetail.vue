@@ -5,6 +5,7 @@
       class="notice-detail"
     >
       <div class="notice-detail__inner">
+        <!--
         <div class="index-box">
           <div class="index-box__inner">
             <div
@@ -41,6 +42,7 @@
             </div>
           </div>
         </div>
+        -->
         <hhr-clear-both />
         <div
           class="wrap-go-to-list"
@@ -53,19 +55,19 @@
         <hhr-clear-both />
         <div class="header">
           <div class="number">
-            <span>{{ values.notice.index }}</span>
+            <span>{{ getNoticeDetailNo() }}</span>
           </div>
           <div class="title hhr-ellipsis">
-            <span class="hhr-ellipsis">{{ values.notice.title }}</span>
+            <span class="hhr-ellipsis">{{ getNoticeDetailTitle() }}</span>
           </div>
           <div class="registered-date">
-            <span>{{ values.notice.registeredDate }}</span>
+            <span>{{ getNoticeDetailRegDt() }}</span>
           </div>
         </div>
         <hhr-clear-both />
         <div class="body">
           <div class="body__inner">
-            {{ values.notice.contents }}
+            {{ getNoticeDetailContent() }}
           </div>
         </div>
       </div>
@@ -92,31 +94,31 @@ export default {
     }
   },
   mounted() {
-    const noticeIndex = this.getParams()
-    this.callNotice(noticeIndex)
+    const noticeNo = this.getParams()
+    this.callNotice(noticeNo)
   },
   methods: {
     getParams() {
-      return this.$route.params.noticeIndex
+      return this.$route.params.noticeNo
+    },
+    getNoticeDetailNo() {
+      return this.$store.getters['notice/noticeDetailNo']
+    },
+    getNoticeDetailTitle() {
+      return this.$store.getters['notice/noticeDetailTitle']
+    },
+    getNoticeDetailContent() {
+      return this.$store.getters['notice/noticeDetailContent']
+    },
+    getNoticeDetailRegDt() {
+      return this.$store.getters['notice/noticeDetailRegDt']
     },
     goToNoticeList() {
       this.$router.push('/Notice')
     },
-    callNotice(noticeIndex) {
-      console.log('noticeIndex: ', noticeIndex)
-      this.$store.dispatch('notice/CALL_NOTICE', { noticeIndex })
+    callNotice(noticeNo) {
+      this.$store.dispatch('notice/CALL_NOTICE', { noticeNo })
         .then(() => {
-          // this.notice = response.notice
-          this.values.notice = {
-            index: 1,
-            title: '첫번째 게시물 제목입니다',
-            beforeTitle: '이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.이전게시물입니다.긴글테스트.',
-            beforeIndex: 0,
-            nextTitle: '이전게시물입니다',
-            nextIndex: 2,
-            registeredDate: '2020-01-01',
-            contents: '첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.첫번째 게시물 내용입니다.',
-          }
           this.values.check.lifeCycle = true
         })
     },

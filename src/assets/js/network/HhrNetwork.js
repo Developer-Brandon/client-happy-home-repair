@@ -67,6 +67,23 @@ class HhrNetwork {
     })
   }
 
+  getNotice(noticeNo = 1) {
+    let requestUrl = '/notice'
+
+    if (noticeNo !== undefined) {
+      requestUrl += `?noticeNo=${noticeNo}`
+    }
+
+    return new Promise((resolve, reject) => {
+      axiosInstance.get(requestUrl)
+        .then((response) => {
+          resolve(response)
+        }).catch((error) => {
+          reject(error)
+        })
+    })
+  }
+
   getNoticeList(currentPage = 1) {
     let requestUrl = '/notice/list'
 
