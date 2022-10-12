@@ -1,22 +1,40 @@
 import axios from 'axios'
 
+/// //////////////////////////////////////////////////////////////////////////////////////
+
+// 만약 현재 서버를 향해 node_env를 설정했으면 server의 url로, 아니라면 local의 url로 지정합니다.
+
 const whetherServerEnvOrNot = (process.env.NODE_ENV === 'server')
-const s3Url = process.env.VUE_APP_DOMAIN_URL
-const innerLocalUrl = `http://localhost:${process.env.VUE_APP_PORT}`
 
-const serverUrl = 'http://happy-home-repair-env.eba-atufrayj.ap-northeast-2.elasticbeanstalk.com'
+const serverOriginUrl = process.env.VUE_APP_ORIGIN_URL
 
-const axiosInstance = axios.create({
-  baseURL: serverUrl,
+const localUrl = `${process.env.VUE_APP_LOCAL_URL}:${process.env.VUE_APP_PORT}`
+
+const dynamicLocalUrl = whetherServerEnvOrNot ? serverOriginUrl : localUrl
+
+const localAxiosInstance = axios.create({
+  baseURL: dynamicLocalUrl,
   timeout: 50000,
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 })
 
-const localUrl = whetherServerEnvOrNot ? s3Url : innerLocalUrl
+/// //////////////////////////////////////////////////////////////////////////////////////
 
-const localAxiosInstance = axios.create({
-  baseURL: localUrl,
+// 만약 현재가 prod phase이면 https 연결, 아니면 dev쪽 elasticbeanstalk으로 연결합니다.
+
+const whetherPhaseProdOrNot = (process.env.VUE_APP_PHASE === 'prod')
+
+const domainUrl = process.env.VUE_APP_DOMAIN_URL
+
+const elasticBeanstalkUrl = process.env.VUE_APP_ELASTIC_BEAN_STALK_URL
+
+const serverUrl = whetherPhaseProdOrNot ? domainUrl : elasticBeanstalkUrl
+
+/// //////////////////////////////////////////////////////////////////////////////////////
+
+const axiosInstance = axios.create({
+  baseURL: serverUrl,
   timeout: 50000,
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
