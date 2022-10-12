@@ -17,9 +17,14 @@
           </div>
           <div class="wrap-message">
             <p
+                class="title"
+                :class="{'change-font-size-to-small': values.string.message.length >= 20}"
+                v-html="values.string.message.title"
+            >
+            <p
               class="contents"
               :class="{'change-font-size-to-small': values.string.message.length >= 20}"
-              v-html="values.string.message"
+              v-html="values.string.message.message"
             >
             </p>
           </div>
@@ -125,6 +130,16 @@ export default {
                 }
                 .wrap-message {
                     margin-bottom: 40px;
+                    .title {
+                      text-align: center;
+                      color: $hhr-black;
+                      font-size: 20px;
+                      margin-bottom: 10px;
+                      @media (max-width: $screen-mobile) {
+                        margin-bottom: 5px;
+                        font-size: 15px !important;
+                      }
+                    }
                     .contents {
                         text-align: center;
                         color: $hhr-black;

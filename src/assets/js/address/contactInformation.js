@@ -3,6 +3,10 @@ import { DeviceState } from '@/assets/js/enums/DeviceState'
 const PC_VERSION_URL = 'https://blog.naver.com'
 const MOBILE_VERSION_URL = 'https://m.blog.naver.com'
 
+// 현재는 같지만, 추후 확장성을 위해서 분리
+const PC_INSTA_VERSION_URL = 'https://www.instagram.com/winter12lee/'
+const MOBILE_INSTA_PC_VERSION_URL = 'https://www.instagram.com/winter12lee/'
+
 export default class ContactInformation {
   constructor(type = DeviceState.PC) {
     this._type = type
@@ -97,12 +101,12 @@ export default class ContactInformation {
   getInstaAddress() {
     if (this._type !== undefined) {
       if (this._type === DeviceState.PC) {
-        return ''
+        return `${PC_INSTA_VERSION_URL}`
       }
       if (this._type === DeviceState.MOBILE) {
-        return ''
+        return `${MOBILE_INSTA_PC_VERSION_URL}`
       }
-      return ''
+      return `${PC_INSTA_VERSION_URL}`
     }
     return window.alert('You have to insert type argument first!')
   }

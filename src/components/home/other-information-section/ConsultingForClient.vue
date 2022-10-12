@@ -50,8 +50,11 @@ export default {
       this.$parent.callApplicationFormModal()
     },
     callToPhone() {
-      // this.$parent.callToPhone()
-      EventBus.$emit('callHhrSimpleModal', '\n\n해피홈리페어\n\n010-9018-5553')
+      const message = {
+        title: '해피홈리페어',
+        message: '010-9018-5553',
+      }
+      EventBus.$emit('callHhrSimpleModal', message)
     },
   },
 }

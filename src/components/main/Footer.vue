@@ -96,6 +96,7 @@
                 class="logo"
                 alt="인스타그램"
                 src="@/assets/images/logos/sns/icon-instagram.png"
+                @click="goInstagram"
               />
             </div>
             <div class="wrap-sns-logo">
@@ -111,6 +112,7 @@
                 class="logo"
                 alt="카카오톡"
                 src="@/assets/images/logos/sns/icon-kakaotalk.png"
+                @click="goKakaotalkChannel"
               />
             </div>
           </div>
@@ -156,6 +158,7 @@ import MatchMedia from '@/assets/js/resolution/matchMedia'
 import ContactInformation from '@/assets/js/address/contactInformation'
 import HhrDivider from '@/components/util/HhrDivider.vue'
 import { DeviceState } from '@/assets/js/enums/DeviceState'
+import { EventBus } from '@/assets/js/plugin/eventBus'
 
 let contactInformation
 let matchMedia
@@ -175,7 +178,13 @@ export default {
       matchMedia = new MatchMedia()
     },
     goInstagram() {
-    // TODO: 인스타그램 개설 후 링크 삽입 예정
+      if (matchMedia.isMobile) {
+        contactInformation.type = DeviceState.MOBILE
+        window.open(contactInformation.getInstaAddress())
+      } else {
+        contactInformation.type = DeviceState.PC
+        window.open(contactInformation.getInstaAddress())
+      }
     },
     goNaverBlog() {
       if (matchMedia.isMobile) {
@@ -187,7 +196,11 @@ export default {
       }
     },
     goKakaotalkChannel() {
-    // TODO: 카카오 채널 개설 후 링크 삽입 예정
+      const message = {
+        title: '안내',
+        message: '준비중입니다.',
+      }
+      EventBus.$emit('callHhrSimpleModal', message)
     },
   },
 }

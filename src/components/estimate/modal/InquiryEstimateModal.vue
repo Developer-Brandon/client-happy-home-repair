@@ -462,8 +462,13 @@ export default {
       if (this.values.attachedFile.length > 0) {
         this.uploadFile(this.values.attachedFile)
           .then(() => this.wrapValuesToJson())
-          .catch((error) => EventBus.$emit('callHhrSimpleModal',
-            `알수없는 오류로 인하여\n제출에 실패하였습니다\n${error.response.data.data.message}`))
+          .catch((error) => {
+            const message = {
+              title: '오류',
+              message: `알수없는 오류로 인하여\n제출에 실패하였습니다\n${error.response.data.data.message}`,
+            }
+            EventBus.$emit('callHhrSimpleModal', message)
+          })
       } else {
         return this.wrapValuesToJson()
       }
@@ -477,11 +482,19 @@ export default {
             .then(() => {
               EventBus.$emit('callHhrLoadingProgress', false)
               this.closeModal()
-              EventBus.$emit('callHhrSimpleModal', '제출이 완료되었습니다!')
+              const message = {
+                title: '안내',
+                message: '제출이 완료되었습니다!',
+              }
+              EventBus.$emit('callHhrSimpleModal', message)
             })
             .catch((response) => {
               EventBus.$emit('callHhrLoadingProgress', false)
-              EventBus.$emit('callHhrSimpleModal', response)
+              const message = {
+                title: '오류',
+                message: response,
+              }
+              EventBus.$emit('callHhrSimpleModal', message)
             })
         })
         .catch((error) => {
@@ -501,7 +514,11 @@ export default {
         this.values.booleans.isClientAgreeCollectPersonalInfo = true
       } else {
         this.values.booleans.isClientAgreeCollectPersonalInfo = false
-        EventBus.$emit('callHhrSimpleModal', '약관에 동의 해주셔야 문의가 가능합니다.\n고객님의 개인정보는 전화상담 이외의 어떠한 용도로도 사용되지 않습니다.')
+        const message = {
+          title: '안내',
+          message: '약관에 동의 해주셔야 문의가 가능합니다.\n고객님의 개인정보는 전화상담 이외의 어떠한 용도로도 사용되지 않습니다.',
+        }
+        EventBus.$emit('callHhrSimpleModal', message)
       }
     },
     toggleCollectPersonalInformation() {
@@ -513,7 +530,13 @@ export default {
       return new Promise((resolve) => {
         this.$store.dispatch('home/SEND_FILE_TO_SERVER', { file })
           .then(() => resolve())
-          .catch((error) => EventBus.$emit('callHhrSimpleModal', error))
+          .catch((error) => {
+            const message = {
+              title: '오류',
+              message: error,
+            }
+            EventBus.$emit('callHhrSimpleModal', message)
+          })
       })
     },
     fileIsPicked(event) {
@@ -534,10 +557,18 @@ export default {
               console.log(this.values.attachedFile)
             })
           } else {
-            EventBus.$emit('callHhrSimpleModal', '확장자 JPG, PNG, PDF파일만\n등록할 수 있습니다')
+            const message = {
+              title: '안내',
+              message: '확장자 JPG, PNG, PDF파일만\n등록할 수 있습니다',
+            }
+            EventBus.$emit('callHhrSimpleModal', message)
           }
         } else {
-          EventBus.$emit('callHhrSimpleModal', '최대 10MB까지\n등록할 수 있습니다')
+          const message = {
+            title: '안내',
+            message: '최대 10MB까지\n등록할 수 있습니다',
+          }
+          EventBus.$emit('callHhrSimpleModal', message)
         }
       }
     },

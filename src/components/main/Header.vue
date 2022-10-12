@@ -204,6 +204,13 @@ export default {
       EventBus.$emit('hamburger-menu-is-opened', false)
     },
     goInstagram() {
+      if (matchMedia.isMobile) {
+        contactInformation.type = DeviceState.MOBILE
+        window.open(contactInformation.getInstaAddress())
+      } else {
+        contactInformation.type = DeviceState.PC
+        window.open(contactInformation.getInstaAddress())
+      }
     },
     goNaverBlog() {
       if (matchMedia.isMobile) {
@@ -215,6 +222,11 @@ export default {
       }
     },
     goKakaotalkChannel() {
+      const message = {
+        title: '안내',
+        message: '준비중입니다.',
+      }
+      EventBus.$emit('callHhrSimpleModal', message)
     },
     callInquiryEstimateModal() {
       this.$refs.inquiryEstimateModal.show('default', null)
